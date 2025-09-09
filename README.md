@@ -1,16 +1,18 @@
-# Delitos e Inmigración en España (2010–2023)
+# Crime & Migration in Spain (2010–2023)
+
+### Delitos e Inmigración en España (2010–2023)
 
 *Análisis reproducible de la relación entre población extranjera y criminalidad agregada en España.*
 
 [![Code: MIT](https://img.shields.io/badge/Code-MIT-blue.svg)](LICENSE)
 [![Docs: CC BY 4.0](https://img.shields.io/badge/Docs-CC%20BY%204.0-brightgreen.svg)](LICENSE-DOCS-CC-BY-4.0.md)
+![Reproducibility: renv](https://img.shields.io/badge/reproducibility-renv-success.svg)
 ![R >= 4.3](https://img.shields.io/badge/R-%3E%3D%204.3-276DC3.svg)
 ![Quarto/RMarkdown](https://img.shields.io/badge/Quarto%2FRMarkdown-supported-lightgrey.svg)
-![Reproducibility: renv](https://img.shields.io/badge/reproducibility-renv-success.svg)
 
-| Autor            | Organización    | Versión | Estado | Periodo   | Última actualización |
-| ---------------- | --------------- | ------- | ------ | --------- | -------------------- |
-| **Jesús Castro** | JESUSCASTRODATA | dev     | Activo | 2010–2023 | 2025-09-08           |
+| Autor            | Organización    | Versión | Estado | Periodo   | Últ. actualización | Contacto                                     |
+| ---------------- | --------------- | ------- | ------ | --------- | ------------------ | -------------------------------------------- |
+| **Jesús Castro** | JESUSCASTRODATA | dev     | Activo | 2010–2023 | 2025-09-08         | [GitHub](https://github.com/JESUSCASTRODATA) |
 
 ---
 
@@ -23,7 +25,12 @@ Estudio sobre la relación entre **población extranjera** y **criminalidad agre
 * Para **detenciones** vs **% población extranjera**, la correlación es **similar** al **excluir 2020–2021**.
 * Los **tests de Granger** **no** son **robustos** al **excluir COVID** (fallos de estabilidad) → **no** se confirma una **causalidad estable** inmigración→criminalidad.
 
-Este proyecto **no re-licencia** datos originales de terceros; ver [DATA\_LICENSE.md](DATA_LICENSE.md).
+---
+
+## Transparencia y neutralidad
+
+Este trabajo separa **hechos** (resultados empíricos) de **interpretaciones**; reporta **ventanas alternativas**, **FDR** y **limitaciones** de identificación.
+Las conclusiones evitan afirmaciones de **causalidad** sin diagnósticos robustos.
 
 ---
 
@@ -86,7 +93,7 @@ Este proyecto **no re-licencia** datos originales de terceros; ver [DATA\_LICENS
 | `hechos_conocidos.csv`                  | Ministerio del Interior · Portal de Criminalidad                   | Punto de entrada: [https://estadisticasdecriminalidad.ses.mir.es/sec/es/operaciones/operaciones\_tablas.htm](https://estadisticasdecriminalidad.ses.mir.es/sec/es/operaciones/operaciones_tablas.htm)                                            |
 | `hechos_esclarecidos.csv`               | Ministerio del Interior · Hechos esclarecidos                      | [https://estadisticasdecriminalidad.ses.mir.es/sec/jaxiPx/files/\_px/es/csv/Datos2/l0/02002.csv](https://estadisticasdecriminalidad.ses.mir.es/sec/jaxiPx/files/_px/es/csv/Datos2/l0/02002.csv)                                                  |
 | `detenciones_tipologia.csv`             | Ministerio del Interior · Detenciones por tipología                | CSV: [https://estadisticasdecriminalidad.ses.mir.es/infocrim/datoscrim/Datos6/l0/06006.csv](https://estadisticasdecriminalidad.ses.mir.es/infocrim/datoscrim/Datos6/l0/06006.csv)                                                                |
-| `detenciones_extranjeros_tipologia.csv` | Ministerio del Interior · Detenciones por tipología y nacionalidad | CSV: [https://estadisticasdecriminalidad.ses.mir.es/sec/jaxiPx/files/\_px/es/csv/Datos6/l0/06008.csv](https://estadisticasdecriminalidad.ses.mir.es/sec/jaxiPx/files/_px/es/csv/Datos6/l0/06008.csv)                                             |
+| `detenciones_extranjeros_tipologia.csv` | Ministerio del Interior · Detenciones por tipología y nacionalidad | [https://estadisticasdecriminalidad.ses.mir.es/sec/jaxiPx/files/\_px/es/csv/Datos6/l0/06008.csv](https://estadisticasdecriminalidad.ses.mir.es/sec/jaxiPx/files/_px/es/csv/Datos6/l0/06008.csv)                                                  |
 | `estat_nama_10_pc_filtered_en.csv`      | Eurostat · nama\_10\_pc (GDP per capita)                           | Data Browser: [https://ec.europa.eu/eurostat/databrowser/view/NAMA\_10\_PC/](https://ec.europa.eu/eurostat/databrowser/view/NAMA_10_PC/)                                                                                                         |
 | `crecimiento_pib.csv`                   | Eurostat · tec00115 (Real GDP growth rate)                         | Página del indicador: [https://ec.europa.eu/eurostat/databrowser/product/page/TEC00115](https://ec.europa.eu/eurostat/databrowser/product/page/TEC00115)                                                                                         |
 
@@ -113,7 +120,7 @@ expected <- c(
   "data/raw/tasas_paro.csv",
   "data/raw/umbral_pobreza.csv"
 )
-print(data.frame(archivo = expected, existe = file.exists(expected)))
+data.frame(archivo = expected, existe = file.exists(expected))
 ```
 
 ---
@@ -177,7 +184,7 @@ source("scripts/70_export_figs.R")
 
 **Enlaces rápidos**: [informe](docs/informe_delitos_inmigracion_espana_2010_2023.Rmd), [pipeline](scripts/80_run_all.R), [licencias](DATA_LICENSE.md).
 
-Si usas Windows y Quarto, instala **TinyTeX** para PDF o renderiza solo a **HTML**.
+> Si usas Windows y Quarto, instala **TinyTeX** para PDF o renderiza solo a **HTML**.
 
 ---
 
@@ -209,14 +216,14 @@ Si usas Windows y Quarto, instala **TinyTeX** para PDF o renderiza solo a **HTML
 
 ### Top-lines (cifras clave)
 
-| Métrica                                             | Ventana               | Valor              | Fuente                                            |
-| --------------------------------------------------- | --------------------- | ------------------ | ------------------------------------------------- |
-| Pearson (HC vs pob. extranjera, niveles)            | sin COVID             | 0.993              | `output/tables/_debug_cor_hc_pop_prepost.csv`     |
-| Spearman (HC vs pob. extranjera, niveles)           | sin COVID             | 1.000              | `output/tables/_debug_cor_hc_pop_prepost.csv`     |
-| Pearson (Δlog, HC vs pob. extranjera)               | sin COVID             | 0.831              | `output/tables/_debug_cor_hc_pop_prepost.csv`     |
-| Spearman (Δlog, HC vs pob. extranjera)              | sin COVID             | 0.909              | `output/tables/_debug_cor_hc_pop_prepost.csv`     |
-| Pearson (det\_tot vs % extranjeros)                 | sin COVID             | 0.663              | `output/tables/22_cor_totales_stats.csv`          |
-| Granger p\_FDR: det\_tot\_rate ← share\_extranjeros | 2010–2023 (con COVID) | 0.011 (pasa)       | `output/tables/24_var_granger_resultados_fdr.csv` |
+| Métrica                                             | Ventana               |              Valor | Fuente                                            |
+| --------------------------------------------------- | --------------------- | -----------------: | ------------------------------------------------- |
+| Pearson (HC vs pob. extranjera, niveles)            | sin COVID             |              0.993 | `output/tables/_debug_cor_hc_pop_prepost.csv`     |
+| Spearman (HC vs pob. extranjera, niveles)           | sin COVID             |              1.000 | `output/tables/_debug_cor_hc_pop_prepost.csv`     |
+| Pearson (Δlog, HC vs pob. extranjera)               | sin COVID             |              0.831 | `output/tables/_debug_cor_hc_pop_prepost.csv`     |
+| Spearman (Δlog, HC vs pob. extranjera)              | sin COVID             |              0.909 | `output/tables/_debug_cor_hc_pop_prepost.csv`     |
+| Pearson (det\_tot vs % extranjeros)                 | sin COVID             |              0.663 | `output/tables/22_cor_totales_stats.csv`          |
+| Granger p\_FDR: det\_tot\_rate ← share\_extranjeros | 2010–2023 (con COVID) |       0.011 (pasa) | `output/tables/24_var_granger_resultados_fdr.csv` |
 | Granger p\_FDR: det\_tot\_rate ← share\_extranjeros | sin COVID             | 0.004 (no robusto) | `output/tables/24_var_granger_resultados_fdr.csv` |
 
 **Interpretación prudente**: parte del co-movimiento puede ser **coyuntural** (movilidad/actividad, cambios de registro).
@@ -242,20 +249,19 @@ Si usas Windows y Quarto, instala **TinyTeX** para PDF o renderiza solo a **HTML
 Este repositorio incluye **CITATION.cff**. GitHub genera citas desde “Cite this repository”.
 
 **APA (sugerido)**
-
-> Castro, J. (2025). *Delitos e Inmigración en España (2010–2023).* Código: MIT. Documentos y figuras: CC BY 4.0.
+Castro, J. (2025). *Delitos e Inmigración en España (2010–2023).* Código: MIT. Documentos y figuras: CC BY 4.0.
 
 **BibTeX (plantilla)**
 
 ```bibtex
 @software{castro2025-delitos-inmigracion-espana,
-  author    = {Jesús Castro},
-  title     = {Delitos e Inmigración en España (2010--2023)},
-  year      = {2025},
-  url       = {<URL-del-repo>},
-  version   = {v1.0},
-  license   = {MIT},
-  note      = {Documentos y figuras: CC BY 4.0},
+  author       = {Jesús Castro},
+  title        = {Delitos e Inmigración en España (2010--2023)},
+  year         = {2025},
+  url          = {https://github.com/JESUSCASTRODATA/crime-migration-spain},
+  version      = {v1.0},
+  license      = {MIT},
+  note         = {Documentos y figuras: CC BY 4.0},
   organization = {JESUSCASTRODATA}
 }
 ```
@@ -264,11 +270,9 @@ Este repositorio incluye **CITATION.cff**. GitHub genera citas desde “Cite thi
 
 ## Contacto
 
-Autor: **Jesús Castro** · **JESUSCASTRODATA**
-Issues y PRs bienvenidos.
+**Autor / Author:** Jesús Castro  
+**GitHub:** [JESUSCASTRODATA](https://github.com/JESUSCASTRODATA)  
+💬 Issues and PRs welcome · Issues y PRs bienvenidos
 
 ---
 
-## Transparencia y neutralidad (antisesgo)
-
-Este trabajo separa **hechos** (resultados empíricos) de **interpretaciones**; reporta **ventanas alternativas**, **FDR** y **limitaciones** de identificación. Las conclusiones evitan afirmaciones de **causalidad** sin diagnósticos robustos.
