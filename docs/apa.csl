@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<style xmlns="http://purl.org/net/xbiblio/csl" version="1.0.1" class="in-text" default-locale="en-US">
+  <info>
+    <title>APA Lite (Fallback)</title>
+    <id>http://example.org/styles/apa-lite-fallback</id>
+    <link href="http://example.org/styles/apa-lite-fallback" rel="self"/>
+    <author><name>Generated Fallback</name></author>
+    <category citation-format="author-date"/>
+    <updated>2025-09-04T00:00:00Z</updated>
+  </info>
+  <macro name="author"><names variable="author">
+    <name form="short" and="symbol" delimiter=", " initialize-with="."/>
+    <label form="short" prefix=" " text-case="lowercase" strip-periods="true"/>
+    <substitute><names variable="editor"/><names variable="translator"/><text variable="title"/></substitute>
+  </names></macro>
+  <macro name="year"><date variable="issued"><date-part name="year"/></date></macro>
+  <macro name="title"><text variable="title"/></macro>
+  <macro name="container"><group delimiter=", ">
+    <text variable="container-title" font-style="italic"/>
+    <group><text variable="volume" font-style="italic"/><text variable="issue" prefix="(" suffix=")"/></group>
+    <text variable="page"/><text variable="publisher"/><text variable="publisher-place"/>
+  </group></macro>
+  <citation disambiguate-add-year-suffix="true" collapse="year-suffix">
+    <layout prefix="(" suffix=")" delimiter="; ">
+      <group delimiter=", "><text macro="author"/><text macro="year"/><text variable="locator"/></group>
+    </layout>
+  </citation>
+  <bibliography hanging-indent="true">
+    <sort><key macro="author"/><key variable="issued"/></sort>
+    <layout suffix="."><group delimiter=". ">
+      <group delimiter=" "><text macro="author"/><text macro="year" prefix="(" suffix=")"/></group>
+      <text macro="title"/><text macro="container"/>
+      <text variable="DOI" prefix="https://doi.org/"/>
+      <text variable="URL"/>
+    </group></layout>
+  </bibliography>
+</style>

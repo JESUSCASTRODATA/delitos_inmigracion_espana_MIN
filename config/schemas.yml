@@ -1,0 +1,75 @@
+schemas:
+- path: hechos_conocidos_total_nacional.csv
+  required: yes
+  required_columns:
+  - ano
+  - tipo
+  - valor
+  types:
+    ano: integer
+    valor: numeric
+  key:
+  - ano
+  - tipo
+  coverage:
+    from: 2010.0
+    to: 2023.0
+- path: detenciones_totales_total_nacional.csv
+  required: yes
+  required_columns:
+  - ano
+  - tipo
+  - valor
+  types:
+    ano: integer
+    valor: numeric
+  key:
+  - ano
+  - tipo
+  coverage:
+    from: 2010.0
+    to: 2023.0
+- path: detenciones_extranjeros_total_nacional.csv
+  required: yes
+  required_columns:
+  - ano
+  - tipo
+  - valor
+  types:
+    ano: integer
+    valor: numeric
+  key:
+  - ano
+  - tipo
+  coverage:
+    from: 2010.0
+    to: 2023.0
+- path: poblacion_total_nacional.csv
+  required: yes
+  required_columns:
+  - ano
+  - poblacion_total
+  types:
+    ano: integer
+    poblacion_total: numeric
+  key:
+  - ano
+  coverage:
+    from: 2010.0
+    to: 2023.0
+- path: tasas/tasas_totales_anuales.csv
+  required: no
+  required_columns:
+  - ano
+  types:
+    ano: integer
+  key:
+  - ano
+- path: detenciones_share_extranjeros.csv
+  required: no
+  required_columns:
+  - ano
+  types:
+    ano: integer
+  key:
+  - ano

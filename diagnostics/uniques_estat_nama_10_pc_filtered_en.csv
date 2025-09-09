@@ -1,0 +1,19 @@
+columna,n_unicos,muestra
+structure,1,dataflow
+structure_id,1,ESTAT:NAMA_10_PC(1.0)
+structure_name,1,Gross domestic product (GDP) and main components per capita
+freq,1,A
+time_frequency,1,Annual
+unit,5,CLV20_EUR_HAB; CP_EUR_HAB; CP_NAC_HAB; PC_EU27_2020_HAB_MEUR_CP; PC_EU27_2020_HAB_MPPS_CP
+unit_of_measure,5,"Chain linked volumes (2020), euro per capita; Current prices, euro per capita; Current prices, units of national currency per capita; Percentage of EU27 (from 2020) total per capita (based on million euro, EU27 from 2020), current prices; Percentage of EU27 (from 2020) total per capita (based on million purchasing power standards, EU27 from 2020), current prices"
+na_item,5,B1GQ; P3; P31_S13; P32_S13; P3_S13
+national_accounts_indicator_esa_2010,5,Gross domestic product at market prices; Final consumption expenditure; Individual consumption expenditure of general government; Collective consumption expenditure of general government; Final consumption expenditure of general government
+geo,44,AL; AT; BE; BG; CH; CY; CZ; DE; DK; EA; EA12; EA19; EA20; EE; EL; ES; EU27_2020; FI; FR; HR; HU; IE; IS; IT; LT; LU; LV; ME; MK; MT; NL; NO; PL; PT; RO; RS; SE; SI; SK; TR; LI; UK; BA; XK
+geopolitical_entity_reporting,44,"Albania; Austria; Belgium; Bulgaria; Switzerland; Cyprus; Czechia; Germany; Denmark; Euro area (EA11-1999, EA12-2001, EA13-2007, EA15-2008, EA16-2009, EA17-2011, EA18-2014, EA19-2015, EA20-2023); Euro area - 12 countries (2001-2006); Euro area - 19 countries  (2015-2022); Euro area – 20 countries (from 2023); Estonia; Greece; Spain; European Union - 27 countries (from 2020); Finland; France; Croatia; Hungary; Ireland; Iceland; Italy; Lithuania; Luxembourg; Latvia; Montenegro; North Macedonia; Malta; Netherlands; Norway; Poland; Portugal; Romania; Serbia; Sweden; Slovenia; Slovakia; Türkiye; Liechtenstein; United Kingdom; Bosnia and Herzegovina; Kosovo*"
+time_period,14,2010; 2011; 2012; 2013; 2014; 2015; 2016; 2017; 2018; 2019; 2020; 2021; 2022; 2023
+time,0,
+observation_value,0,
+obs_flag,3,p; b; e
+observation_status_flag_v2_structure,3,provisional; break in time series; estimated
+conf_status,0,
+confidentiality_status_flag,0,

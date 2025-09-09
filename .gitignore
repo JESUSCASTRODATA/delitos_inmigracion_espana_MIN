@@ -1,0 +1,22 @@
+
+.Rproj.user
+.Rhistory
+.RData
+.Ruserdata
+.DS_Store
+
+# Outputs pesados
+output/figures/*
+output/tables/*
+output/models/*
+output/logs/*
+
+# Documentos compilados
+docs/*.html
+docs/*.pdf
+docs/*.docx
+
+# Cache/renv (ajusta si usas renv)
+.cache/
+renv/library/
+renv/staging/

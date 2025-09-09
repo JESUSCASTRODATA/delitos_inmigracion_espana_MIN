@@ -1,0 +1,25 @@
+cff-version: 1.2.0
+message: Si usas este repositorio, por favor cítalo.
+title: "Delitos e Inmigración en España (2010–2023)"
+authors:
+  - family-names: "Castro"
+    given-names: "Jesús"
+    name-particle: ""
+    orcid: ""
+    affiliation: ""
+    website: ""
+date-released: 2025-09-08
+license: "MIT"
+keywords:
+  - R
+  - reproducibility
+  - data-analysis
+  - Spain
+  - crime
+  - immigration
+preferred-citation:
+  type: report
+  authors:
+    - name: "Jesús Castro · JESUSCASTRODATA"
+  title: "Delitos e Inmigración en España (2010–2023)"
+  year: 2025

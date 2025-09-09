@@ -1,0 +1,7 @@
+R.version.string: R version 4.5.1 (2025-06-13 ucrt)
+Platform: x86_64-w64-mingw32
+OS.type: windows
+Path: D:\delitos_inmigracion_espana\scripts
+TZ: 
+LANG: 
+Locale: LC_COLLATE=Spanish_Spain.utf8;LC_CTYPE=Spanish_Spain.utf8;LC_MONETARY=Spanish_Spain.utf8;LC_NUMERIC=C;LC_TIME=Spanish_Spain.utf8

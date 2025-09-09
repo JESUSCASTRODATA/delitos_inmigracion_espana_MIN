@@ -1,0 +1,224 @@
+Package,LibPath,Version,Priority,Built
+abind,C:/Users/jesus/AppData/Local/R/win-library/4.5,1.4-8,NA,4.5.0
+aod,C:/Users/jesus/AppData/Local/R/win-library/4.5,1.3.3,NA,4.5.1
+ARDL,C:/Users/jesus/AppData/Local/R/win-library/4.5,0.2.4,NA,4.5.1
+askpass,C:/Users/jesus/AppData/Local/R/win-library/4.5,1.2.1,NA,4.5.1
+backports,C:/Users/jesus/AppData/Local/R/win-library/4.5,1.5.0,NA,4.5.0
+base,C:/Program Files/R/R-4.5.1/library,4.5.1,base,4.5.1
+base64enc,C:/Users/jesus/AppData/Local/R/win-library/4.5,0.1-3,NA,4.5.0
+bayestestR,C:/Users/jesus/AppData/Local/R/win-library/4.5,0.17.0,NA,4.5.1
+bigD,C:/Users/jesus/AppData/Local/R/win-library/4.5,0.3.1,NA,4.5.1
+bit,C:/Users/jesus/AppData/Local/R/win-library/4.5,4.6.0,NA,4.5.1
+bit64,C:/Users/jesus/AppData/Local/R/win-library/4.5,4.6.0-1,NA,4.5.1
+bitops,C:/Users/jesus/AppData/Local/R/win-library/4.5,1.0-9,NA,4.5.0
+blob,C:/Users/jesus/AppData/Local/R/win-library/4.5,1.2.4,NA,4.5.1
+boot,C:/Program Files/R/R-4.5.1/library,1.3-31,recommended,4.5.1
+broom,C:/Users/jesus/AppData/Local/R/win-library/4.5,1.0.9,NA,4.5.1
+bslib,C:/Users/jesus/AppData/Local/R/win-library/4.5,0.9.0,NA,4.5.1
+cachem,C:/Users/jesus/AppData/Local/R/win-library/4.5,1.1.0,NA,4.5.1
+callr,C:/Users/jesus/AppData/Local/R/win-library/4.5,3.7.6,NA,4.5.1
+car,C:/Users/jesus/AppData/Local/R/win-library/4.5,3.1-3,NA,4.5.1
+carData,C:/Users/jesus/AppData/Local/R/win-library/4.5,3.0-5,NA,4.5.1
+cellranger,C:/Users/jesus/AppData/Local/R/win-library/4.5,1.1.0,NA,4.5.1
+checkmate,C:/Users/jesus/AppData/Local/R/win-library/4.5,2.3.3,NA,4.5.1
+class,C:/Program Files/R/R-4.5.1/library,7.3-23,recommended,4.5.1
+cli,C:/Users/jesus/AppData/Local/R/win-library/4.5,3.6.5,NA,4.5.1
+clipr,C:/Users/jesus/AppData/Local/R/win-library/4.5,0.8.0,NA,4.5.1
+cluster,C:/Program Files/R/R-4.5.1/library,2.1.8.1,recommended,4.5.1
+codetools,C:/Program Files/R/R-4.5.1/library,0.2-20,recommended,4.5.1
+commonmark,C:/Users/jesus/AppData/Local/R/win-library/4.5,2.0.0,NA,4.5.1
+compiler,C:/Program Files/R/R-4.5.1/library,4.5.1,base,4.5.1
+conflicted,C:/Users/jesus/AppData/Local/R/win-library/4.5,1.2.0,NA,4.5.1
+corrplot,C:/Users/jesus/AppData/Local/R/win-library/4.5,0.95,NA,4.5.1
+cowplot,C:/Users/jesus/AppData/Local/R/win-library/4.5,1.2.0,NA,4.5.1
+cpp11,C:/Users/jesus/AppData/Local/R/win-library/4.5,0.5.2,NA,4.5.1
+crayon,C:/Users/jesus/AppData/Local/R/win-library/4.5,1.5.3,NA,4.5.1
+crosstalk,C:/Users/jesus/AppData/Local/R/win-library/4.5,1.2.2,NA,4.5.1
+curl,C:/Users/jesus/AppData/Local/R/win-library/4.5,7.0.0,NA,4.5.1
+data.table,C:/Users/jesus/AppData/Local/R/win-library/4.5,1.17.8,NA,4.5.1
+datasets,C:/Program Files/R/R-4.5.1/library,4.5.1,base,4.5.1
+datawizard,C:/Users/jesus/AppData/Local/R/win-library/4.5,1.2.0,NA,4.5.1
+DBI,C:/Users/jesus/AppData/Local/R/win-library/4.5,1.2.3,NA,4.5.1
+dbplyr,C:/Users/jesus/AppData/Local/R/win-library/4.5,2.5.0,NA,4.5.1
+Deriv,C:/Users/jesus/AppData/Local/R/win-library/4.5,4.2.0,NA,4.5.1
+digest,C:/Users/jesus/AppData/Local/R/win-library/4.5,0.6.37,NA,4.5.1
+doBy,C:/Users/jesus/AppData/Local/R/win-library/4.5,4.7.0,NA,4.5.1
+dplyr,C:/Users/jesus/AppData/Local/R/win-library/4.5,1.1.4,NA,4.5.1
+DT,C:/Users/jesus/AppData/Local/R/win-library/4.5,0.33,NA,4.5.1
+dtplyr,C:/Users/jesus/AppData/Local/R/win-library/4.5,1.3.1,NA,4.5.1
+dynlm,C:/Users/jesus/AppData/Local/R/win-library/4.5,0.3-6,NA,4.5.1
+e1071,C:/Users/jesus/AppData/Local/R/win-library/4.5,1.7-16,NA,4.5.1
+evaluate,C:/Users/jesus/AppData/Local/R/win-library/4.5,1.0.4,NA,4.5.1
+expm,C:/Users/jesus/AppData/Local/R/win-library/4.5,1.0-0,NA,4.5.1
+farver,C:/Users/jesus/AppData/Local/R/win-library/4.5,2.1.2,NA,4.5.1
+fastmap,C:/Users/jesus/AppData/Local/R/win-library/4.5,1.2.0,NA,4.5.1
+fontawesome,C:/Users/jesus/AppData/Local/R/win-library/4.5,0.5.3,NA,4.5.1
+forcats,C:/Users/jesus/AppData/Local/R/win-library/4.5,1.0.0,NA,4.5.1
+foreign,C:/Program Files/R/R-4.5.1/library,0.8-90,recommended,4.5.1
+Formula,C:/Users/jesus/AppData/Local/R/win-library/4.5,1.2-5,NA,4.5.0
+fs,C:/Users/jesus/AppData/Local/R/win-library/4.5,1.6.6,NA,4.5.1
+gargle,C:/Users/jesus/AppData/Local/R/win-library/4.5,1.5.2,NA,4.5.1
+generics,C:/Users/jesus/AppData/Local/R/win-library/4.5,0.1.4,NA,4.5.1
+GGally,C:/Users/jesus/AppData/Local/R/win-library/4.5,2.4.0,NA,4.5.1
+ggplot2,C:/Users/jesus/AppData/Local/R/win-library/4.5,3.5.2,NA,4.5.1
+ggstats,C:/Users/jesus/AppData/Local/R/win-library/4.5,0.10.0,NA,4.5.1
+glue,C:/Users/jesus/AppData/Local/R/win-library/4.5,1.8.0,NA,4.5.1
+googledrive,C:/Users/jesus/AppData/Local/R/win-library/4.5,2.1.1,NA,4.5.1
+googlesheets4,C:/Users/jesus/AppData/Local/R/win-library/4.5,1.1.1,NA,4.5.1
+graphics,C:/Program Files/R/R-4.5.1/library,4.5.1,base,4.5.1
+grDevices,C:/Program Files/R/R-4.5.1/library,4.5.1,base,4.5.1
+grid,C:/Program Files/R/R-4.5.1/library,4.5.1,base,4.5.1
+gridExtra,C:/Users/jesus/AppData/Local/R/win-library/4.5,2.3,NA,4.5.1
+gt,C:/Users/jesus/AppData/Local/R/win-library/4.5,1.0.0,NA,4.5.1
+gtable,C:/Users/jesus/AppData/Local/R/win-library/4.5,0.3.6,NA,4.5.1
+haven,C:/Users/jesus/AppData/Local/R/win-library/4.5,2.5.5,NA,4.5.1
+here,C:/Users/jesus/AppData/Local/R/win-library/4.5,1.0.1,NA,4.5.1
+highr,C:/Users/jesus/AppData/Local/R/win-library/4.5,0.11,NA,4.5.1
+hms,C:/Users/jesus/AppData/Local/R/win-library/4.5,1.1.3,NA,4.5.1
+htmltools,C:/Users/jesus/AppData/Local/R/win-library/4.5,0.5.8.1,NA,4.5.1
+htmlwidgets,C:/Users/jesus/AppData/Local/R/win-library/4.5,1.6.4,NA,4.5.1
+httpuv,C:/Users/jesus/AppData/Local/R/win-library/4.5,1.6.16,NA,4.5.1
+httr,C:/Users/jesus/AppData/Local/R/win-library/4.5,1.4.7,NA,4.5.1
+ids,C:/Users/jesus/AppData/Local/R/win-library/4.5,1.0.1,NA,4.5.1
+insight,C:/Users/jesus/AppData/Local/R/win-library/4.5,1.4.1,NA,4.5.1
+isoband,C:/Users/jesus/AppData/Local/R/win-library/4.5,0.2.7,NA,4.5.1
+janitor,C:/Users/jesus/AppData/Local/R/win-library/4.5,2.2.1,NA,4.5.1
+jquerylib,C:/Users/jesus/AppData/Local/R/win-library/4.5,0.1.4,NA,4.5.1
+jsonlite,C:/Users/jesus/AppData/Local/R/win-library/4.5,2.0.0,NA,4.5.1
+juicyjuice,C:/Users/jesus/AppData/Local/R/win-library/4.5,0.1.0,NA,4.5.1
+kableExtra,C:/Users/jesus/AppData/Local/R/win-library/4.5,1.4.0,NA,4.5.1
+KernSmooth,C:/Program Files/R/R-4.5.1/library,2.23-26,recommended,4.5.1
+knitr,C:/Users/jesus/AppData/Local/R/win-library/4.5,1.50,NA,4.5.1
+labeling,C:/Users/jesus/AppData/Local/R/win-library/4.5,0.4.3,NA,4.5.0
+later,C:/Users/jesus/AppData/Local/R/win-library/4.5,1.4.3,NA,4.5.1
+lattice,C:/Program Files/R/R-4.5.1/library,0.22-7,recommended,4.5.1
+lazyeval,C:/Users/jesus/AppData/Local/R/win-library/4.5,0.2.2,NA,4.5.1
+leaflet,C:/Users/jesus/AppData/Local/R/win-library/4.5,2.2.2,NA,4.5.1
+leaflet.providers,C:/Users/jesus/AppData/Local/R/win-library/4.5,2.0.0,NA,4.5.1
+lifecycle,C:/Users/jesus/AppData/Local/R/win-library/4.5,1.0.4,NA,4.5.1
+litedown,C:/Users/jesus/AppData/Local/R/win-library/4.5,0.7,NA,4.5.1
+lme4,C:/Users/jesus/AppData/Local/R/win-library/4.5,1.1-37,NA,4.5.1
+lmtest,C:/Users/jesus/AppData/Local/R/win-library/4.5,0.9-40,NA,4.5.1
+lubridate,C:/Users/jesus/AppData/Local/R/win-library/4.5,1.9.4,NA,4.5.1
+magrittr,C:/Users/jesus/AppData/Local/R/win-library/4.5,2.0.3,NA,4.5.1
+markdown,C:/Users/jesus/AppData/Local/R/win-library/4.5,2.0,NA,4.5.1
+MASS,C:/Program Files/R/R-4.5.1/library,7.3-65,recommended,4.5.1
+Matrix,C:/Program Files/R/R-4.5.1/library,1.7-3,recommended,4.5.1
+MatrixModels,C:/Users/jesus/AppData/Local/R/win-library/4.5,0.5-4,NA,4.5.1
+memoise,C:/Users/jesus/AppData/Local/R/win-library/4.5,2.0.1,NA,4.5.1
+methods,C:/Program Files/R/R-4.5.1/library,4.5.1,base,4.5.1
+mgcv,C:/Program Files/R/R-4.5.1/library,1.9-3,recommended,4.5.1
+microbenchmark,C:/Users/jesus/AppData/Local/R/win-library/4.5,1.5.0,NA,4.5.1
+mime,C:/Users/jesus/AppData/Local/R/win-library/4.5,0.13,NA,4.5.0
+minqa,C:/Users/jesus/AppData/Local/R/win-library/4.5,1.2.8,NA,4.5.1
+modelr,C:/Users/jesus/AppData/Local/R/win-library/4.5,0.1.11,NA,4.5.1
+modelsummary,C:/Users/jesus/AppData/Local/R/win-library/4.5,2.5.0,NA,4.5.1
+msm,C:/Users/jesus/AppData/Local/R/win-library/4.5,1.8.2,NA,4.5.1
+mvtnorm,C:/Users/jesus/AppData/Local/R/win-library/4.5,1.3-3,NA,4.5.1
+nlme,C:/Program Files/R/R-4.5.1/library,3.1-168,recommended,4.5.1
+nloptr,C:/Users/jesus/AppData/Local/R/win-library/4.5,2.2.1,NA,4.5.1
+nnet,C:/Program Files/R/R-4.5.1/library,7.3-20,recommended,4.5.1
+numDeriv,C:/Users/jesus/AppData/Local/R/win-library/4.5,2016.8-1.1,NA,4.5.0
+openssl,C:/Users/jesus/AppData/Local/R/win-library/4.5,2.3.3,NA,4.5.1
+parallel,C:/Program Files/R/R-4.5.1/library,4.5.1,base,4.5.1
+parameters,C:/Users/jesus/AppData/Local/R/win-library/4.5,0.28.1,NA,4.5.1
+patchwork,C:/Users/jesus/AppData/Local/R/win-library/4.5,1.3.2,NA,4.5.1
+pbkrtest,C:/Users/jesus/AppData/Local/R/win-library/4.5,0.5.5,NA,4.5.1
+pdftools,C:/Users/jesus/AppData/Local/R/win-library/4.5,3.5.0,NA,4.5.1
+performance,C:/Users/jesus/AppData/Local/R/win-library/4.5,0.15.1,NA,4.5.1
+pillar,C:/Users/jesus/AppData/Local/R/win-library/4.5,1.11.0,NA,4.5.1
+pkgconfig,C:/Users/jesus/AppData/Local/R/win-library/4.5,2.0.3,NA,4.5.1
+plotly,C:/Users/jesus/AppData/Local/R/win-library/4.5,4.11.0,NA,4.5.1
+png,C:/Users/jesus/AppData/Local/R/win-library/4.5,0.1-8,NA,4.5.0
+ppcor,C:/Users/jesus/AppData/Local/R/win-library/4.5,1.1,NA,4.5.1
+prettyunits,C:/Users/jesus/AppData/Local/R/win-library/4.5,1.2.0,NA,4.5.1
+processx,C:/Users/jesus/AppData/Local/R/win-library/4.5,3.8.6,NA,4.5.1
+progress,C:/Users/jesus/AppData/Local/R/win-library/4.5,1.2.3,NA,4.5.1
+promises,C:/Users/jesus/AppData/Local/R/win-library/4.5,1.3.3,NA,4.5.1
+proxy,C:/Users/jesus/AppData/Local/R/win-library/4.5,0.4-27,NA,4.5.1
+ps,C:/Users/jesus/AppData/Local/R/win-library/4.5,1.9.1,NA,4.5.1
+purrr,C:/Users/jesus/AppData/Local/R/win-library/4.5,1.1.0,NA,4.5.1
+qpdf,C:/Users/jesus/AppData/Local/R/win-library/4.5,1.4.1,NA,4.5.1
+quadprog,C:/Users/jesus/AppData/Local/R/win-library/4.5,1.5-8,NA,4.5.0
+quantmod,C:/Users/jesus/AppData/Local/R/win-library/4.5,0.4.28,NA,4.5.1
+quantreg,C:/Users/jesus/AppData/Local/R/win-library/4.5,6.1,NA,4.5.1
+R6,C:/Users/jesus/AppData/Local/R/win-library/4.5,2.6.1,NA,4.5.1
+ragg,C:/Users/jesus/AppData/Local/R/win-library/4.5,1.4.0,NA,4.5.1
+rappdirs,C:/Users/jesus/AppData/Local/R/win-library/4.5,0.3.3,NA,4.5.1
+raster,C:/Users/jesus/AppData/Local/R/win-library/4.5,3.6-32,NA,4.5.1
+rbibutils,C:/Users/jesus/AppData/Local/R/win-library/4.5,2.3,NA,4.5.1
+RColorBrewer,C:/Users/jesus/AppData/Local/R/win-library/4.5,1.1-3,NA,4.5.0
+Rcpp,C:/Users/jesus/AppData/Local/R/win-library/4.5,1.1.0,NA,4.5.1
+RcppEigen,C:/Users/jesus/AppData/Local/R/win-library/4.5,0.3.4.0.2,NA,4.5.1
+Rdpack,C:/Users/jesus/AppData/Local/R/win-library/4.5,2.6.4,NA,4.5.1
+reactable,C:/Users/jesus/AppData/Local/R/win-library/4.5,0.4.4,NA,4.5.1
+reactR,C:/Users/jesus/AppData/Local/R/win-library/4.5,0.6.1,NA,4.5.1
+readr,C:/Users/jesus/AppData/Local/R/win-library/4.5,2.1.5,NA,4.5.1
+readxl,C:/Users/jesus/AppData/Local/R/win-library/4.5,1.4.5,NA,4.5.1
+reformulas,C:/Users/jesus/AppData/Local/R/win-library/4.5,0.4.1,NA,4.5.1
+rematch,C:/Users/jesus/AppData/Local/R/win-library/4.5,2.0.0,NA,4.5.1
+rematch2,C:/Users/jesus/AppData/Local/R/win-library/4.5,2.1.2,NA,4.5.1
+repr,C:/Users/jesus/AppData/Local/R/win-library/4.5,1.1.7,NA,4.5.1
+reprex,C:/Users/jesus/AppData/Local/R/win-library/4.5,2.1.1,NA,4.5.1
+rlang,C:/Users/jesus/AppData/Local/R/win-library/4.5,1.1.6,NA,4.5.1
+rmarkdown,C:/Users/jesus/AppData/Local/R/win-library/4.5,2.29,NA,4.5.1
+rpart,C:/Program Files/R/R-4.5.1/library,4.1.24,recommended,4.5.1
+rprojroot,C:/Users/jesus/AppData/Local/R/win-library/4.5,2.1.0,NA,4.5.1
+rstudioapi,C:/Users/jesus/AppData/Local/R/win-library/4.5,0.17.1,NA,4.5.1
+rvest,C:/Users/jesus/AppData/Local/R/win-library/4.5,1.0.5,NA,4.5.1
+S7,C:/Users/jesus/AppData/Local/R/win-library/4.5,0.2.0,NA,4.5.1
+sandwich,C:/Users/jesus/AppData/Local/R/win-library/4.5,3.1-1,NA,4.5.1
+sass,C:/Users/jesus/AppData/Local/R/win-library/4.5,0.4.10,NA,4.5.1
+scales,C:/Users/jesus/AppData/Local/R/win-library/4.5,1.4.0,NA,4.5.1
+selectr,C:/Users/jesus/AppData/Local/R/win-library/4.5,0.4-2,NA,4.5.1
+sessioninfo,C:/Users/jesus/AppData/Local/R/win-library/4.5,1.2.3,NA,4.5.1
+shiny,C:/Users/jesus/AppData/Local/R/win-library/4.5,1.11.1,NA,4.5.1
+skimr,C:/Users/jesus/AppData/Local/R/win-library/4.5,2.2.1,NA,4.5.1
+snakecase,C:/Users/jesus/AppData/Local/R/win-library/4.5,0.11.1,NA,4.5.1
+sourcetools,C:/Users/jesus/AppData/Local/R/win-library/4.5,0.1.7-1,NA,4.5.1
+sp,C:/Users/jesus/AppData/Local/R/win-library/4.5,2.2-0,NA,4.5.1
+SparseM,C:/Users/jesus/AppData/Local/R/win-library/4.5,1.84-2,NA,4.5.1
+spatial,C:/Program Files/R/R-4.5.1/library,7.3-18,recommended,4.5.1
+splines,C:/Program Files/R/R-4.5.1/library,4.5.1,base,4.5.1
+stats,C:/Program Files/R/R-4.5.1/library,4.5.1,base,4.5.1
+stats4,C:/Program Files/R/R-4.5.1/library,4.5.1,base,4.5.1
+stringi,C:/Users/jesus/AppData/Local/R/win-library/4.5,1.8.7,NA,4.5.0
+stringr,C:/Users/jesus/AppData/Local/R/win-library/4.5,1.5.1,NA,4.5.1
+strucchange,C:/Users/jesus/AppData/Local/R/win-library/4.5,1.5-4,NA,4.5.1
+survival,C:/Program Files/R/R-4.5.1/library,3.8-3,recommended,4.5.1
+svglite,C:/Users/jesus/AppData/Local/R/win-library/4.5,2.2.1,NA,4.5.1
+sys,C:/Users/jesus/AppData/Local/R/win-library/4.5,3.4.3,NA,4.5.1
+systemfonts,C:/Users/jesus/AppData/Local/R/win-library/4.5,1.2.3,NA,4.5.1
+tables,C:/Users/jesus/AppData/Local/R/win-library/4.5,0.9.31,NA,4.5.1
+tcltk,C:/Program Files/R/R-4.5.1/library,4.5.1,base,4.5.1
+terra,C:/Users/jesus/AppData/Local/R/win-library/4.5,1.8-60,NA,4.5.1
+textshaping,C:/Users/jesus/AppData/Local/R/win-library/4.5,1.0.1,NA,4.5.1
+tibble,C:/Users/jesus/AppData/Local/R/win-library/4.5,3.3.0,NA,4.5.1
+tidyr,C:/Users/jesus/AppData/Local/R/win-library/4.5,1.3.1,NA,4.5.1
+tidyselect,C:/Users/jesus/AppData/Local/R/win-library/4.5,1.2.1,NA,4.5.1
+tidyverse,C:/Users/jesus/AppData/Local/R/win-library/4.5,2.0.0,NA,4.5.1
+timechange,C:/Users/jesus/AppData/Local/R/win-library/4.5,0.3.0,NA,4.5.1
+tinytable,C:/Users/jesus/AppData/Local/R/win-library/4.5,0.13.0,NA,4.5.1
+tinytex,C:/Users/jesus/AppData/Local/R/win-library/4.5,0.57,NA,4.5.1
+tools,C:/Program Files/R/R-4.5.1/library,4.5.1,base,4.5.1
+translations,C:/Program Files/R/R-4.5.1/library,4.5.1,NA,4.5.1
+tseries,C:/Users/jesus/AppData/Local/R/win-library/4.5,0.10-58,NA,4.5.1
+TTR,C:/Users/jesus/AppData/Local/R/win-library/4.5,0.24.4,NA,4.5.1
+tzdb,C:/Users/jesus/AppData/Local/R/win-library/4.5,0.5.0,NA,4.5.1
+urca,C:/Users/jesus/AppData/Local/R/win-library/4.5,1.3-4,NA,4.5.1
+utf8,C:/Users/jesus/AppData/Local/R/win-library/4.5,1.2.6,NA,4.5.1
+utils,C:/Program Files/R/R-4.5.1/library,4.5.1,base,4.5.1
+uuid,C:/Users/jesus/AppData/Local/R/win-library/4.5,1.2-1,NA,4.5.0
+V8,C:/Users/jesus/AppData/Local/R/win-library/4.5,6.0.6,NA,4.5.1
+vars,C:/Users/jesus/AppData/Local/R/win-library/4.5,1.6-1,NA,4.5.1
+vctrs,C:/Users/jesus/AppData/Local/R/win-library/4.5,0.6.5,NA,4.5.1
+viridis,C:/Users/jesus/AppData/Local/R/win-library/4.5,0.6.5,NA,4.5.1
+viridisLite,C:/Users/jesus/AppData/Local/R/win-library/4.5,0.4.2,NA,4.5.1
+vroom,C:/Users/jesus/AppData/Local/R/win-library/4.5,1.6.5,NA,4.5.1
+withr,C:/Users/jesus/AppData/Local/R/win-library/4.5,3.0.2,NA,4.5.1
+xfun,C:/Users/jesus/AppData/Local/R/win-library/4.5,0.53,NA,4.5.1
+xml2,C:/Users/jesus/AppData/Local/R/win-library/4.5,1.4.0,NA,4.5.1
+xtable,C:/Users/jesus/AppData/Local/R/win-library/4.5,1.8-4,NA,4.5.1
+xts,C:/Users/jesus/AppData/Local/R/win-library/4.5,0.14.1,NA,4.5.1
+yaml,C:/Users/jesus/AppData/Local/R/win-library/4.5,2.3.10,NA,4.5.0
+zoo,C:/Users/jesus/AppData/Local/R/win-library/4.5,1.8-14,NA,4.5.1

@@ -1,0 +1,12 @@
+archivo,filas,cols,bytes,mb,sep,encoding,col_periodo,ano_min,ano_max,n_valores_ano,anos_fuera_2010_2023
+arope.csv,1632,5,150152,0.143,;,UTF-8,periodo,2008,2024,1632,288
+crecimiento_pib.csv,180,3,4604,0.004,;,UTF-8,periodo,2015,2023,180,0
+detenciones_extranjeros_tipologia.csv,36960,5,2467154,2.353,;,UTF-8,periodo,2010,2023,36960,0
+detenciones_tipologia.csv,12320,4,707186,0.674,;,UTF-8,periodo,2010,2023,12320,0
+estat_nama_10_pc_filtered_en.csv,14190,19,3993487,3.808,",",UTF-8,time_period,2010,2023,14190,0
+gini.csv,28,3,818,0.001,;,UTF-8,periodo,2008,2021,28,4
+hechos_conocidos.csv,13552,4,780777,0.745,;,UTF-8,periodo,2010,2023,13552,0
+hechos_esclarecidos.csv,13552,4,774985,0.739,;,UTF-8,periodo,2010,2023,13552,0
+poblacion_espana.csv,384480,5,23615865,22.522,;,UTF-8,periodo,2002,2024,384480,142560
+tasas_paro.csv,3666,4,143262,0.137,;,UTF-8,periodo,2002,2025,3666,1482
+umbral_pobreza.csv,128,4,15668,0.015,;,UTF-8,periodo,2008,2023,128,16
