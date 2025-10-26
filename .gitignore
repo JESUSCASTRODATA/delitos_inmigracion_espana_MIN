@@ -1,22 +1,116 @@
+# ─────────────────────────────────────────────────────────────────────────────
+# SISTEMA / EDITORES
+# ─────────────────────────────────────────────────────────────────────────────
+.DS_Store
+._*
+Thumbs.db
+Icon?
+desktop.ini
 
-.Rproj.user
+# VSCode / JetBrains
+.vscode/
+.idea/
+*.code-workspace
+
+# Jupyter / Python ocasional
+.ipynb_checkpoints/
+__pycache__/
+*.pyc
+
+# ─────────────────────────────────────────────────────────────────────────────
+# R / RStudio
+# ─────────────────────────────────────────────────────────────────────────────
+.Rproj.user/
 .Rhistory
 .RData
 .Ruserdata
-.DS_Store
+Rplots.pdf
+*.RDataTmp
 
-# Outputs pesados
+# knitr / Quarto / cache
+cache/
+*_cache/
+*.utf8.md
+*.knit.md
+.quarto/
+.rsconnect/
+
+# targets / drake
+_targets/
+.drake/
+
+# packrat 
+packrat/
+
+# ─────────────────────────────────────────────────────────────────────────────
+# ENTORNO / SECRETS
+# ─────────────────────────────────────────────────────────────────────────────
+.env
+.env.*
+.Renviron
+*.key
+*.pem
+
+# ─────────────────────────────────────────────────────────────────────────────
+# DEPENDENCIAS R (renv)
+# ─────────────────────────────────────────────────────────────────────────────
+renv/library/
+renv/staging/
+renv/profiles/*/library/
+
+# ─────────────────────────────────────────────────────────────────────────────
+# DATOS (evitar versionar pesados o generados)
+# ─────────────────────────────────────────────────────────────────────────────
+data/raw/*
+data/processed/*
+!data/raw/.gitkeep
+!data/processed/.gitkeep
+!data/raw/README.md
+!data/processed/README.md
+
+# Backups / temporales de datos
+*.bak
+*.bak_*
+*~
+*.tmp
+*.temp
+*.old
+*.orig
+*.swp
+*.swo
+
+# ─────────────────────────────────────────────────────────────────────────────
+# OUTPUTS (artefactos generados)
+# ─────────────────────────────────────────────────────────────────────────────
 output/figures/*
 output/tables/*
 output/models/*
 output/logs/*
+output/debug/*
+# Conserva informes y resúmenes de auditoría
+!output/reports/
+!output/reports/**
+# Mantén documentación mínima dentro de output
+!output/figures/.gitkeep
+!output/tables/.gitkeep
+!output/models/.gitkeep
+!output/logs/.gitkeep
+!output/debug/.gitkeep
+!output/README.md
 
-# Documentos compilados
+# ─────────────────────────────────────────────────────────────────────────────
+# DOCUMENTOS COMPILADOS
+# ─────────────────────────────────────────────────────────────────────────────
 docs/*.html
 docs/*.pdf
 docs/*.docx
 
-# Cache/renv (ajusta si usas renv)
-.cache/
-renv/library/
-renv/staging/
+# ─────────────────────────────────────────────────────────────────────────────
+# PROYECTO ESPECÍFICO 
+# ─────────────────────────────────────────────────────────────────────────────
+output/figures/33_*
+output/tables/33_*
+data/processed/*.bak*
+data/processed/*bak_*
+
+
