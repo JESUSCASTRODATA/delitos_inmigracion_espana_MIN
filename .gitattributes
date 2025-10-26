@@ -1,4 +1,32 @@
+# ── Texto: normaliza fin de línea a LF para todo (seguro entre Windows/Linux)
+* text=auto eol=lf
+
+# ── Asegura que estos tipos se traten como texto (buenos diffs/merges)
+*.R   text
+*.Rmd text
+*.qmd text
+*.md  text
+*.csv text
+*.yml text
+*.yaml text
+*.json text
+*.tsv text
+*.txt text
+Makefile text
+# ── Git LFS (binarios pesados)
+# Figuras y artefactos binarios de modelos → LFS
+output/figures/** filter=lfs diff=lfs merge=lfs -text
+output/models/**  filter=lfs diff=lfs merge=lfs -text
+# PDFs compilados del informe → LFS
+docs/*.pdf        filter=lfs diff=lfs merge=lfs -text
+# (Opcional) Excels y presentaciones → LFS
+output/tables/*.xlsx filter=lfs diff=lfs merge=lfs -text
+docs/*.pptx          filter=lfs diff=lfs merge=lfs -text
+# (Opcional) Si en algún momento versionas binarios R:
+# data/processed/*.rds   filter=lfs diff=lfs merge=lfs -text
+# data/processed/*.parquet filter=lfs diff=lfs merge=lfs -text
+# (Opcional - EXTENDIDO) Si tus CSV finales son MUY grandes y quieres LFS:
+# output/tables/*.csv  filter=lfs diff=lfs merge=lfs -text
 output/release/** filter=lfs diff=lfs merge=lfs -text
 docs/*.pdf filter=lfs diff=lfs merge=lfs -text
-output/figures/** filter=lfs diff=lfs merge=lfs -text
 output/models/** filter=lfs diff=lfs merge=lfs -text
