@@ -1,0 +1,4 @@
+test,status,detalle,output
+Cobertura de años HE (2010–2023),PASS,"años presentes: 2010,2011,2012,2013,2014,2015,2016,2017,2018,2019,2020,2021,2022,2023",D:/delitos_inmigracion_espana_MIN/data/processed/hechos_esclarecidos_panel_ccaa.csv
+HE ≤ HC (nacional),PASS,sin violaciones,D:/delitos_inmigracion_espana_MIN/output/tables/14_he_vs_hc_fullcheck.csv
+"Panel HE sin duplicados (ano,region,tipo)",PASS,duplicados: 0,NA

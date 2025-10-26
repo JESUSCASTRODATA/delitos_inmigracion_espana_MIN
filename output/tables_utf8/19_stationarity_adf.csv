@@ -1,0 +1,12 @@
+variable,adf_pvalue,engine
+hc_total,0.6917691244308981,tseries
+he_total,0.982822284252298,tseries
+det_tot,0.981185077489836,tseries
+det_ext,0.9812660033138066,tseries
+poblacion_total,0.9784853883753803,tseries
+tasa_hc_100k,0.5688900654374861,tseries
+tasa_he_100k,0.972893912105943,tseries
+tasa_det_tot_100k,0.9775084281241124,tseries
+tasa_det_ext_100k,0.9760147550230128,tseries
+pct_extranjeros,0.9379985485648238,tseries
+det_share_ext,0.9370313366592268,tseries

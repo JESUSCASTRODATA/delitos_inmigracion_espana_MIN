@@ -1,0 +1,2 @@
+archivo,filas,cols,bytes,mb,sep,encoding,col_periodo,ano_min,ano_max,n_valores_ano,anos_fuera_2010_2023,fuera_en_processed
+umbral_pobreza.csv,128,4,15668,0.015,;,UTF-8,periodo,2008,2023,128,16,0

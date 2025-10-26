@@ -1,0 +1,6 @@
+test,status,detalle,output
+Cobertura de años en panel HE (2010–2023),PASS,"años con datos: 2010, 2011, 2012, 2013, 2014, 2015, 2016, 2017, 2018, 2019, 2020, 2021, 2022, 2023",D:/delitos_inmigracion_espana_MIN/output/tables/14_he_cov_years.csv
+Consistencia unidades (detección),PASS,"probable_miles=FALSE, aplicado=FALSE",D:/delitos_inmigracion_espana_MIN/output/tables/14_he_unit_detection.csv
+HE ≤ HC (nacional),PASS,violaciones: 0,NA
+"Sin duplicados por (ano,region,tipo) en panel HE",PASS,duplicados: 0,D:/delitos_inmigracion_espana_MIN/output/tables/14_he_dups_keys.csv
+TOTAL RAW ≈ suma CCAA (diag por tipología),PASS,"coincidencias aceptables: 576 (TOL_ABS=100, TOL_REL=0.005)",D:/delitos_inmigracion_espana_MIN/output/tables/14_he_nacional_vs_sum_ccaa.csv

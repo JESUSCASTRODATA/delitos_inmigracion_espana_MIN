@@ -1,0 +1,5 @@
+test,status,detalle,output
+map_regiones sin duplicados por raw_region,PASS,duplicados_raw_region: 0,NA
+map_regiones cobertura de catálogo (19 propuestas únicas),PASS,propuestas_unicas: 19 / 19,NA
+map_regiones sin valores fuera de catálogo,PASS,fuera_catalogo_en_map_final: 0,NA
+map_regiones variantes por CCAA (solo INFO),INFO,"median=2, max=2",D:/delitos_inmigracion_espana_MIN/output/tables/qa_map_regiones_variantes_por_ccaa.csv

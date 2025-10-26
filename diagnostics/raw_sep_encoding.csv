@@ -1,12 +1,2 @@
 archivo,sep,encoding
-arope.csv,;,UTF-8
-crecimiento_pib.csv,;,UTF-8
-detenciones_extranjeros_tipologia.csv,;,UTF-8
-detenciones_tipologia.csv,;,UTF-8
-estat_nama_10_pc_filtered_en.csv,",",UTF-8
-gini.csv,;,UTF-8
-hechos_conocidos.csv,;,UTF-8
-hechos_esclarecidos.csv,;,UTF-8
-poblacion_espana.csv,;,UTF-8
-tasas_paro.csv,;,UTF-8
 umbral_pobreza.csv,;,UTF-8

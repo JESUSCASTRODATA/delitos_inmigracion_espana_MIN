@@ -1,0 +1,16 @@
+check,status,detalle
+Esquema (mínimo requerido),OK,NA
+Duplicados de año,OK,NA
+Cobertura 2010–2023,OK,NA
+Tipo de ano,OK,NA
+Tipos numéricos,OK,NA
+NAs no permitidos,OK,NA
+HE ≤ HC,OK,NA
+det_ext ≤ det_tot,OK,NA
+share_ext = det_ext/det_tot,OK,NA
+% extranjeros: rango,OK,"escala [0,1]"
+Tasas ≈ 100k*conteo/pob,OK,NA
+PIB idx2010≈100,OK,NA
+"he_total/hc_total in (0,1]",OK,NA
+"Cor(share_ext, %extranjeros)",OK,rho=0.969
+PIB_z centrado,OK,"mean=0, sd=1"

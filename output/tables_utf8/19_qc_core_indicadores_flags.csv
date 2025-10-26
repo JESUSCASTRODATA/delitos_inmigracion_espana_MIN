@@ -1,0 +1,2 @@
+ano,variable,valor,tipo,motivo,check
+2011,det_tot_yoy,0.3287047643331151,WARN,|YoY|>25%,Estabilidad temporal

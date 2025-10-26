@@ -1,0 +1,6 @@
+path,required,exists,n_rows
+D:/delitos_inmigracion_espana_MIN/output/tables/20_corr_niveles_all.csv,TRUE,TRUE,3
+D:/delitos_inmigracion_espana_MIN/output/tables/20_corr_deltas_all.csv,TRUE,TRUE,3
+D:/delitos_inmigracion_espana_MIN/output/tables/20_corr_niveles_sin_covid.csv,TRUE,TRUE,3
+D:/delitos_inmigracion_espana_MIN/output/tables/20_corr_deltas_sin_covid.csv,TRUE,TRUE,3
+D:/delitos_inmigracion_espana_MIN/output/tables/20_pb_summary.md,TRUE,TRUE,NA

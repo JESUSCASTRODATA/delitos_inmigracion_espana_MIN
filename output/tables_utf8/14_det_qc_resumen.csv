@@ -1,0 +1,10 @@
+fuente,prueba,estado
+preferidas,Columnas esperadas,OK
+preferidas,Rango de años (2010–2023),OK
+preferidas,Sin NAs,OK
+preferidas,Sin negativos,OK
+preferidas,Española (Total−Ext) no negativa,OK
+preferidas,"Plausibilidad TOTAL [100000,1500000]",FAIL
+preferidas,"Plausibilidad EXTRANJERA [10000,600000]",OK
+preferidas,"Share extranjera en [0, 0.60]",OK
+preferidas,Variaciones YoY (20%/20%/40%),FAIL

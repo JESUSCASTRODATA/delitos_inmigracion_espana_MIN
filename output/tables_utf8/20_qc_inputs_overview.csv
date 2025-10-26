@@ -1,0 +1,6 @@
+file,exists,n_rows,missing_required,year_coverage
+core,TRUE,14,NA,2010 … 2023 (n=14)
+der,TRUE,14,NA,2010 … 2023 (n=14)
+px,TRUE,14,NA,2010 … 2023 (n=14)
+ext,TRUE,14,NA,2010 … 2023 (n=14)
+tot,TRUE,14,NA,2010 … 2023 (n=14)

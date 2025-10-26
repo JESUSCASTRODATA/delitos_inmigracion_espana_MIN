@@ -1,0 +1,16 @@
+idx,colname
+1,ano
+2,hc_total
+3,he_total
+4,det_tot
+5,det_ext
+6,poblacion_total
+7,pct_extranjeros_poblacion
+8,tasa_hc_por_100k
+9,tasa_he_por_100k
+10,tasa_det_por_100k
+11,share_ext
+12,pib_pc_real
+13,pib_pc_real_yoy
+14,pib_pc_real_idx2010
+15,pib_pc_real_z

@@ -1,0 +1,21 @@
+region,region_norm,excluida,n
+TOTAL NACIONAL,total nacional,TRUE,616
+ANDALUCÍA,andalucia,FALSE,616
+ARAGÓN,aragon,FALSE,616
+ASTURIAS (PRINCIPADO DE),asturias (principado de),FALSE,616
+BALEARS (ILLES),balears (illes),FALSE,616
+CANARIAS,canarias,FALSE,616
+CANTABRIA,cantabria,FALSE,616
+CASTILLA - LA MANCHA,castilla - la mancha,FALSE,616
+CASTILLA Y LEÓN,castilla y leon,FALSE,616
+CATALUÑA,cataluna,FALSE,616
+CIUDAD AUTÓNOMA DE CEUTA,ciudad autonoma de ceuta,FALSE,616
+CIUDAD AUTÓNOMA DE MELILLA,ciudad autonoma de melilla,FALSE,616
+COMUNITAT VALENCIANA,comunitat valenciana,FALSE,616
+EXTREMADURA,extremadura,FALSE,616
+GALICIA,galicia,FALSE,616
+MADRID (COMUNIDAD DE),madrid (comunidad de),FALSE,616
+MURCIA (REGIÓN DE),murcia (region de),FALSE,616
+NAVARRA (COMUNIDAD FORAL DE),navarra (comunidad foral de),FALSE,616
+PAÍS VASCO,pais vasco,FALSE,616
+RIOJA (LA),rioja (la),FALSE,616

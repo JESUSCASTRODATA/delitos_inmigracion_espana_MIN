@@ -1,0 +1,617 @@
+ano,tipo,total,total_row,delta,rel,usar_row
+2010,1. contra las personas,244427,244533,-106,4.334793258987539e-4,TRUE
+2010,1.1.-homicidios dolosos/asesinatos,1102,1103,-1,9.066183136899364e-4,TRUE
+2010,1.1.1.-homicidios dolosos/asesinatos consumados,280,281,-1,0.00355871886120996,TRUE
+2010,1.2.-lesiones,88225,88238,-13,1.4732881524966566e-4,TRUE
+2010,1.3.-malos tratos ambito familiar,59543,59593,-50,8.390247176681825e-4,TRUE
+2010,1.4.-otros contra las personas,95557,95599,-42,4.393351394889067e-4,TRUE
+2010,10. orden publico,31035,31038,-3,9.665571235260005e-5,TRUE
+2010,11. legislacion especial,212,212,0,0,TRUE
+2010,12. otras infracciones penales,4887,4892,-5,0.00102207686017988,TRUE
+2010,2. contra la libertad,34822,34862,-40,0.00114738110263323,TRUE
+2010,2.1.-malos tratos habituales en el ambito familiar,14384,14403,-19,0.00131916961744081,TRUE
+2010,2.2.-otros contra la libertad,20438,20459,-21,0.00102644313016276,TRUE
+2010,3. libertad sexual,7638,7651,-13,0.00169912429747745,TRUE
+2010,3.1.-agresion sexual,3997,4004,-7,0.00174825174825174,TRUE
+2010,3.2.-agresion sexual con penetracion,1666,1670,-4,0.00239520958083832,TRUE
+2010,3.3.-corrupcion de menores o incapacitados,244,244,0,0,TRUE
+2010,3.4.-pornografia de menores,482,483,-1,0.0020703933747412,TRUE
+2010,3.5.-otros contra la libertad sexual,1249,1250,-1,8e-4,TRUE
+2010,4. relaciones familiares,7032,7057,-25,0.00354258183364035,TRUE
+2010,5. patrimonio,286093,286627,-534,0.0018630484915936,TRUE
+2010,5.1.-hurtos,105429,105448,-19,1.801835976026098e-4,TRUE
+2010,5.2.-robos con fuerza en las cosas,61786,61805,-19,3.0741849364938114e-4,TRUE
+2010,5.2.1.-robos con fuerza en las cosas en el interior de vehiculos,14007,14007,0,0,TRUE
+2010,5.2.2.-robos con fuerza en viviendas,12946,12948,-2,1.5446400988569664e-4,TRUE
+2010,5.2.3.-robos con fuerza en establecimientos,9828,9832,-4,4.068348250610252e-4,TRUE
+2010,5.3.-robos con violencia o intimidacion,21662,21666,-4,1.8462106526354657e-4,TRUE
+2010,5.3.1.-robos con violencia en via publica,9328,9330,-2,2.1436227224008573e-4,TRUE
+2010,5.3.2.-robos con violencia en viviendas,1210,1211,-1,8.257638315441783e-4,TRUE
+2010,5.3.3.-robos con violencia en establecimientos,3473,3474,-1,2.878526194588371e-4,TRUE
+2010,5.4.-sustraccion de vehiculos,17197,17252,-55,0.00318803616971945,TRUE
+2010,5.5.-estafas,28103,28514,-411,0.01441397208388861,FALSE
+2010,5.5.1.-estafas informaticas,4737,4931,-194,0.03934293246805922,FALSE
+2010,5.6.-danos,33299,33303,-4,1.2010929946251088e-4,TRUE
+2010,5.7.-contra la propiedad intelectual/industrial,3420,3421,-1,2.9231218941829873e-4,TRUE
+2010,5.8.-blanqueo de capitales,162,162,0,0,TRUE
+2010,5.9.-otros contra el patrimonio,15035,15056,-21,0.00139479277364505,TRUE
+2010,6. seguridad colectiva,69835,69842,-7,1.002262249076487e-4,TRUE
+2010,6.1.-trafico de drogas,13151,13155,-4,3.040668947168377e-4,TRUE
+2010,6.2.-contra la seguridad vial,54700,54703,-3,5.484159918103212e-5,TRUE
+2010,6.3.-otros contra la seguridad colectiva,1984,1984,0,0,TRUE
+2010,7. falsedades,11189,11343,-154,0.01357665520585383,FALSE
+2010,8. admon. publica,345,345,0,0,TRUE
+2010,9. admon. justicia,26578,26593,-15,5.640582108073553e-4,TRUE
+2010,total infracciones penales,724093,724995,-902,0.00124414651135525,TRUE
+2011,1. contra las personas,244342,244461,-119,4.8678521318328894e-4,TRUE
+2011,1.1.-homicidios dolosos/asesinatos,1106,1107,-1,9.033423667570008e-4,TRUE
+2011,1.1.1.-homicidios dolosos/asesinatos consumados,271,271,0,0,TRUE
+2011,1.2.-lesiones,86800,86806,-6,6.911964610741193e-5,TRUE
+2011,1.3.-malos tratos ambito familiar,60973,61043,-70,0.00114673263109611,TRUE
+2011,1.4.-otros contra las personas,95463,95505,-42,4.397675514370975e-4,TRUE
+2011,10. orden publico,32846,32851,-5,1.5220236826885027e-4,TRUE
+2011,11. legislacion especial,261,262,-1,0.00381679389312977,TRUE
+2011,12. otras infracciones penales,4376,4383,-7,0.00159707962582705,TRUE
+2011,2. contra la libertad,36476,36522,-46,0.00125951481298943,TRUE
+2011,2.1.-malos tratos habituales en el ambito familiar,14306,14324,-18,0.00125663222563529,TRUE
+2011,2.2.-otros contra la libertad,22170,22198,-28,0.00126137489863951,TRUE
+2011,3. libertad sexual,7134,7155,-21,0.00293501048218029,TRUE
+2011,3.1.-agresion sexual,3939,3946,-7,0.00177394830207805,TRUE
+2011,3.2.-agresion sexual con penetracion,1511,1519,-8,0.00526662277814351,TRUE
+2011,3.3.-corrupcion de menores o incapacitados,172,173,-1,0.00578034682080924,TRUE
+2011,3.4.-pornografia de menores,343,348,-5,0.01436781609195402,TRUE
+2011,3.5.-otros contra la libertad sexual,1169,1169,0,0,TRUE
+2011,4. relaciones familiares,7952,7977,-25,0.00313401027955371,TRUE
+2011,5. patrimonio,282106,282680,-574,0.00203056459600962,TRUE
+2011,5.1.-hurtos,109375,109396,-21,1.919631430765293e-4,TRUE
+2011,5.2.-robos con fuerza en las cosas,55745,55755,-10,1.793561115595014e-4,TRUE
+2011,5.2.1.-robos con fuerza en las cosas en el interior de vehiculos,14785,14786,-1,6.763154335181928e-5,TRUE
+2011,5.2.2.-robos con fuerza en viviendas,10737,10737,0,0,TRUE
+2011,5.2.3.-robos con fuerza en establecimientos,8544,8548,-4,4.679457182966776e-4,TRUE
+2011,5.3.-robos con violencia o intimidacion,21143,21146,-3,1.418708029887449e-4,TRUE
+2011,5.3.1.-robos con violencia en via publica,8513,8516,-3,3.522780648191639e-4,TRUE
+2011,5.3.2.-robos con violencia en viviendas,1205,1205,0,0,TRUE
+2011,5.3.3.-robos con violencia en establecimientos,2898,2898,0,0,TRUE
+2011,5.4.-sustraccion de vehiculos,15394,15519,-125,0.00805464269605,FALSE
+2011,5.5.-estafas,29941,30319,-378,0.01246742966456677,FALSE
+2011,5.5.1.-estafas informaticas,4541,4735,-194,0.0409714889123548,FALSE
+2011,5.6.-danos,31459,31461,-2,6.35707701598805e-5,TRUE
+2011,5.7.-contra la propiedad intelectual/industrial,2363,2363,0,0,TRUE
+2011,5.8.-blanqueo de capitales,143,149,-6,0.04026845637583892,TRUE
+2011,5.9.-otros contra el patrimonio,16543,16572,-29,0.00174993965725319,TRUE
+2011,6. seguridad colectiva,80275,80297,-22,2.739828387112844e-4,TRUE
+2011,6.1.-trafico de drogas,14563,14583,-20,0.00137145991908386,TRUE
+2011,6.2.-contra la seguridad vial,64010,64012,-2,3.124414172342686e-5,TRUE
+2011,6.3.-otros contra la seguridad colectiva,1702,1702,0,0,TRUE
+2011,7. falsedades,11730,11860,-130,0.01096121416526138,FALSE
+2011,8. admon. publica,266,268,-2,0.00746268656716417,TRUE
+2011,9. admon. justicia,27452,27459,-7,2.549255253286718e-4,TRUE
+2011,total infracciones penales,735216,736175,-959,0.00130267939009067,TRUE
+2012,1. contra las personas,237156,237300,-144,6.06826801517067e-4,TRUE
+2012,1.1.-homicidios dolosos/asesinatos,1029,1031,-2,0.00193986420950533,TRUE
+2012,1.1.1.-homicidios dolosos/asesinatos consumados,250,252,-2,0.0079365079365079309,TRUE
+2012,1.2.-lesiones,83281,83307,-26,3.1209862316492013e-4,TRUE
+2012,1.3.-malos tratos ambito familiar,58841,58903,-62,0.00105257796716635,TRUE
+2012,1.4.-otros contra las personas,94005,94059,-54,5.741077408860396e-4,TRUE
+2012,10. orden publico,30720,30724,-4,1.301913813305559e-4,TRUE
+2012,11. legislacion especial,257,257,0,0,TRUE
+2012,12. otras infracciones penales,4364,4369,-5,0.00114442664225223,TRUE
+2012,2. contra la libertad,35817,35858,-41,0.00114339896257459,TRUE
+2012,2.1.-malos tratos habituales en el ambito familiar,14097,14114,-17,0.00120447782343772,TRUE
+2012,2.2.-otros contra la libertad,21720,21744,-24,0.00110375275938189,TRUE
+2012,3. libertad sexual,6684,6698,-14,0.00209017617199163,TRUE
+2012,3.1.-agresion sexual,3754,3763,-9,0.00239170874302418,TRUE
+2012,3.2.-agresion sexual con penetracion,1324,1326,-2,0.00150829562594268,TRUE
+2012,3.3.-corrupcion de menores o incapacitados,196,197,-1,0.00507614213197969,TRUE
+2012,3.4.-pornografia de menores,362,363,-1,0.00275482093663911,TRUE
+2012,3.5.-otros contra la libertad sexual,1048,1049,-1,9.532888465204956e-4,TRUE
+2012,4. relaciones familiares,9120,9157,-37,0.00404062465873102,TRUE
+2012,5. patrimonio,293409,293922,-513,0.00174536101414661,TRUE
+2012,5.1.-hurtos,117446,117459,-13,1.1067691705190748e-4,TRUE
+2012,5.2.-robos con fuerza en las cosas,54562,54572,-10,1.8324415451147108e-4,TRUE
+2012,5.2.1.-robos con fuerza en las cosas en el interior de vehiculos,13354,13354,0,0,TRUE
+2012,5.2.2.-robos con fuerza en viviendas,13642,13643,-1,7.329766180458844e-5,TRUE
+2012,5.2.3.-robos con fuerza en establecimientos,8193,8198,-5,6.099048548426446e-4,TRUE
+2012,5.3.-robos con violencia o intimidacion,21820,21820,0,0,TRUE
+2012,5.3.1.-robos con violencia en via publica,9278,9278,0,0,TRUE
+2012,5.3.2.-robos con violencia en viviendas,1420,1420,0,0,TRUE
+2012,5.3.3.-robos con violencia en establecimientos,2965,2965,0,0,TRUE
+2012,5.4.-sustraccion de vehiculos,13780,13875,-95,0.00684684684684684,TRUE
+2012,5.5.-estafas,33656,34019,-363,0.01067050765748552,FALSE
+2012,5.5.1.-estafas informaticas,5764,5938,-174,0.0293027955540586,FALSE
+2012,5.6.-danos,30204,30207,-3,9.931472837421788e-5,TRUE
+2012,5.7.-contra la propiedad intelectual/industrial,2696,2696,0,0,TRUE
+2012,5.8.-blanqueo de capitales,179,182,-3,0.01648351648351648,TRUE
+2012,5.9.-otros contra el patrimonio,19066,19092,-26,0.00136182694322229,TRUE
+2012,6. seguridad colectiva,72371,72382,-11,1.5197148462324888e-4,TRUE
+2012,6.1.-trafico de drogas,13917,13920,-3,2.1551724137931031e-4,TRUE
+2012,6.2.-contra la seguridad vial,56645,56652,-7,1.2356139236037564e-4,TRUE
+2012,6.3.-otros contra la seguridad colectiva,1809,1810,-1,5.524861878453039e-4,TRUE
+2012,7. falsedades,11535,11745,-210,0.01787994891443167,FALSE
+2012,8. admon. publica,238,238,0,0,TRUE
+2012,9. admon. justicia,26270,26279,-9,3.42478785341908e-4,TRUE
+2012,total infracciones penales,727941,728929,-988,0.0013554132158276,TRUE
+2013,1. contra las personas,230268,230390,-122,5.295368722600807e-4,TRUE
+2013,1.1.-homicidios dolosos/asesinatos,888,889,-1,0.00112485939257592,TRUE
+2013,1.1.1.-homicidios dolosos/asesinatos consumados,227,228,-1,0.0043859649122807,TRUE
+2013,1.2.-lesiones,80383,80397,-14,1.7413585084020549e-4,TRUE
+2013,1.3.-malos tratos ambito familiar,58932,58989,-57,9.662818491583176e-4,TRUE
+2013,1.4.-otros contra las personas,90065,90115,-50,5.548465849192698e-4,TRUE
+2013,10. orden publico,29154,29157,-3,1.0289124395513942e-4,TRUE
+2013,11. legislacion especial,261,261,0,0,TRUE
+2013,12. otras infracciones penales,4887,4891,-4,8.178286648947046e-4,TRUE
+2013,2. contra la libertad,35126,35164,-38,0.0010806506654533,TRUE
+2013,2.1.-malos tratos habituales en el ambito familiar,13337,13344,-7,5.245803357314149e-4,TRUE
+2013,2.2.-otros contra la libertad,21789,21820,-31,0.00142071494042163,TRUE
+2013,3. libertad sexual,6759,6766,-7,0.00103458468814661,TRUE
+2013,3.1.-agresion sexual,3603,3605,-2,5.547850208044383e-4,TRUE
+2013,3.2.-agresion sexual con penetracion,1392,1395,-3,0.0021505376344086,TRUE
+2013,3.3.-corrupcion de menores o incapacitados,253,253,0,0,TRUE
+2013,3.4.-pornografia de menores,304,305,-1,0.00327868852459016,TRUE
+2013,3.5.-otros contra la libertad sexual,1207,1208,-1,8.278145695364238e-4,TRUE
+2013,4. relaciones familiares,9078,9143,-65,0.00710926391775128,TRUE
+2013,5. patrimonio,313890,314507,-617,0.0019618005322616,TRUE
+2013,5.1.-hurtos,126502,126519,-17,1.3436717014835716e-4,TRUE
+2013,5.2.-robos con fuerza en las cosas,62145,62150,-5,8.045052292839903e-5,TRUE
+2013,5.2.1.-robos con fuerza en las cosas en el interior de vehiculos,13496,13496,0,0,TRUE
+2013,5.2.2.-robos con fuerza en viviendas,18414,18416,-2,1.0860121633362292e-4,TRUE
+2013,5.2.3.-robos con fuerza en establecimientos,9040,9040,0,0,TRUE
+2013,5.3.-robos con violencia o intimidacion,22061,22064,-3,1.359680928208847e-4,TRUE
+2013,5.3.1.-robos con violencia en via publica,8936,8937,-1,1.1189437171310284e-4,TRUE
+2013,5.3.2.-robos con violencia en viviendas,1641,1641,0,0,TRUE
+2013,5.3.3.-robos con violencia en establecimientos,3245,3245,0,0,TRUE
+2013,5.4.-sustraccion de vehiculos,13073,13105,-32,0.00244181610072491,TRUE
+2013,5.5.-estafas,34321,34852,-531,0.01523585447033168,FALSE
+2013,5.5.1.-estafas informaticas,6796,7017,-221,0.03149494085791649,FALSE
+2013,5.6.-danos,28846,28849,-3,1.0398973967901834e-4,TRUE
+2013,5.7.-contra la propiedad intelectual/industrial,3144,3145,-1,3.179650238473768e-4,TRUE
+2013,5.8.-blanqueo de capitales,232,241,-9,0.03734439834024896,TRUE
+2013,5.9.-otros contra el patrimonio,23566,23582,-16,6.784835891781867e-4,TRUE
+2013,6. seguridad colectiva,68217,68223,-6,8.7946880084429e-5,TRUE
+2013,6.1.-trafico de drogas,13839,13844,-5,3.61167292689974e-4,TRUE
+2013,6.2.-contra la seguridad vial,52869,52869,0,0,TRUE
+2013,6.3.-otros contra la seguridad colectiva,1509,1510,-1,6.622516556291391e-4,TRUE
+2013,7. falsedades,10835,11173,-338,0.03025149914973597,FALSE
+2013,8. admon. publica,310,310,0,0,TRUE
+2013,9. admon. justicia,26368,26383,-15,5.685479285903801e-4,TRUE
+2013,total infracciones penales,735153,736368,-1215,0.00164999022228016,TRUE
+2014,1. contra las personas,233693,233846,-153,6.542767462347015e-4,TRUE
+2014,1.1.-homicidios dolosos/asesinatos,950,950,0,0,TRUE
+2014,1.1.1.-homicidios dolosos/asesinatos consumados,232,232,0,0,TRUE
+2014,1.2.-lesiones,78102,78117,-15,1.920196628134721e-4,TRUE
+2014,1.3.-malos tratos ambito familiar,61370,61442,-72,0.00117183685426906,TRUE
+2014,1.4.-otros contra las personas,93271,93337,-66,7.071150776219506e-4,TRUE
+2014,10. orden publico,26952,26958,-6,2.2256843979523704e-4,TRUE
+2014,11. legislacion especial,188,188,0,0,TRUE
+2014,12. otras infracciones penales,4984,4989,-5,0.00100220485067147,TRUE
+2014,2. contra la libertad,34248,34292,-44,0.0012830980986819,TRUE
+2014,2.1.-malos tratos habituales en el ambito familiar,12403,12410,-7,5.640612409347301e-4,TRUE
+2014,2.2.-otros contra la libertad,21845,21882,-37,0.00169088748743259,TRUE
+2014,3. libertad sexual,7073,7088,-15,0.00211625282167042,TRUE
+2014,3.1.-agresion sexual,3801,3806,-5,0.00131371518654755,TRUE
+2014,3.2.-agresion sexual con penetracion,1321,1325,-4,0.0030188679245283,TRUE
+2014,3.3.-corrupcion de menores o incapacitados,283,286,-3,0.01048951048951049,TRUE
+2014,3.4.-pornografia de menores,423,425,-2,0.00470588235294117,TRUE
+2014,3.5.-otros contra la libertad sexual,1245,1246,-1,8.025682182985554e-4,TRUE
+2014,4. relaciones familiares,9361,9435,-74,0.00784313725490196,TRUE
+2014,5. patrimonio,297671,298162,-491,0.00164675579047631,TRUE
+2014,5.1.-hurtos,120754,120763,-9,7.452613797272343e-5,TRUE
+2014,5.2.-robos con fuerza en las cosas,54614,54622,-8,1.464611328768628e-4,TRUE
+2014,5.2.1.-robos con fuerza en las cosas en el interior de vehiculos,11754,11754,0,0,TRUE
+2014,5.2.2.-robos con fuerza en viviendas,16751,16754,-3,1.7906171660498986e-4,TRUE
+2014,5.2.3.-robos con fuerza en establecimientos,8235,8235,0,0,TRUE
+2014,5.3.-robos con violencia o intimidacion,18382,18383,-1,5.43980851874014e-5,TRUE
+2014,5.3.1.-robos con violencia en via publica,7558,7558,0,0,TRUE
+2014,5.3.2.-robos con violencia en viviendas,1333,1334,-1,7.496251874062968e-4,TRUE
+2014,5.3.3.-robos con violencia en establecimientos,2791,2791,0,0,TRUE
+2014,5.4.-sustraccion de vehiculos,11618,11690,-72,0.00615911035072711,TRUE
+2014,5.5.-estafas,35291,35659,-368,0.01031997532179814,FALSE
+2014,5.5.1.-estafas informaticas,7717,7884,-167,0.02118214104515474,FALSE
+2014,5.6.-danos,27774,27775,-1,3.6003600360036005e-5,TRUE
+2014,5.7.-contra la propiedad intelectual/industrial,2455,2456,-1,4.071661237785017e-4,TRUE
+2014,5.8.-blanqueo de capitales,211,216,-5,0.02314814814814814,TRUE
+2014,5.9.-otros contra el patrimonio,26572,26598,-26,9.775171065493646e-4,TRUE
+2014,6. seguridad colectiva,62161,62185,-24,3.8594516362466834e-4,TRUE
+2014,6.1.-trafico de drogas,12639,12657,-18,0.00142213794738089,TRUE
+2014,6.2.-contra la seguridad vial,48022,48027,-5,1.0410810585712205e-4,TRUE
+2014,6.3.-otros contra la seguridad colectiva,1500,1501,-1,6.662225183211193e-4,TRUE
+2014,7. falsedades,10987,11383,-396,0.03478872002108407,FALSE
+2014,8. admon. publica,426,426,0,0,TRUE
+2014,9. admon. justicia,26379,26405,-26,9.846619958341224e-4,TRUE
+2014,total infracciones penales,714123,715357,-1234,0.00172501282576391,TRUE
+2015,1. contra las personas,189084,189246,-162,8.560286611077644e-4,TRUE
+2015,1.1.-homicidios dolosos/asesinatos,892,893,-1,0.00111982082866741,TRUE
+2015,1.1.1.-homicidios dolosos/asesinatos consumados,243,244,-1,0.0040983606557377,TRUE
+2015,1.2.-lesiones,76473,76483,-10,1.3074800936155746e-4,TRUE
+2015,1.3.-malos tratos ambito familiar,63011,63117,-106,0.00167942075827431,TRUE
+2015,1.4.-otros contra las personas,48708,48753,-45,9.23020121838656e-4,TRUE
+2015,10. orden publico,21114,21118,-4,1.8941187612463303e-4,TRUE
+2015,11. legislacion especial,180,180,0,0,TRUE
+2015,12. otras infracciones penales,6234,6247,-13,0.00208099887946214,TRUE
+2015,2. contra la libertad,60335,60388,-53,8.776578128104922e-4,TRUE
+2015,2.1.-malos tratos habituales en el ambito familiar,12222,12230,-8,6.541291905151267e-4,TRUE
+2015,2.2.-otros contra la libertad,48113,48158,-45,9.344241870509572e-4,TRUE
+2015,3. libertad sexual,7491,7500,-9,0.0012,TRUE
+2015,3.1.-agresion sexual,4021,4026,-5,0.00124192747143566,TRUE
+2015,3.2.-agresion sexual con penetracion,1397,1399,-2,0.00142959256611865,TRUE
+2015,3.3.-corrupcion de menores o incapacitados,358,358,0,0,TRUE
+2015,3.4.-pornografia de menores,539,540,-1,0.00185185185185185,TRUE
+2015,3.5.-otros contra la libertad sexual,1176,1177,-1,8.496176720475786e-4,TRUE
+2015,4. relaciones familiares,8708,8794,-86,0.00977939504207414,TRUE
+2015,5. patrimonio,272524,273069,-545,0.00199583255514174,TRUE
+2015,5.1.-hurtos,111615,111625,-10,8.958566629339306e-5,TRUE
+2015,5.2.-robos con fuerza en las cosas,44412,44417,-5,1.1256951167345836e-4,TRUE
+2015,5.2.1.-robos con fuerza en las cosas en el interior de vehiculos,9753,9754,-1,1.025220422390814e-4,TRUE
+2015,5.2.2.-robos con fuerza en viviendas,12995,12995,0,0,TRUE
+2015,5.2.3.-robos con fuerza en establecimientos,7446,7448,-2,2.685284640171858e-4,TRUE
+2015,5.3.-robos con violencia o intimidacion,16028,16028,0,0,TRUE
+2015,5.3.1.-robos con violencia en via publica,6414,6414,0,0,TRUE
+2015,5.3.2.-robos con violencia en viviendas,1195,1195,0,0,TRUE
+2015,5.3.3.-robos con violencia en establecimientos,2500,2500,0,0,TRUE
+2015,5.4.-sustraccion de vehiculos,11583,11660,-77,0.00660377358490566,TRUE
+2015,5.5.-estafas,35662,36074,-412,0.01142096801020125,FALSE
+2015,5.5.1.-estafas informaticas,10162,10344,-182,0.01759474091260634,FALSE
+2015,5.6.-danos,26089,26091,-2,7.665478517496454e-5,TRUE
+2015,5.7.-contra la propiedad intelectual/industrial,1863,1865,-2,0.00107238605898123,TRUE
+2015,5.8.-blanqueo de capitales,261,273,-12,0.04395604395604396,TRUE
+2015,5.9.-otros contra el patrimonio,25011,25036,-25,9.985620706183095e-4,TRUE
+2015,6. seguridad colectiva,55490,55506,-16,2.882571253558174e-4,TRUE
+2015,6.1.-trafico de drogas,11374,11390,-16,0.00140474100087796,TRUE
+2015,6.2.-contra la seguridad vial,42718,42718,0,0,TRUE
+2015,6.3.-otros contra la seguridad colectiva,1398,1398,0,0,TRUE
+2015,7. falsedades,11060,11438,-378,0.03304773561811505,FALSE
+2015,8. admon. publica,383,384,-1,0.00260416666666666,TRUE
+2015,9. admon. justicia,25899,25917,-18,6.945248292626461e-4,TRUE
+2015,total infracciones penales,658502,659787,-1285,0.00194759824003807,TRUE
+2016,1. contra las personas,145098,145212,-114,7.850590860259483e-4,TRUE
+2016,1.1.-homicidios dolosos/asesinatos,1019,1019,0,0,TRUE
+2016,1.1.1.-homicidios dolosos/asesinatos consumados,210,210,0,0,TRUE
+2016,1.2.-lesiones,77284,77292,-8,1.0350359674998706e-4,TRUE
+2016,1.3.-malos tratos ambito familiar,65388,65493,-105,0.00160322477211305,TRUE
+2016,1.4.-otros contra las personas,1407,1408,-1,7.102272727272727e-4,TRUE
+2016,10. orden publico,17638,17642,-4,2.2673166307674868e-4,TRUE
+2016,11. legislacion especial,131,131,0,0,TRUE
+2016,12. otras infracciones penales,7431,7435,-4,5.379959650302623e-4,TRUE
+2016,2. contra la libertad,89201,89305,-104,0.00116454845753317,TRUE
+2016,2.1.-malos tratos habituales en el ambito familiar,11473,11489,-16,0.00139263643485072,TRUE
+2016,2.2.-otros contra la libertad,77728,77816,-88,0.00113087282821013,TRUE
+2016,3. libertad sexual,8367,8381,-14,0.00167044505428946,TRUE
+2016,3.1.-agresion sexual,4797,4806,-9,0.00187265917602996,TRUE
+2016,3.2.-agresion sexual con penetracion,1511,1514,-3,0.00198150594451783,TRUE
+2016,3.3.-corrupcion de menores o incapacitados,292,292,0,0,TRUE
+2016,3.4.-pornografia de menores,476,477,-1,0.0020964360587002,TRUE
+2016,3.5.-otros contra la libertad sexual,1291,1292,-1,7.7399380804953e-4,TRUE
+2016,4. relaciones familiares,7378,7465,-87,0.0116543871399866,TRUE
+2016,5. patrimonio,272517,273027,-510,0.0018679471261084,TRUE
+2016,5.1.-hurtos,109612,109627,-15,1.3682760633785472e-4,TRUE
+2016,5.2.-robos con fuerza en las cosas,45504,45511,-7,1.5380896926017886e-4,TRUE
+2016,5.2.1.-robos con fuerza en las cosas en el interior de vehiculos,10574,10574,0,0,TRUE
+2016,5.2.2.-robos con fuerza en viviendas,13715,13715,0,0,TRUE
+2016,5.2.3.-robos con fuerza en establecimientos,7898,7900,-2,2.5316455696202533e-4,TRUE
+2016,5.3.-robos con violencia o intimidacion,16355,16355,0,0,TRUE
+2016,5.3.1.-robos con violencia en via publica,6737,6737,0,0,TRUE
+2016,5.3.2.-robos con violencia en viviendas,1169,1169,0,0,TRUE
+2016,5.3.3.-robos con violencia en establecimientos,2625,2625,0,0,TRUE
+2016,5.4.-sustraccion de vehiculos,11795,11878,-83,0.00698770836841219,TRUE
+2016,5.5.-estafas,37540,37910,-370,0.0097599577947771,FALSE
+2016,5.5.1.-estafas informaticas,11302,11494,-192,0.01670436749608491,FALSE
+2016,5.6.-danos,26195,26196,-1,3.817376698732631e-5,TRUE
+2016,5.7.-contra la propiedad intelectual/industrial,1713,1713,0,0,TRUE
+2016,5.8.-blanqueo de capitales,233,244,-11,0.04508196721311475,TRUE
+2016,5.9.-otros contra el patrimonio,23570,23593,-23,9.748654261857332e-4,TRUE
+2016,6. seguridad colectiva,53768,53781,-13,2.4172105390379503e-4,TRUE
+2016,6.1.-trafico de drogas,11688,11700,-12,0.00102564102564102,TRUE
+2016,6.2.-contra la seguridad vial,40693,40694,-1,2.45736472207205e-5,TRUE
+2016,6.3.-otros contra la seguridad colectiva,1387,1387,0,0,TRUE
+2016,7. falsedades,11980,12378,-398,0.03215382129584747,FALSE
+2016,8. admon. publica,414,418,-4,0.00956937799043062,TRUE
+2016,9. admon. justicia,26155,26178,-23,8.786003514401405e-4,TRUE
+2016,total infracciones penales,640078,641353,-1275,0.00198798477593462,TRUE
+2017,1. contra las personas,150244,150363,-119,7.914181015276365e-4,TRUE
+2017,1.1.-homicidios dolosos/asesinatos,1028,1029,-1,9.718172983479104e-4,TRUE
+2017,1.1.1.-homicidios dolosos/asesinatos consumados,235,236,-1,0.00423728813559322,TRUE
+2017,1.2.-lesiones,78612,78624,-12,1.5262515262515265e-4,TRUE
+2017,1.3.-malos tratos ambito familiar,68483,68589,-106,0.00154543731502135,TRUE
+2017,1.4.-otros contra las personas,2121,2121,0,0,TRUE
+2017,10. orden publico,18232,18235,-3,1.6451878256100905e-4,TRUE
+2017,11. legislacion especial,152,152,0,0,TRUE
+2017,12. otras infracciones penales,6935,6942,-7,0.00100835494093921,TRUE
+2017,2. contra la libertad,92927,93015,-88,9.460839649518896e-4,TRUE
+2017,2.1.-malos tratos habituales en el ambito familiar,11367,11379,-12,0.00105457421566042,TRUE
+2017,2.2.-otros contra la libertad,81560,81636,-76,9.309618305649468e-4,TRUE
+2017,3. libertad sexual,8867,8894,-27,0.00303575444119631,TRUE
+2017,3.1.-agresion sexual,5026,5040,-14,0.00277777777777777,TRUE
+2017,3.2.-agresion sexual con penetracion,1749,1760,-11,0.00625,TRUE
+2017,3.3.-corrupcion de menores o incapacitados,333,333,0,0,TRUE
+2017,3.4.-pornografia de menores,517,518,-1,0.00193050193050193,TRUE
+2017,3.5.-otros contra la libertad sexual,1242,1243,-1,8.045052292839903e-4,TRUE
+2017,4. relaciones familiares,7338,7401,-63,0.00851236319416295,TRUE
+2017,5. patrimonio,273948,274547,-599,0.0021817757979508,TRUE
+2017,5.1.-hurtos,109876,109895,-19,1.7289230629236998e-4,TRUE
+2017,5.2.-robos con fuerza en las cosas,43523,43532,-9,2.0674446384269044e-4,TRUE
+2017,5.2.1.-robos con fuerza en las cosas en el interior de vehiculos,10238,10239,-1,9.76657876745776e-5,TRUE
+2017,5.2.2.-robos con fuerza en viviendas,13029,13030,-1,7.674597083653108e-5,TRUE
+2017,5.2.3.-robos con fuerza en establecimientos,7787,7789,-2,2.567723712928489e-4,TRUE
+2017,5.3.-robos con violencia o intimidacion,16047,16049,-2,1.246183562838806e-4,TRUE
+2017,5.3.1.-robos con violencia en via publica,6461,6463,-2,3.0945381401825775e-4,TRUE
+2017,5.3.2.-robos con violencia en viviendas,1119,1119,0,0,TRUE
+2017,5.3.3.-robos con violencia en establecimientos,2901,2901,0,0,TRUE
+2017,5.4.-sustraccion de vehiculos,11825,11909,-84,0.00705348895793097,TRUE
+2017,5.5.-estafas,38826,39235,-409,0.01042436599974512,FALSE
+2017,5.5.1.-estafas informaticas,12688,12893,-205,0.0159001008299077,FALSE
+2017,5.6.-danos,27280,27284,-4,1.4660606949127694e-4,TRUE
+2017,5.7.-contra la propiedad intelectual/industrial,1446,1447,-1,6.91085003455425e-4,TRUE
+2017,5.8.-blanqueo de capitales,232,241,-9,0.03734439834024896,TRUE
+2017,5.9.-otros contra el patrimonio,24893,24955,-62,0.00248447204968944,TRUE
+2017,6. seguridad colectiva,54609,54620,-11,2.0139143170999635e-4,TRUE
+2017,6.1.-trafico de drogas,12116,12126,-10,8.246742536698004e-4,TRUE
+2017,6.2.-contra la seguridad vial,40882,40882,0,0,TRUE
+2017,6.3.-otros contra la seguridad colectiva,1611,1612,-1,6.203473945409429e-4,TRUE
+2017,7. falsedades,12211,12764,-553,0.04332497649639611,FALSE
+2017,8. admon. publica,531,532,-1,0.0018796992481203,TRUE
+2017,9. admon. justicia,27329,27356,-27,9.869864015206902e-4,TRUE
+2017,total infracciones penales,653323,654821,-1498,0.00228764807481739,TRUE
+2018,1. contra las personas,153398,153525,-127,8.272268360201921e-4,TRUE
+2018,1.1.-homicidios dolosos/asesinatos,1007,1008,-1,9.92063492063492e-4,TRUE
+2018,1.1.1.-homicidios dolosos/asesinatos consumados,226,227,-1,0.00440528634361233,TRUE
+2018,1.2.-lesiones,78206,78214,-8,1.0228347866110928e-4,TRUE
+2018,1.3.-malos tratos ambito familiar,71297,71414,-117,0.00163833422018091,TRUE
+2018,1.4.-otros contra las personas,2888,2889,-1,3.4614053305642093e-4,TRUE
+2018,10. orden publico,18779,18781,-2,1.0649060220435548e-4,TRUE
+2018,11. legislacion especial,193,193,0,0,TRUE
+2018,12. otras infracciones penales,6766,6776,-10,0.00147579693034238,TRUE
+2018,2. contra la libertad,92904,92985,-81,8.711082432650428e-4,TRUE
+2018,2.1.-malos tratos habituales en el ambito familiar,11337,11347,-10,8.812902088657794e-4,TRUE
+2018,2.2.-otros contra la libertad,81567,81638,-71,8.696930351062005e-4,TRUE
+2018,3. libertad sexual,10649,10674,-25,0.0023421397789020002,TRUE
+2018,3.1.-agresion sexual,6211,6224,-13,0.00208868894601542,TRUE
+2018,3.2.-agresion sexual con penetracion,2311,2318,-7,0.00301984469370146,TRUE
+2018,3.3.-corrupcion de menores o incapacitados,206,206,0,0,TRUE
+2018,3.4.-pornografia de menores,664,668,-4,0.0059880239520958,TRUE
+2018,3.5.-otros contra la libertad sexual,1257,1258,-1,7.94912559618442e-4,TRUE
+2018,4. relaciones familiares,7029,7089,-60,0.00846381718154887,TRUE
+2018,5. patrimonio,280567,281008,-441,0.00156935033878039,TRUE
+2018,5.1.-hurtos,109897,109908,-11,1.0008370637260254e-4,TRUE
+2018,5.2.-robos con fuerza en las cosas,40362,40365,-3,7.432181345224824e-5,TRUE
+2018,5.2.1.-robos con fuerza en las cosas en el interior de vehiculos,8272,8272,0,0,TRUE
+2018,5.2.2.-robos con fuerza en viviendas,12028,12028,0,0,TRUE
+2018,5.2.3.-robos con fuerza en establecimientos,7004,7005,-1,1.4275517487508923e-4,TRUE
+2018,5.3.-robos con violencia o intimidacion,16039,16043,-4,2.4932992582434705e-4,TRUE
+2018,5.3.1.-robos con violencia en via publica,5993,5996,-3,5.003335557038026e-4,TRUE
+2018,5.3.2.-robos con violencia en viviendas,1153,1154,-1,8.665511265164644e-4,TRUE
+2018,5.3.3.-robos con violencia en establecimientos,2954,2954,0,0,TRUE
+2018,5.4.-sustraccion de vehiculos,10918,10988,-70,0.00637058609392064,TRUE
+2018,5.5.-estafas,45780,46091,-311,0.00674752120804495,FALSE
+2018,5.5.1.-estafas informaticas,15377,15542,-165,0.01061639428644962,FALSE
+2018,5.6.-danos,26845,26845,0,0,TRUE
+2018,5.7.-contra la propiedad intelectual/industrial,2020,2020,0,0,TRUE
+2018,5.8.-blanqueo de capitales,251,257,-6,0.02334630350194552,TRUE
+2018,5.9.-otros contra el patrimonio,28455,28491,-36,0.00126355691270927,TRUE
+2018,6. seguridad colectiva,59213,59223,-10,1.6885331712341488e-4,TRUE
+2018,6.1.-trafico de drogas,13130,13140,-10,7.6103500761035e-4,TRUE
+2018,6.2.-contra la seguridad vial,44382,44382,0,0,TRUE
+2018,6.3.-otros contra la seguridad colectiva,1701,1701,0,0,TRUE
+2018,7. falsedades,13744,14042,-298,0.02122204814129041,FALSE
+2018,8. admon. publica,446,447,-1,0.00223713646532438,TRUE
+2018,9. admon. justicia,28824,28851,-27,9.358427784132266e-4,TRUE
+2018,total infracciones penales,672512,673594,-1082,0.00160630884479374,TRUE
+2019,1. contra las personas,159753,159909,-156,9.755548468191284e-4,TRUE
+2019,1.1.-homicidios dolosos/asesinatos,1088,1090,-2,0.0018348623853211,TRUE
+2019,1.1.1.-homicidios dolosos/asesinatos consumados,253,254,-1,0.00393700787401574,TRUE
+2019,1.2.-lesiones,79521,79537,-16,2.0116423802758464e-4,TRUE
+2019,1.3.-malos tratos ambito familiar,76022,76160,-138,0.00181197478991596,TRUE
+2019,1.4.-otros contra las personas,3122,3122,0,0,TRUE
+2019,10. orden publico,20346,20350,-4,1.9656019656019656e-4,TRUE
+2019,11. legislacion especial,257,259,-2,0.00772200772200772,TRUE
+2019,12. otras infracciones penales,7044,7058,-14,0.00198356474922074,TRUE
+2019,2. contra la libertad,96152,96246,-94,9.76663965255699e-4,TRUE
+2019,2.1.-malos tratos habituales en el ambito familiar,11850,11860,-10,8.431703204047217e-4,TRUE
+2019,2.2.-otros contra la libertad,84302,84386,-84,9.954257815277417e-4,TRUE
+2019,3. libertad sexual,11839,11887,-48,0.00403802473290148,TRUE
+2019,3.1.-agresion sexual,7003,7022,-19,0.00270578182853887,TRUE
+2019,3.2.-agresion sexual con penetracion,2536,2554,-18,0.00704776820673453,TRUE
+2019,3.3.-corrupcion de menores o incapacitados,276,276,0,0,TRUE
+2019,3.4.-pornografia de menores,612,620,-8,0.01290322580645161,TRUE
+2019,3.5.-otros contra la libertad sexual,1412,1415,-3,0.00212014134275618,TRUE
+2019,4. relaciones familiares,6781,6846,-65,0.00949459538416593,TRUE
+2019,5. patrimonio,290663,291270,-607,0.00208397706595255,TRUE
+2019,5.1.-hurtos,111307,111318,-11,9.881600459943585e-5,TRUE
+2019,5.2.-robos con fuerza en las cosas,39702,39704,-2,5.0372758412250656e-5,TRUE
+2019,5.2.1.-robos con fuerza en las cosas en el interior de vehiculos,8566,8567,-1,1.167269756040621e-4,TRUE
+2019,5.2.2.-robos con fuerza en viviendas,10774,10775,-1,9.280742459396752e-5,TRUE
+2019,5.2.3.-robos con fuerza en establecimientos,7461,7461,0,0,TRUE
+2019,5.3.-robos con violencia o intimidacion,18195,18196,-1,5.495713343591998e-5,TRUE
+2019,5.3.1.-robos con violencia en via publica,6927,6927,0,0,TRUE
+2019,5.3.2.-robos con violencia en viviendas,1181,1181,0,0,TRUE
+2019,5.3.3.-robos con violencia en establecimientos,3129,3129,0,0,TRUE
+2019,5.4.-sustraccion de vehiculos,10896,10981,-85,0.00774064292869501,TRUE
+2019,5.5.-estafas,49378,49856,-478,0.00958761232349165,FALSE
+2019,5.5.1.-estafas informaticas,18428,18712,-284,0.01517742625053441,FALSE
+2019,5.6.-danos,28308,28309,-1,3.532445512027977e-5,TRUE
+2019,5.7.-contra la propiedad intelectual/industrial,1573,1573,0,0,TRUE
+2019,5.8.-blanqueo de capitales,257,265,-8,0.03018867924528302,TRUE
+2019,5.9.-otros contra el patrimonio,31047,31068,-21,6.759366550791811e-4,TRUE
+2019,6. seguridad colectiva,63279,63291,-12,1.8960041712091767e-4,TRUE
+2019,6.1.-trafico de drogas,15179,15191,-12,7.899414126785597e-4,TRUE
+2019,6.2.-contra la seguridad vial,46622,46622,0,0,TRUE
+2019,6.3.-otros contra la seguridad colectiva,1478,1478,0,0,TRUE
+2019,7. falsedades,14470,14629,-159,0.01086882220247453,FALSE
+2019,8. admon. publica,327,327,0,0,TRUE
+2019,9. admon. justicia,30441,30472,-31,0.00101732738251509,TRUE
+2019,total infracciones penales,701352,702544,-1192,0.00169669088341797,TRUE
+2020,1. contra las personas,141773,141869,-96,6.766805997081815e-4,TRUE
+2020,1.1.-homicidios dolosos/asesinatos,1101,1101,0,0,TRUE
+2020,1.1.1.-homicidios dolosos/asesinatos consumados,279,279,0,0,TRUE
+2020,1.2.-lesiones,64404,64416,-12,1.8628912071535025e-4,TRUE
+2020,1.3.-malos tratos ambito familiar,73615,73699,-84,0.00113977123163136,TRUE
+2020,1.4.-otros contra las personas,2653,2653,0,0,TRUE
+2020,10. orden publico,28034,28039,-5,1.7832305003744785e-4,TRUE
+2020,11. legislacion especial,270,270,0,0,TRUE
+2020,12. otras infracciones penales,6677,6686,-9,0.00134609632067005,TRUE
+2020,2. contra la libertad,94250,94335,-85,9.01044151163407e-4,TRUE
+2020,2.1.-malos tratos habituales en el ambito familiar,11313,11329,-16,0.00141230470474004,TRUE
+2020,2.2.-otros contra la libertad,82937,83006,-69,8.312652097438739e-4,TRUE
+2020,3. libertad sexual,10272,10293,-21,0.00204022150976391,TRUE
+2020,3.1.-agresion sexual,5953,5964,-11,0.00184439973172367,TRUE
+2020,3.2.-agresion sexual con penetracion,2357,2364,-7,0.00296108291032148,TRUE
+2020,3.3.-corrupcion de menores o incapacitados,242,242,0,0,TRUE
+2020,3.4.-pornografia de menores,449,450,-1,0.00222222222222222,TRUE
+2020,3.5.-otros contra la libertad sexual,1271,1273,-2,0.00157109190887666,TRUE
+2020,4. relaciones familiares,6358,6397,-39,0.00609660778489917,TRUE
+2020,5. patrimonio,232761,233211,-450,0.00192958308141554,TRUE
+2020,5.1.-hurtos,77253,77262,-9,1.164867593383552e-4,TRUE
+2020,5.2.-robos con fuerza en las cosas,31281,31282,-1,3.196726552010741e-5,TRUE
+2020,5.2.1.-robos con fuerza en las cosas en el interior de vehiculos,6103,6103,0,0,TRUE
+2020,5.2.2.-robos con fuerza en viviendas,10753,10753,0,0,TRUE
+2020,5.2.3.-robos con fuerza en establecimientos,7569,7570,-1,1.321003963011889e-4,TRUE
+2020,5.3.-robos con violencia o intimidacion,14568,14569,-1,6.863889079552475e-5,TRUE
+2020,5.3.1.-robos con violencia en via publica,7997,7998,-1,1.2503125781445363e-4,TRUE
+2020,5.3.2.-robos con violencia en viviendas,1351,1351,0,0,TRUE
+2020,5.3.3.-robos con violencia en establecimientos,3558,3558,0,0,TRUE
+2020,5.4.-sustraccion de vehiculos,8084,8159,-75,0.00919230297830616,TRUE
+2020,5.5.-estafas,46261,46601,-340,0.00729598077294478,FALSE
+2020,5.5.1.-estafas informaticas,25330,25596,-266,0.01039224878887326,FALSE
+2020,5.6.-danos,25707,25708,-1,3.8898397386027695e-5,TRUE
+2020,5.7.-contra la propiedad intelectual/industrial,791,792,-1,0.00126262626262626,TRUE
+2020,5.8.-blanqueo de capitales,284,287,-3,0.01045296167247386,TRUE
+2020,5.9.-otros contra el patrimonio,28532,28551,-19,6.654758152078737e-4,TRUE
+2020,6. seguridad colectiva,54139,54163,-24,4.431069180067574e-4,TRUE
+2020,6.1.-trafico de drogas,14695,14717,-22,0.00149486987837195,TRUE
+2020,6.2.-contra la seguridad vial,38210,38210,0,0,TRUE
+2020,6.3.-otros contra la seguridad colectiva,1234,1236,-2,0.00161812297734627,TRUE
+2020,7. falsedades,11441,11492,-51,0.0044378698224852,TRUE
+2020,8. admon. publica,228,231,-3,0.01298701298701298,TRUE
+2020,9. admon. justicia,29661,29679,-18,6.064894369756394e-4,TRUE
+2020,total infracciones penales,615864,616665,-801,0.00129892242952007,TRUE
+2021,1. contra las personas,159444,159540,-96,6.017299736743137e-4,TRUE
+2021,1.1.-homicidios dolosos/asesinatos,1165,1165,0,0,TRUE
+2021,1.1.1.-homicidios dolosos/asesinatos consumados,261,261,0,0,TRUE
+2021,1.2.-lesiones,74806,74813,-7,9.356662612112868e-5,TRUE
+2021,1.3.-malos tratos ambito familiar,80338,80426,-88,0.00109417352597418,TRUE
+2021,1.4.-otros contra las personas,3135,3136,-1,3.1887755102040814e-4,TRUE
+2021,10. orden publico,25510,25517,-7,2.7432691930869615e-4,TRUE
+2021,11. legislacion especial,288,289,-1,0.00346020761245674,TRUE
+2021,12. otras infracciones penales,7112,7117,-5,7.02543206407194e-4,TRUE
+2021,2. contra la libertad,104338,104418,-80,7.661514298301059e-4,TRUE
+2021,2.1.-malos tratos habituales en el ambito familiar,12604,12617,-13,0.00103035586906554,TRUE
+2021,2.2.-otros contra la libertad,91734,91801,-67,7.298395442315443e-4,TRUE
+2021,3. libertad sexual,13222,13253,-31,0.00233909303553912,TRUE
+2021,3.1.-agresion sexual,8030,8052,-22,0.00273224043715847,TRUE
+2021,3.2.-agresion sexual con penetracion,3120,3128,-8,0.00255754475703324,TRUE
+2021,3.3.-corrupcion de menores o incapacitados,238,239,-1,0.00418410041841004,TRUE
+2021,3.4.-pornografia de menores,502,502,0,0,TRUE
+2021,3.5.-otros contra la libertad sexual,1332,1332,0,0,TRUE
+2021,4. relaciones familiares,6896,6970,-74,0.01061692969870875,TRUE
+2021,5. patrimonio,259692,260085,-393,0.00151104446623219,TRUE
+2021,5.1.-hurtos,89791,89799,-8,8.908785175781468e-5,TRUE
+2021,5.2.-robos con fuerza en las cosas,31197,31201,-4,1.2820101919810262e-4,TRUE
+2021,5.2.1.-robos con fuerza en las cosas en el interior de vehiculos,7740,7742,-2,2.583311805734952e-4,TRUE
+2021,5.2.2.-robos con fuerza en viviendas,10004,10004,0,0,TRUE
+2021,5.2.3.-robos con fuerza en establecimientos,7145,7145,0,0,TRUE
+2021,5.3.-robos con violencia o intimidacion,16037,16037,0,0,TRUE
+2021,5.3.1.-robos con violencia en via publica,8999,8999,0,0,TRUE
+2021,5.3.2.-robos con violencia en viviendas,1479,1479,0,0,TRUE
+2021,5.3.3.-robos con violencia en establecimientos,3644,3644,0,0,TRUE
+2021,5.4.-sustraccion de vehiculos,7839,7893,-54,0.00684150513112884,TRUE
+2021,5.5.-estafas,53454,53765,-311,0.0057844322514647,FALSE
+2021,5.5.1.-estafas informaticas,31850,32085,-235,0.00732429484182639,FALSE
+2021,5.6.-danos,29941,29943,-2,6.679357445813713e-5,TRUE
+2021,5.7.-contra la propiedad intelectual/industrial,1018,1018,0,0,TRUE
+2021,5.8.-blanqueo de capitales,311,311,0,0,TRUE
+2021,5.9.-otros contra el patrimonio,30104,30118,-14,4.648383026761405e-4,TRUE
+2021,6. seguridad colectiva,61506,61529,-23,3.738074728989582e-4,TRUE
+2021,6.1.-trafico de drogas,15608,15631,-23,0.00147143496897191,TRUE
+2021,6.2.-contra la seguridad vial,44553,44553,0,0,TRUE
+2021,6.3.-otros contra la seguridad colectiva,1345,1345,0,0,TRUE
+2021,7. falsedades,14403,14417,-14,9.710758132759936e-4,TRUE
+2021,8. admon. publica,407,407,0,0,TRUE
+2021,9. admon. justicia,31824,31841,-17,5.339028296849973e-4,TRUE
+2021,total infracciones penales,684642,685383,-741,0.00108114732930346,TRUE
+2022,1. contra las personas,181742,181894,-152,8.356515333106095e-4,TRUE
+2022,1.1.-homicidios dolosos/asesinatos,1383,1384,-1,7.22543352601156e-4,TRUE
+2022,1.1.1.-homicidios dolosos/asesinatos consumados,318,319,-1,0.00313479623824451,TRUE
+2022,1.2.-lesiones,86563,86577,-14,1.617057648105155e-4,TRUE
+2022,1.3.-malos tratos ambito familiar,90131,90267,-136,0.00150664140826658,TRUE
+2022,1.4.-otros contra las personas,3665,3666,-1,2.7277686852154935e-4,TRUE
+2022,10. orden publico,26510,26520,-10,3.770739064856712e-4,TRUE
+2022,11. legislacion especial,286,287,-1,0.00348432055749128,TRUE
+2022,12. otras infracciones penales,7271,7283,-12,0.00164767266236441,TRUE
+2022,2. contra la libertad,107627,107702,-75,6.963658984977067e-4,TRUE
+2022,2.1.-malos tratos habituales en el ambito familiar,13269,13288,-19,0.00142986152919927,TRUE
+2022,2.2.-otros contra la libertad,94358,94414,-56,5.931323744359947e-4,TRUE
+2022,3. libertad sexual,14512,14555,-43,0.00295431123325317,TRUE
+2022,3.1.-agresion sexual,8950,8980,-30,0.00334075723830734,TRUE
+2022,3.2.-agresion sexual con penetracion,3399,3410,-11,0.0032258064516129,TRUE
+2022,3.3.-corrupcion de menores o incapacitados,269,269,0,0,TRUE
+2022,3.4.-pornografia de menores,463,464,-1,0.0021551724137931,TRUE
+2022,3.5.-otros contra la libertad sexual,1431,1432,-1,6.983240223463687e-4,TRUE
+2022,4. relaciones familiares,7009,7055,-46,0.00652019844082211,TRUE
+2022,5. patrimonio,305218,305922,-704,0.00230124018540673,TRUE
+2022,5.1.-hurtos,113212,113226,-14,1.2364651228516415e-4,TRUE
+2022,5.2.-robos con fuerza en las cosas,35662,35668,-6,1.68218010541662e-4,TRUE
+2022,5.2.1.-robos con fuerza en las cosas en el interior de vehiculos,9056,9060,-4,4.415011037527594e-4,TRUE
+2022,5.2.2.-robos con fuerza en viviendas,10927,10927,0,0,TRUE
+2022,5.2.3.-robos con fuerza en establecimientos,8086,8086,0,0,TRUE
+2022,5.3.-robos con violencia o intimidacion,19037,19040,-3,1.5756302521008404e-4,TRUE
+2022,5.3.1.-robos con violencia en via publica,10910,10911,-1,9.165062780680047e-5,TRUE
+2022,5.3.2.-robos con violencia en viviendas,1492,1492,0,0,TRUE
+2022,5.3.3.-robos con violencia en establecimientos,4508,4508,0,0,TRUE
+2022,5.4.-sustraccion de vehiculos,9277,9325,-48,0.00514745308310992,TRUE
+2022,5.5.-estafas,62447,63046,-599,0.00950099927037401,FALSE
+2022,5.5.1.-estafas informaticas,37107,37607,-500,0.01329539713351237,FALSE
+2022,5.6.-danos,31555,31558,-3,9.506305849546866e-5,TRUE
+2022,5.7.-contra la propiedad intelectual/industrial,1067,1068,-1,9.363295880149812e-4,TRUE
+2022,5.8.-blanqueo de capitales,361,367,-6,0.01634877384196185,TRUE
+2022,5.9.-otros contra el patrimonio,32600,32624,-24,7.356547327121138e-4,TRUE
+2022,6. seguridad colectiva,68536,68559,-23,3.354774719584591e-4,TRUE
+2022,6.1.-trafico de drogas,16607,16629,-22,0.0013229899573035,TRUE
+2022,6.2.-contra la seguridad vial,50251,50252,-1,1.9899705484358832e-5,TRUE
+2022,6.3.-otros contra la seguridad colectiva,1678,1678,0,0,TRUE
+2022,7. falsedades,15176,15190,-14,9.216589861751152e-4,TRUE
+2022,8. admon. publica,362,363,-1,0.00275482093663911,TRUE
+2022,9. admon. justicia,35951,35972,-21,5.837873901923718e-4,TRUE
+2022,total infracciones penales,770200,771302,-1102,0.0014287529398342,TRUE
+2023,1. contra las personas,195137,195302,-165,8.448454188897196e-4,TRUE
+2023,1.1.-homicidios dolosos/asesinatos,1543,1544,-1,6.476683937823834e-4,TRUE
+2023,1.1.1.-homicidios dolosos/asesinatos consumados,314,315,-1,0.00317460317460317,TRUE
+2023,1.2.-lesiones,90437,90444,-7,7.739595771969396e-5,TRUE
+2023,1.3.-malos tratos ambito familiar,98745,98901,-156,0.00157733491066824,TRUE
+2023,1.4.-otros contra las personas,4412,4413,-1,2.2660321776569228e-4,TRUE
+2023,10. orden publico,27959,27986,-27,9.647680983348818e-4,TRUE
+2023,11. legislacion especial,392,392,0,0,TRUE
+2023,12. otras infracciones penales,8167,8178,-11,0.00134507214477867,TRUE
+2023,2. contra la libertad,119929,120003,-74,6.16651250385407e-4,TRUE
+2023,2.1.-malos tratos habituales en el ambito familiar,14691,14705,-14,9.520571234274056e-4,TRUE
+2023,2.2.-otros contra la libertad,105238,105298,-60,5.69811392429106e-4,TRUE
+2023,3. libertad sexual,17017,17064,-47,0.0027543366150961,TRUE
+2023,3.1.-agresion sexual,10072,10096,-24,0.00237717908082408,TRUE
+2023,3.2.-agresion sexual con penetracion,4031,4052,-21,0.00518262586377097,TRUE
+2023,3.3.-corrupcion de menores o incapacitados,269,269,0,0,TRUE
+2023,3.4.-pornografia de menores,669,670,-1,0.00149253731343283,TRUE
+2023,3.5.-otros contra la libertad sexual,1976,1977,-1,5.058168942842691e-4,TRUE
+2023,4. relaciones familiares,6994,7043,-49,0.0069572625301718,TRUE
+2023,5. patrimonio,342640,343285,-645,0.00187890528278252,TRUE
+2023,5.1.-hurtos,132746,132759,-13,9.79217981455118e-5,TRUE
+2023,5.2.-robos con fuerza en las cosas,40048,40050,-2,4.993757802746567e-5,TRUE
+2023,5.2.1.-robos con fuerza en las cosas en el interior de vehiculos,10438,10438,0,0,TRUE
+2023,5.2.2.-robos con fuerza en viviendas,11762,11762,0,0,TRUE
+2023,5.2.3.-robos con fuerza en establecimientos,9411,9411,0,0,TRUE
+2023,5.3.-robos con violencia o intimidacion,21379,21381,-2,9.354099434076984e-5,TRUE
+2023,5.3.1.-robos con violencia en via publica,12404,12405,-1,8.061265618702137e-5,TRUE
+2023,5.3.2.-robos con violencia en viviendas,1646,1646,0,0,TRUE
+2023,5.3.3.-robos con violencia en establecimientos,5100,5101,-1,1.9603999215840032e-4,TRUE
+2023,5.4.-sustraccion de vehiculos,10752,10854,-102,0.00939745715865118,FALSE
+2023,5.5.-estafas,70812,71284,-472,0.00662140171707536,FALSE
+2023,5.5.1.-estafas informaticas,46628,47029,-401,0.00852665376682472,FALSE
+2023,5.6.-danos,31896,31896,0,0,TRUE
+2023,5.7.-contra la propiedad intelectual/industrial,1251,1252,-1,7.987220447284345e-4,TRUE
+2023,5.8.-blanqueo de capitales,492,510,-18,0.03529411764705882,TRUE
+2023,5.9.-otros contra el patrimonio,33264,33299,-35,0.00105108261509354,TRUE
+2023,6. seguridad colectiva,70301,70346,-45,6.396952207659285e-4,TRUE
+2023,6.1.-trafico de drogas,18906,18947,-41,0.00216393096532432,TRUE
+2023,6.2.-contra la seguridad vial,49677,49678,-1,2.012963484842385e-5,TRUE
+2023,6.3.-otros contra la seguridad colectiva,1718,1721,-3,0.00174317257408483,TRUE
+2023,7. falsedades,15758,15783,-25,0.0015839827662675,TRUE
+2023,8. admon. publica,353,353,0,0,TRUE
+2023,9. admon. justicia,40085,40110,-25,6.232859636000997e-4,TRUE
+2023,total infracciones penales,844732,845845,-1113,0.00131584391939421,TRUE

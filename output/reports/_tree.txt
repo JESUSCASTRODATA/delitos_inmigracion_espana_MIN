@@ -1,0 +1,536 @@
+D:/delitos_inmigracion_espana_MIN
+├── CITATION.cff
+├── config
+│   ├── map_nacionalidades.csv
+│   ├── map_regiones.csv
+│   ├── map_tipologias.csv
+│   ├── qa_excepciones_he_vs_hc.csv
+│   ├── qa_excepciones_he_vs_hc.csv.bak
+│   ├── qa_excepciones_yoy_det.csv
+│   └── read_hints.csv
+├── data
+│   ├── processed
+│   │   ├── activos_16_29_bins_anual.csv
+│   │   ├── arope.csv
+│   │   ├── arope_componentes.csv
+│   │   ├── arope_total.csv
+│   │   ├── core_indicadores.csv
+│   │   ├── core_indicadores.csv.bak_20250928_100001
+│   │   ├── core_indicadores.csv.bak_20250928_100041
+│   │   ├── core_indicadores.csv.bak_20250928_100738
+│   │   ├── core_indicadores.csv.bak_20250928_101814
+│   │   ├── core_indicadores.csv.bak_20251006_114201
+│   │   ├── core_indicadores.csv.bak_20251006_114655
+│   │   ├── core_indicadores.csv.bak_20251006_114702
+│   │   ├── core_indicadores.csv.bak_20251006_114719
+│   │   ├── core_indicadores.csv.bak_20251006_115245
+│   │   ├── core_indicadores.csv.bak_20251006_115357
+│   │   ├── core_indicadores.csv.bak_20251006_120222
+│   │   ├── core_indicadores.csv.bak_20251006_120749
+│   │   ├── core_indicadores.csv.bak_20251006_121240
+│   │   ├── core_indicadores_con_controles.csv
+│   │   ├── core_indicadores_con_pib.csv
+│   │   ├── core_indicadores_con_pib.csv.bak
+│   │   ├── core_indicadores_derivadas.csv
+│   │   ├── core_indicadores_derivadas.csv.bak_20250928_101814
+│   │   ├── core_indicadores_derivadas.csv.bak_20251006_114201
+│   │   ├── core_indicadores_derivadas.csv.bak_20251006_114655
+│   │   ├── core_indicadores_derivadas.csv.bak_20251006_114702
+│   │   ├── core_indicadores_derivadas.csv.bak_20251006_114719
+│   │   ├── core_indicadores_derivadas.csv.bak_20251006_115245
+│   │   ├── core_indicadores_derivadas.csv.bak_20251006_115357
+│   │   ├── core_indicadores_derivadas.csv.bak_20251006_120222
+│   │   ├── core_indicadores_derivadas.csv.bak_20251006_120749
+│   │   ├── core_indicadores_derivadas.csv.bak_20251006_121240
+│   │   ├── counts
+│   │   │   ├── hc_total_nacional.csv
+│   │   │   └── he_total_nacional.csv
+│   │   ├── detenciones_extranjeros_detenidos_por_sexo_est.csv
+│   │   ├── detenciones_extranjeros_total.csv
+│   │   ├── detenciones_extranjeros_total_nacional.csv
+│   │   ├── detenciones_extranjeros_total_nacional_por_sexo.csv
+│   │   ├── detenciones_share_extranjeros.csv
+│   │   ├── detenciones_totales_total.csv
+│   │   ├── detenciones_totales_total_nacional.csv
+│   │   ├── gini.csv
+│   │   ├── gini_total.csv
+│   │   ├── hechos_conocidos_panel_ccaa.csv
+│   │   ├── hechos_conocidos_total_nacional.csv
+│   │   ├── hechos_conocidos_total_nacional_por_tipo.csv
+│   │   ├── hechos_esclarecidos_panel_ccaa.csv
+│   │   ├── hechos_esclarecidos_total_nacional.csv
+│   │   ├── hechos_esclarecidos_total_nacional_por_tipo.csv
+│   │   ├── paro_15_29_anual.csv
+│   │   ├── pct_extranjeros_poblacion.csv
+│   │   ├── pib_pc_real_es.csv
+│   │   ├── poblacion_15_29_bins_anual.csv
+│   │   ├── poblacion_16_29_bins_anual_aprox.csv
+│   │   ├── poblacion_16_29_total_aprox.csv
+│   │   ├── poblacion_espana.csv
+│   │   ├── poblacion_espanola_total.csv
+│   │   ├── poblacion_extranjera_total.csv
+│   │   ├── poblacion_total_15_29_bins_anual.csv
+│   │   ├── poblacion_total_nacional.csv
+│   │   ├── soc_econ_controls.csv
+│   │   ├── tasas
+│   │   ├── tasas_paro.csv
+│   │   └── umbral_pobreza.csv
+│   └── raw
+│       ├── arope.csv
+│       ├── crecimiento_pib.csv
+│       ├── detenciones_extranjeros_tipologia.csv
+│       ├── detenciones_tipologia.csv
+│       ├── epa_activos_16_29_trimestral.csv
+│       ├── estat_nama_10_pc_filtered_en.csv
+│       ├── gini.csv
+│       ├── hechos_conocidos.csv
+│       ├── hechos_esclarecidos.csv
+│       ├── poblacion_espana.csv
+│       ├── tasas_paro.csv
+│       └── umbral_pobreza.csv
+├── DATA_LICENSE.md
+├── delitos_inmigracion_espana.Rproj
+├── diagnostics
+│   ├── acciones_prioritarias.csv
+│   ├── cols_arope.csv
+│   ├── cols_crecimiento_pib.csv
+│   ├── cols_detenciones_extranjeros_tipologia.csv
+│   ├── cols_detenciones_tipologia.csv
+│   ├── cols_epa_activos_16_29_trimestral.csv
+│   ├── cols_estat_nama_10_pc_filtered_en.csv
+│   ├── cols_gini.csv
+│   ├── cols_hechos_conocidos.csv
+│   ├── cols_hechos_esclarecidos.csv
+│   ├── cols_poblacion_espana.csv
+│   ├── cols_tasas_paro.csv
+│   ├── cols_umbral_pobreza.csv
+│   ├── log_io.csv
+│   ├── preview_arope.csv
+│   ├── preview_crecimiento_pib.csv
+│   ├── preview_detenciones_extranjeros_tipologia.csv
+│   ├── preview_detenciones_tipologia.csv
+│   ├── preview_epa_activos_16_29_trimestral.csv
+│   ├── preview_estat_nama_10_pc_filtered_en.csv
+│   ├── preview_gini.csv
+│   ├── preview_hechos_conocidos.csv
+│   ├── preview_hechos_esclarecidos.csv
+│   ├── preview_poblacion_espana.csv
+│   ├── preview_tasas_paro.csv
+│   ├── preview_umbral_pobreza.csv
+│   ├── raw_file_logs.csv
+│   ├── raw_numeric_parse_samples.csv
+│   ├── raw_sep_encoding.csv
+│   ├── read_problems.csv
+│   ├── resumen_raw.csv
+│   ├── uniques_arope.csv
+│   ├── uniques_crecimiento_pib.csv
+│   ├── uniques_detenciones_extranjeros_tipologia.csv
+│   ├── uniques_detenciones_tipologia.csv
+│   ├── uniques_epa_activos_16_29_trimestral.csv
+│   ├── uniques_estat_nama_10_pc_filtered_en.csv
+│   ├── uniques_gini.csv
+│   ├── uniques_hechos_conocidos.csv
+│   ├── uniques_hechos_esclarecidos.csv
+│   ├── uniques_poblacion_espana.csv
+│   ├── uniques_tasas_paro.csv
+│   └── uniques_umbral_pobreza.csv
+├── docs
+│   ├── apa.csl
+│   ├── apa_fallback.csl
+│   ├── bitacora.html
+│   ├── bitacora.md
+│   ├── index.html
+│   ├── informe_delitos_inmigracion_espana_2010_2023.html
+│   ├── informe_delitos_inmigracion_espana_2010_2023.Rmd
+│   ├── LOG.html
+│   ├── LOG.md
+│   ├── refs-datos.bib
+│   ├── refs-methods.bib
+│   ├── refs-packages.bib
+│   └── refs-theory.bib
+├── LICENSE
+├── LICENSE-DOCS-CC-BY-4.0.md
+├── output
+│   ├── debug
+│   ├── figures
+│   │   ├── 01_tendencias_base100.pdf
+│   │   ├── 01_tendencias_base100.png
+│   │   ├── 02_tasas_100k.pdf
+│   │   ├── 02_tasas_100k.png
+│   │   ├── 03_corr_deltas_sin_covid.png
+│   │   ├── 03_corr_deltas_total.png
+│   │   ├── 03_corr_niveles_sin_covid.png
+│   │   ├── 03_corr_niveles_total.png
+│   │   ├── 03_corr_parciales_deltas.png
+│   │   ├── 03_corr_parciales_niveles.png
+│   │   ├── 14_coherence_deltas_share.png
+│   │   ├── 18_stationarity_heatmap.png
+│   │   ├── 18_stationarity_heatmap.svg
+│   │   ├── 18_stationarity_heatmap_a10.png
+│   │   ├── 18_stationarity_heatmap_a10.svg
+│   │   ├── 20_del_d_share_extranjeros_vs_d_pct_extranjeros_all.png
+│   │   ├── 20_del_d_share_extranjeros_vs_d_pct_extranjeros_all_residuals.png
+│   │   ├── 20_del_d_share_extranjeros_vs_d_pct_extranjeros_sin_covid.png
+│   │   ├── 20_del_d_share_extranjeros_vs_d_pct_extranjeros_sin_covid_residuals.png
+│   │   ├── 20_del_d_tasa_hc_100k_vs_d_pct_extranjeros_all.png
+│   │   ├── 20_del_d_tasa_hc_100k_vs_d_pct_extranjeros_all_residuals.png
+│   │   ├── 20_del_d_tasa_hc_100k_vs_d_pct_extranjeros_sin_covid.png
+│   │   ├── 20_del_d_tasa_hc_100k_vs_d_pct_extranjeros_sin_covid_residuals.png
+│   │   ├── 20_del_d_tasa_he_100k_vs_d_pct_extranjeros_all.png
+│   │   ├── 20_del_d_tasa_he_100k_vs_d_pct_extranjeros_all_residuals.png
+│   │   ├── 20_del_d_tasa_he_100k_vs_d_pct_extranjeros_sin_covid.png
+│   │   ├── 20_del_d_tasa_he_100k_vs_d_pct_extranjeros_sin_covid_residuals.png
+│   │   ├── 20_niv_share_extranjeros_vs_pct_extranjeros_all.png
+│   │   ├── 20_niv_share_extranjeros_vs_pct_extranjeros_all_residuals.png
+│   │   ├── 20_niv_share_extranjeros_vs_pct_extranjeros_sin_covid.png
+│   │   ├── 20_niv_share_extranjeros_vs_pct_extranjeros_sin_covid_residuals.png
+│   │   ├── 20_niv_tasa_hc_100k_vs_pct_extranjeros_all.png
+│   │   ├── 20_niv_tasa_hc_100k_vs_pct_extranjeros_all_residuals.png
+│   │   ├── 20_niv_tasa_hc_100k_vs_pct_extranjeros_sin_covid.png
+│   │   ├── 20_niv_tasa_hc_100k_vs_pct_extranjeros_sin_covid_residuals.png
+│   │   ├── 20_niv_tasa_he_100k_vs_pct_extranjeros_all.png
+│   │   ├── 20_niv_tasa_he_100k_vs_pct_extranjeros_all_residuals.png
+│   │   ├── 20_niv_tasa_he_100k_vs_pct_extranjeros_sin_covid.png
+│   │   ├── 20_niv_tasa_he_100k_vs_pct_extranjeros_sin_covid_residuals.png
+│   │   ├── 32_dispersion_delta.png
+│   │   ├── 32_dispersion_delta_nocovid.png
+│   │   ├── 32_dispersion_pct.png
+│   │   ├── 32_dispersion_pct_nocovid.png
+│   │   ├── 32_series_pct.png
+│   │   ├── 32_series_pct_nocovid.png
+│   │   ├── granger_combo.png
+│   │   ├── granger_delta.pdf
+│   │   ├── granger_delta.png
+│   │   ├── granger_delta.svg
+│   │   ├── granger_toda.pdf
+│   │   ├── granger_toda.png
+│   │   └── granger_toda.svg
+│   ├── logs
+│   │   └── 19_check_tasas.txt
+│   ├── models
+│   ├── release
+│   │   ├── checksums_sha256.csv
+│   │   ├── figs_all.zip
+│   │   ├── figs_contact_sheet.pdf
+│   │   └── figs_merged.pdf
+│   ├── reports
+│   ├── repro
+│   │   ├── 24e_granger_bivar_markdown.html
+│   │   ├── 24e_granger_bivar_markdown.Rmd
+│   │   ├── 24f_make_irfs.R
+│   │   ├── packages.csv
+│   │   ├── sessionInfo.txt
+│   │   └── sysinfo.txt
+│   └── tables
+│       ├── 02_dicc_conflictos.csv
+│       ├── 02_dicc_nuevos_pendientes.csv
+│       ├── 02_dicc_resumen.csv
+│       ├── 02_whitelist_sugerencias.csv
+│       ├── 10_arope_comp_duplicados.csv
+│       ├── 10_arope_comp_resumen.csv
+│       ├── 10_arope_total_anos_faltantes.csv
+│       ├── 10_arope_total_fuera_rango_componentes.csv
+│       ├── 10_arope_total_resumen.csv
+│       ├── 12b_meta_origen.csv
+│       ├── 12b_qc_cobertura_trimestral.csv
+│       ├── 12b_qc_desviacion_cierre.csv
+│       ├── 12b_qc_sin_valores.csv
+│       ├── 12c_qc_resumen.csv
+│       ├── 12d_units_fix_plan.csv
+│       ├── 13b_catalogo_tipologias_variantes.csv
+│       ├── 13b_top_tipologias_2010_2023.csv
+│       ├── 13_qc_cobertura_anual.csv
+│       ├── 13_qc_core_indicadores_flags.csv
+│       ├── 13_qc_core_indicadores_hash.csv
+│       ├── 13_qc_core_indicadores_resumen.csv
+│       ├── 13_qc_duplicados_clave.csv
+│       ├── 13_qc_nacional_vs_suma_ccaa.csv
+│       ├── 13_qc_no_negatividad.csv
+│       ├── 13_qc_summary_checks.csv
+│       ├── 13_qc_total_vs_suma_categorias.csv
+│       ├── 13_qc_unidades_detectadas.csv
+│       ├── 13_violentos5_series_anual_ancho.csv
+│       ├── 13_violentos5_series_anual_largo.csv
+│       ├── 14a_ccaa_duplicados_mapping.csv
+│       ├── 14a_ccaa_no_mapeadas.csv
+│       ├── 14a_cols_hc.csv
+│       ├── 14a_cols_he.csv
+│       ├── 14a_mapping_summary.csv
+│       ├── 14a_tipologias_duplicados_mapping.csv
+│       ├── 14a_tipologias_no_mapeadas.csv
+│       ├── 14c_whitelist_diff.csv
+│       ├── 14_coherence_anomalies.csv
+│       ├── 14_coherence_summary.csv
+│       ├── 14_det_qc_anomalias_yoy.csv
+│       ├── 14_det_qc_anomalias_yoy_raw.csv
+│       ├── 14_det_qc_cobertura.csv
+│       ├── 14_det_qc_fuentes_comparativa.csv
+│       ├── 14_det_qc_resumen.csv
+│       ├── 14_det_qc_share.csv
+│       ├── 14_he_bad_mapping_rows.csv
+│       ├── 14_he_coverage_years.csv
+│       ├── 14_he_cov_years.csv
+│       ├── 14_he_dups_keys.csv
+│       ├── 14_he_nacional_vs_sum_ccaa.csv
+│       ├── 14_he_qa_summary.csv
+│       ├── 14_he_regiones_especiales_counts.csv
+│       ├── 14_he_summary_checks.csv
+│       ├── 14_he_total_vs_suma_categorias.csv
+│       ├── 14_he_unit_detection.csv
+│       ├── 14_he_vs_hc_fullcheck.csv
+│       ├── 14_he_vs_hc_violaciones.csv
+│       ├── 16_det_ext_cobertura.csv
+│       ├── 16_det_ext_cobertura_por_tipo.csv
+│       ├── 16_det_ext_consistencia.csv
+│       ├── 16_det_ext_diag_sexo_vs_total.csv
+│       ├── 16_det_ext_plaus_yoy.csv
+│       ├── 16_det_ext_sexo_total_vs_suma.csv
+│       ├── 16_det_ext_share_qc.csv
+│       ├── 16_det_ext_vs_suma.csv
+│       ├── 17_pib_qa_cobertura.csv
+│       ├── 17_pib_qa_filtros.csv
+│       ├── 17_pib_qa_unidades_dispon.csv
+│       ├── 18_columns_core.csv
+│       ├── 18_gini_qa_cobertura.csv
+│       ├── 18_gini_qa_cols.csv
+│       ├── 18_gini_qa_rango.csv
+│       ├── 18_stationarity.csv
+│       ├── 18_stationarity_summary.csv
+│       ├── 18_stationarity_summary_table.csv
+│       ├── 18_stationarity_summary_table_a10.csv
+│       ├── 19_ardl_preflight.csv
+│       ├── 19_correlations_pearson.csv
+│       ├── 19_correlations_spearman.csv
+│       ├── 19_det_share_summary.csv
+│       ├── 19_qa_cobertura.csv
+│       ├── 19_qa_na_y_rangos.csv
+│       ├── 19_qc_core_indicadores_flags.csv
+│       ├── 19_qc_core_indicadores_hash.csv
+│       ├── 19_qc_core_indicadores_resumen.csv
+│       ├── 19_qc_na_counts.csv
+│       ├── 19_qc_summary_stats.csv
+│       ├── 19_stationarity_adf.csv
+│       ├── 20a_core_columnas.csv
+│       ├── 20a_cov_core.csv
+│       ├── 20a_cov_der.csv
+│       ├── 20a_der_columnas.csv
+│       ├── 20a_identidades_detalle.csv
+│       ├── 20a_summary.json
+│       ├── 20a_summary.md
+│       ├── 20b_dup_anos_core.csv
+│       ├── 20b_qc_core_vars.csv
+│       ├── 20b_qc_der_vars.csv
+│       ├── 20_corr_deltas_all.csv
+│       ├── 20_corr_deltas_sin_covid.csv
+│       ├── 20_corr_niveles_all.csv
+│       ├── 20_corr_niveles_incl_covid.csv
+│       ├── 20_corr_niveles_sin_covid.csv
+│       ├── 20_io_exists.csv
+│       ├── 20_io_summary.csv
+│       ├── 20_io_violations.csv
+│       ├── 20_pb_summary.md
+│       ├── 20_pcor_deltas_all.csv
+│       ├── 20_pcor_deltas_sin_covid.csv
+│       ├── 20_pcor_niveles_all.csv
+│       ├── 20_pcor_niveles_sin_covid.csv
+│       ├── 20_preview_core.csv
+│       ├── 20_preview_der.csv
+│       ├── 20_preview_ext.csv
+│       ├── 20_preview_px.csv
+│       ├── 20_preview_tot.csv
+│       ├── 20_qc_inputs_overview.csv
+│       ├── 20_qc_n_figures.txt
+│       ├── 20_qc_outputs_overview.csv
+│       ├── 20_schema_core.csv
+│       ├── 20_schema_der.csv
+│       ├── 20_schema_ext.csv
+│       ├── 20_schema_px.csv
+│       ├── 20_schema_tot.csv
+│       ├── 22_qc_tasas.csv
+│       ├── 24_granger_diag.csv
+│       ├── 24_granger_results.csv
+│       ├── 24_granger_resumen_FDR.csv
+│       ├── 31_top5_violentos_vs_extranjeros.csv
+│       ├── 32_catalogo_tipos.csv
+│       ├── 32_correlaciones.csv
+│       ├── 32_correlaciones_delta.csv
+│       ├── 32_correlaciones_delta_nocovid.csv
+│       ├── 32_correlaciones_nocovid.csv
+│       ├── 32_missing_suggestions.csv
+│       ├── 32_violentos_fijos.csv
+│       ├── 32_violentos_fijos_nocovid.csv
+│       ├── 32_violentos_vs_extranjeros.csv
+│       ├── 55_toda_diag.csv
+│       ├── 55_toda_results.csv
+│       ├── 55_toda_resumen_FDR.csv
+│       ├── 99_diag_he_mayor_hc_fuera_whitelist.csv
+│       ├── 99_qc_master_resumen.csv
+│       ├── corr_deltas.csv
+│       ├── corr_fdr.csv
+│       ├── corr_niveles.csv
+│       ├── corr_parciales.csv
+│       ├── cov_poblacion_15_29.csv
+│       ├── cov_poblacion_15_29_criticos.csv
+│       ├── cov_poblacion_16_29_aprox.csv
+│       ├── cov_poblacion_column_profile.csv
+│       ├── cov_poblacion_uniques_sample.csv
+│       ├── detenciones_tabla_long.csv
+│       ├── detenciones_tabla_wide.csv
+│       ├── detenciones_violentos_top5_check.csv
+│       ├── detenciones_violentos_top5_like13.csv
+│       ├── detenciones_violentos_top5_pct_ext.csv
+│       ├── inspect_cols_epa_activos_16_29_trimestral.csv
+│       ├── inspect_cols_hechos_conocidos.csv
+│       ├── inspect_cols_hechos_conocidos_total_nacional_HCref.csv
+│       ├── inspect_cols_hechos_esclarecidos.csv
+│       ├── inspect_cols_hechos_esclarecidos_HE.csv
+│       ├── inspect_cols_map_regiones_maps.csv
+│       ├── inspect_cols_map_tipologias_maps.csv
+│       ├── inspect_cols_qa_excepciones_he_vs_hc_whitelist.csv
+│       ├── inspect_cols_tasas_paro.csv
+│       ├── inspect_domain_comunidades_autonomas_hechos_conocidos.csv
+│       ├── inspect_domain_comunidades_autonomas_hechos_esclarecidos.csv
+│       ├── inspect_domain_tipologia_penal_hechos_conocidos.csv
+│       ├── inspect_domain_tipologia_penal_hechos_esclarecidos.csv
+│       ├── inspect_profile_epa_activos_16_29_trimestral.csv
+│       ├── inspect_profile_hechos_conocidos.csv
+│       ├── inspect_profile_hechos_conocidos_total_nacional_HCref.csv
+│       ├── inspect_profile_hechos_esclarecidos.csv
+│       ├── inspect_profile_hechos_esclarecidos_HE.csv
+│       ├── inspect_profile_map_regiones_maps.csv
+│       ├── inspect_profile_map_tipologias_maps.csv
+│       ├── inspect_profile_qa_excepciones_he_vs_hc_whitelist.csv
+│       ├── inspect_profile_tasas_paro.csv
+│       ├── inspect_uniques_epa_activos_16_29_trimestral.csv
+│       ├── inspect_uniques_hechos_conocidos.csv
+│       ├── inspect_uniques_hechos_conocidos_total_nacional_HCref.csv
+│       ├── inspect_uniques_hechos_esclarecidos.csv
+│       ├── inspect_uniques_hechos_esclarecidos_HE.csv
+│       ├── inspect_uniques_map_regiones_maps.csv
+│       ├── inspect_uniques_map_tipologias_maps.csv
+│       ├── inspect_uniques_qa_excepciones_he_vs_hc_whitelist.csv
+│       ├── inspect_uniques_tasas_paro.csv
+│       ├── map_regiones_pendientes_rellenar.csv
+│       ├── qa_audit_folder_reads.csv
+│       ├── qa_audit_folder_reads_v2.csv
+│       ├── qa_coherencia_he_mayor_que_hc.csv
+│       ├── qa_controls_merge.csv
+│       ├── qa_core_indicadores.csv
+│       ├── qa_core_pib.csv
+│       ├── qa_det_tot_cobertura.csv
+│       ├── qa_det_tot_cobertura_por_tipo.csv
+│       ├── qa_det_tot_exclusion_regiones.csv
+│       ├── qa_det_tot_plaus_yoy.csv
+│       ├── qa_hc13b_origen.csv
+│       ├── qa_hc_cobertura.csv
+│       ├── qa_hc_cobertura_por_tipo.csv
+│       ├── qa_hc_origen_total_infracciones.csv
+│       ├── qa_he_cobertura.csv
+│       ├── qa_he_cobertura_por_tipo.csv
+│       ├── qa_he_vs_hc_diagnostico.csv
+│       ├── qa_map_regiones_duplicados.csv
+│       ├── qa_map_regiones_fuera_catalogo.csv
+│       ├── qa_map_regiones_fuera_catalogo_detalle.csv
+│       ├── qa_map_regiones_fuera_catalogo_en_map_final.csv
+│       ├── qa_map_regiones_variantes_por_ccaa.csv
+│       ├── qa_map_tipologias_duplicados.csv
+│       ├── qa_parse_tokens_3_ejemplos.csv
+│       ├── qa_parse_tokens_muestras.csv
+│       ├── qa_parse_tokens_por_archivo_columna.csv
+│       ├── qa_parse_tokens_top.csv
+│       ├── qa_raw_anos_fuera_2010_2023.csv
+│       ├── qa_sugerencia_whitelist.csv
+│       ├── qa_summary_checks.csv
+│       ├── qa_summary_checks_map_regiones.csv
+│       ├── qc_epa_activos_cobertura.csv
+│       ├── qc_epa_periodo_edad_sexo_unique_sample.csv
+│       ├── qc_paro_15_29_anos_faltantes.csv
+│       ├── qc_paro_bins_cobertura.csv
+│       ├── qc_paro_cobertura_anual_15_29.csv
+│       ├── qc_paro_join_matrix.csv
+│       ├── qc_paro_log.txt
+│       ├── qc_paro_parse_periodo_samples.csv
+│       ├── qc_paro_pesos_adj.csv
+│       ├── qc_paro_rates_year.csv
+│       ├── reproduccion_orden_flat.txt
+│       ├── SCHEMA_deltas_all.csv
+│       ├── SCHEMA_deltas_sin_covid.csv
+│       ├── SCHEMA_niveles_all.csv
+│       ├── SCHEMA_niveles_sin_covid.csv
+│       ├── tokens_total_global.csv
+│       ├── tokens_total_universo_util.csv
+│       └── _smoke_utils.csv
+├── README.html
+├── README.md
+├── README_LICENSE_SECTION.md
+├── Rplots.pdf
+├── scripts
+│   ├── 00_paths_config.R
+│   ├── 00_theme_figuras.R
+│   ├── 00_utils_limpieza.R
+│   ├── 01_validacion_raw.R
+│   ├── 02_config_diccionarios_y_excepciones.R
+│   ├── 03_qa_global_integridad.R
+│   ├── 10_limpieza_arope.R
+│   ├── 11_build_paro_16_29.R
+│   ├── 12_build_poblacion.R
+│   ├── 13_build_hechos_conocidos.R
+│   ├── 13_qc_core_indicadores.R
+│   ├── 14a_check_mapping_coverage.R
+│   ├── 14_build_hechos_esclarecidos.R
+│   ├── 15_limpieza_detenciones_totales.R
+│   ├── 16_limpieza_detenciones_extranjeros.R
+│   ├── 16_qc_console.R
+│   ├── 17_controls_merge.R
+│   ├── 17_pib_pc_real_eurostat.R
+│   ├── 18b_check_tasas.R
+│   ├── 18_gini_opcional.R
+│   ├── 18_merge_core_pib.R
+│   ├── 18_stationarity_checks.R
+│   ├── 19_qc_core_indicadores.R
+│   ├── 19_transformaciones.R
+│   ├── 20a_audit_core_y_derivadas.R
+│   ├── 20b_sync_core_from_inventory.R
+│   ├── 20_io_guard.R
+│   ├── 20_preguntas_basicas.R
+│   ├── 21_correlaciones_niveles_y_deltas.R
+│   ├── 22_figuras_tendencias_y_tasas.R
+│   ├── 23_figuras_correlaciones.R
+│   ├── 24_55_export_resumen.R
+│   ├── 24_var_granger_bivar.R
+│   ├── 26a_plot_granger_delta.R
+│   ├── 26b_plot_granger_toda.R
+│   ├── 26_plot_granger_graph.R
+│   ├── 31_top5_violentos_vs_extranjeros.R
+│   ├── 32_compare_violentos_core.R
+│   ├── 33_he_nacionalidad.R
+│   ├── 55_toda_yamamoto_tests.R
+│   ├── 70_export_figs.R
+│   └── utils
+│       ├── 00_paths_config.R
+│       ├── 00_theme_figuras.R
+│       ├── 00_utils_limpieza.R
+│       ├── 01_validacion_raw.R
+│       ├── 02_config_diccionarios_y_excepciones.R
+│       ├── 03_qa_global_integridad.R
+│       ├── 10_limpieza_arope.R
+│       ├── 11_build_paro_16_29.R
+│       ├── 12_build_poblacion.R
+│       ├── 13_build_hechos_conocidos.R
+│       ├── 13_qc_core_indicadores.R
+│       ├── 14a_check_mapping_coverage.R
+│       ├── 14_build_hechos_esclarecidos.R
+│       ├── 15_limpieza_detenciones_totales.R
+│       ├── 16_limpieza_detenciones_extranjeros.R
+│       ├── 17_controls_merge.R
+│       ├── 17_pib_pc_real_eurostat.R
+│       ├── 18b_check_tasas.R
+│       ├── 18_gini_opcional.R
+│       ├── 18_merge_core_pib.R
+│       ├── 18_stationarity_checks.R
+│       ├── 19_transformaciones.R
+│       ├── 20a_audit_core_y_derivadas.R
+│       ├── 20b_sync_core_from_inventory.R
+│       ├── 20_io_guard.R
+│       └── 20_preguntas_basicas.R
+└── test_plot.png

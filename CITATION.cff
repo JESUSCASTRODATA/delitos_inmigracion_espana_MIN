@@ -1,25 +1,19 @@
+
 cff-version: 1.2.0
-message: Si usas este repositorio, por favor cítalo.
+message: "If you use this project, please cite it as below."
 title: "Delitos e Inmigración en España (2010–2023)"
+version: "dev"
+date-released: "2025-09-28"
 authors:
   - family-names: "Castro"
     given-names: "Jesús"
-    name-particle: ""
-    orcid: ""
-    affiliation: ""
-    website: ""
-date-released: 2025-09-08
+repository-code: "https://github.com/JESUSCASTRODATA/crime-migration-spain"
 license: "MIT"
-keywords:
-  - R
-  - reproducibility
-  - data-analysis
-  - Spain
-  - crime
-  - immigration
 preferred-citation:
-  type: report
-  authors:
-    - name: "Jesús Castro · JESUSCASTRODATA"
+  type: software
   title: "Delitos e Inmigración en España (2010–2023)"
+  authors:
+    - family-names: "Castro"
+      given-names: "Jesús"
   year: 2025
+  notes: "Docs & figures: CC BY 4.0"

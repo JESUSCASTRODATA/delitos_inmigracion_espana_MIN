@@ -1,0 +1,7 @@
+window,mode,n_series,pct_stationary,pct_level,pct_trend,pct_break
+2010_2019_pre,diff,6,100,0,100,0
+2010_2019_pre,level,6,100,0,100,0
+con_covid_2010_2023,diff,6,100,0,100,0
+con_covid_2010_2023,level,6,100,33.33333333333333,66.66666666666666,0
+sin_covid_2010_2023,diff,6,100,0,100,0
+sin_covid_2010_2023,level,6,100,33.33333333333333,66.66666666666666,0

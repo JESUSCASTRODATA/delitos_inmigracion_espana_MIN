@@ -1,0 +1,7 @@
+pair,n,lag_p,badge,portmanteau_p,dir,p_disp,p_fdr_disp
+d_share_ext ~ d_pct_extran,13,2,estable ✅,0.278153258385079,v1→v2,0.0115*,0.01725*
+d_share_ext ~ d_pct_extran,13,2,estable ✅,0.278153258385079,v2→v1,0.0001454***,0.0008725***
+d_tasa_hc_100k ~ d_pct_extran,13,2,estable ✅,0.23905287497544303,v1→v2,0.0697†,0.08365†
+d_tasa_hc_100k ~ d_pct_extran,13,2,estable ✅,0.23905287497544303,v2→v1,0.00947**,0.01725*
+d_tasa_he_100k ~ d_pct_extran,13,2,estable ✅,0.12423399506540234,v1→v2,0.2805,0.2805
+d_tasa_he_100k ~ d_pct_extran,13,2,estable ✅,0.12423399506540234,v2→v1,0.001513**,0.004538**

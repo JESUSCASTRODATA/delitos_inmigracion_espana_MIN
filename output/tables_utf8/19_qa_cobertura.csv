@@ -1,0 +1,12 @@
+variable,n_obs,years_min,years_max,n_years,n_expected
+poblacion_total,14,2010,2023,14,14
+pct_extranjeros,14,2010,2023,14,14
+hc_total,14,2010,2023,14,14
+he_total,14,2010,2023,14,14
+det_tot,14,2010,2023,14,14
+det_ext,14,2010,2023,14,14
+share_extranjeros,14,2010,2023,14,14
+tasa_hc_100k,14,2010,2023,14,14
+tasa_he_100k,14,2010,2023,14,14
+arope,14,2010,2023,14,14
+paro_joven,14,2010,2023,14,14

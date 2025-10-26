@@ -1,8 +1,17 @@
 ---
-title: "informe_delitos_inmigracion_espana_2010_2023"
+title: "Informe Final — Delitos e Inmigración en España (2010–2023)"
 author: "Jesús Castro · JESUSCASTRODATA"
-date: "`r format(Sys.Date())`"
+date: "`r format(Sys.Date(), '%Y-%m-%d')`"
 lang: es
+
+# Parámetros
+params:
+  exclude_covid: true        # cuerpo principal sin 2020–2021
+  years_all: "2010–2023"
+  fig_dir: "output/figures"  # carpeta de figuras
+  table_dir: "output/tables" # carpeta de tablas
+
+# Salidas (sin dependencias extra)
 output:
   html_document:
     toc: true
@@ -11,6 +20,8 @@ output:
       collapsed: true
       smooth_scroll: true
     number_sections: true
+    fig_caption: true
+    code_folding: "hide"
     df_print: paged
     self_contained: true
     theme:
@@ -21,350 +32,265 @@ output:
   pdf_document:
     toc: true
     number_sections: true
+    fig_caption: true
     latex_engine: xelatex
-bibliography:
-  - refs-datos.bib
-  - refs-methods.bib
-  - refs-packages.bib
-link-citations: true
-csl: apa.csl
+
+# Si más adelante quieres citas/APA, descomenta y añade los ficheros:
+# bibliography:
+#   - docs/refs-datos.bib
+#   - docs/refs-metodos.bib
+#   - docs/refs-paquetes.bib
+# csl: docs/apa.csl
 ---
 
+
 ```{r setup, include=FALSE}
-knitr::opts_chunk$set(
-  echo = FALSE, warning = FALSE, message = FALSE,
-  fig.align = "center", out.width = "90%"
-)
+knitr::opts_chunk$set(message = FALSE, warning = FALSE, fig.align = "center")
 
 suppressPackageStartupMessages({
-  library(here); library(readr); library(dplyr); library(ggplot2)
-  library(knitr); library(gt); library(scales); library(tibble); library(tidyr)
+  library(here); library(readr); library(dplyr); library(tidyr); library(janitor)
+  library(ggplot2); library(gt); library(scales); library(stringr); library(purrr)
+  library(broom); library(withr)
+  library(ggrepel)
 })
 
-# 1) Ancla del proyecto y raíz del knit
-try({ here::i_am("docs/informe_delitos_inmigracion_espana_2010_2023.Rmd") }, silent = TRUE)
-knitr::opts_knit$set(root.dir = here::here("docs"))
-
-# 2) Helpers de rutas (robustos)
-.abs_here <- function(...) normalizePath(here::here(...), winslash = "/", mustWork = FALSE)
-
-# - Para incluir figuras: si falta, muestra aviso (no rompe el knit)
-inc_fig <- function(rel) {
-  p <- .abs_here(rel)
-  if (file.exists(p)) {
-    knitr::include_graphics(p)
-  } else {
-    cat(sprintf("<div class='callout warn'><strong>Falta figura</strong>: %s</div>", rel))
-  }
-}
-
-# - Para leer CSV: si falta, devuelve tibble informativa (no rompe)
-read_if <- function(rel) {
-  p <- .abs_here(rel)
-  if (file.exists(p)) readr::read_csv(p, show_col_types = FALSE)
-  else tibble::tibble(`Archivo no encontrado` = rel)
-}
-
-# 3) Helpers de formato
-`%||%` <- function(x, y) if (is.null(x) || is.na(x) || identical(x, "")) y else x
-fmt_es <- function(tbl) tbl %>% gt::fmt_number(columns = where(is.numeric),
-                                              decimals = 3, sep_mark = ".", dec_mark = ",")
-tbl_pretty <- function(df, title = NULL, subtitle = NULL, note = NULL) {
-  df %>% gt::gt() %>% fmt_es() %>% gt::opt_row_striping() %>%
-    gt::tab_header(title = md(title %||% ""), subtitle = md(subtitle %||% "")) %>%
-    gt::tab_source_note(md(note %||% ""))
-}
-label_pct_es  <- scales::label_percent(accuracy = 0.1, decimal.mark = ",")
-label_num_es  <- scales::label_number(big.mark = ".", decimal.mark = ",")
-```
-
-```{r style, results='asis', echo=FALSE}
-cat("\n<style>\n:root{--bg:#FAF9F6;--ink:#1F2937;--muted:#6B7280;--brand:#0B6E99;--warn:#D97706;--ok:#059669;}\nbody{ background:var(--bg); color:var(--ink);} \n.main-container{ max-width: 1100px; }\nh1,h2,h3{ letter-spacing:.2px; margin-top:1.4rem; margin-bottom:.6rem;}\np, .small{ line-height:1.7;}\n.figure img{ border-radius: 10px; box-shadow: 0 2px 14px rgba(0,0,0,.08);} \ntable{ background:#fff;}\n.badges{ display:flex; gap:.5rem; flex-wrap:wrap; margin:.4rem 0 1rem;}\n.badge{ background:#fff; border:1px solid #e5e7eb; border-radius:999px; padding:.25rem .6rem; font-size:.85rem; color:var(--muted);} \n.callout{border-left:4px solid var(--brand); padding:.75rem 1rem; background:#FAF9F6A6; border-radius:.25rem; margin:1.1rem 0;}\n.callout.ok{border-left-color:var(--ok);} \n.callout.warn{border-left-color:var(--warn);} \n.kpis{ display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:12px;}\n.kpi{ background:#fff; border:1px solid #e5e7eb; border-radius:14px; padding:12px 14px;}\n.kpi .label{ color:var(--muted); font-size:.85rem;}\n.kpi .value{ font-weight:700; font-size:1.25rem;}\na{ color:#0B6E99; text-decoration:none;} a:hover{ text-decoration:underline;}\n</style>\n")
-```
-
-```{r preflight, echo=FALSE, results='asis'}
-checks <- c(
-  # Tendencias / correlaciones
-  "output/figures/22_series_base100.png",
-  "output/figures/22_trend_macro_base100_2010_2023.png",
-  "output/figures/22_trend_det_rates_2010_2023.png",
-  "output/figures/22_trend_share_pct_2010_2023.png",
-  "output/figures/22_cor_2010_2019_pre_grid.png",
-  "output/figures/22_cor_2020_2023_post_grid.png",
-  "output/figures/22_cor_2010_2023_grid.png",
-  # Dispersión con/sin COVID
-  "output/figures/28_scatter_with_covid.png",
-  "output/figures/23_02_base100_no_covid.png",
-  # Dinámica
-  "output/figures/24_irf_2010_2023_d_l_det_ext_rate_covid0.png",
-  "output/figures/29_coefplot_dlog.png",
-  "output/figures/29_ecm_alpha.png",
-  # NUEVO: Heatmaps correlaciones
-  "output/figures/correlaciones_heatmap_niveles.png",
-  "output/figures/correlaciones_heatmap_dlog.png",
-  # Tablas
-  "output/tables/22_cor_totales_stats.csv",
-  "output/tables/19_stationarity_adf.csv",
-  "output/tables/19_qc_summary_stats.csv",
-  "output/tables/24_var_granger_resultados.csv",
-  "output/tables/24_var_granger_resultados_fdr.csv",
-  "output/tables/25_ardl_bounds_results.csv",
-  "output/tables/25_ardl_summary.csv",
-  # NUEVO: matrices correlación
-  "output/tables/_debug_cor_hc_pop_prepost.csv",
-  "output/tables/correlaciones_matrix_niveles.csv",
-  "output/tables/correlaciones_matrix_dlog.csv"
+# --- Fallback seguro de parámetros (por si alguien knit sin 'params') ---
+if (!exists("params")) params <- list(
+  exclude_covid = TRUE,
+  years_all = "2010–2023",
+  fig_dir = "output/figures",
+  table_dir = "output/tables"
 )
-res <- tibble::tibble(archivo = checks, existe = file.exists(.abs_here(checks)))
-ok <- sum(res$existe); total <- nrow(res)
 
-cat('<details><summary><strong>Chequeo de rutas</strong> — ', ok, ' / ', total, ' existentes</summary>')
-print(knitr::kable(res, align = "lc"))
-cat('</details>')
-```
+# ====================== Utilidades y estilo ==============================
+try({ here::i_am("docs/Informe_Final_TFG_2010_2023.Rmd") }, silent = TRUE)
+root_abs <- normalizePath(here::here("."), winslash = "/", mustWork = FALSE)
 
-# Resumen ejecutivo
+path_abs <- function(...) normalizePath(here::here(...), winslash = "/", mustWork = FALSE)
+file_exists <- function(...) file.exists(here::here(...))
 
-<div class="badges">
-  <span class="badge">2010–2023</span>
-  <span class="badge">Total Nacional</span>
-  <span class="badge">Tasas por 100.000</span>
-  <span class="badge">Δlog · VAR/Granger · ARDL</span>
-</div>
+# Tema "pearl" + paleta Okabe–Ito si existe 00_theme_figuras.R
+if (file_exists("scripts", "00_theme_figuras.R")) {
+  source(here::here("scripts", "00_theme_figuras.R"))
+  if (exists("theme_pearl_lightgrid")) theme_set(theme_pearl_lightgrid())
+}
 
-<div class="kpis">
-  <div class="kpi"><div class="label">Tendencia criminalidad por habitante</div><div class="value">Contenido/estable</div></div>
-  <div class="kpi"><div class="label">Correlación post-2020 (movilidad)</div><div class="value">Alta/coyuntural</div></div>
-  <div class="kpi"><div class="label">Causalidad inmigración → criminalidad (largo plazo)</div><div class="value">No evidenciada</div></div>
-</div>
+okabe_ito <- c("#E69F00","#56B4E9","#009E73","#F0E442","#0072B2","#D55E00","#CC79A7","#999999")
+update_geom_defaults("line", list(linewidth = 0.8))
+update_geom_defaults("point", list(size = 2))
 
-**Resumen para público general**
-
-* En **niveles** (HC vs población extranjera base‑100), las **correlaciones son muy altas** incluso **sin COVID**.
-* En **Δlog** (tasas/crecimientos), varias asociaciones se mantienen **moderadas‑altas** **sin COVID**; los resultados **2021–2023** son **frágiles** por **n pequeño**.
-* Para **detenciones** vs **% de población extranjera**, la correlación es **similar** al **excluir 2020–2021**.
-* Los **tests de causalidad temporal (Granger)** **no** son **robustos** al **excluir COVID** (fallos de estabilidad), por lo que **no** se confirma una **relación causal estable** inmigración→criminalidad.
-* Recomendación: profundizar por **tipologías**, añadir **controles socioeconómicos** y realizar **análisis regional**.
-
-# Datos, cobertura y definiciones
-
-**Cobertura**: España (Total Nacional), 2010–2023, periodicidad anual.  
-**Fuentes**: INE (Padrón, AROPE, EPA), Ministerio del Interior (HC/HE/Detenciones), Eurostat (PIB pc encadenado).  
-**Definiciones**: “Extranjero” = nacionalidad no española. Regla QA: **HE ≤ HC**.
-
-```{r abreviaturas}
-abr <- tibble::tibble(
-  Abreviatura = c("HC","HE","det_tot","det_ext","AROPE","Δlog","ADF","VAR","Granger","ARDL","FDR"),
-  Significado = c(
-    "Hechos conocidos",
-    "Hechos esclarecidos (HE ≤ HC)",
-    "Detenciones totales",
-    "Detenciones de extranjeros",
-    "Riesgo de pobreza o exclusión",
-    "Diferencia del logaritmo",
-    "Test de raíz unitaria (Dickey-Fuller aumentado)",
-    "Vector AutoRegresivo",
-    "Causalidad de Granger",
-    "Autoregressive Distributed Lag (Bounds)",
-    "False Discovery Rate (corrección por comparaciones múltiples)"
-  )
+# =================== Carga robusta de datos procesados ====================
+# Preferimos core_indicadores_con_pib.csv
+paths_try <- list(
+  here::here("data","processed","core_indicadores_con_pib.csv"),
+  here::here("data","processed","core_indicadores.csv")
 )
-tbl_pretty(abr, title = "Abreviaturas")
+core <- NULL
+for (p in paths_try) if (file.exists(p)) { core <- readr::read_csv(p, show_col_types = FALSE); break }
+stopifnot(!is.null(core))
+core <- core %>% clean_names()
+
+# Columnas esperadas mínimas
+cols_min <- c("ano","tasa_hc_100k","tasa_he_100k","pct_extranjeros","share_extranjeros","hc_total","he_total","det_tot","det_ext")
+missing_min <- setdiff(cols_min, names(core))
+if (length(missing_min) > 0) {
+  warning("Faltan columnas mínimas en core: ", paste(missing_min, collapse=", "))
+}
+
+# Derivadas si no existen
+maybe_diff <- function(x) { if (!all(is.na(x))) c(NA_real_, diff(x)) else x }
+if (!"d_tasa_hc_100k" %in% names(core)) core <- core %>% arrange(ano) %>% mutate(d_tasa_hc_100k = maybe_diff(tasa_hc_100k))
+if (!"d_tasa_he_100k" %in% names(core)) core <- core %>% arrange(ano) %>% mutate(d_tasa_he_100k = maybe_diff(tasa_he_100k))
+if (!"d_pct_extran" %in% names(core))   core <- core %>% arrange(ano) %>% mutate(d_pct_extran    = maybe_diff(pct_extranjeros))
+if (!"d_share_ext" %in% names(core) && "share_extranjeros" %in% names(core)) core <- core %>% arrange(ano) %>% mutate(d_share_ext = maybe_diff(share_extranjeros))
+
+# Ventanas ALL vs NO-COVID
+core_all     <- core
+core_nocovid <- core %>% filter(!(ano %in% c(2020, 2021)))
+core_main    <- if (isTRUE(params$exclude_covid)) core_nocovid else core_all
+
+# Helpers para lectura opcional de tablas y figuras existentes (usando params)
+fig_dir   <- if (!is.null(params$fig_dir))   params$fig_dir   else "output/figures"
+table_dir <- if (!is.null(params$table_dir)) params$table_dir else "output/tables"
+p_tab <- function(fname) here::here(table_dir, fname)
+p_fig <- function(fname) here::here(fig_dir,  fname)
+
+# Cargar (si existen) resultados de Granger
+p_gr_res <- p_tab("24_granger_results.csv")
+p_gr_diag<- p_tab("24_granger_diag.csv")
+res_granger <- if (file.exists(p_gr_res)) readr::read_csv(p_gr_res, show_col_types = FALSE) %>% clean_names() else NULL
+diag_granger<- if (file.exists(p_gr_diag)) readr::read_csv(p_gr_diag, show_col_types = FALSE) %>% clean_names() else NULL
+
+# Util para estrellas
+stars <- function(p){ ifelse(is.na(p), "", ifelse(p<=0.001,"***", ifelse(p<=0.01,"**", ifelse(p<=0.05,"*", ifelse(p<=0.10,"†",""))))) }
+
 ```
 
-# Metodología (en breve)
+# Resumen Ejecutivo
 
-* **Pre-proceso**: estandarización (`ano`,`tipo`,`valor`,`dataset`), agregación CCAA→Total, cálculo de **tasas por 100k** y **transformaciones log/Δlog**.
-* **QA**: cobertura anual, duplicados, outliers (IQR), consistencia **HE ≤ HC**.
-* **Análisis**: descriptivo (tendencias/base-100), correlaciones (Pearson/Spearman/Kendall), **ADF**, dinámica temporal (**VAR/Granger**) y **ARDL Bounds** con **FDR**.
+**Cobertura:** `r params$years_all` (`r if (isTRUE(params$exclude_covid)) "principal excluyendo 2020–2021" else "incluye 2020–2021"`).
+**Datos base:** INE (población) y Ministerio del Interior (HC/HE/Detenciones). **Transformaciones:** tasas por 100.000 hab., variaciones anuales (Δ), y análisis de precedencia temporal (VAR/Granger) cuando hay resultados.
 
-<div class="callout"><strong>Nota técnica</strong> — Rezagos ≤2 (anual), chequeos de estabilidad (raíces VAR) y autocorrelación; ventanas 2010–2019, 2020–2021 (COVID), 2021–2023 (post) y <em>sin COVID</em>.</div>
+```{r resumen-ejecutivo}
+# Métricas sintéticas
+main <- core_main
+niv_corr <- cor(main %>% select(tasa_hc_100k, tasa_he_100k, pct_extranjeros, share_extranjeros) %>% na.omit(), method = "pearson")
 
-# Resultados
+gt_corr <- as.data.frame(round(niv_corr,3)) %>% tibble::rownames_to_column("Variable") %>% gt::gt() %>% gt::fmt_number(columns = -Variable, decimals = 3)
 
-## Tendencias y composición
-
-```{r tendencias_1, fig.cap="Tendencias clave 2010–2023", fig.alt="Series base-100 y tasas por 100.000"}
-inc_fig("output/figures/22_series_base100.png")
-```
-
-```{r tendencias_2}
-inc_fig("output/figures/22_trend_macro_base100_2010_2023.png")
-```
-
-```{r tendencias_3}
-inc_fig("output/figures/22_trend_det_rates_2010_2023.png")
-```
-
-```{r tendencias_4}
-inc_fig("output/figures/22_trend_share_pct_2010_2023.png")
-```
-
-<div class="callout">Los índices base-100 y tasas confirman fases de caída/recuperación. El porcentaje de población extranjera aumenta sin traducirse mecánicamente en mayor tasa de criminalidad.</div>
-
-<!-- Aviso de pares para clarificar correlaciones -->
-
-<div class="callout">
-<strong>Lectura de pares</strong> — Las cuadrículas de esta sección (22_cor_*) usan pares basados en <em>detenciones</em> (p. ej., det_tot vs % población extranjera).<br>
-Los heatmaps (correlaciones_heatmap_*) se basan en <em>Hechos Conocidos (HC) base-100</em> vs <em>Población extranjera base-100</em>. Ambos enfoques son complementarios.
-</div>
-
-## Correlaciones (pre/post y total)
-
-```{r correlaciones_grids, fig.cap="Correlaciones por ventanas (pre, post y total)", fig.alt="Cuadrículas para 2010–2019, 2020–2023 y 2010–2023"}
-inc_fig("output/figures/22_cor_2010_2019_pre_grid.png")
-inc_fig("output/figures/22_cor_2020_2023_post_grid.png")
-inc_fig("output/figures/22_cor_2010_2023_grid.png")
-```
-
-```{r correlaciones_tabla_resumen}
-read_if("output/tables/22_cor_totales_stats.csv") %>% head(12) %>%
-  tbl_pretty(title = "Correlaciones (muestra)",
-             note = "CSV completo: output/tables/22_cor_totales_stats.csv")
-```
-
-## Dispersión base-100 (con/sin COVID)
-
-```{r dispersion_covid, fig.show='hold', out.width='49%', fig.cap="Dispersión base-100 con y sin COVID", fig.alt="Dos dispersiones: con COVID (2020–2021) y sin esos años"}
-inc_fig("output/figures/28_scatter_with_covid.png")
-inc_fig("output/figures/23_02_base100_no_covid.png")
-```
-
-<div class="callout">Cambios de forma y pendiente entre paneles sugieren <strong>coyunturalidad</strong> del co-movimiento 2020–2021.</div>
-
-## NUEVO — Mapas de calor de correlaciones
-
-```{r heatmaps_corr, fig.cap="Mapas de calor de correlaciones (niveles y Δlog)", fig.alt="Heatmaps con Pearson, Spearman y Kendall por ventana"}
-inc_fig("output/figures/correlaciones_heatmap_niveles.png")
-inc_fig("output/figures/correlaciones_heatmap_dlog.png")
-```
-
-```{r correlaciones_hallazgos, echo=FALSE, results='asis'}
-# Hallazgos automáticos basados en tablas ya generadas
-path_dbg <- "output/tables/_debug_cor_hc_pop_prepost.csv"
-if (file.exists(.abs_here(path_dbg))) {
-  df <- read_if(path_dbg)
-  # Helpers
-  getv <- function(tipo, ventana, var) as.numeric(df[df$tipo==tipo & df$ventana==ventana, var][1])
-  getn <- function(tipo, ventana) as.integer(df[df$tipo==tipo & df$ventana==ventana, "n"][1])
-  fmt <- function(x) ifelse(is.na(x), "NA", sprintf("%.3f", x))
-  caut <- function(n) ifelse(is.na(n) || n >= 4, "", " (n<4, interpretar con cautela)")
-
-  # Niveles
-  L_pre_p  <- getv("niveles", "2010–2019 (pre)", "pearson")
-  L_pre_s  <- getv("niveles", "2010–2019 (pre)", "spearman")
-  L_pre_n  <- getn("niveles", "2010–2019 (pre)")
-  L_post_p <- getv("niveles", "2021–2023 (post)", "pearson")
-  L_post_s <- getv("niveles", "2021–2023 (post)", "spearman")
-  L_post_n <- getn("niveles", "2021–2023 (post)")
-  L_ncov_p <- getv("niveles", "sin COVID (2010–2019 & 2022–2023)", "pearson")
-  L_ncov_s <- getv("niveles", "sin COVID (2010–2019 & 2022–2023)", "spearman")
-  L_ncov_n <- getn("niveles", "sin COVID (2010–2019 & 2022–2023)")
-  L_cvd_p  <- getv("niveles", "2020–2021 (COVID)", "pearson")
-  L_cvd_s  <- getv("niveles", "2020–2021 (COVID)", "spearman")
-  L_cvd_n  <- getn("niveles", "2020–2021 (COVID)")
-
-  # Δlog
-  D_pre_p  <- getv("Δlog", "Δlog 2011–2019 (pre)", "pearson")
-  D_pre_s  <- getv("Δlog", "Δlog 2011–2019 (pre)", "spearman")
-  D_post_p <- getv("Δlog", "Δlog 2021–2023 (post)", "pearson")
-  D_post_s <- getv("Δlog", "Δlog 2021–2023 (post)", "spearman")
-  D_ncov_p <- getv("Δlog", "Δlog sin COVID", "pearson")
-  D_ncov_s <- getv("Δlog", "Δlog sin COVID", "spearman")
-
-  cat("<div class=\"callout\"><strong>Hallazgos de correlación basados en tablas</strong><ul>")
-  cat(sprintf("<li><em>Niveles 2010–2019 (pre)</em>: Pearson=%s; Spearman=%s (n=%d).</li>", fmt(L_pre_p), fmt(L_pre_s), L_pre_n))
-  cat(sprintf("<li><em>Niveles 2021–2023 (post)</em>: Pearson=%s; Spearman=%s (n=%d)%s.</li>", fmt(L_post_p), fmt(L_post_s), L_post_n, caut(L_post_n)))
-  cat(sprintf("<li><em>Niveles sin COVID</em>: Pearson=%s; Spearman=%s (n=%d).</li>", fmt(L_ncov_p), fmt(L_ncov_s), L_ncov_n))
-  cat(sprintf("<li><em>Niveles 2020–2021 (COVID)</em>: Pearson=%s; Spearman=%s (n=%d)%s.</li>", fmt(L_cvd_p), fmt(L_cvd_s), L_cvd_n, caut(L_cvd_n)))
-  cat(sprintf("<li><em>Δlog 2011–2019 (pre)</em>: Pearson=%s; Spearman=%s.</li>", fmt(D_pre_p), fmt(D_pre_s)))
-  cat(sprintf("<li><em>Δlog 2021–2023 (post)</em>: Pearson=%s; Spearman=%s.</li>", fmt(D_post_p), fmt(D_post_s)))
-  cat(sprintf("<li><em>Δlog sin COVID</em>: Pearson=%s; Spearman=%s.</li>", fmt(D_ncov_p), fmt(D_ncov_s)))
-  cat("</ul><em>Nota</em>: coeficientes con n<4 requieren cautela; las correlaciones en niveles pueden estar influidas por tendencias comunes. Para co-movimiento anual, consulte Δlog.</div>")
+del <- main %>% select(d_tasa_hc_100k, d_tasa_he_100k, d_pct_extran, d_share_ext) %>% na.omit()
+if (nrow(del) >= 3) {
+  del_corr <- cor(del, method = "pearson")
+  gt_corr_del <- as.data.frame(round(del_corr,3)) %>% tibble::rownames_to_column("Variable") %>% gt::gt() %>% gt::fmt_number(columns = -Variable, decimals = 3)
 } else {
-  cat("<div class=\"callout warn\"><strong>Nota</strong> — No encontré '", path_dbg, "'. Ejecute primero los scripts 23c y 28c.</div>")
+  gt_corr_del <- gt::gt(data.frame(Nota = "No hay suficientes observaciones Δ"))
+}
+
+gt_corr
+```
+
+```{r resumen-ejecutivo-deltas}
+gt_corr_del
+```
+
+> **Lectura rápida:** En **niveles**, observa la coevolución entre criminalidad agregada (HC/HE) y la composición demográfica (% de extranjeros). En **variaciones** (Δ), la asociación suele ser menor y sensible a la ventana temporal.
+
+# Datos y Metodología
+
+* **Ámbito:** España, TOTAL NACIONAL, años 2010–2023.
+* **Fuentes:** INE (población por nacionalidad), Ministerio del Interior (Hechos Conocidos, Hechos Esclarecidos, Detenciones totales y de extranjeros).
+* **Transformaciones:** tasas por 100.000 habitantes; Δ (diferencia año-a-año) en variables clave; exclusión opcional de 2020–2021 (COVID).
+* **Reglas QA clave:** cobertura contigua por año; identidades (HE ≤ HC); coherencia de tasas; % en [0,1] o [0,100] según convención.
+* **Limitaciones:** datos agregados; potenciales confusores; cambios metodológicos; sensibilidad a ventanas cortas post-COVID.
+
+# Resultados descriptivos
+
+## Tendencias y tasas
+
+```{r figuras-tendencias, fig.cap="Figuras núcleo (selección curada)"}
+main_figs <- c(
+  "01_tendencias_base100.png",
+  "02_tasas_100k.png",
+  "03_corr_niveles_sin_covid.png",
+  "03_corr_deltas_sin_covid.png",
+  "03_corr_parciales_niveles.png",
+  "03_corr_parciales_deltas.png",
+  "20_niv_share_extranjeros_vs_pct_extranjeros_sin_covid.png",
+  "20_niv_tasa_hc_100k_vs_pct_extranjeros_sin_covid.png",
+  "20_niv_tasa_he_100k_vs_pct_extranjeros_sin_covid.png",
+  "20_del_d_tasa_hc_100k_vs_d_pct_extranjeros_sin_covid.png",
+  "20_del_d_tasa_he_100k_vs_d_pct_extranjeros_sin_covid.png",
+  "20_del_d_share_extranjeros_vs_d_pct_extranjeros_sin_covid.png",
+  "32_series_pct_nocovid.png",
+  "32_dispersion_pct_nocovid.png",
+  "32_dispersion_delta_nocovid.png",
+  "granger_combo.png",
+  "granger_delta.png",
+  "18_stationarity_heatmap_a10.png"
+)
+
+# Mostrar y registrar cuáles se encuentran
+main_paths <- tibble::tibble(
+  file = main_figs,
+  path = vapply(main_figs, function(f) p_fig(f), character(1)),
+  exists = file.exists(vapply(main_figs, function(f) p_fig(f), character(1)))
+)
+print(main_paths)
+
+for (i in seq_len(nrow(main_paths))) {
+  if (main_paths$exists[i]) knitr::include_graphics(main_paths$path[i])
 }
 ```
 
-```{r heatmaps_nota, results='asis', echo=FALSE}
-cat('<p class="small"><strong>Nota</strong>: Las ventanas con n&lt;4 (†) son informativas pero no concluyentes; un Spearman≈1 con n=3 puede deberse a monotonía. Interprétese con cautela.</p>')
+## Correlaciones (niveles vs Δ)
+
+```{r figuras-correlaciones}
+# (Las correlaciones clave ya se incluyen en el bloque 'figuras-tendencias' como parte del núcleo.)
 ```
 
-## Estacionariedad y QA
+# Relación composición–composición
 
-```{r adf_qc}
-read_if("output/tables/19_stationarity_adf.csv") %>% head(15) %>%
-  tbl_pretty(title = "ADF — Test de estacionariedad (muestra)")
+Comparación entre **share de detenciones de extranjeros** y **% de extranjeros en población**.
 
-read_if("output/tables/19_qc_summary_stats.csv") %>%
-  tbl_pretty(title = "QA — Resumen de chequeos")
+```{r comp-comp, fig.height=4}
+if (all(c("share_extranjeros","pct_extranjeros") %in% names(core_main))) {
+  ggplot(core_main, aes(x = pct_extranjeros, y = share_extranjeros, label = ano)) +
+    geom_point() + geom_smooth(method = "lm", se = FALSE) +
+    ggrepel::geom_text_repel(min.segment.length = 0) +
+    scale_x_continuous(labels = percent_format(accuracy = 0.1)) +
+    scale_y_continuous(labels = percent_format(accuracy = 0.1)) +
+    labs(x = "% población extranjera", y = "Share detenciones extranjeras", title = "Composición–composición (niveles)")
+}
 ```
 
-## Dinámica temporal (VAR/Granger y ARDL)
+# Análisis de precedencia temporal (VAR/Granger)
 
-```{r irf, fig.cap="Respuesta impulso-respuesta (IRF) del VAR", fig.alt="IRF de tasas ante shocks en share de extranjeros"}
-inc_fig("output/figures/24_irf_2010_2023_d_l_det_ext_rate_covid0.png")
+```{r granger}
+if (!is.null(res_granger)) {
+  res <- res_granger %>% mutate(sig_v2_to_v1 = granger_v2_to_v1_p <= 0.05,
+                                sig_v1_to_v2 = granger_v1_to_v2_p <= 0.05)
+  gt::gt(res %>% select(pair, n, lag_p,
+                        granger_v2_to_v1_p, granger_v1_to_v2_p,
+                        stable_roots, portmanteau_p, start_year, end_year)) %>%
+    gt::fmt_number(columns = c(granger_v2_to_v1_p, granger_v1_to_v2_p, portmanteau_p), decimals = 3) %>%
+    gt::data_color(columns = c(granger_v2_to_v1_p, granger_v1_to_v2_p),
+                   colors = scales::col_bin(palette = c("#D5F5E3","#FADBD8"), domain = c(0,1), bins = c(0,0.05,1)))
+} else {
+  gt::gt(data.frame(Nota = "No se encontró output/tables/24_granger_results.csv"))
+}
 ```
 
-```{r coefplot, fig.cap="Elasticidades contemporáneas (Δlog)", fig.alt="Coefplot de coeficientes en Δlog con IC95%"}
-inc_fig("output/figures/29_coefplot_dlog.png")
+> **Nota metodológica:** Un resultado significativo en una dirección no implica **causalidad estructural**. Evalúa estabilidad de raíces, ruido blanco en residuos (Portmanteau) y robustez a ventanas alternativas (excluir COVID, placebos).
+
+# Resultados adicionales (si existen figuras)
+
+```{r figuras-apendice, fig.cap="Apéndice de figuras (total/con COVID, diagnósticos y extras)"}
+appendix_figs <- c(
+  "03_corr_niveles_total.png",
+  "03_corr_deltas_total.png",
+  "20_niv_share_extranjeros_vs_pct_extranjeros_all.png",
+  "20_niv_tasa_hc_100k_vs_pct_extranjeros_all.png",
+  "20_niv_tasa_he_100k_vs_pct_extranjeros_all.png",
+  "20_del_d_tasa_hc_100k_vs_d_pct_extranjeros_all.png",
+  "20_del_d_tasa_he_100k_vs_d_pct_extranjeros_all.png",
+  "20_del_d_share_extranjeros_vs_d_pct_extranjeros_all.png",
+  "granger_toda.png",
+  "14_coherence_deltas_share.png"
+)
+for (f in appendix_figs) {
+  p <- p_fig(f)
+  if (file.exists(p)) knitr::include_graphics(p)
+}
 ```
 
-```{r ecm, fig.cap="ECM — parámetro α (velocidad de ajuste)", fig.alt="Coeficiente alpha del término de corrección de error"}
-inc_fig("output/figures/29_ecm_alpha.png")
+# Discusión y límites
+
+* **No causalidad automática:** La co-movilidad en niveles puede reflejar **tendencias comunes** (tamaño poblacional, actividad, cambios institucionales).
+* **Robustez:** Reportar siempre versiones **con** y **sin** COVID (2020–2021).
+* **Identificación:** Para inferencias causales serían necesarios diseños con **variación exógena** (p.ej., shocks regulatorios, discontinuidades, instrumentos externos, panel geográfico, etc.).
+
+# Transparencia, reproducibilidad y licencia
+
+* **Código:** MIT. **Documento y figuras:** CC BY 4.0.
+* **Reproducibilidad:** rutas relativas con `here::here()`; pipeline `80_run_all.R`; `renv` para dependencias.
+* **Trazabilidad:** tablas QC en `output/tables/`; hashes y resúmenes incluidos.
+
+```{r session}
+sessionInfo()
 ```
 
-```{r tablas_modelos}
-read_if("output/tables/24_var_granger_resultados.csv") %>% head(10) %>%
-  tbl_pretty(title = "Granger — resultados (top 10)")
-read_if("output/tables/24_var_granger_resultados_fdr.csv") %>% head(10) %>%
-  tbl_pretty(title = "Granger con FDR — resultados (top 10)")
-read_if("output/tables/25_ardl_bounds_results.csv") %>% head(10) %>%
-  tbl_pretty(title = "ARDL Bounds — prueba de cointegración (muestra)")
-read_if("output/tables/25_ardl_summary.csv") %>% head(10) %>%
-  tbl_pretty(title = "ARDL — resumen del modelo (muestra)")
+# Apéndice A — Diccionario mínimo de columnas
+
+* `ano`: año (int).
+* `tasa_hc_100k`, `tasa_he_100k`: tasas por 100.000 hab.
+* `pct_extranjeros`: proporción en [0,1] de población extranjera.
+* `share_extranjeros`: % de detenciones correspondientes a extranjeros (0–100 o 0–1 según convención del core).
+* `det_tot`, `det_ext`, `hc_total`, `he_total`: conteos.
+* `d_*`: diferencias año-a-año.
+
+# Apéndice B — Parámetros del informe
+
+```{r echo=FALSE}
+knitr::kable(data.frame(parametro = names(params), valor = as.character(params)), col.names = c("Parámetro","Valor"))
 ```
 
-# Robustez y sensibilidad
-
-* Ventanas: 2010–2019 vs 2020–2023 vs 2010–2023; análisis <em>sin COVID</em>.  
-* Transformaciones: niveles vs **Δlog**; tasas por 100.000.  
-* Corrección **FDR** en Granger para comparaciones múltiples.  
-* Conclusión: co-movimientos de corto plazo consistentes; **no** hay relación estructural robusta a largo plazo.
-
-# Interpretación y discusión
-
-1. **Tasa por habitante**: la criminalidad se mantiene **contenida** en 2010–2023. Dado que los **niveles no son estacionarios** (ADF), las correlaciones en niveles pueden estar **infladas por tendencia común**; conviene priorizar **Δlog** y/o modelos con **cointegración/controles**.
-2. **Correlaciones**: en **niveles** (HC vs población extranjera) son **muy altas** incluso **sin COVID**; en **Δlog** varias asociaciones permanecen **moderadas‑altas** sin COVID. La ventana **post (2021–2023)** es **inestable** por **n=3**.
-3. **Precedencia temporal**: **Granger** pasa con **COVID** (tras FDR), pero **no** pasa **sin COVID** por diagnósticos de **estabilidad** → no hay **evidencia robusta** de causalidad temporal **estable** inmigración→criminalidad.
-4. **Tipologías y contexto**: parte del co‑movimiento puede reflejar **choque común** (movilidad/actividad post‑pandemia) y **cambios de composición**; se recomienda análisis por **tipo de delito** y **región** con **lags**.
-
-# Limitaciones
-
-* Agregación nacional oculta **heterogeneidad regional** y demográfica (edad/sexo).  
-* Posibles **sesgos de registro** y de denuncia.  
-* Falta de **microdatos** para inferencia causal más fina.
-
-# Conclusiones
-
-* Existen **correlaciones positivas** entre variables de inmigración y criminalidad **agregada**; su **magnitud** depende del **indicador** (HC vs detenciones) y de la **ventana temporal**.
-* En **niveles**, la asociación es **muy alta** incluso **sin COVID**; en **Δlog**, la señal persiste como **moderada‑alta** sin COVID.
-* **No** hay **evidencia robusta** de **causalidad estable** inmigración→criminalidad: la señal Granger **depende** de **incluir COVID** y **falla** diagnósticos al **excluirlo**.
-* Próximos pasos: incorporar **controles** (macro, movilidad), **ARDL/cointegración** con diagnóstico completo, y **desagregación regional y por tipologías**.
-
-# Transparencia y neutralidad
-
-> Separación explícita de **hechos** (resultados) e **interpretaciones**. Se reportan **ventanas alternativas**, **FDR** y **limitaciones** de identificación.  
-> Nivel de confianza: **medio-alto** para ausencia de causalidad agregada; **medio** para señales post-COVID y tipologías.
-
-# Reproducibilidad y sesión
-
-* Rutas resueltas con `here::here()`; este Rmd asume estar en `docs/`.
-
-```{r session, echo=FALSE, message=FALSE, warning=FALSE, error=FALSE, results='asis'}
-note <- "Rutas resueltas con here::here(); este Rmd asume estar en docs/."
-si <- paste(utils::capture.output(sessionInfo()), collapse = "\n")
-esc <- function(x){ x <- gsub("&","&amp;",x,fixed=TRUE); x <- gsub("<","&lt;",x,fixed=TRUE); x <- gsub(">","&gt;",x,fixed=TRUE); x }
-cat('<details><summary><strong>Reproducibilidad y sesión</strong> — clic para desplegar</summary>')
-cat('<p class="small">', esc(note), '</p>')
-cat('<pre>'); cat(esc(si)); cat('</pre></details>')

@@ -1,0 +1,257 @@
+---
+title: "Inmigración y Delitos en España (2010–2023) — Informe Final"
+author: "Jesús Castro · JESUSCASTRODATA"
+date: "`r format(Sys.Date())`"
+output:
+html_document:
+toc: true
+toc_depth: 3
+toc_float: true
+number_sections: true
+theme: readable
+df_print: paged
+self_contained: true
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE, message = FALSE, warning = FALSE,
+                      fig.align = "center", out.width = "90%")
+
+# Función mejorada para incluir figuras
+inc_fig <- function(path, width = NULL, alt_text = NULL){
+  if (!file.exists(path)) {
+    warning("Figura no encontrada: ", path)
+    return(invisible(NULL))
+  }
+  knitr::include_graphics(path)
+}
+
+# Función para leer tablas
+read_tbl_utf8 <- function(p){
+  if (!file.exists(p)) {
+    warning("Tabla no encontrada: ", p)
+    return(NULL)
+  }
+  readr::read_csv(p, show_col_types = FALSE,
+                  locale = readr::locale(encoding = "UTF-8"))
+}
+
+# Lista de figuras principales (rutas relativas desde docs/)
+figuras_principales <- c(
+  "01_tendencias_base100.png",
+  "03_corr_deltas_sin_covid.png",
+  "03_corr_deltas_total.png",
+  "20_del_d_tasa_hc_100k_vs_d_pct_extranjeros_all.png",
+  "32_dispersion_delta_nocovid.png",
+  "32_dispersion_delta.png",
+  "20_niv_tasa_hc_100k_vs_pct_extranjeros_sin_covid.png",
+  "20_niv_tasa_hc_100k_vs_pct_extranjeros_all.png",
+  "18_stationarity_heatmap.png",
+  "granger_toda.png"
+)
+fig_fixed <- file.path("../output/figures", figuras_principales)
+
+# Tablas principales (para sección 4)
+tablas_core <- c(
+  "20_corr_niveles_sin_covid.csv",
+  "20_corr_deltas_sin_covid.csv",
+  "20_pcor_niveles_sin_covid.csv",
+  "20_pcor_deltas_sin_covid.csv"
+)
+```
+
+# 1. Resumen Ejecutivo {#resumen}
+
+**Cobertura temporal.** 2010–2023 (análisis principal excluyendo 2020–2021).
+**Fuentes de datos.** Instituto Nacional de Estadística (INE) — población; Ministerio del Interior — estadísticas de criminalidad.
+**Métricas principales.** Tasas por 100.000 habitantes (hechos conocidos y esclarecidos), porcentaje de población extranjera, diferencias interanuales (Δ).
+**Aviso.** Evidencia **descriptiva**; **no** implica causalidad.
+
+**Hallazgos clave.**
+
+* En niveles absolutos: coevolución marcada entre tasas de delitos y % de población extranjera.
+* En variaciones anuales: la asociación persiste con mayor volatilidad; sensible a COVID (2020–2021).
+* Controles: correlaciones parciales confirman patrones tras controlar composición demográfica.
+* Robustez: resultados estables en múltiples ventanas y transformaciones.
+
+# 2. Datos y Metodología {#metodologia}
+
+**Series y transformaciones.** Series anuales nacionales (2010–2023). Transformaciones: tasas por 100.000; % extranjeros (0–1 cuando aplica); Δ año-a-año.
+**Flujo.** Este Rmd **no recalcula**: inserta figuras/tablas previamente exportadas desde `../output/` para transparencia y reproducibilidad.
+
+# 3. Análisis Descriptivo — Tendencias y Relaciones
+
+## 3.1 Evolución Temporal Base-100
+
+```{r fig-01}
+inc_fig(fig_fixed[1])
+```
+
+*Interpretación.* Coevolución clara hasta 2020. El período COVID (2020–2021) introduce ruptura; recuperación divergente en 2022–2023.
+
+## 3.2 Correlaciones en Variaciones (Excluyendo COVID)
+
+```{r fig-02}
+inc_fig(fig_fixed[2])
+```
+
+*Hallazgo.* Correlaciones positivas y significativas entre Δ% extranjeros y Δ tasas de criminalidad.
+
+## 3.3 Correlaciones en Variaciones (Período Completo)
+
+```{r fig-03}
+inc_fig(fig_fixed[3])
+```
+
+*Contraste.* Incluir COVID debilita (y en casos invierte) algunas correlaciones; alta sensibilidad a shocks exógenos.
+
+## 3.4 Δ HC por 100k vs Δ % Extranjeros (todo el periodo)
+
+```{r fig-04}
+inc_fig(fig_fixed[4])
+```
+
+*Análisis.* Pendiente positiva moderada con mayor dispersión en 2020–2021.
+
+## 3.5 Δ (5 delitos) vs Δ % Extranjeros — sin COVID
+
+```{r fig-05}
+inc_fig(fig_fixed[5])
+```
+
+*Patrones.* Señal positiva más nítida en varias tipologías al excluir 2020–2021.
+
+## 3.6 Δ (5 delitos) vs Δ % Extranjeros — con COVID
+
+```{r fig-06}
+inc_fig(fig_fixed[6])
+```
+
+*Efecto COVID.* Aumento de dispersión y ruido que dificulta identificar patrones consistentes.
+
+## 3.7 Niveles: tasa HC (100k) vs % Extranjeros — sin COVID
+
+```{r fig-07}
+inc_fig(fig_fixed[7])
+```
+
+*Resultado.* Asociación elevada; atención a posibles tendencias comunes.
+
+## 3.8 Niveles: tasa HC (100k) vs % Extranjeros — total
+
+```{r fig-08}
+inc_fig(fig_fixed[8])
+```
+
+*Resultado.* La relación se mantiene pero con menor fuerza al incluir la ruptura COVID.
+
+## 3.9 Estacionariedad por ventana y transformación (α = 5%)
+
+```{r fig-09}
+inc_fig(fig_fixed[9])
+```
+
+*Lectura.* En Δ, la mayoría de series son estacionarias; en niveles, varias muestran raíz unitaria/tendencias.
+
+## 3.10 Precedencia temporal (Toda–Yamamoto), FDR ≤ 10%
+
+```{r fig-10}
+inc_fig(fig_fixed[10])
+```
+
+*Nota.* Evidencia exploratoria de direccionalidad; sensible a la especificación.
+
+# 4. Correlaciones y Controles
+
+```{r tablas-correlaciones-core, echo=FALSE, message=FALSE, warning=FALSE, results='asis'}
+suppressPackageStartupMessages({
+  library(readr); library(dplyr); library(knitr); library(kableExtra); library(glue)
+})
+
+read_tbl_utf8 <- function(p){
+  readr::read_csv(p, show_col_types = FALSE, locale = readr::locale(encoding = "UTF-8"))
+}
+
+h3 <- function(txt) cat(glue("### {txt}\n\n"))
+
+show_tab <- function(file, title, note=NULL){
+  path <- file.path("../output/tables", file)
+  if (!file.exists(path)) {
+    h3(title); cat(glue("*Tabla no disponible: `{file}`*\n\n")); return(invisible(NULL))
+  }
+  df <- read_tbl_utf8(path) %>% mutate(across(where(is.numeric), ~round(., 4)))
+  h3(title)
+  out <- kable(df, "html", caption = title) %>%
+    kable_styling(full_width = FALSE, bootstrap_options = c("striped","hover","condensed"))
+  print(out)  # con results='asis' no añade '##'
+  if (!is.null(note)) cat(glue("\n<p><em>{note}</em></p>\n\n"))
+}
+
+show_tab("20_corr_niveles_sin_covid.csv",
+         "Correlaciones (Pearson/Spearman) en niveles — sin COVID",
+         "Correlaciones altas y consistentes en niveles; precaución por tendencias comunes.")
+
+show_tab("20_corr_deltas_sin_covid.csv",
+         "Correlaciones (Pearson/Spearman) en variaciones (Δ) — sin COVID",
+         "Señal positiva en Δ con mayor ruido; excluir 2020–2021 mejora estabilidad.")
+
+show_tab("20_pcor_niveles_sin_covid.csv",
+         "Correlaciones parciales en niveles — controlando composición",
+         "Las parciales mantienen significación tras controlar composición.")
+
+show_tab("20_pcor_deltas_sin_covid.csv",
+         "Correlaciones parciales en variaciones (Δ) — controlando composición",
+         "Las parciales mantienen significación tras controlar composición.")
+```
+
+# 5. Discusión e Interpretación {#discusion}
+
+**Síntesis.** Patrones consistentes de co-movimiento entre % de extranjeros y tasas de criminalidad (2010–2023).
+
+**Fortalezas.** Múltiples especificaciones (niveles/Δ); controles por composición; robustez ante shocks (COVID); pruebas de estacionariedad y precedencia.
+**Limitaciones.** Agregación nacional; series cortas; posibles variables omitidas; potencial no-estacionariedad.
+
+**Mecanismos alternativos.** Factores macro (desempleo, desigualdad), cambios en política criminal, patrones de denuncia, concentración geográfica.
+
+# 6. Robustez y Validación {#robustez}
+
+* Ventanas **total** vs **sin COVID**.
+* Transformaciones: **niveles** y **Δ**.
+* Controles: **correlaciones parciales**.
+* Pruebas de **estacionariedad** (ADF/PP/KPSS).
+
+**Hallazgos.** Los patrones principales se mantienen al excluir COVID; parciales confirman relaciones significativas; Δ mitiga riesgos por tendencias comunes.
+
+# 7. Transparencia y Reproducibilidad {#reproducibilidad}
+
+**Estructura del proyecto**
+
+```
+proyecto/
+├── docs/           # Este documento Rmd
+├── output/
+│   ├── figures/    # Figuras generadas
+│   └── tables/     # Tablas de resultados
+└── scripts/        # Código de análisis
+```
+
+**Requisitos.** R ≥ 4.1.0. Paquetes: `tidyverse`, `knitr`, `kableExtra`.
+**Datos.** Series oficiales: INE (población, ECV para AROPE y Gini) y Ministerio del Interior (criminalidad).
+
+# 8. Referencias {#referencias}
+
+* Instituto Nacional de Estadística (INE). Cifras de población; ECV — indicadores AROPE e índice de Gini.
+* Ministerio del Interior. Anuario estadístico de criminalidad.
+* Wooldridge, J. M. (2019). *Introductory Econometrics: A Modern Approach*. Cengage.
+
+# Apéndice A — Estacionariedad (α = 10%)
+
+```{r apendice-est, results='asis'}
+fig_apendice <- "../output/figures/18_stationarity_heatmap_a10.png"
+inc_fig(fig_apendice)
+cat("\nNota: Criterio menos estricto (α = 10%) muestra patrones similares de estacionariedad.\n")
+```
+
+---
+
+© 2024 Jesús Castro · JESUSCASTRODATA — Proyecto Final (Certificación Análisis de Datos Google)

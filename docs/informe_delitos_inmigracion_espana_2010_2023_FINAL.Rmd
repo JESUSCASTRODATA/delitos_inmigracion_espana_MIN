@@ -1,0 +1,367 @@
+---
+title: "Delitos e Inmigración en España (2010–2023) — Informe Final"
+author: "Jesús Castro · JESUSCASTRODATA"
+date: "`r format(Sys.Date())`"
+lang: es
+params:
+  exclude_covid: true
+  ventana: "sin_covid"   # opciones: completo, sin_covid, 2010-2019, 2022-2023
+  fig_width: 9
+  fig_height: 5
+  dpi: 150
+  seed: 1234
+output:
+  html_document:
+    toc: true
+    toc_depth: 3
+    toc_float:
+      collapsed: false
+      smooth_scroll: true
+    number_sections: true
+    df_print: paged
+    self_contained: true
+    theme:
+      version: 5
+      bootswatch: flatly
+      base_font: "Inter, Segoe UI, Roboto, Arial, sans-serif"
+      heading_font: "Inter, Segoe UI, Roboto, Arial, sans-serif"
+  pdf_document:
+    number_sections: true
+    toc: true
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(
+  echo = FALSE, message = FALSE, warning = FALSE,
+  fig.width = params$fig_width, fig.height = params$fig_height, dpi = params$dpi
+)
+set.seed(params$seed)
+
+suppressPackageStartupMessages({
+  library(here); library(fs); library(readr); library(dplyr); library(tidyr)
+  library(janitor); library(ggplot2); library(stringr); library(broom)
+  library(purrr); library(knitr); library(kableExtra); library(scales)
+})
+
+# === Tema de figuras ===
+okabe_ito <- c("#000000","#E69F00","#56B4E9","#009E73","#F0E442","#0072B2","#D55E00","#CC79A7")
+
+try({
+  source(here::here("scripts","00_theme_figuras.R"), local = TRUE)
+}, silent = TRUE)
+
+if (!exists("theme_pearl_lightgrid")) {
+  theme_pearl_lightgrid <- function() {
+    ggplot2::theme_minimal(base_family = "Inter") +
+      ggplot2::theme(
+        plot.background = element_rect(fill = "#FAF9F6", color = NA),
+        panel.background = element_rect(fill = "#FAF9F6", color = NA),
+        panel.grid.major = element_line(color = alpha("#000000", 0.08)),
+        panel.grid.minor = element_blank(),
+        axis.title = element_text(face = "bold"),
+        plot.title.position = "plot",
+        plot.title = element_text(face = "bold", size = 14),
+        plot.subtitle = element_text(size = 11)
+      )
+  }
+}
+
+# === Helpers ===
+read_if <- function(...) if (fs::file_exists(here::here(...))) readr::read_csv(here::here(...), show_col_types = FALSE) else NULL
+nz <- function(x) !is.null(x) && nrow(x) > 0
+ggsave_pearl <- function(filename, plot=last_plot(), w=params$fig_width, h=params$fig_height, dpi=params$dpi){
+  dir_create <- function(p) if (!dir.exists(p)) dir.create(p, recursive = TRUE, showWarnings = FALSE)
+  outdir <- here::here("output","figures")
+  dir_create(outdir)
+  ggplot2::ggsave(filename = file.path(outdir, filename), plot = plot, width = w, height = h, dpi = dpi)
+}
+
+# === Carga de datos (tolerante) ===
+core <- read_if("data","processed","core_indicadores_con_pib.csv")
+if (!is.null(core)) core <- janitor::clean_names(core)
+if (is.null(core)) { core <- read_if("data","processed","core_indicadores.csv"); if (!is.null(core)) core <- janitor::clean_names(core) }
+
+deriv <- read_if("data","processed","core_indicadores_derivadas.csv")
+if (!is.null(deriv)) deriv <- janitor::clean_names(deriv)
+arope <- read_if("data","processed","arope.csv")
+if (!is.null(arope)) arope <- janitor::clean_names(arope)
+paro <- read_if("data","processed","paro_15_29_anual.csv")
+if (!is.null(paro)) paro <- janitor::clean_names(paro)
+
+stopifnot(!is.null(core))
+
+core <- core %>% mutate(ano = as.integer(ano))
+if (nz(deriv)) deriv <- deriv %>% mutate(ano = as.integer(ano))
+
+df <- core %>%
+  left_join(deriv, by = "ano") %>%
+  mutate(
+    pct_extranjeros = dplyr::coalesce(pct_extranjeros, share_extranjeros/100),
+    tasa_hc_100k = suppressWarnings(as.numeric(tasa_hc_100k)),
+    tasa_he_100k = suppressWarnings(as.numeric(tasa_he_100k))
+  )
+
+# Derivar share_extranjeros si falta y hay det_ext/det_tot
+if (!"share_extranjeros" %in% names(df) && all(c("det_ext","det_tot") %in% names(df))) {
+  df <- df %>% mutate(share_extranjeros = ifelse(det_tot > 0, det_ext / det_tot * 100, NA_real_))
+}
+
+# Controles si existen
+if (nz(arope) && "arope" %in% names(arope)) df <- df %>% left_join(arope %>% select(ano, arope), by = "ano")
+if (nz(paro)  && "paro_15_29" %in% names(paro))  df <- df %>% left_join(paro  %>% select(ano, paro_15_29), by = "ano")
+
+# Δ si faltan
+if (!"d_tasa_hc_100k" %in% names(df) && "tasa_hc_100k" %in% names(df)) {
+  df <- df %>% arrange(ano) %>% mutate(d_tasa_hc_100k = tasa_hc_100k - dplyr::lag(tasa_hc_100k))
+}
+if (!"d_tasa_he_100k" %in% names(df) && "tasa_he_100k" %in% names(df)) {
+  df <- df %>% arrange(ano) %>% mutate(d_tasa_he_100k = tasa_he_100k - dplyr::lag(tasa_he_100k))
+}
+if (!"d_pct_extranjeros" %in% names(df) && "pct_extranjeros" %in% names(df)) {
+  df <- df %>% arrange(ano) %>% mutate(d_pct_extranjeros = pct_extranjeros - dplyr::lag(pct_extranjeros))
+}
+
+# Ventana
+ventana <- params$ventana
+if (isTRUE(params$exclude_covid) || identical(ventana, "sin_covid")) {
+  df_v <- df %>% filter(!ano %in% c(2020, 2021))
+} else if (identical(ventana, "2010-2019")) {
+  df_v <- df %>% filter(dplyr::between(ano, 2010, 2019))
+} else if (identical(ventana, "2022-2023")) {
+  df_v <- df %>% filter(dplyr::between(ano, 2022, 2023))
+} else {
+  df_v <- df
+}
+
+# QA rápido
+qa_msgs <- list()
+nanos <- sort(unique(df$ano))
+qa_msgs[["Cobertura 2010–2023"]] <- if (all(2010:2023 %in% nanos)) "PASS" else paste0("WARN (años faltantes: ", paste(setdiff(2010:2023, nanos), collapse=","), ")")
+
+if (all(c("he_total","hc_total") %in% names(df))) {
+  qa_he_hc <- all(df$he_total <= df$hc_total, na.rm = TRUE)
+  qa_msgs[["Identidad HE ≤ HC"]] <- if (qa_he_hc) "PASS" else "WARN/FAIL"
+}
+
+if ("pct_extranjeros" %in% names(df)) {
+  rng_ok <- all(dplyr::between(df$pct_extranjeros, 0, 1, na.rm = TRUE))
+  qa_msgs[["pct_extranjeros en [0,1]"]] <- if (rng_ok) "PASS" else "WARN"
+}
+```
+
+# 1. Resumen Ejecutivo
+
+**Ventana actual:** `r ventana` — **Excluir COVID:** `r isTRUE(params$exclude_covid)`
+
+- (Hechos) Completa aquí 3–5 hallazgos descriptivos (signos, cambios, órdenes de magnitud).
+- (Relaciones) Resume correlaciones en niveles y en Δ; indica si el signo es estable sin COVID.
+- (Precedencia) Añade lectura si hay resultados Granger estables (raíces dentro del círculo, Portmanteau OK).
+- (Límites) Tamaño muestral, agregación nacional, 2020–2021 como shock exógeno.
+
+> **Plantilla anti‑sesgo**: separa hechos de interpretaciones; ofrece explicación alternativa y qué dato faltaría para cambiar la conclusión.
+
+---
+
+# 2. Datos y Cobertura
+
+```{r}
+qa_tbl <- tibble::tibble(criterio = names(qa_msgs), estado = unlist(qa_msgs))
+knitr::kable(qa_tbl, align = c("l","c"), caption = "QA rápido de cobertura e identidades") %>%
+  kableExtra::kable_styling(full_width = FALSE)
+```
+
+**Fuentes**: INE (población), Ministerio del Interior (HC/HE/Detenciones), Eurostat (PIB real). Años esperados: 2010–2023.  
+**Contrato mínimo**: `ano`, `poblacion_total`, `pct_extranjeros`, `hc_total`, `he_total`, `det_tot`, `det_ext`, `tasa_hc_100k`, `tasa_he_100k`, `pib_pc_real`.
+
+---
+
+# 3. Metodología (síntesis)
+
+- **Tasas**: `(conteos / población_total) * 100000`.
+- **Deltas**: `x[t] - x[t-1]`.
+- **COVID**: si `params$exclude_covid = TRUE`, excluye 2020–2021.
+- **Controles**: `pib_pc_real` (siempre), `paro_15_29`, `arope` si existen.
+
+---
+
+# 4. Resultados descriptivos
+
+## 4.1 Serie: tasa HC y % de extranjeros (z-score)
+
+```{r fig.cap='Serie estandarizada: tasa de hechos conocidos y % de extranjeros (ventana)'}
+stopifnot(all(c("ano","tasa_hc_100k","pct_extranjeros") %in% names(df_v)))
+
+plot_df <- df_v %>%
+  transmute(ano,
+            `Tasa HC (z)` = as.numeric(scale(tasa_hc_100k)),
+            `% Extranjeros (z)` = as.numeric(scale(pct_extranjeros))) %>%
+  pivot_longer(-ano, names_to = "serie", values_to = "z")
+
+p1 <- ggplot(plot_df, aes(ano, z, color = serie)) +
+  geom_line(linewidth = 1) +
+  geom_point(size = 2) +
+  scale_x_continuous(breaks = unique(plot_df$ano)) +
+  scale_y_continuous(labels = number_format(accuracy = 0.1)) +
+  scale_color_manual(values = okabe_ito[2:3], name = NULL) +
+  theme_pearl_lightgrid() +
+  labs(x = NULL, y = "z-score",
+       title = "Serie comparada (estandarizada)",
+       subtitle = paste0("Ventana: ", ventana, " — Excluir COVID: ", isTRUE(params$exclude_covid)))
+p1
+ggsave_pearl("serie_hc_pctext_zscore.png", p1)
+```
+
+## 4.2 Serie: tasa HE (opcional)
+
+```{r, eval=all(c("tasa_he_100k") %in% names(df_v))}
+plot_he <- ggplot(df_v, aes(ano, tasa_he_100k)) +
+  geom_line(linewidth = 1, color = okabe_ito[3]) +
+  geom_point(size = 2, color = okabe_ito[3]) +
+  theme_pearl_lightgrid() +
+  labs(x = NULL, y = "Tasa HE /100k", title = "Hechos esclarecidos (tasa)")
+plot_he
+ggsave_pearl("serie_he_tasa.png", plot_he)
+```
+
+## 4.3 Cambios por subperiodos
+
+```{r}
+periodos <- list("2010–2013" = 2010:2013, "2014–2019" = 2014:2019, "2022–2023" = 2022:2023)
+resumen_periodos <- purrr::map_dfr(names(periodos), function(nm){
+  an <- periodos[[nm]]
+  tmp <- df_v %>% filter(ano %in% an)
+  tibble::tibble(
+    periodo = nm,
+    cambio_tasa_hc = (dplyr::last(tmp$tasa_hc_100k) - dplyr::first(tmp$tasa_hc_100k)),
+    cambio_pct_ext = (dplyr::last(tmp$pct_extranjeros) - dplyr::first(tmp$pct_extranjeros))
+  )
+})
+knitr::kable(resumen_periodos, digits = 2, caption = "Cambios absolutos por subperiodos") %>%
+  kableExtra::kable_styling(full_width = FALSE)
+```
+
+---
+
+# 5. Relación composición–composición
+
+## 5.1 Correlaciones en niveles y en Δ
+
+```{r}
+calc_cor <- function(x, y) {
+  tibble::tibble(
+    pearson = suppressWarnings(cor(x, y, use = "pairwise.complete.obs", method = "pearson")),
+    spearman = suppressWarnings(cor(x, y, use = "pairwise.complete.obs", method = "spearman")),
+    kendall  = suppressWarnings(cor(x, y, use = "pairwise.complete.obs", method = "kendall"))
+  )
+}
+
+niveles <- calc_cor(df_v$tasa_hc_100k, df_v$pct_extranjeros) %>% mutate(tipo = "niveles")
+deltas  <- calc_cor(df_v$d_tasa_hc_100k, df_v$d_pct_extranjeros) %>% mutate(tipo = "deltas")
+
+corr_tbl <- bind_rows(niveles, deltas) %>% select(tipo, everything())
+knitr::kable(corr_tbl, digits = 3, caption = "Correlaciones (niveles y deltas)") %>%
+  kableExtra::kable_styling(full_width = FALSE)
+```
+
+## 5.2 Correlación parcial (si hay controles)
+
+```{r}
+partial_cor <- function(y, x, controls, data){
+  f <- reformulate(termlabels = c(x, controls), response = y)
+  m <- lm(f, data = data)
+  out <- broom::tidy(m) %>% filter(term == x) %>% select(estimate, p.value)
+  names(out) <- c("beta_x","p_value")
+  out
+}
+
+controles <- intersect(c("pib_pc_real","paro_15_29","arope"), names(df_v))
+if (length(controles) > 0) {
+  pc <- partial_cor("tasa_hc_100k", "pct_extranjeros", controles, df_v)
+  knitr::kable(pc, digits = 3, caption = paste0("Parcial (controlando por: ", paste(controles, collapse=", "), ")")) %>%
+    kableExtra::kable_styling(full_width = FALSE)
+} else {
+  cat("No hay columnas de control disponibles para parcial.\n")
+}
+```
+
+## 5.3 % Detenciones extranjeros vs % población extranjera
+
+```{r, eval=all(c("share_extranjeros","pct_extranjeros") %in% names(df_v))}
+plot_share <- ggplot(df_v, aes(pct_extranjeros*100, share_extranjeros)) +
+  geom_abline(slope = 1, intercept = 0, linetype = 2, alpha = 0.5) +
+  geom_point(size = 3) +
+  geom_smooth(method = "lm", se = FALSE) +
+  theme_pearl_lightgrid() +
+  labs(x = "% de población extranjera", y = "% de detenciones con extranjeros",
+       title = "Composición: población vs detenciones (TOTAL NACIONAL)")
+plot_share
+ggsave_pearl("scatter_share_det_ext_vs_pct_pob_ext.png", plot_share)
+```
+
+---
+
+# 6. Precedencia temporal (VAR/Granger)
+
+```{r}
+res_gr <- read_if("output","tables","24_granger_results.csv")
+if (!is.null(res_gr)) res_gr <- janitor::clean_names(res_gr)
+if (nz(res_gr)) {
+  mostrar <- res_gr %>% select(pair, n, lag_p, contains("_p"), contains("stable"), contains("portmanteau"))
+  knitr::kable(mostrar, caption = "Granger bivariado — resumen") %>% kableExtra::kable_styling(full_width = FALSE)
+} else {
+  cat("(No se encontraron tablas Granger para mostrar.)\n")
+}
+```
+
+---
+
+# 7. Robustez y sensibilidad
+
+- Esta ejecución aplica **sin COVID** si `params$exclude_covid = TRUE`.
+- Explora ventanas alternativas con `params$ventana`.
+- Compara signos/magnitudes y estabilidad de resultados.
+
+---
+
+# 8. Discusión y límites (plantilla anti‑sesgo)
+
+**Hechos**: …  
+**Interpretación principal**: …  
+**Explicación alternativa plausible**: …  
+**Supuestos clave**: …  
+**Límites**: (agregación, registro, shocks) …  
+**Qué faltaría para cambiar la conclusión**: …  
+**Nivel de confianza**: bajo/medio/alto.
+
+---
+
+# 9. Transparencia y reproducibilidad
+
+- Rutas con `here::here()`; datos en `data/processed/`.
+- Entorno reproducible con `renv`.
+- **Sesión R**:
+
+```{r}
+sessionInfo()
+```
+
+---
+
+# Apéndices
+
+## A. Diccionario mínimo de columnas
+
+- `ano`: entero (2010–2023).  
+- `poblacion_total`: numérico.  
+- `pct_extranjeros`: proporción 0–1 (si hay `share_extranjeros`, convertir/100).  
+- `hc_total`, `he_total`, `det_tot`, `det_ext`: conteos enteros.  
+- `tasa_hc_100k`, `tasa_he_100k`: numéricos.  
+- `pib_pc_real`: numérico; `pib_yoy`: opcional.  
+- Derivadas: `d_tasa_hc_100k`, `d_tasa_he_100k`, `d_pct_extranjeros`.
+
+## B. Parámetros del informe
+
+- `exclude_covid`: `r params$exclude_covid`  
+- `ventana`: `r params$ventana`  
+- `fig_width`: `r params$fig_width` — `fig_height`: `r params$fig_height` — `dpi`: `r params$dpi`  
+- `seed`: `r params$seed`

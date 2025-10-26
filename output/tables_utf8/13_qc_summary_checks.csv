@@ -1,0 +1,7 @@
+test,status,detalle,output
+Cobertura años total_nacional,PASS,años con valor: 14/14,D:/delitos_inmigracion_espana_MIN/output/tables/13_qc_cobertura_anual.csv
+Duplicados panel_ccaa,PASS,duplicados: 0,D:/delitos_inmigracion_espana_MIN/output/tables/13_qc_duplicados_clave.csv
+No-negatividad,PASS,negativos: 0,D:/delitos_inmigracion_espana_MIN/output/tables/13_qc_no_negatividad.csv
+Posible escala en miles,PASS,nivel:,D:/delitos_inmigracion_espana_MIN/output/tables/13_qc_unidades_detectadas.csv
+TOTAL del RAW ≈ suma CCAA (conteo de aceptados),INFO,tipos aceptados por tolerancia: 546,D:/delitos_inmigracion_espana_MIN/output/tables/13_qc_nacional_vs_suma_ccaa.csv
+TOTAL (fila) vs Suma categorías (inflation factor),INFO,mediana factor: 0.99,D:/delitos_inmigracion_espana_MIN/output/tables/13_qc_total_vs_suma_categorias.csv

@@ -1,0 +1,12 @@
+test,status,detalle,output
+parseo numérico (tokens con dígitos no parseables — revisar mappings/unidades),WARN,registros conflictivos: 4,D:/delitos_inmigracion_espana_MIN/diagnostics/raw_numeric_parse_samples.csv
+"Detenciones extranjeros ≤ detenciones totales (año, tipo)",PASS,violaciones: 0,NA
+"HE ≤ HC por (año, región, tipo)",PASS,violaciones: 0,NA
+INFO: regiones fuera de catálogo detectadas (diagnóstico de 02),PASS,valores_diagnosticados: 74,D:/delitos_inmigracion_espana_MIN/output/tables/qa_map_regiones_fuera_catalogo.csv
+Sin NAs en claves (año/tipo/[región]),PASS,filas con NA en clave: 0,NA
+Valores no negativos,PASS,negativos: 0,NA
+años fuera de 2010–2023 (se revalida en processed/ si existe),PASS,ficheros con años fuera tras revalidar: 0,D:/delitos_inmigracion_espana_MIN/output/tables/qa_raw_anos_fuera_2010_2023.csv
+map_regiones sin NAs en propuesta_region,PASS,pendientes_de_mapping: 0,NA
+map_regiones sin duplicados por raw_region,PASS,duplicados_raw_region: 0,NA
+map_regiones sin valores fuera de catálogo (mapping final),PASS,fuera_catalogo_en_map_final: 0,NA
+map_tipologias sin duplicados por propuesta,PASS,duplicados: 0,NA

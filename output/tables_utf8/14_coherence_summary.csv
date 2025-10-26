@@ -1,0 +1,6 @@
+check,status,detalle
+Tasas ≈ 100k*conteo/pob (rel<=0.5%),OK,max err tasa rel = 0%
+share_ext ≈ det_ext/det_tot (abs<=1e-8),OK,max |share - det_ext/det_tot| = 5.55e-17
+Saltos YoY (varios umbrales),WARN,1 flags
+Rango/saltos share_ext,OK,0 flags
+Comparación con .bak (solo normalización),OK,dif_max_abs=2.775558e-17; all_ok=TRUE

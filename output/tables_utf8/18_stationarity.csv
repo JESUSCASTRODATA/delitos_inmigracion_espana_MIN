@@ -1,0 +1,307 @@
+window,var,mode,test,n_obs,stat,cv_1pct,cv_5pct,cv_10pct,reject_1pct,reject_5pct,reject_10pct,za_break_index,za_break_year
+con_covid_2010_2023,tasa_hc_por_100k,level,"ADF(drift,lag<=1,tau2)",14,NA,-3.75,-3,-2.63,FALSE,FALSE,FALSE,NA,NA
+con_covid_2010_2023,tasa_hc_por_100k,level,"ADF(trend,lag<=1,tau3)",14,NA,-4.38,-3.6,-3.24,FALSE,FALSE,FALSE,NA,NA
+con_covid_2010_2023,tasa_hc_por_100k,level,"PP(Z-tau,const,long)",14,-1.3498461005492977,-4.068038461538461,-3.1221828402366865,-2.7042242603550295,FALSE,FALSE,FALSE,NA,NA
+con_covid_2010_2023,tasa_hc_por_100k,level,"PP(Z-tau,trend,long)",14,-0.5343969523176246,-4.887048520710059,-3.828795266272189,-3.358752071005917,FALSE,FALSE,FALSE,NA,NA
+con_covid_2010_2023,tasa_hc_por_100k,level,KPSS(mu: level),14,0.14317181614435173,0.739,0.463,0.347,FALSE,FALSE,FALSE,NA,NA
+con_covid_2010_2023,tasa_hc_por_100k,level,KPSS(tau: trend),14,0.1368949991050465,0.216,0.146,0.119,FALSE,FALSE,TRUE,NA,NA
+con_covid_2010_2023,tasa_hc_por_100k,level,"ERS(DF-GLS,const)",14,-1.53640258666852,NA,NA,NA,NA,NA,NA,NA,NA
+con_covid_2010_2023,tasa_hc_por_100k,level,"ERS(DF-GLS,trend)",14,-1.9533258624177985,NA,NA,NA,NA,NA,NA,NA,NA
+con_covid_2010_2023,tasa_hc_por_100k,level,ZA(break:both),14,-3.1246729506030584,NA,NA,NA,NA,FALSE,FALSE,NA,NA
+con_covid_2010_2023,tasa_hc_por_100k,diff,"ADF(drift,lag<=1,tau2)",13,NA,-3.75,-3,-2.63,FALSE,FALSE,FALSE,NA,NA
+con_covid_2010_2023,tasa_hc_por_100k,diff,"ADF(trend,lag<=1,tau3)",13,NA,-4.38,-3.6,-3.24,FALSE,FALSE,FALSE,NA,NA
+con_covid_2010_2023,tasa_hc_por_100k,diff,"PP(Z-tau,const,long)",13,-2.820554523005283,-4.136541666666666,-3.1483222222222222,-2.7180444444444443,FALSE,FALSE,TRUE,NA,NA
+con_covid_2010_2023,tasa_hc_por_100k,diff,"PP(Z-tau,trend,long)",13,-3.9164274861827506,-4.989327777777778,-3.873002777777778,-3.3820388888888884,FALSE,TRUE,TRUE,NA,NA
+con_covid_2010_2023,tasa_hc_por_100k,diff,KPSS(mu: level),13,0.2731018831970218,0.739,0.463,0.347,FALSE,FALSE,FALSE,NA,NA
+con_covid_2010_2023,tasa_hc_por_100k,diff,KPSS(tau: trend),13,0.10702148637663934,0.216,0.146,0.119,FALSE,FALSE,FALSE,NA,NA
+con_covid_2010_2023,tasa_hc_por_100k,diff,"ERS(DF-GLS,const)",13,-2.104708478832826,NA,NA,NA,NA,NA,NA,NA,NA
+con_covid_2010_2023,tasa_hc_por_100k,diff,"ERS(DF-GLS,trend)",13,-2.759504913965602,NA,NA,NA,NA,NA,NA,NA,NA
+con_covid_2010_2023,tasa_he_por_100k,level,"ADF(drift,lag<=1,tau2)",14,NA,-3.75,-3,-2.63,FALSE,FALSE,FALSE,NA,NA
+con_covid_2010_2023,tasa_he_por_100k,level,"ADF(trend,lag<=1,tau3)",14,NA,-4.38,-3.6,-3.24,FALSE,FALSE,FALSE,NA,NA
+con_covid_2010_2023,tasa_he_por_100k,level,"PP(Z-tau,const,long)",14,-0.8206897737933948,-4.068038461538461,-3.1221828402366865,-2.7042242603550295,FALSE,FALSE,FALSE,NA,NA
+con_covid_2010_2023,tasa_he_por_100k,level,"PP(Z-tau,trend,long)",14,0.4389004395808732,-4.887048520710059,-3.828795266272189,-3.358752071005917,FALSE,FALSE,FALSE,NA,NA
+con_covid_2010_2023,tasa_he_por_100k,level,KPSS(mu: level),14,0.14081859036640218,0.739,0.463,0.347,FALSE,FALSE,FALSE,NA,NA
+con_covid_2010_2023,tasa_he_por_100k,level,KPSS(tau: trend),14,0.14162298020874553,0.216,0.146,0.119,FALSE,FALSE,TRUE,NA,NA
+con_covid_2010_2023,tasa_he_por_100k,level,"ERS(DF-GLS,const)",14,-1.4123337863742862,NA,NA,NA,NA,NA,NA,NA,NA
+con_covid_2010_2023,tasa_he_por_100k,level,"ERS(DF-GLS,trend)",14,-1.5399076293189091,NA,NA,NA,NA,NA,NA,NA,NA
+con_covid_2010_2023,tasa_he_por_100k,level,ZA(break:both),14,-2.85121863910429,NA,NA,NA,NA,FALSE,FALSE,NA,NA
+con_covid_2010_2023,tasa_he_por_100k,diff,"ADF(drift,lag<=1,tau2)",13,NA,-3.75,-3,-2.63,FALSE,FALSE,FALSE,NA,NA
+con_covid_2010_2023,tasa_he_por_100k,diff,"ADF(trend,lag<=1,tau3)",13,NA,-4.38,-3.6,-3.24,FALSE,FALSE,FALSE,NA,NA
+con_covid_2010_2023,tasa_he_por_100k,diff,"PP(Z-tau,const,long)",13,-2.344234017197369,-4.136541666666666,-3.1483222222222222,-2.7180444444444443,FALSE,FALSE,FALSE,NA,NA
+con_covid_2010_2023,tasa_he_por_100k,diff,"PP(Z-tau,trend,long)",13,-3.165922701677557,-4.989327777777778,-3.873002777777778,-3.3820388888888884,FALSE,FALSE,FALSE,NA,NA
+con_covid_2010_2023,tasa_he_por_100k,diff,KPSS(mu: level),13,0.2977589030586784,0.739,0.463,0.347,FALSE,FALSE,FALSE,NA,NA
+con_covid_2010_2023,tasa_he_por_100k,diff,KPSS(tau: trend),13,0.12408918208665976,0.216,0.146,0.119,FALSE,FALSE,TRUE,NA,NA
+con_covid_2010_2023,tasa_he_por_100k,diff,"ERS(DF-GLS,const)",13,-1.3740104228054042,NA,NA,NA,NA,NA,NA,NA,NA
+con_covid_2010_2023,tasa_he_por_100k,diff,"ERS(DF-GLS,trend)",13,-2.62127246752902,NA,NA,NA,NA,NA,NA,NA,NA
+con_covid_2010_2023,tasa_det_por_100k,level,"ADF(drift,lag<=1,tau2)",14,NA,-3.75,-3,-2.63,FALSE,FALSE,FALSE,NA,NA
+con_covid_2010_2023,tasa_det_por_100k,level,"ADF(trend,lag<=1,tau3)",14,NA,-4.38,-3.6,-3.24,FALSE,FALSE,FALSE,NA,NA
+con_covid_2010_2023,tasa_det_por_100k,level,"PP(Z-tau,const,long)",14,-1.2772974940208228,-4.068038461538461,-3.1221828402366865,-2.7042242603550295,FALSE,FALSE,FALSE,NA,NA
+con_covid_2010_2023,tasa_det_por_100k,level,"PP(Z-tau,trend,long)",14,-1.1978833552786183,-4.887048520710059,-3.828795266272189,-3.358752071005917,FALSE,FALSE,FALSE,NA,NA
+con_covid_2010_2023,tasa_det_por_100k,level,KPSS(mu: level),14,0.18704448984783484,0.739,0.463,0.347,FALSE,FALSE,FALSE,NA,NA
+con_covid_2010_2023,tasa_det_por_100k,level,KPSS(tau: trend),14,0.12500574360607417,0.216,0.146,0.119,FALSE,FALSE,TRUE,NA,NA
+con_covid_2010_2023,tasa_det_por_100k,level,"ERS(DF-GLS,const)",14,-1.640068252301324,NA,NA,NA,NA,NA,NA,NA,NA
+con_covid_2010_2023,tasa_det_por_100k,level,"ERS(DF-GLS,trend)",14,-2.148709648077433,NA,NA,NA,NA,NA,NA,NA,NA
+con_covid_2010_2023,tasa_det_por_100k,level,ZA(break:both),14,-1.852119071371295,NA,NA,NA,NA,FALSE,FALSE,NA,NA
+con_covid_2010_2023,tasa_det_por_100k,diff,"ADF(drift,lag<=1,tau2)",13,NA,-3.75,-3,-2.63,FALSE,FALSE,FALSE,NA,NA
+con_covid_2010_2023,tasa_det_por_100k,diff,"ADF(trend,lag<=1,tau3)",13,NA,-4.38,-3.6,-3.24,FALSE,FALSE,FALSE,NA,NA
+con_covid_2010_2023,tasa_det_por_100k,diff,"PP(Z-tau,const,long)",13,-3.739413093110942,-4.136541666666666,-3.1483222222222222,-2.7180444444444443,FALSE,TRUE,TRUE,NA,NA
+con_covid_2010_2023,tasa_det_por_100k,diff,"PP(Z-tau,trend,long)",13,-12.148551812875288,-4.989327777777778,-3.873002777777778,-3.3820388888888884,TRUE,TRUE,TRUE,NA,NA
+con_covid_2010_2023,tasa_det_por_100k,diff,KPSS(mu: level),13,0.1556861105701459,0.739,0.463,0.347,FALSE,FALSE,FALSE,NA,NA
+con_covid_2010_2023,tasa_det_por_100k,diff,KPSS(tau: trend),13,0.13724157101697596,0.216,0.146,0.119,FALSE,FALSE,TRUE,NA,NA
+con_covid_2010_2023,tasa_det_por_100k,diff,"ERS(DF-GLS,const)",13,-1.3290578882029391,NA,NA,NA,NA,NA,NA,NA,NA
+con_covid_2010_2023,tasa_det_por_100k,diff,"ERS(DF-GLS,trend)",13,-1.678688883432491,NA,NA,NA,NA,NA,NA,NA,NA
+con_covid_2010_2023,share_ext,level,"ADF(drift,lag<=1,tau2)",14,NA,-3.75,-3,-2.63,FALSE,FALSE,FALSE,NA,NA
+con_covid_2010_2023,share_ext,level,"ADF(trend,lag<=1,tau3)",14,NA,-4.38,-3.6,-3.24,FALSE,FALSE,FALSE,NA,NA
+con_covid_2010_2023,share_ext,level,"PP(Z-tau,const,long)",14,-0.6793496335635495,-4.068038461538461,-3.1221828402366865,-2.7042242603550295,FALSE,FALSE,FALSE,NA,NA
+con_covid_2010_2023,share_ext,level,"PP(Z-tau,trend,long)",14,-0.730735482207058,-4.887048520710059,-3.828795266272189,-3.358752071005917,FALSE,FALSE,FALSE,NA,NA
+con_covid_2010_2023,share_ext,level,KPSS(mu: level),14,0.2564123682576388,0.739,0.463,0.347,FALSE,FALSE,FALSE,NA,NA
+con_covid_2010_2023,share_ext,level,KPSS(tau: trend),14,0.1582660063554714,0.216,0.146,0.119,FALSE,TRUE,TRUE,NA,NA
+con_covid_2010_2023,share_ext,level,"ERS(DF-GLS,const)",14,-1.30383384629963,NA,NA,NA,NA,NA,NA,NA,NA
+con_covid_2010_2023,share_ext,level,"ERS(DF-GLS,trend)",14,-1.6254446367480997,NA,NA,NA,NA,NA,NA,NA,NA
+con_covid_2010_2023,share_ext,level,ZA(break:both),14,-2.9262944534988375,NA,NA,NA,NA,FALSE,FALSE,NA,NA
+con_covid_2010_2023,share_ext,diff,"ADF(drift,lag<=1,tau2)",13,NA,-3.75,-3,-2.63,FALSE,FALSE,FALSE,NA,NA
+con_covid_2010_2023,share_ext,diff,"ADF(trend,lag<=1,tau3)",13,NA,-4.38,-3.6,-3.24,FALSE,FALSE,FALSE,NA,NA
+con_covid_2010_2023,share_ext,diff,"PP(Z-tau,const,long)",13,-2.1718465339739725,-4.136541666666666,-3.1483222222222222,-2.7180444444444443,FALSE,FALSE,FALSE,NA,NA
+con_covid_2010_2023,share_ext,diff,"PP(Z-tau,trend,long)",13,-5.071749794545414,-4.989327777777778,-3.873002777777778,-3.3820388888888884,TRUE,TRUE,TRUE,NA,NA
+con_covid_2010_2023,share_ext,diff,KPSS(mu: level),13,0.44144692545187825,0.739,0.463,0.347,FALSE,FALSE,TRUE,NA,NA
+con_covid_2010_2023,share_ext,diff,KPSS(tau: trend),13,0.09246983488566377,0.216,0.146,0.119,FALSE,FALSE,FALSE,NA,NA
+con_covid_2010_2023,share_ext,diff,"ERS(DF-GLS,const)",13,-0.8702914470863862,NA,NA,NA,NA,NA,NA,NA,NA
+con_covid_2010_2023,share_ext,diff,"ERS(DF-GLS,trend)",13,-2.481960855264653,NA,NA,NA,NA,NA,NA,NA,NA
+con_covid_2010_2023,pct_extranjeros_poblacion,level,"ADF(drift,lag<=1,tau2)",14,NA,-3.75,-3,-2.63,FALSE,FALSE,FALSE,NA,NA
+con_covid_2010_2023,pct_extranjeros_poblacion,level,"ADF(trend,lag<=1,tau3)",14,NA,-4.38,-3.6,-3.24,FALSE,FALSE,FALSE,NA,NA
+con_covid_2010_2023,pct_extranjeros_poblacion,level,"PP(Z-tau,const,long)",14,-0.6483101209853612,-4.068038461538461,-3.1221828402366865,-2.7042242603550295,FALSE,FALSE,FALSE,NA,NA
+con_covid_2010_2023,pct_extranjeros_poblacion,level,"PP(Z-tau,trend,long)",14,0.9235570938489952,-4.887048520710059,-3.828795266272189,-3.358752071005917,FALSE,FALSE,FALSE,NA,NA
+con_covid_2010_2023,pct_extranjeros_poblacion,level,KPSS(mu: level),14,0.2298351511387539,0.739,0.463,0.347,FALSE,FALSE,FALSE,NA,NA
+con_covid_2010_2023,pct_extranjeros_poblacion,level,KPSS(tau: trend),14,0.16044222318429086,0.216,0.146,0.119,FALSE,TRUE,TRUE,NA,NA
+con_covid_2010_2023,pct_extranjeros_poblacion,level,"ERS(DF-GLS,const)",14,-1.069700693788577,NA,NA,NA,NA,NA,NA,NA,NA
+con_covid_2010_2023,pct_extranjeros_poblacion,level,"ERS(DF-GLS,trend)",14,-1.389810098072861,NA,NA,NA,NA,NA,NA,NA,NA
+con_covid_2010_2023,pct_extranjeros_poblacion,level,ZA(break:both),14,-3.3960836282702083,NA,NA,NA,NA,FALSE,FALSE,NA,NA
+con_covid_2010_2023,pct_extranjeros_poblacion,diff,"ADF(drift,lag<=1,tau2)",13,NA,-3.75,-3,-2.63,FALSE,FALSE,FALSE,NA,NA
+con_covid_2010_2023,pct_extranjeros_poblacion,diff,"ADF(trend,lag<=1,tau3)",13,NA,-4.38,-3.6,-3.24,FALSE,FALSE,FALSE,NA,NA
+con_covid_2010_2023,pct_extranjeros_poblacion,diff,"PP(Z-tau,const,long)",13,-0.204727905701935,-4.136541666666666,-3.1483222222222222,-2.7180444444444443,FALSE,FALSE,FALSE,NA,NA
+con_covid_2010_2023,pct_extranjeros_poblacion,diff,"PP(Z-tau,trend,long)",13,-2.937218224846957,-4.989327777777778,-3.873002777777778,-3.3820388888888884,FALSE,FALSE,FALSE,NA,NA
+con_covid_2010_2023,pct_extranjeros_poblacion,diff,KPSS(mu: level),13,0.4745455187647467,0.739,0.463,0.347,FALSE,TRUE,TRUE,NA,NA
+con_covid_2010_2023,pct_extranjeros_poblacion,diff,KPSS(tau: trend),13,0.08469178144015223,0.216,0.146,0.119,FALSE,FALSE,FALSE,NA,NA
+con_covid_2010_2023,pct_extranjeros_poblacion,diff,"ERS(DF-GLS,const)",13,-0.8475844913243114,NA,NA,NA,NA,NA,NA,NA,NA
+con_covid_2010_2023,pct_extranjeros_poblacion,diff,"ERS(DF-GLS,trend)",13,-2.255850597010991,NA,NA,NA,NA,NA,NA,NA,NA
+con_covid_2010_2023,pib_pc_real,level,"ADF(drift,lag<=1,tau2)",14,NA,-3.75,-3,-2.63,FALSE,FALSE,FALSE,NA,NA
+con_covid_2010_2023,pib_pc_real,level,"ADF(trend,lag<=1,tau3)",14,NA,-4.38,-3.6,-3.24,FALSE,FALSE,FALSE,NA,NA
+con_covid_2010_2023,pib_pc_real,level,"PP(Z-tau,const,long)",14,-0.908026882023575,-4.068038461538461,-3.1221828402366865,-2.7042242603550295,FALSE,FALSE,FALSE,NA,NA
+con_covid_2010_2023,pib_pc_real,level,"PP(Z-tau,trend,long)",14,-2.348971872411341,-4.887048520710059,-3.828795266272189,-3.358752071005917,FALSE,FALSE,FALSE,NA,NA
+con_covid_2010_2023,pib_pc_real,level,KPSS(mu: level),14,0.42038953522654143,0.739,0.463,0.347,FALSE,FALSE,TRUE,NA,NA
+con_covid_2010_2023,pib_pc_real,level,KPSS(tau: trend),14,0.06979700228314943,0.216,0.146,0.119,FALSE,FALSE,FALSE,NA,NA
+con_covid_2010_2023,pib_pc_real,level,"ERS(DF-GLS,const)",14,-1.3269692136367386,NA,NA,NA,NA,NA,NA,NA,NA
+con_covid_2010_2023,pib_pc_real,level,"ERS(DF-GLS,trend)",14,-2.627471247543488,NA,NA,NA,NA,NA,NA,NA,NA
+con_covid_2010_2023,pib_pc_real,level,ZA(break:both),14,-5.630669129593163,NA,NA,NA,NA,FALSE,FALSE,NA,NA
+con_covid_2010_2023,pib_pc_real,diff,"ADF(drift,lag<=1,tau2)",13,NA,-3.75,-3,-2.63,FALSE,FALSE,FALSE,NA,NA
+con_covid_2010_2023,pib_pc_real,diff,"ADF(trend,lag<=1,tau3)",13,NA,-4.38,-3.6,-3.24,FALSE,FALSE,FALSE,NA,NA
+con_covid_2010_2023,pib_pc_real,diff,"PP(Z-tau,const,long)",13,-5.029619400754965,-4.136541666666666,-3.1483222222222222,-2.7180444444444443,TRUE,TRUE,TRUE,NA,NA
+con_covid_2010_2023,pib_pc_real,diff,"PP(Z-tau,trend,long)",13,-4.545260580547126,-4.989327777777778,-3.873002777777778,-3.3820388888888884,FALSE,TRUE,TRUE,NA,NA
+con_covid_2010_2023,pib_pc_real,diff,KPSS(mu: level),13,0.11729423231231892,0.739,0.463,0.347,FALSE,FALSE,FALSE,NA,NA
+con_covid_2010_2023,pib_pc_real,diff,KPSS(tau: trend),13,0.09078560285964304,0.216,0.146,0.119,FALSE,FALSE,FALSE,NA,NA
+con_covid_2010_2023,pib_pc_real,diff,"ERS(DF-GLS,const)",13,-2.523301079740959,NA,NA,NA,NA,NA,NA,NA,NA
+con_covid_2010_2023,pib_pc_real,diff,"ERS(DF-GLS,trend)",13,-2.1891042885976124,NA,NA,NA,NA,NA,NA,NA,NA
+sin_covid_2010_2023,tasa_hc_por_100k,level,"ADF(drift,lag<=1,tau2)",12,NA,-3.75,-3,-2.63,FALSE,FALSE,FALSE,NA,NA
+sin_covid_2010_2023,tasa_hc_por_100k,level,"ADF(trend,lag<=1,tau3)",12,NA,-4.38,-3.6,-3.24,FALSE,FALSE,FALSE,NA,NA
+sin_covid_2010_2023,tasa_hc_por_100k,level,"PP(Z-tau,const,long)",12,-0.8606014782051988,-4.220599173553719,-3.1800999999999995,-2.7348520661157023,FALSE,FALSE,FALSE,NA,NA
+sin_covid_2010_2023,tasa_hc_por_100k,level,"PP(Z-tau,trend,long)",12,2.3691399762927614,-5.115229752066115,-3.927137190082645,-3.4103628099173555,FALSE,FALSE,FALSE,NA,NA
+sin_covid_2010_2023,tasa_hc_por_100k,level,KPSS(mu: level),12,0.15671497809797907,0.739,0.463,0.347,FALSE,FALSE,FALSE,NA,NA
+sin_covid_2010_2023,tasa_hc_por_100k,level,KPSS(tau: trend),12,0.14596427142759694,0.216,0.146,0.119,FALSE,FALSE,TRUE,NA,NA
+sin_covid_2010_2023,tasa_hc_por_100k,level,"ERS(DF-GLS,const)",12,-2.5441946038358387,NA,NA,NA,NA,NA,NA,NA,NA
+sin_covid_2010_2023,tasa_hc_por_100k,level,"ERS(DF-GLS,trend)",12,-2.901263982281623,NA,NA,NA,NA,NA,NA,NA,NA
+sin_covid_2010_2023,tasa_hc_por_100k,level,ZA(break:both),12,-1.8582547104360672,NA,NA,NA,NA,FALSE,FALSE,NA,NA
+sin_covid_2010_2023,tasa_hc_por_100k,diff,"ADF(drift,lag<=1,tau2)",11,NA,-3.75,-3,-2.63,FALSE,FALSE,FALSE,NA,NA
+sin_covid_2010_2023,tasa_hc_por_100k,diff,"ADF(trend,lag<=1,tau3)",11,NA,-4.38,-3.6,-3.24,FALSE,FALSE,FALSE,NA,NA
+sin_covid_2010_2023,tasa_hc_por_100k,diff,"PP(Z-tau,const,long)",11,0.0354128431777353,-4.325900000000001,-3.2195,-2.7557,FALSE,FALSE,FALSE,NA,NA
+sin_covid_2010_2023,tasa_hc_por_100k,diff,"PP(Z-tau,trend,long)",11,-2.283277676794808,-5.2735,-3.9948,-3.4455,FALSE,FALSE,FALSE,NA,NA
+sin_covid_2010_2023,tasa_hc_por_100k,diff,KPSS(mu: level),11,0.3949412098903264,0.739,0.463,0.347,FALSE,FALSE,TRUE,NA,NA
+sin_covid_2010_2023,tasa_hc_por_100k,diff,KPSS(tau: trend),11,0.1281593870189779,0.216,0.146,0.119,FALSE,FALSE,TRUE,NA,NA
+sin_covid_2010_2023,tasa_hc_por_100k,diff,"ERS(DF-GLS,const)",11,-1.106410808866546,NA,NA,NA,NA,NA,NA,NA,NA
+sin_covid_2010_2023,tasa_hc_por_100k,diff,"ERS(DF-GLS,trend)",11,-1.5609625825997586,NA,NA,NA,NA,NA,NA,NA,NA
+sin_covid_2010_2023,tasa_he_por_100k,level,"ADF(drift,lag<=1,tau2)",12,NA,-3.75,-3,-2.63,FALSE,FALSE,FALSE,NA,NA
+sin_covid_2010_2023,tasa_he_por_100k,level,"ADF(trend,lag<=1,tau3)",12,NA,-4.38,-3.6,-3.24,FALSE,FALSE,FALSE,NA,NA
+sin_covid_2010_2023,tasa_he_por_100k,level,"PP(Z-tau,const,long)",12,-0.5898172839015431,-4.220599173553719,-3.1800999999999995,-2.7348520661157023,FALSE,FALSE,FALSE,NA,NA
+sin_covid_2010_2023,tasa_he_por_100k,level,"PP(Z-tau,trend,long)",12,1.5346026832819986,-5.115229752066115,-3.927137190082645,-3.4103628099173555,FALSE,FALSE,FALSE,NA,NA
+sin_covid_2010_2023,tasa_he_por_100k,level,KPSS(mu: level),12,0.13868599796231235,0.739,0.463,0.347,FALSE,FALSE,FALSE,NA,NA
+sin_covid_2010_2023,tasa_he_por_100k,level,KPSS(tau: trend),12,0.13369142715341897,0.216,0.146,0.119,FALSE,FALSE,TRUE,NA,NA
+sin_covid_2010_2023,tasa_he_por_100k,level,"ERS(DF-GLS,const)",12,-1.492670120563054,NA,NA,NA,NA,NA,NA,NA,NA
+sin_covid_2010_2023,tasa_he_por_100k,level,"ERS(DF-GLS,trend)",12,-1.5516260012088552,NA,NA,NA,NA,NA,NA,NA,NA
+sin_covid_2010_2023,tasa_he_por_100k,level,ZA(break:both),12,-3.3213816030939234,NA,NA,NA,NA,FALSE,FALSE,NA,NA
+sin_covid_2010_2023,tasa_he_por_100k,diff,"ADF(drift,lag<=1,tau2)",11,NA,-3.75,-3,-2.63,FALSE,FALSE,FALSE,NA,NA
+sin_covid_2010_2023,tasa_he_por_100k,diff,"ADF(trend,lag<=1,tau3)",11,NA,-4.38,-3.6,-3.24,FALSE,FALSE,FALSE,NA,NA
+sin_covid_2010_2023,tasa_he_por_100k,diff,"PP(Z-tau,const,long)",11,-0.45888531065929616,-4.325900000000001,-3.2195,-2.7557,FALSE,FALSE,FALSE,NA,NA
+sin_covid_2010_2023,tasa_he_por_100k,diff,"PP(Z-tau,trend,long)",11,-1.0821419581669731,-5.2735,-3.9948,-3.4455,FALSE,FALSE,FALSE,NA,NA
+sin_covid_2010_2023,tasa_he_por_100k,diff,KPSS(mu: level),11,0.31376531105695726,0.739,0.463,0.347,FALSE,FALSE,FALSE,NA,NA
+sin_covid_2010_2023,tasa_he_por_100k,diff,KPSS(tau: trend),11,0.13648227383409764,0.216,0.146,0.119,FALSE,FALSE,TRUE,NA,NA
+sin_covid_2010_2023,tasa_he_por_100k,diff,"ERS(DF-GLS,const)",11,-0.5025087427959284,NA,NA,NA,NA,NA,NA,NA,NA
+sin_covid_2010_2023,tasa_he_por_100k,diff,"ERS(DF-GLS,trend)",11,-1.7471172014894216,NA,NA,NA,NA,NA,NA,NA,NA
+sin_covid_2010_2023,tasa_det_por_100k,level,"ADF(drift,lag<=1,tau2)",12,NA,-3.75,-3,-2.63,FALSE,FALSE,FALSE,NA,NA
+sin_covid_2010_2023,tasa_det_por_100k,level,"ADF(trend,lag<=1,tau3)",12,NA,-4.38,-3.6,-3.24,FALSE,FALSE,FALSE,NA,NA
+sin_covid_2010_2023,tasa_det_por_100k,level,"PP(Z-tau,const,long)",12,-1.2349353282603688,-4.220599173553719,-3.1800999999999995,-2.7348520661157023,FALSE,FALSE,FALSE,NA,NA
+sin_covid_2010_2023,tasa_det_por_100k,level,"PP(Z-tau,trend,long)",12,-1.134313921185263,-5.115229752066115,-3.927137190082645,-3.4103628099173555,FALSE,FALSE,FALSE,NA,NA
+sin_covid_2010_2023,tasa_det_por_100k,level,KPSS(mu: level),12,0.1493649166094988,0.739,0.463,0.347,FALSE,FALSE,FALSE,NA,NA
+sin_covid_2010_2023,tasa_det_por_100k,level,KPSS(tau: trend),12,0.11295074648638788,0.216,0.146,0.119,FALSE,FALSE,FALSE,NA,NA
+sin_covid_2010_2023,tasa_det_por_100k,level,"ERS(DF-GLS,const)",12,-2.189891947721423,NA,NA,NA,NA,NA,NA,NA,NA
+sin_covid_2010_2023,tasa_det_por_100k,level,"ERS(DF-GLS,trend)",12,-2.472225159374646,NA,NA,NA,NA,NA,NA,NA,NA
+sin_covid_2010_2023,tasa_det_por_100k,level,ZA(break:both),12,-2.2241995129805243,NA,NA,NA,NA,FALSE,FALSE,NA,NA
+sin_covid_2010_2023,tasa_det_por_100k,diff,"ADF(drift,lag<=1,tau2)",11,NA,-3.75,-3,-2.63,FALSE,FALSE,FALSE,NA,NA
+sin_covid_2010_2023,tasa_det_por_100k,diff,"ADF(trend,lag<=1,tau3)",11,NA,-4.38,-3.6,-3.24,FALSE,FALSE,FALSE,NA,NA
+sin_covid_2010_2023,tasa_det_por_100k,diff,"PP(Z-tau,const,long)",11,-3.0515419909450534,-4.325900000000001,-3.2195,-2.7557,FALSE,FALSE,TRUE,NA,NA
+sin_covid_2010_2023,tasa_det_por_100k,diff,"PP(Z-tau,trend,long)",11,-7.343199102115953,-5.2735,-3.9948,-3.4455,TRUE,TRUE,TRUE,NA,NA
+sin_covid_2010_2023,tasa_det_por_100k,diff,KPSS(mu: level),11,0.15580116536792932,0.739,0.463,0.347,FALSE,FALSE,FALSE,NA,NA
+sin_covid_2010_2023,tasa_det_por_100k,diff,KPSS(tau: trend),11,0.14286592988360206,0.216,0.146,0.119,FALSE,FALSE,TRUE,NA,NA
+sin_covid_2010_2023,tasa_det_por_100k,diff,"ERS(DF-GLS,const)",11,-1.0755772050274033,NA,NA,NA,NA,NA,NA,NA,NA
+sin_covid_2010_2023,tasa_det_por_100k,diff,"ERS(DF-GLS,trend)",11,-1.1413744258609833,NA,NA,NA,NA,NA,NA,NA,NA
+sin_covid_2010_2023,share_ext,level,"ADF(drift,lag<=1,tau2)",12,NA,-3.75,-3,-2.63,FALSE,FALSE,FALSE,NA,NA
+sin_covid_2010_2023,share_ext,level,"ADF(trend,lag<=1,tau3)",12,NA,-4.38,-3.6,-3.24,FALSE,FALSE,FALSE,NA,NA
+sin_covid_2010_2023,share_ext,level,"PP(Z-tau,const,long)",12,-0.8467405557663031,-4.220599173553719,-3.1800999999999995,-2.7348520661157023,FALSE,FALSE,FALSE,NA,NA
+sin_covid_2010_2023,share_ext,level,"PP(Z-tau,trend,long)",12,0.896466125388748,-5.115229752066115,-3.927137190082645,-3.4103628099173555,FALSE,FALSE,FALSE,NA,NA
+sin_covid_2010_2023,share_ext,level,KPSS(mu: level),12,0.17202230468602128,0.739,0.463,0.347,FALSE,FALSE,FALSE,NA,NA
+sin_covid_2010_2023,share_ext,level,KPSS(tau: trend),12,0.14819303732652872,0.216,0.146,0.119,FALSE,TRUE,TRUE,NA,NA
+sin_covid_2010_2023,share_ext,level,"ERS(DF-GLS,const)",12,-1.682835866687515,NA,NA,NA,NA,NA,NA,NA,NA
+sin_covid_2010_2023,share_ext,level,"ERS(DF-GLS,trend)",12,-1.6812045466164671,NA,NA,NA,NA,NA,NA,NA,NA
+sin_covid_2010_2023,share_ext,level,ZA(break:both),12,-0.8576713529310276,NA,NA,NA,NA,FALSE,FALSE,NA,NA
+sin_covid_2010_2023,share_ext,diff,"ADF(drift,lag<=1,tau2)",11,NA,-3.75,-3,-2.63,FALSE,FALSE,FALSE,NA,NA
+sin_covid_2010_2023,share_ext,diff,"ADF(trend,lag<=1,tau3)",11,NA,-4.38,-3.6,-3.24,FALSE,FALSE,FALSE,NA,NA
+sin_covid_2010_2023,share_ext,diff,"PP(Z-tau,const,long)",11,-1.984549151154826,-4.325900000000001,-3.2195,-2.7557,FALSE,FALSE,FALSE,NA,NA
+sin_covid_2010_2023,share_ext,diff,"PP(Z-tau,trend,long)",11,-4.365705054080263,-5.2735,-3.9948,-3.4455,FALSE,TRUE,TRUE,NA,NA
+sin_covid_2010_2023,share_ext,diff,KPSS(mu: level),11,0.392333860511606,0.739,0.463,0.347,FALSE,FALSE,TRUE,NA,NA
+sin_covid_2010_2023,share_ext,diff,KPSS(tau: trend),11,0.12629174669646864,0.216,0.146,0.119,FALSE,FALSE,TRUE,NA,NA
+sin_covid_2010_2023,share_ext,diff,"ERS(DF-GLS,const)",11,-0.3894852066588011,NA,NA,NA,NA,NA,NA,NA,NA
+sin_covid_2010_2023,share_ext,diff,"ERS(DF-GLS,trend)",11,-1.9921509878738477,NA,NA,NA,NA,NA,NA,NA,NA
+sin_covid_2010_2023,pct_extranjeros_poblacion,level,"ADF(drift,lag<=1,tau2)",12,NA,-3.75,-3,-2.63,FALSE,FALSE,FALSE,NA,NA
+sin_covid_2010_2023,pct_extranjeros_poblacion,level,"ADF(trend,lag<=1,tau3)",12,NA,-4.38,-3.6,-3.24,FALSE,FALSE,FALSE,NA,NA
+sin_covid_2010_2023,pct_extranjeros_poblacion,level,"PP(Z-tau,const,long)",12,-0.8374675184425603,-4.220599173553719,-3.1800999999999995,-2.7348520661157023,FALSE,FALSE,FALSE,NA,NA
+sin_covid_2010_2023,pct_extranjeros_poblacion,level,"PP(Z-tau,trend,long)",12,2.4666691850342084,-5.115229752066115,-3.927137190082645,-3.4103628099173555,FALSE,FALSE,FALSE,NA,NA
+sin_covid_2010_2023,pct_extranjeros_poblacion,level,KPSS(mu: level),12,0.16516771982921674,0.739,0.463,0.347,FALSE,FALSE,FALSE,NA,NA
+sin_covid_2010_2023,pct_extranjeros_poblacion,level,KPSS(tau: trend),12,0.14756485517009316,0.216,0.146,0.119,FALSE,TRUE,TRUE,NA,NA
+sin_covid_2010_2023,pct_extranjeros_poblacion,level,"ERS(DF-GLS,const)",12,-2.992605515584179,NA,NA,NA,NA,NA,NA,NA,NA
+sin_covid_2010_2023,pct_extranjeros_poblacion,level,"ERS(DF-GLS,trend)",12,-2.9593915285526116,NA,NA,NA,NA,NA,NA,NA,NA
+sin_covid_2010_2023,pct_extranjeros_poblacion,level,ZA(break:both),12,-2.1308223442287533,NA,NA,NA,NA,FALSE,FALSE,NA,NA
+sin_covid_2010_2023,pct_extranjeros_poblacion,diff,"ADF(drift,lag<=1,tau2)",11,NA,-3.75,-3,-2.63,FALSE,FALSE,FALSE,NA,NA
+sin_covid_2010_2023,pct_extranjeros_poblacion,diff,"ADF(trend,lag<=1,tau3)",11,NA,-4.38,-3.6,-3.24,FALSE,FALSE,FALSE,NA,NA
+sin_covid_2010_2023,pct_extranjeros_poblacion,diff,"PP(Z-tau,const,long)",11,-0.33936757743065205,-4.325900000000001,-3.2195,-2.7557,FALSE,FALSE,FALSE,NA,NA
+sin_covid_2010_2023,pct_extranjeros_poblacion,diff,"PP(Z-tau,trend,long)",11,-2.895682883156876,-5.2735,-3.9948,-3.4455,FALSE,FALSE,FALSE,NA,NA
+sin_covid_2010_2023,pct_extranjeros_poblacion,diff,KPSS(mu: level),11,0.4048259050149845,0.739,0.463,0.347,FALSE,FALSE,TRUE,NA,NA
+sin_covid_2010_2023,pct_extranjeros_poblacion,diff,KPSS(tau: trend),11,0.13063998171527066,0.216,0.146,0.119,FALSE,FALSE,TRUE,NA,NA
+sin_covid_2010_2023,pct_extranjeros_poblacion,diff,"ERS(DF-GLS,const)",11,-1.262877326392324,NA,NA,NA,NA,NA,NA,NA,NA
+sin_covid_2010_2023,pct_extranjeros_poblacion,diff,"ERS(DF-GLS,trend)",11,-1.8809039174190807,NA,NA,NA,NA,NA,NA,NA,NA
+sin_covid_2010_2023,pib_pc_real,level,"ADF(drift,lag<=1,tau2)",12,NA,-3.75,-3,-2.63,FALSE,FALSE,FALSE,NA,NA
+sin_covid_2010_2023,pib_pc_real,level,"ADF(trend,lag<=1,tau3)",12,NA,-4.38,-3.6,-3.24,FALSE,FALSE,FALSE,NA,NA
+sin_covid_2010_2023,pib_pc_real,level,"PP(Z-tau,const,long)",12,0.09274238929030532,-4.220599173553719,-3.1800999999999995,-2.7348520661157023,FALSE,FALSE,FALSE,NA,NA
+sin_covid_2010_2023,pib_pc_real,level,"PP(Z-tau,trend,long)",12,-2.5359445788697315,-5.115229752066115,-3.927137190082645,-3.4103628099173555,FALSE,FALSE,FALSE,NA,NA
+sin_covid_2010_2023,pib_pc_real,level,KPSS(mu: level),12,0.4267413171558291,0.739,0.463,0.347,FALSE,FALSE,TRUE,NA,NA
+sin_covid_2010_2023,pib_pc_real,level,KPSS(tau: trend),12,0.10587352723917844,0.216,0.146,0.119,FALSE,FALSE,FALSE,NA,NA
+sin_covid_2010_2023,pib_pc_real,level,"ERS(DF-GLS,const)",12,-1.3716187082808649,NA,NA,NA,NA,NA,NA,NA,NA
+sin_covid_2010_2023,pib_pc_real,level,"ERS(DF-GLS,trend)",12,-2.839784280808876,NA,NA,NA,NA,NA,NA,NA,NA
+sin_covid_2010_2023,pib_pc_real,level,ZA(break:both),12,-7.97470663090527,NA,NA,NA,NA,FALSE,FALSE,NA,NA
+sin_covid_2010_2023,pib_pc_real,diff,"ADF(drift,lag<=1,tau2)",11,NA,-3.75,-3,-2.63,FALSE,FALSE,FALSE,NA,NA
+sin_covid_2010_2023,pib_pc_real,diff,"ADF(trend,lag<=1,tau3)",11,NA,-4.38,-3.6,-3.24,FALSE,FALSE,FALSE,NA,NA
+sin_covid_2010_2023,pib_pc_real,diff,"PP(Z-tau,const,long)",11,-1.2090588477168258,-4.325900000000001,-3.2195,-2.7557,FALSE,FALSE,FALSE,NA,NA
+sin_covid_2010_2023,pib_pc_real,diff,"PP(Z-tau,trend,long)",11,-0.8531844532209547,-5.2735,-3.9948,-3.4455,FALSE,FALSE,FALSE,NA,NA
+sin_covid_2010_2023,pib_pc_real,diff,KPSS(mu: level),11,0.1946309772543064,0.739,0.463,0.347,FALSE,FALSE,FALSE,NA,NA
+sin_covid_2010_2023,pib_pc_real,diff,KPSS(tau: trend),11,0.12368392487844268,0.216,0.146,0.119,FALSE,FALSE,TRUE,NA,NA
+sin_covid_2010_2023,pib_pc_real,diff,"ERS(DF-GLS,const)",11,-1.9383667484743548,NA,NA,NA,NA,NA,NA,NA,NA
+sin_covid_2010_2023,pib_pc_real,diff,"ERS(DF-GLS,trend)",11,-2.0789656247669948,NA,NA,NA,NA,NA,NA,NA,NA
+2010_2019_pre,tasa_hc_por_100k,level,"ADF(drift,lag<=1,tau2)",10,NA,-3.75,-3,-2.63,FALSE,FALSE,FALSE,NA,NA
+2010_2019_pre,tasa_hc_por_100k,level,"ADF(trend,lag<=1,tau3)",10,NA,-4.38,-3.6,-3.24,FALSE,FALSE,FALSE,NA,NA
+2010_2019_pre,tasa_hc_por_100k,level,"PP(Z-tau,const,long)",10,-1.3491045658424672,-4.461166666666666,-3.2695320987654317,-2.7821864197530863,FALSE,FALSE,FALSE,NA,NA
+2010_2019_pre,tasa_hc_por_100k,level,"PP(Z-tau,trend,long)",10,1.58304511963114,-5.47759012345679,-4.0815012345679005,-3.490146913580247,FALSE,FALSE,FALSE,NA,NA
+2010_2019_pre,tasa_hc_por_100k,level,KPSS(mu: level),10,0.25345635298914493,0.739,0.463,0.347,FALSE,FALSE,FALSE,NA,NA
+2010_2019_pre,tasa_hc_por_100k,level,KPSS(tau: trend),10,0.13073206883525992,0.216,0.146,0.119,FALSE,FALSE,TRUE,NA,NA
+2010_2019_pre,tasa_hc_por_100k,level,"ERS(DF-GLS,const)",10,-4.360383691893971,NA,NA,NA,NA,NA,NA,NA,NA
+2010_2019_pre,tasa_hc_por_100k,level,"ERS(DF-GLS,trend)",10,-3.829337195169317,NA,NA,NA,NA,NA,NA,NA,NA
+2010_2019_pre,tasa_hc_por_100k,level,ZA(break:both),10,-7.836973501707495,NA,NA,NA,NA,FALSE,FALSE,NA,NA
+2010_2019_pre,tasa_hc_por_100k,diff,"ADF(drift,lag<=1,tau2)",9,NA,-3.75,-3,-2.63,FALSE,FALSE,FALSE,NA,NA
+2010_2019_pre,tasa_hc_por_100k,diff,"ADF(trend,lag<=1,tau3)",9,NA,-4.38,-3.6,-3.24,FALSE,FALSE,FALSE,NA,NA
+2010_2019_pre,tasa_hc_por_100k,diff,"PP(Z-tau,const,long)",9,-0.4423389351615958,-4.64040625,-3.334975,-2.8168499999999996,FALSE,FALSE,FALSE,NA,NA
+2010_2019_pre,tasa_hc_por_100k,diff,"PP(Z-tau,trend,long)",9,-1.624019980583404,-5.749175,-4.196068749999999,-3.5485875,FALSE,FALSE,FALSE,NA,NA
+2010_2019_pre,tasa_hc_por_100k,diff,KPSS(mu: level),9,0.28717200327012865,0.739,0.463,0.347,FALSE,FALSE,FALSE,NA,NA
+2010_2019_pre,tasa_hc_por_100k,diff,KPSS(tau: trend),9,0.1298367298651701,0.216,0.146,0.119,FALSE,FALSE,TRUE,NA,NA
+2010_2019_pre,tasa_hc_por_100k,diff,"ERS(DF-GLS,const)",9,-2.0931550922801674,NA,NA,NA,NA,NA,NA,NA,NA
+2010_2019_pre,tasa_hc_por_100k,diff,"ERS(DF-GLS,trend)",9,-1.5903390877514667,NA,NA,NA,NA,NA,NA,NA,NA
+2010_2019_pre,tasa_he_por_100k,level,"ADF(drift,lag<=1,tau2)",10,NA,-3.75,-3,-2.63,FALSE,FALSE,FALSE,NA,NA
+2010_2019_pre,tasa_he_por_100k,level,"ADF(trend,lag<=1,tau3)",10,NA,-4.38,-3.6,-3.24,FALSE,FALSE,FALSE,NA,NA
+2010_2019_pre,tasa_he_por_100k,level,"PP(Z-tau,const,long)",10,-0.9140811716380904,-4.461166666666666,-3.2695320987654317,-2.7821864197530863,FALSE,FALSE,FALSE,NA,NA
+2010_2019_pre,tasa_he_por_100k,level,"PP(Z-tau,trend,long)",10,-0.2860513700648457,-5.47759012345679,-4.0815012345679005,-3.490146913580247,FALSE,FALSE,FALSE,NA,NA
+2010_2019_pre,tasa_he_por_100k,level,KPSS(mu: level),10,0.30526045336035296,0.739,0.463,0.347,FALSE,FALSE,FALSE,NA,NA
+2010_2019_pre,tasa_he_por_100k,level,KPSS(tau: trend),10,0.09940321554455275,0.216,0.146,0.119,FALSE,FALSE,FALSE,NA,NA
+2010_2019_pre,tasa_he_por_100k,level,"ERS(DF-GLS,const)",10,-1.3073745753519848,NA,NA,NA,NA,NA,NA,NA,NA
+2010_2019_pre,tasa_he_por_100k,level,"ERS(DF-GLS,trend)",10,-2.4699045882598476,NA,NA,NA,NA,NA,NA,NA,NA
+2010_2019_pre,tasa_he_por_100k,level,ZA(break:both),10,-2.740390831320096,NA,NA,NA,NA,FALSE,FALSE,NA,NA
+2010_2019_pre,tasa_he_por_100k,diff,"ADF(drift,lag<=1,tau2)",9,NA,-3.75,-3,-2.63,FALSE,FALSE,FALSE,NA,NA
+2010_2019_pre,tasa_he_por_100k,diff,"ADF(trend,lag<=1,tau3)",9,NA,-4.38,-3.6,-3.24,FALSE,FALSE,FALSE,NA,NA
+2010_2019_pre,tasa_he_por_100k,diff,"PP(Z-tau,const,long)",9,-1.0675061081849715,-4.64040625,-3.334975,-2.8168499999999996,FALSE,FALSE,FALSE,NA,NA
+2010_2019_pre,tasa_he_por_100k,diff,"PP(Z-tau,trend,long)",9,-0.8735901602841762,-5.749175,-4.196068749999999,-3.5485875,FALSE,FALSE,FALSE,NA,NA
+2010_2019_pre,tasa_he_por_100k,diff,KPSS(mu: level),9,0.15514148521303123,0.739,0.463,0.347,FALSE,FALSE,FALSE,NA,NA
+2010_2019_pre,tasa_he_por_100k,diff,KPSS(tau: trend),9,0.1267558554232176,0.216,0.146,0.119,FALSE,FALSE,TRUE,NA,NA
+2010_2019_pre,tasa_he_por_100k,diff,"ERS(DF-GLS,const)",9,-1.144488352157519,NA,NA,NA,NA,NA,NA,NA,NA
+2010_2019_pre,tasa_he_por_100k,diff,"ERS(DF-GLS,trend)",9,-1.700554299199889,NA,NA,NA,NA,NA,NA,NA,NA
+2010_2019_pre,tasa_det_por_100k,level,"ADF(drift,lag<=1,tau2)",10,NA,-3.75,-3,-2.63,FALSE,FALSE,FALSE,NA,NA
+2010_2019_pre,tasa_det_por_100k,level,"ADF(trend,lag<=1,tau3)",10,NA,-4.38,-3.6,-3.24,FALSE,FALSE,FALSE,NA,NA
+2010_2019_pre,tasa_det_por_100k,level,"PP(Z-tau,const,long)",10,-2.2016908395729833,-4.461166666666666,-3.2695320987654317,-2.7821864197530863,FALSE,FALSE,FALSE,NA,NA
+2010_2019_pre,tasa_det_por_100k,level,"PP(Z-tau,trend,long)",10,-4.19339119182773,-5.47759012345679,-4.0815012345679005,-3.490146913580247,FALSE,TRUE,TRUE,NA,NA
+2010_2019_pre,tasa_det_por_100k,level,KPSS(mu: level),10,0.1851374438257561,0.739,0.463,0.347,FALSE,FALSE,FALSE,NA,NA
+2010_2019_pre,tasa_det_por_100k,level,KPSS(tau: trend),10,0.10206872630713572,0.216,0.146,0.119,FALSE,FALSE,FALSE,NA,NA
+2010_2019_pre,tasa_det_por_100k,level,"ERS(DF-GLS,const)",10,-3.4248022893038317,NA,NA,NA,NA,NA,NA,NA,NA
+2010_2019_pre,tasa_det_por_100k,level,"ERS(DF-GLS,trend)",10,-4.204304056034789,NA,NA,NA,NA,NA,NA,NA,NA
+2010_2019_pre,tasa_det_por_100k,level,ZA(break:both),10,-4.443910195827399,NA,NA,NA,NA,FALSE,FALSE,NA,NA
+2010_2019_pre,tasa_det_por_100k,diff,"ADF(drift,lag<=1,tau2)",9,NA,-3.75,-3,-2.63,FALSE,FALSE,FALSE,NA,NA
+2010_2019_pre,tasa_det_por_100k,diff,"ADF(trend,lag<=1,tau3)",9,NA,-4.38,-3.6,-3.24,FALSE,FALSE,FALSE,NA,NA
+2010_2019_pre,tasa_det_por_100k,diff,"PP(Z-tau,const,long)",9,-4.944713778171259,-4.64040625,-3.334975,-2.8168499999999996,TRUE,TRUE,TRUE,NA,NA
+2010_2019_pre,tasa_det_por_100k,diff,"PP(Z-tau,trend,long)",9,-8.100588039145915,-5.749175,-4.196068749999999,-3.5485875,TRUE,TRUE,TRUE,NA,NA
+2010_2019_pre,tasa_det_por_100k,diff,KPSS(mu: level),9,0.1855334868231159,0.739,0.463,0.347,FALSE,FALSE,FALSE,NA,NA
+2010_2019_pre,tasa_det_por_100k,diff,KPSS(tau: trend),9,0.14123750541446342,0.216,0.146,0.119,FALSE,FALSE,TRUE,NA,NA
+2010_2019_pre,tasa_det_por_100k,diff,"ERS(DF-GLS,const)",9,-1.2843029804251194,NA,NA,NA,NA,NA,NA,NA,NA
+2010_2019_pre,tasa_det_por_100k,diff,"ERS(DF-GLS,trend)",9,-1.509084493125517,NA,NA,NA,NA,NA,NA,NA,NA
+2010_2019_pre,share_ext,level,"ADF(drift,lag<=1,tau2)",10,NA,-3.75,-3,-2.63,FALSE,FALSE,FALSE,NA,NA
+2010_2019_pre,share_ext,level,"ADF(trend,lag<=1,tau3)",10,NA,-4.38,-3.6,-3.24,FALSE,FALSE,FALSE,NA,NA
+2010_2019_pre,share_ext,level,"PP(Z-tau,const,long)",10,-3.089122194142063,-4.461166666666666,-3.2695320987654317,-2.7821864197530863,FALSE,FALSE,TRUE,NA,NA
+2010_2019_pre,share_ext,level,"PP(Z-tau,trend,long)",10,1.5579112190938895,-5.47759012345679,-4.0815012345679005,-3.490146913580247,FALSE,FALSE,FALSE,NA,NA
+2010_2019_pre,share_ext,level,KPSS(mu: level),10,0.34940191642464213,0.739,0.463,0.347,FALSE,FALSE,TRUE,NA,NA
+2010_2019_pre,share_ext,level,KPSS(tau: trend),10,0.1408989892971017,0.216,0.146,0.119,FALSE,FALSE,TRUE,NA,NA
+2010_2019_pre,share_ext,level,"ERS(DF-GLS,const)",10,-1.501147526765219,NA,NA,NA,NA,NA,NA,NA,NA
+2010_2019_pre,share_ext,level,"ERS(DF-GLS,trend)",10,-1.2909948414152574,NA,NA,NA,NA,NA,NA,NA,NA
+2010_2019_pre,share_ext,level,ZA(break:both),10,-63.434957695157244,NA,NA,NA,NA,FALSE,FALSE,NA,NA
+2010_2019_pre,share_ext,diff,"ADF(drift,lag<=1,tau2)",9,NA,-3.75,-3,-2.63,FALSE,FALSE,FALSE,NA,NA
+2010_2019_pre,share_ext,diff,"ADF(trend,lag<=1,tau3)",9,NA,-4.38,-3.6,-3.24,FALSE,FALSE,FALSE,NA,NA
+2010_2019_pre,share_ext,diff,"PP(Z-tau,const,long)",9,-0.810129097075749,-4.64040625,-3.334975,-2.8168499999999996,FALSE,FALSE,FALSE,NA,NA
+2010_2019_pre,share_ext,diff,"PP(Z-tau,trend,long)",9,-2.533420956893294,-5.749175,-4.196068749999999,-3.5485875,FALSE,FALSE,FALSE,NA,NA
+2010_2019_pre,share_ext,diff,KPSS(mu: level),9,0.38957568867454295,0.739,0.463,0.347,FALSE,FALSE,TRUE,NA,NA
+2010_2019_pre,share_ext,diff,KPSS(tau: trend),9,0.1417416854016339,0.216,0.146,0.119,FALSE,FALSE,TRUE,NA,NA
+2010_2019_pre,share_ext,diff,"ERS(DF-GLS,const)",9,-0.27199767373631656,NA,NA,NA,NA,NA,NA,NA,NA
+2010_2019_pre,share_ext,diff,"ERS(DF-GLS,trend)",9,-1.7037392655920338,NA,NA,NA,NA,NA,NA,NA,NA
+2010_2019_pre,pct_extranjeros_poblacion,level,"ADF(drift,lag<=1,tau2)",10,NA,-3.75,-3,-2.63,FALSE,FALSE,FALSE,NA,NA
+2010_2019_pre,pct_extranjeros_poblacion,level,"ADF(trend,lag<=1,tau3)",10,NA,-4.38,-3.6,-3.24,FALSE,FALSE,FALSE,NA,NA
+2010_2019_pre,pct_extranjeros_poblacion,level,"PP(Z-tau,const,long)",10,-1.6173680846133809,-4.461166666666666,-3.2695320987654317,-2.7821864197530863,FALSE,FALSE,FALSE,NA,NA
+2010_2019_pre,pct_extranjeros_poblacion,level,"PP(Z-tau,trend,long)",10,3.245741186769404,-5.47759012345679,-4.0815012345679005,-3.490146913580247,FALSE,FALSE,FALSE,NA,NA
+2010_2019_pre,pct_extranjeros_poblacion,level,KPSS(mu: level),10,0.2758038714824443,0.739,0.463,0.347,FALSE,FALSE,FALSE,NA,NA
+2010_2019_pre,pct_extranjeros_poblacion,level,KPSS(tau: trend),10,0.13676646375033105,0.216,0.146,0.119,FALSE,FALSE,TRUE,NA,NA
+2010_2019_pre,pct_extranjeros_poblacion,level,"ERS(DF-GLS,const)",10,-2.9545782215407854,NA,NA,NA,NA,NA,NA,NA,NA
+2010_2019_pre,pct_extranjeros_poblacion,level,"ERS(DF-GLS,trend)",10,-1.9968013420182031,NA,NA,NA,NA,NA,NA,NA,NA
+2010_2019_pre,pct_extranjeros_poblacion,level,ZA(break:both),10,-2.943443791659128,NA,NA,NA,NA,FALSE,FALSE,NA,NA
+2010_2019_pre,pct_extranjeros_poblacion,diff,"ADF(drift,lag<=1,tau2)",9,NA,-3.75,-3,-2.63,FALSE,FALSE,FALSE,NA,NA
+2010_2019_pre,pct_extranjeros_poblacion,diff,"ADF(trend,lag<=1,tau3)",9,NA,-4.38,-3.6,-3.24,FALSE,FALSE,FALSE,NA,NA
+2010_2019_pre,pct_extranjeros_poblacion,diff,"PP(Z-tau,const,long)",9,0.6869904011696912,-4.64040625,-3.334975,-2.8168499999999996,FALSE,FALSE,FALSE,NA,NA
+2010_2019_pre,pct_extranjeros_poblacion,diff,"PP(Z-tau,trend,long)",9,-1.6827810595936403,-5.749175,-4.196068749999999,-3.5485875,FALSE,FALSE,FALSE,NA,NA
+2010_2019_pre,pct_extranjeros_poblacion,diff,KPSS(mu: level),9,0.3388228737677315,0.739,0.463,0.347,FALSE,FALSE,FALSE,NA,NA
+2010_2019_pre,pct_extranjeros_poblacion,diff,KPSS(tau: trend),9,0.1390304302400607,0.216,0.146,0.119,FALSE,FALSE,TRUE,NA,NA
+2010_2019_pre,pct_extranjeros_poblacion,diff,"ERS(DF-GLS,const)",9,-0.8768492771930217,NA,NA,NA,NA,NA,NA,NA,NA
+2010_2019_pre,pct_extranjeros_poblacion,diff,"ERS(DF-GLS,trend)",9,-1.243997212333067,NA,NA,NA,NA,NA,NA,NA,NA
+2010_2019_pre,pib_pc_real,level,"ADF(drift,lag<=1,tau2)",10,NA,-3.75,-3,-2.63,FALSE,FALSE,FALSE,NA,NA
+2010_2019_pre,pib_pc_real,level,"ADF(trend,lag<=1,tau3)",10,NA,-4.38,-3.6,-3.24,FALSE,FALSE,FALSE,NA,NA
+2010_2019_pre,pib_pc_real,level,"PP(Z-tau,const,long)",10,0.4220094000583496,-4.461166666666666,-3.2695320987654317,-2.7821864197530863,FALSE,FALSE,FALSE,NA,NA
+2010_2019_pre,pib_pc_real,level,"PP(Z-tau,trend,long)",10,-3.0997260283066836,-5.47759012345679,-4.0815012345679005,-3.490146913580247,FALSE,FALSE,FALSE,NA,NA
+2010_2019_pre,pib_pc_real,level,KPSS(mu: level),10,0.3548999476398905,0.739,0.463,0.347,FALSE,FALSE,TRUE,NA,NA
+2010_2019_pre,pib_pc_real,level,KPSS(tau: trend),10,0.12911788564439136,0.216,0.146,0.119,FALSE,FALSE,TRUE,NA,NA
+2010_2019_pre,pib_pc_real,level,"ERS(DF-GLS,const)",10,-2.0587087790509324,NA,NA,NA,NA,NA,NA,NA,NA
+2010_2019_pre,pib_pc_real,level,"ERS(DF-GLS,trend)",10,-2.2470940662647245,NA,NA,NA,NA,NA,NA,NA,NA
+2010_2019_pre,pib_pc_real,level,ZA(break:both),10,-7.97470663090524,NA,NA,NA,NA,FALSE,FALSE,NA,NA
+2010_2019_pre,pib_pc_real,diff,"ADF(drift,lag<=1,tau2)",9,NA,-3.75,-3,-2.63,FALSE,FALSE,FALSE,NA,NA
+2010_2019_pre,pib_pc_real,diff,"ADF(trend,lag<=1,tau3)",9,NA,-4.38,-3.6,-3.24,FALSE,FALSE,FALSE,NA,NA
+2010_2019_pre,pib_pc_real,diff,"PP(Z-tau,const,long)",9,-0.9961787055013842,-4.64040625,-3.334975,-2.8168499999999996,FALSE,FALSE,FALSE,NA,NA
+2010_2019_pre,pib_pc_real,diff,"PP(Z-tau,trend,long)",9,-0.16533546364116458,-5.749175,-4.196068749999999,-3.5485875,FALSE,FALSE,FALSE,NA,NA
+2010_2019_pre,pib_pc_real,diff,KPSS(mu: level),9,0.2741465561734615,0.739,0.463,0.347,FALSE,FALSE,FALSE,NA,NA
+2010_2019_pre,pib_pc_real,diff,KPSS(tau: trend),9,0.12355919875358648,0.216,0.146,0.119,FALSE,FALSE,TRUE,NA,NA
+2010_2019_pre,pib_pc_real,diff,"ERS(DF-GLS,const)",9,-1.5964081867369484,NA,NA,NA,NA,NA,NA,NA,NA
+2010_2019_pre,pib_pc_real,diff,"ERS(DF-GLS,trend)",9,-1.5563770527900356,NA,NA,NA,NA,NA,NA,NA,NA

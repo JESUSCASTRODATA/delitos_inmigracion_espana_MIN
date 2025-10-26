@@ -1,0 +1,332 @@
+## title: "Delitos e Inmigración en España (2010–2023)"  author: "Jesús Castro · JESUSCASTRODATA"  date: 2025-09-28  lang: es  license: "MIT (code) · CC BY 4.0 (docs/figures)"  format:  gfm:  toc: true  toc-depth: 3  number-sections: false
+
+# Delitos e Inmigración en España (2010–2023)
+
+Estudio descriptivo reproducible sobre la evolución conjunta de la criminalidad y la población extranjera en España (2010–2023), basado en datos oficiales del INE, Ministerio del Interior y Eurostat.
+
+**Autor:** Jesús Castro (JESUSCASTRODATA) · **Periodo:** 2010–2023 · **Versión:** dev · **Últ. actualización:** 2025-09-28\
+**Contacto:** [GitHub](https://github.com/JESUSCASTRODATA)
+
+## Contenido
+
+-   
+
+-   
+
+    Resumen ejecutivo
+
+-   
+
+-   
+
+    Preguntas de investigación
+
+-   
+
+-   
+
+    Datos y cobertura
+
+-   
+
+-   
+
+    Metodología
+
+-   
+
+-   
+
+    Cómo reproducir
+
+-   
+
+-   
+
+    Estructura del repositorio
+
+-   
+
+-   
+
+    Productos derivados
+
+-   
+
+-   
+
+    Resultados clave
+
+-   
+
+-   
+
+    Supuestos, límites y uso responsable
+
+-   
+
+-   
+
+    Licencia y citación
+
+-   
+
+## Resumen ejecutivo
+
+Estudio de la coevolución entre % de población extranjera y criminalidad agregada (hechos conocidos, esclarecidos y detenciones) en España, 2010–2023.\
+Se reportan correlaciones simples (Pearson/Spearman/Kendall) y parciales (control por PIB real per cápita, paro joven y AROPE), tanto en niveles como en variaciones (Δ), con ventanas completas y *sin COVID* (2010–2019 & 2022–2023).
+
+**Hechos principales (descriptivos, no causales):**
+
+-   
+
+-   
+
+    \% de extranjeros y *share* de detenciones de extranjeros muestran una relación fuerte y positiva.
+
+-   
+
+-   
+
+    \% de extranjeros y tasas HC/HE presentan asociación positiva en niveles, más débil en Δ.
+
+-   
+
+-   
+
+    Al controlar por variables socioeconómicas, las correlaciones se atenúan, pero los patrones persisten parcialmente.
+
+-   
+
+## Preguntas de investigación
+
+1.  
+
+2.  
+
+    ¿Cómo coevoluciona el % de población extranjera con el *share* de detenciones de extranjeros?
+
+3.  
+
+4.  
+
+    ¿Se asocia el % de extranjeros con las tasas de HC/HE por 100.000 habitantes?
+
+5.  
+
+6.  
+
+    ¿Se mantiene el vínculo al controlar por PIB real per cápita, paro joven y AROPE?
+
+7.  
+
+8.  
+
+    ¿Cómo afecta la ruptura del periodo COVID-19 (2020–2021) a los resultados?
+
+9.  
+
+## Datos y cobertura
+
+-   
+
+-   
+
+    **Ámbito:** España, Total Nacional (2010–2023).
+
+-   
+
+-   
+
+    **Fuentes:**
+
+    -   
+
+    -   
+
+        INE (Padrón; AROPE; EPA).
+
+    -   
+
+    -   
+
+        Ministerio del Interior (Hechos conocidos, esclarecidos y detenciones).
+
+    -   
+
+    -   
+
+        Eurostat (PIB real per cápita).
+
+    -   
+
+-   
+
+-   
+
+    **Reglas de consistencia:** `HE ≤ HC`, `det_ext ≤ det_tot` (con excepciones documentadas).
+
+-   
+
+-   
+
+    **Licencias:** los datos conservan las condiciones de sus titulares (ver `DATA_LICENSE.md`).
+
+-   
+
+## Metodología
+
+-   
+
+-   
+
+    **ETL y QA:** estandarización (`ano`), tasas por 100.000, detección de duplicados, validación de esquemas.
+
+-   
+
+-   
+
+    **Transformaciones:** diferencias anuales (Δ) y logarítmicas (Δln).
+
+-   
+
+-   
+
+    **Análisis:** correlaciones simples y parciales; ventanas total y sin COVID.
+
+-   
+
+-   
+
+    **Visualización:** tema *pearl* + paleta Okabe–Ito (`scripts/00_theme_figuras.R`).
+
+-   
+
+## Cómo reproducir
+
+**Requisitos:** R ≥ 4.3, `renv`, `tidyverse`, `knitr`, `kableExtra`.
+
+```         
+install.packages("renv") renv::restore()                         # Restaurar entorno reproducible source(here::here("scripts/80_run_all.R"))  # Ejecutar pipeline completo 
+```
+
+**Informe opcional:**
+
+```         
+rmarkdown::render("docs/informe_delitos_inmigracion_espana_2010_2023.Rmd") 
+```
+
+## Estructura del repositorio
+
+```         
+. ├─ config/              # Mapeos, whitelists y QA rules ├─ data/ │  ├─ raw/              # Datos originales │  └─ processed/        # Derivados/limpios ├─ docs/                # Informe Rmd/Quarto ├─ output/ │  ├─ figures/          # Gráficos │  └─ tables/           # Tablas y diagnósticos ├─ scripts/ │  ├─ 00_theme_figuras.R │  ├─ 20b_sync_core_from_inventory.R │  ├─ 20_io_guard.R │  └─ 20_preguntas_basicas.R └─ LICENSE · LICENSE-DOCS-CC-BY-4.0.md · DATA_LICENSE.md · CITATION.cff 
+```
+
+## Productos de datos (derivados principales)
+
+|  |  |  |  |  |  |  |
+|----|----|----|----|----|----|----|
+|  |  |  |  |  |  |  |
+|  | Tipo |  | Ruta |  | Descripción |  |
+|  |  |  |  |  |  |  |
+|  | Tabla |  | `data/processed/core_indicadores.csv` |  | Indicadores base |  |
+|  |  |  |  |  |  |  |
+|  | Tabla |  | `output/tables/20_corr_deltas_sin_covid.csv` |  | Correlaciones Δ sin COVID |  |
+|  |  |  |  |  |  |  |
+|  | Figura |  | `output/figures/20_niv_tasa_hc_100k_vs_pct_extranjeros_all.png` |  | Tasa HC vs % extranjeros |  |
+|  |  |  |  |  |  |  |
+|  | Resumen |  | `output/tables/20_pb_summary.md` |  | Resultados descriptivos |  |
+|  |  |  |  |  |  |  |
+
+## Resultados clave (hechos)
+
+-   
+
+-   
+
+    En niveles, % extranjeros co-mueve con el *share* de detenciones de extranjeros y tasas HC/HE.
+
+-   
+
+-   
+
+    En variaciones, las relaciones con tasas son más inestables; con *share* se mantienen.
+
+-   
+
+-   
+
+    Al controlar por PIB, paro joven y AROPE, las correlaciones se reducen pero no desaparecen.
+
+-   
+
+## Supuestos, límites y uso responsable
+
+-   
+
+-   
+
+    Las correlaciones **no** implican causalidad.
+
+-   
+
+-   
+
+    Los resultados se refieren al ámbito nacional agregado (no subnacional).
+
+-   
+
+-   
+
+    Las series en niveles pueden compartir tendencias comunes; se priorizan Δ y ventanas sin COVID.
+
+-   
+
+-   
+
+    El periodo COVID-19 se trata como choque externo; resultados reportados con y sin 2020–2021.
+
+-   
+
+## Licencia y citación
+
+-   
+
+-   
+
+    **Código:** MIT — © 2025 Jesús Castro · JESUSCASTRODATA
+
+-   
+
+-   
+
+    **Documentos y figuras:** CC BY 4.0
+
+-   
+
+-   
+
+    **Datos originales:** ver `DATA_LICENSE.md`
+
+-   
+
+**Cita sugerida:**
+
+> 
+>
+> Castro, J. (2025). *Delitos e Inmigración en España (2010–2023).* Repositorio: <https://github.com/JESUSCASTRODATA/crime-migration-spain>. Licencias: MIT (código) · CC BY 4.0 (documentos y figuras).
+
+**BibTeX**
+
+```         
+@software{castro2025-delitos-inmigracion-espana,   author       = {Jesús Castro},   title        = {Delitos e Inmigración en España (2010--2023)},   year         = {2025},   url          = {https://github.com/JESUSCASTRODATA/crime-migration-spain},   version      = {dev},   license      = {MIT},   note         = {Docs \& figures: CC BY 4.0} } 
+```
+
+© 2025 Jesús Castro · JESUSCASTRODATA\
+MIT License (código) · CC BY 4.0 (documentación y figuras)
+
+> 
+>
+> **Nota:** Puedes generar `README.md` con:\
+> `quarto render README.qmd --to gfm`\
+> Esto mantiene compatibilidad total con GitHub sin perder los metadatos YAML.

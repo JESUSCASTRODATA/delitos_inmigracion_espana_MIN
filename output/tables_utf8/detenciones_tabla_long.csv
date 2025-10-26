@@ -1,0 +1,1849 @@
+ano,delito5,nacionalidad,valor
+2010,1. contra las personas,espanoles,45163
+2010,1. contra las personas,extranjeros,21061
+2010,1. contra las personas,total,66224
+2010,1.1.-homicidios dolosos/asesinatos,espanoles,1033
+2010,1.1.-homicidios dolosos/asesinatos,extranjeros,305
+2010,1.1.-homicidios dolosos/asesinatos,total,1338
+2010,1.1.1.-homicidios dolosos/asesinatos consumados,espanoles,273
+2010,1.1.1.-homicidios dolosos/asesinatos consumados,extranjeros,124
+2010,1.1.1.-homicidios dolosos/asesinatos consumados,total,397
+2010,1.2.-lesiones,espanoles,11065
+2010,1.2.-lesiones,extranjeros,5072
+2010,1.2.-lesiones,total,16137
+2010,1.3.-malos tratos ambito familiar,espanoles,31732
+2010,1.3.-malos tratos ambito familiar,extranjeros,14747
+2010,1.3.-malos tratos ambito familiar,total,46479
+2010,1.4.-otros contra las personas,espanoles,1333
+2010,1.4.-otros contra las personas,extranjeros,937
+2010,1.4.-otros contra las personas,total,2270
+2010,10. orden publico,espanoles,16182
+2010,10. orden publico,extranjeros,7567
+2010,10. orden publico,total,23749
+2010,11. legislacion especial,espanoles,106
+2010,11. legislacion especial,extranjeros,40
+2010,11. legislacion especial,total,146
+2010,12. otras infracciones penales,espanoles,1850
+2010,12. otras infracciones penales,extranjeros,1928
+2010,12. otras infracciones penales,total,3778
+2010,2. contra la libertad,espanoles,18650
+2010,2. contra la libertad,extranjeros,5553
+2010,2. contra la libertad,total,24203
+2010,2.1.-malos tratos habituales en el ambito familiar,espanoles,8407
+2010,2.1.-malos tratos habituales en el ambito familiar,extranjeros,2498
+2010,2.1.-malos tratos habituales en el ambito familiar,total,10905
+2010,2.2.-otros contra la libertad,espanoles,10243
+2010,2.2.-otros contra la libertad,extranjeros,3055
+2010,2.2.-otros contra la libertad,total,13298
+2010,3. libertad sexual,espanoles,4091
+2010,3. libertad sexual,extranjeros,2143
+2010,3. libertad sexual,total,6234
+2010,3.1.-agresion sexual,espanoles,1842
+2010,3.1.-agresion sexual,extranjeros,951
+2010,3.1.-agresion sexual,total,2793
+2010,3.2.-agresion sexual con penetracion,espanoles,822
+2010,3.2.-agresion sexual con penetracion,extranjeros,509
+2010,3.2.-agresion sexual con penetracion,total,1331
+2010,3.3.-corrupcion de menores o incapacitados,espanoles,175
+2010,3.3.-corrupcion de menores o incapacitados,extranjeros,51
+2010,3.3.-corrupcion de menores o incapacitados,total,226
+2010,3.4.-pornografia de menores,espanoles,465
+2010,3.4.-pornografia de menores,extranjeros,39
+2010,3.4.-pornografia de menores,total,504
+2010,3.5.-otros contra la libertad sexual,espanoles,787
+2010,3.5.-otros contra la libertad sexual,extranjeros,593
+2010,3.5.-otros contra la libertad sexual,total,1380
+2010,4. relaciones familiares,espanoles,786
+2010,4. relaciones familiares,extranjeros,307
+2010,4. relaciones familiares,total,1093
+2010,5. patrimonio,espanoles,95047
+2010,5. patrimonio,extranjeros,42321
+2010,5. patrimonio,total,137368
+2010,5.1.-hurtos,espanoles,20078
+2010,5.1.-hurtos,extranjeros,13561
+2010,5.1.-hurtos,total,33639
+2010,5.2.-robos con fuerza en las cosas,espanoles,38327
+2010,5.2.-robos con fuerza en las cosas,extranjeros,11939
+2010,5.2.-robos con fuerza en las cosas,total,50266
+2010,5.2.1.-robos con fuerza en las cosas en el interior de vehiculos,espanoles,6670
+2010,5.2.1.-robos con fuerza en las cosas en el interior de vehiculos,extranjeros,1785
+2010,5.2.1.-robos con fuerza en las cosas en el interior de vehiculos,total,8455
+2010,5.2.2.-robos con fuerza en viviendas,espanoles,6948
+2010,5.2.2.-robos con fuerza en viviendas,extranjeros,2782
+2010,5.2.2.-robos con fuerza en viviendas,total,9730
+2010,5.2.3.-robos con fuerza en establecimientos,espanoles,6674
+2010,5.2.3.-robos con fuerza en establecimientos,extranjeros,2846
+2010,5.2.3.-robos con fuerza en establecimientos,total,9520
+2010,5.3.-robos con violencia o intimidacion,espanoles,15342
+2010,5.3.-robos con violencia o intimidacion,extranjeros,6279
+2010,5.3.-robos con violencia o intimidacion,total,21621
+2010,5.3.1.-robos con violencia en via publica,espanoles,6199
+2010,5.3.1.-robos con violencia en via publica,extranjeros,4198
+2010,5.3.1.-robos con violencia en via publica,total,10397
+2010,5.3.2.-robos con violencia en viviendas,espanoles,744
+2010,5.3.2.-robos con violencia en viviendas,extranjeros,536
+2010,5.3.2.-robos con violencia en viviendas,total,1280
+2010,5.3.3.-robos con violencia en establecimientos,espanoles,2432
+2010,5.3.3.-robos con violencia en establecimientos,extranjeros,936
+2010,5.3.3.-robos con violencia en establecimientos,total,3368
+2010,5.4.-sustraccion de vehiculos,espanoles,5370
+2010,5.4.-sustraccion de vehiculos,extranjeros,1799
+2010,5.4.-sustraccion de vehiculos,total,7169
+2010,5.5.-estafas,espanoles,5588
+2010,5.5.-estafas,extranjeros,2746
+2010,5.5.-estafas,total,8334
+2010,5.5.1.-estafas informaticas,espanoles,1028
+2010,5.5.1.-estafas informaticas,extranjeros,583
+2010,5.5.1.-estafas informaticas,total,1611
+2010,5.6.-danos,espanoles,4416
+2010,5.6.-danos,extranjeros,1381
+2010,5.6.-danos,total,5797
+2010,5.7.-contra la propiedad intelectual/industrial,espanoles,866
+2010,5.7.-contra la propiedad intelectual/industrial,extranjeros,2867
+2010,5.7.-contra la propiedad intelectual/industrial,total,3733
+2010,5.8.-blanqueo de capitales,espanoles,198
+2010,5.8.-blanqueo de capitales,extranjeros,98
+2010,5.8.-blanqueo de capitales,total,296
+2010,5.9.-otros contra el patrimonio,espanoles,4862
+2010,5.9.-otros contra el patrimonio,extranjeros,1651
+2010,5.9.-otros contra el patrimonio,total,6513
+2010,6. seguridad colectiva,espanoles,43420
+2010,6. seguridad colectiva,extranjeros,17090
+2010,6. seguridad colectiva,total,60510
+2010,6.1.-trafico de drogas,espanoles,13846
+2010,6.1.-trafico de drogas,extranjeros,7837
+2010,6.1.-trafico de drogas,total,21683
+2010,6.2.-contra la seguridad vial,espanoles,27918
+2010,6.2.-contra la seguridad vial,extranjeros,8833
+2010,6.2.-contra la seguridad vial,total,36751
+2010,6.3.-otros contra la seguridad colectiva,espanoles,1656
+2010,6.3.-otros contra la seguridad colectiva,extranjeros,420
+2010,6.3.-otros contra la seguridad colectiva,total,2076
+2010,7. falsedades,espanoles,4206
+2010,7. falsedades,extranjeros,5335
+2010,7. falsedades,total,9541
+2010,8. admon. publica,espanoles,212
+2010,8. admon. publica,extranjeros,33
+2010,8. admon. publica,total,245
+2010,9. admon. justicia,espanoles,14216
+2010,9. admon. justicia,extranjeros,4660
+2010,9. admon. justicia,total,18876
+2010,total infracciones penales,espanoles,243929
+2010,total infracciones penales,extranjeros,108038
+2010,total infracciones penales,total,351967
+2011,1. contra las personas,espanoles,72994
+2011,1. contra las personas,extranjeros,28182
+2011,1. contra las personas,total,101176
+2011,1.1.-homicidios dolosos/asesinatos,espanoles,991
+2011,1.1.-homicidios dolosos/asesinatos,extranjeros,399
+2011,1.1.-homicidios dolosos/asesinatos,total,1390
+2011,1.1.1.-homicidios dolosos/asesinatos consumados,espanoles,275
+2011,1.1.1.-homicidios dolosos/asesinatos consumados,extranjeros,176
+2011,1.1.1.-homicidios dolosos/asesinatos consumados,total,451
+2011,1.2.-lesiones,espanoles,22778
+2011,1.2.-lesiones,extranjeros,8541
+2011,1.2.-lesiones,total,31319
+2011,1.3.-malos tratos ambito familiar,espanoles,35628
+2011,1.3.-malos tratos ambito familiar,extranjeros,16260
+2011,1.3.-malos tratos ambito familiar,total,51888
+2011,1.4.-otros contra las personas,espanoles,13597
+2011,1.4.-otros contra las personas,extranjeros,2982
+2011,1.4.-otros contra las personas,total,16579
+2011,10. orden publico,espanoles,18794
+2011,10. orden publico,extranjeros,9322
+2011,10. orden publico,total,28116
+2011,11. legislacion especial,espanoles,195
+2011,11. legislacion especial,extranjeros,58
+2011,11. legislacion especial,total,253
+2011,12. otras infracciones penales,espanoles,2300
+2011,12. otras infracciones penales,extranjeros,1717
+2011,12. otras infracciones penales,total,4017
+2011,2. contra la libertad,espanoles,21952
+2011,2. contra la libertad,extranjeros,6799
+2011,2. contra la libertad,total,28751
+2011,2.1.-malos tratos habituales en el ambito familiar,espanoles,9153
+2011,2.1.-malos tratos habituales en el ambito familiar,extranjeros,3011
+2011,2.1.-malos tratos habituales en el ambito familiar,total,12164
+2011,2.2.-otros contra la libertad,espanoles,12799
+2011,2.2.-otros contra la libertad,extranjeros,3788
+2011,2.2.-otros contra la libertad,total,16587
+2011,3. libertad sexual,espanoles,4409
+2011,3. libertad sexual,extranjeros,2288
+2011,3. libertad sexual,total,6697
+2011,3.1.-agresion sexual,espanoles,2237
+2011,3.1.-agresion sexual,extranjeros,1105
+2011,3.1.-agresion sexual,total,3342
+2011,3.2.-agresion sexual con penetracion,espanoles,841
+2011,3.2.-agresion sexual con penetracion,extranjeros,534
+2011,3.2.-agresion sexual con penetracion,total,1375
+2011,3.3.-corrupcion de menores o incapacitados,espanoles,160
+2011,3.3.-corrupcion de menores o incapacitados,extranjeros,53
+2011,3.3.-corrupcion de menores o incapacitados,total,213
+2011,3.4.-pornografia de menores,espanoles,421
+2011,3.4.-pornografia de menores,extranjeros,43
+2011,3.4.-pornografia de menores,total,464
+2011,3.5.-otros contra la libertad sexual,espanoles,750
+2011,3.5.-otros contra la libertad sexual,extranjeros,553
+2011,3.5.-otros contra la libertad sexual,total,1303
+2011,4. relaciones familiares,espanoles,2044
+2011,4. relaciones familiares,extranjeros,516
+2011,4. relaciones familiares,total,2560
+2011,5. patrimonio,espanoles,130331
+2011,5. patrimonio,extranjeros,54480
+2011,5. patrimonio,total,184811
+2011,5.1.-hurtos,espanoles,41041
+2011,5.1.-hurtos,extranjeros,21823
+2011,5.1.-hurtos,total,62864
+2011,5.2.-robos con fuerza en las cosas,espanoles,42490
+2011,5.2.-robos con fuerza en las cosas,extranjeros,14469
+2011,5.2.-robos con fuerza en las cosas,total,56959
+2011,5.2.1.-robos con fuerza en las cosas en el interior de vehiculos,espanoles,8777
+2011,5.2.1.-robos con fuerza en las cosas en el interior de vehiculos,extranjeros,2602
+2011,5.2.1.-robos con fuerza en las cosas en el interior de vehiculos,total,11379
+2011,5.2.2.-robos con fuerza en viviendas,espanoles,7428
+2011,5.2.2.-robos con fuerza en viviendas,extranjeros,3654
+2011,5.2.2.-robos con fuerza en viviendas,total,11082
+2011,5.2.3.-robos con fuerza en establecimientos,espanoles,6961
+2011,5.2.3.-robos con fuerza en establecimientos,extranjeros,3103
+2011,5.2.3.-robos con fuerza en establecimientos,total,10064
+2011,5.3.-robos con violencia o intimidacion,espanoles,16261
+2011,5.3.-robos con violencia o intimidacion,extranjeros,6814
+2011,5.3.-robos con violencia o intimidacion,total,23075
+2011,5.3.1.-robos con violencia en via publica,espanoles,6176
+2011,5.3.1.-robos con violencia en via publica,extranjeros,4276
+2011,5.3.1.-robos con violencia en via publica,total,10452
+2011,5.3.2.-robos con violencia en viviendas,espanoles,876
+2011,5.3.2.-robos con violencia en viviendas,extranjeros,581
+2011,5.3.2.-robos con violencia en viviendas,total,1457
+2011,5.3.3.-robos con violencia en establecimientos,espanoles,2457
+2011,5.3.3.-robos con violencia en establecimientos,extranjeros,882
+2011,5.3.3.-robos con violencia en establecimientos,total,3339
+2011,5.4.-sustraccion de vehiculos,espanoles,5600
+2011,5.4.-sustraccion de vehiculos,extranjeros,2001
+2011,5.4.-sustraccion de vehiculos,total,7601
+2011,5.5.-estafas,espanoles,8701
+2011,5.5.-estafas,extranjeros,3327
+2011,5.5.-estafas,total,12028
+2011,5.5.1.-estafas informaticas,espanoles,1208
+2011,5.5.1.-estafas informaticas,extranjeros,615
+2011,5.5.1.-estafas informaticas,total,1823
+2011,5.6.-danos,espanoles,7840
+2011,5.6.-danos,extranjeros,2115
+2011,5.6.-danos,total,9955
+2011,5.7.-contra la propiedad intelectual/industrial,espanoles,689
+2011,5.7.-contra la propiedad intelectual/industrial,extranjeros,1447
+2011,5.7.-contra la propiedad intelectual/industrial,total,2136
+2011,5.8.-blanqueo de capitales,espanoles,238
+2011,5.8.-blanqueo de capitales,extranjeros,184
+2011,5.8.-blanqueo de capitales,total,422
+2011,5.9.-otros contra el patrimonio,espanoles,7471
+2011,5.9.-otros contra el patrimonio,extranjeros,2300
+2011,5.9.-otros contra el patrimonio,total,9771
+2011,6. seguridad colectiva,espanoles,57650
+2011,6. seguridad colectiva,extranjeros,20508
+2011,6. seguridad colectiva,total,78158
+2011,6.1.-trafico de drogas,espanoles,15465
+2011,6.1.-trafico de drogas,extranjeros,8145
+2011,6.1.-trafico de drogas,total,23610
+2011,6.2.-contra la seguridad vial,espanoles,40622
+2011,6.2.-contra la seguridad vial,extranjeros,11838
+2011,6.2.-contra la seguridad vial,total,52460
+2011,6.3.-otros contra la seguridad colectiva,espanoles,1563
+2011,6.3.-otros contra la seguridad colectiva,extranjeros,525
+2011,6.3.-otros contra la seguridad colectiva,total,2088
+2011,7. falsedades,espanoles,4929
+2011,7. falsedades,extranjeros,6318
+2011,7. falsedades,total,11247
+2011,8. admon. publica,espanoles,386
+2011,8. admon. publica,extranjeros,43
+2011,8. admon. publica,total,429
+2011,9. admon. justicia,espanoles,16770
+2011,9. admon. justicia,extranjeros,5268
+2011,9. admon. justicia,total,22038
+2011,total infracciones penales,espanoles,332754
+2011,total infracciones penales,extranjeros,135499
+2011,total infracciones penales,total,468253
+2012,1. contra las personas,espanoles,71458
+2012,1. contra las personas,extranjeros,25836
+2012,1. contra las personas,total,97294
+2012,1.1.-homicidios dolosos/asesinatos,espanoles,999
+2012,1.1.-homicidios dolosos/asesinatos,extranjeros,326
+2012,1.1.-homicidios dolosos/asesinatos,total,1325
+2012,1.1.1.-homicidios dolosos/asesinatos consumados,espanoles,268
+2012,1.1.1.-homicidios dolosos/asesinatos consumados,extranjeros,140
+2012,1.1.1.-homicidios dolosos/asesinatos consumados,total,408
+2012,1.2.-lesiones,espanoles,22275
+2012,1.2.-lesiones,extranjeros,7667
+2012,1.2.-lesiones,total,29942
+2012,1.3.-malos tratos ambito familiar,espanoles,34653
+2012,1.3.-malos tratos ambito familiar,extranjeros,15177
+2012,1.3.-malos tratos ambito familiar,total,49830
+2012,1.4.-otros contra las personas,espanoles,13531
+2012,1.4.-otros contra las personas,extranjeros,2666
+2012,1.4.-otros contra las personas,total,16197
+2012,10. orden publico,espanoles,18376
+2012,10. orden publico,extranjeros,8399
+2012,10. orden publico,total,26775
+2012,11. legislacion especial,espanoles,159
+2012,11. legislacion especial,extranjeros,69
+2012,11. legislacion especial,total,228
+2012,12. otras infracciones penales,espanoles,2259
+2012,12. otras infracciones penales,extranjeros,1625
+2012,12. otras infracciones penales,total,3884
+2012,2. contra la libertad,espanoles,21817
+2012,2. contra la libertad,extranjeros,6126
+2012,2. contra la libertad,total,27943
+2012,2.1.-malos tratos habituales en el ambito familiar,espanoles,8873
+2012,2.1.-malos tratos habituales en el ambito familiar,extranjeros,2748
+2012,2.1.-malos tratos habituales en el ambito familiar,total,11621
+2012,2.2.-otros contra la libertad,espanoles,12944
+2012,2.2.-otros contra la libertad,extranjeros,3378
+2012,2.2.-otros contra la libertad,total,16322
+2012,3. libertad sexual,espanoles,4255
+2012,3. libertad sexual,extranjeros,1995
+2012,3. libertad sexual,total,6250
+2012,3.1.-agresion sexual,espanoles,2224
+2012,3.1.-agresion sexual,extranjeros,978
+2012,3.1.-agresion sexual,total,3202
+2012,3.2.-agresion sexual con penetracion,espanoles,755
+2012,3.2.-agresion sexual con penetracion,extranjeros,447
+2012,3.2.-agresion sexual con penetracion,total,1202
+2012,3.3.-corrupcion de menores o incapacitados,espanoles,147
+2012,3.3.-corrupcion de menores o incapacitados,extranjeros,54
+2012,3.3.-corrupcion de menores o incapacitados,total,201
+2012,3.4.-pornografia de menores,espanoles,468
+2012,3.4.-pornografia de menores,extranjeros,38
+2012,3.4.-pornografia de menores,total,506
+2012,3.5.-otros contra la libertad sexual,espanoles,661
+2012,3.5.-otros contra la libertad sexual,extranjeros,478
+2012,3.5.-otros contra la libertad sexual,total,1139
+2012,4. relaciones familiares,espanoles,2327
+2012,4. relaciones familiares,extranjeros,599
+2012,4. relaciones familiares,total,2926
+2012,5. patrimonio,espanoles,136110
+2012,5. patrimonio,extranjeros,53767
+2012,5. patrimonio,total,189877
+2012,5.1.-hurtos,espanoles,45988
+2012,5.1.-hurtos,extranjeros,22246
+2012,5.1.-hurtos,total,68234
+2012,5.2.-robos con fuerza en las cosas,espanoles,42676
+2012,5.2.-robos con fuerza en las cosas,extranjeros,12797
+2012,5.2.-robos con fuerza en las cosas,total,55473
+2012,5.2.1.-robos con fuerza en las cosas en el interior de vehiculos,espanoles,7995
+2012,5.2.1.-robos con fuerza en las cosas en el interior de vehiculos,extranjeros,2096
+2012,5.2.1.-robos con fuerza en las cosas en el interior de vehiculos,total,10091
+2012,5.2.2.-robos con fuerza en viviendas,espanoles,10225
+2012,5.2.2.-robos con fuerza en viviendas,extranjeros,4269
+2012,5.2.2.-robos con fuerza en viviendas,total,14494
+2012,5.2.3.-robos con fuerza en establecimientos,espanoles,7000
+2012,5.2.3.-robos con fuerza en establecimientos,extranjeros,2653
+2012,5.2.3.-robos con fuerza en establecimientos,total,9653
+2012,5.3.-robos con violencia o intimidacion,espanoles,16417
+2012,5.3.-robos con violencia o intimidacion,extranjeros,7058
+2012,5.3.-robos con violencia o intimidacion,total,23475
+2012,5.3.1.-robos con violencia en via publica,espanoles,6555
+2012,5.3.1.-robos con violencia en via publica,extranjeros,4680
+2012,5.3.1.-robos con violencia en via publica,total,11235
+2012,5.3.2.-robos con violencia en viviendas,espanoles,1082
+2012,5.3.2.-robos con violencia en viviendas,extranjeros,604
+2012,5.3.2.-robos con violencia en viviendas,total,1686
+2012,5.3.3.-robos con violencia en establecimientos,espanoles,2519
+2012,5.3.3.-robos con violencia en establecimientos,extranjeros,934
+2012,5.3.3.-robos con violencia en establecimientos,total,3453
+2012,5.4.-sustraccion de vehiculos,espanoles,5021
+2012,5.4.-sustraccion de vehiculos,extranjeros,1787
+2012,5.4.-sustraccion de vehiculos,total,6808
+2012,5.5.-estafas,espanoles,9240
+2012,5.5.-estafas,extranjeros,3308
+2012,5.5.-estafas,total,12548
+2012,5.5.1.-estafas informaticas,espanoles,1340
+2012,5.5.1.-estafas informaticas,extranjeros,638
+2012,5.5.1.-estafas informaticas,total,1978
+2012,5.6.-danos,espanoles,7507
+2012,5.6.-danos,extranjeros,2000
+2012,5.6.-danos,total,9507
+2012,5.7.-contra la propiedad intelectual/industrial,espanoles,665
+2012,5.7.-contra la propiedad intelectual/industrial,extranjeros,1592
+2012,5.7.-contra la propiedad intelectual/industrial,total,2257
+2012,5.8.-blanqueo de capitales,espanoles,369
+2012,5.8.-blanqueo de capitales,extranjeros,198
+2012,5.8.-blanqueo de capitales,total,567
+2012,5.9.-otros contra el patrimonio,espanoles,8227
+2012,5.9.-otros contra el patrimonio,extranjeros,2781
+2012,5.9.-otros contra el patrimonio,total,11008
+2012,6. seguridad colectiva,espanoles,53777
+2012,6. seguridad colectiva,extranjeros,19199
+2012,6. seguridad colectiva,total,72976
+2012,6.1.-trafico de drogas,espanoles,14754
+2012,6.1.-trafico de drogas,extranjeros,7821
+2012,6.1.-trafico de drogas,total,22575
+2012,6.2.-contra la seguridad vial,espanoles,37371
+2012,6.2.-contra la seguridad vial,extranjeros,10762
+2012,6.2.-contra la seguridad vial,total,48133
+2012,6.3.-otros contra la seguridad colectiva,espanoles,1652
+2012,6.3.-otros contra la seguridad colectiva,extranjeros,616
+2012,6.3.-otros contra la seguridad colectiva,total,2268
+2012,7. falsedades,espanoles,4931
+2012,7. falsedades,extranjeros,6693
+2012,7. falsedades,total,11624
+2012,8. admon. publica,espanoles,245
+2012,8. admon. publica,extranjeros,29
+2012,8. admon. publica,total,274
+2012,9. admon. justicia,espanoles,16347
+2012,9. admon. justicia,extranjeros,4644
+2012,9. admon. justicia,total,20991
+2012,total infracciones penales,espanoles,332061
+2012,total infracciones penales,extranjeros,128981
+2012,total infracciones penales,total,461042
+2013,1. contra las personas,espanoles,69499
+2013,1. contra las personas,extranjeros,23714
+2013,1. contra las personas,total,93213
+2013,1.1.-homicidios dolosos/asesinatos,espanoles,836
+2013,1.1.-homicidios dolosos/asesinatos,extranjeros,250
+2013,1.1.-homicidios dolosos/asesinatos,total,1086
+2013,1.1.1.-homicidios dolosos/asesinatos consumados,espanoles,230
+2013,1.1.1.-homicidios dolosos/asesinatos consumados,extranjeros,81
+2013,1.1.1.-homicidios dolosos/asesinatos consumados,total,311
+2013,1.2.-lesiones,espanoles,21419
+2013,1.2.-lesiones,extranjeros,7155
+2013,1.2.-lesiones,total,28574
+2013,1.3.-malos tratos ambito familiar,espanoles,35033
+2013,1.3.-malos tratos ambito familiar,extranjeros,14046
+2013,1.3.-malos tratos ambito familiar,total,49079
+2013,1.4.-otros contra las personas,espanoles,12211
+2013,1.4.-otros contra las personas,extranjeros,2263
+2013,1.4.-otros contra las personas,total,14474
+2013,10. orden publico,espanoles,16935
+2013,10. orden publico,extranjeros,8046
+2013,10. orden publico,total,24981
+2013,11. legislacion especial,espanoles,214
+2013,11. legislacion especial,extranjeros,81
+2013,11. legislacion especial,total,295
+2013,12. otras infracciones penales,espanoles,2456
+2013,12. otras infracciones penales,extranjeros,1557
+2013,12. otras infracciones penales,total,4013
+2013,2. contra la libertad,espanoles,21353
+2013,2. contra la libertad,extranjeros,6091
+2013,2. contra la libertad,total,27444
+2013,2.1.-malos tratos habituales en el ambito familiar,espanoles,8531
+2013,2.1.-malos tratos habituales en el ambito familiar,extranjeros,2653
+2013,2.1.-malos tratos habituales en el ambito familiar,total,11184
+2013,2.2.-otros contra la libertad,espanoles,12822
+2013,2.2.-otros contra la libertad,extranjeros,3438
+2013,2.2.-otros contra la libertad,total,16260
+2013,3. libertad sexual,espanoles,3984
+2013,3. libertad sexual,extranjeros,1843
+2013,3. libertad sexual,total,5827
+2013,3.1.-agresion sexual,espanoles,1976
+2013,3.1.-agresion sexual,extranjeros,855
+2013,3.1.-agresion sexual,total,2831
+2013,3.2.-agresion sexual con penetracion,espanoles,741
+2013,3.2.-agresion sexual con penetracion,extranjeros,438
+2013,3.2.-agresion sexual con penetracion,total,1179
+2013,3.3.-corrupcion de menores o incapacitados,espanoles,173
+2013,3.3.-corrupcion de menores o incapacitados,extranjeros,48
+2013,3.3.-corrupcion de menores o incapacitados,total,221
+2013,3.4.-pornografia de menores,espanoles,357
+2013,3.4.-pornografia de menores,extranjeros,34
+2013,3.4.-pornografia de menores,total,391
+2013,3.5.-otros contra la libertad sexual,espanoles,737
+2013,3.5.-otros contra la libertad sexual,extranjeros,468
+2013,3.5.-otros contra la libertad sexual,total,1205
+2013,4. relaciones familiares,espanoles,2301
+2013,4. relaciones familiares,extranjeros,516
+2013,4. relaciones familiares,total,2817
+2013,5. patrimonio,espanoles,141300
+2013,5. patrimonio,extranjeros,54266
+2013,5. patrimonio,total,195566
+2013,5.1.-hurtos,espanoles,49819
+2013,5.1.-hurtos,extranjeros,23045
+2013,5.1.-hurtos,total,72864
+2013,5.2.-robos con fuerza en las cosas,espanoles,43403
+2013,5.2.-robos con fuerza en las cosas,extranjeros,12827
+2013,5.2.-robos con fuerza en las cosas,total,56230
+2013,5.2.1.-robos con fuerza en las cosas en el interior de vehiculos,espanoles,7027
+2013,5.2.1.-robos con fuerza en las cosas en el interior de vehiculos,extranjeros,1897
+2013,5.2.1.-robos con fuerza en las cosas en el interior de vehiculos,total,8924
+2013,5.2.2.-robos con fuerza en viviendas,espanoles,11464
+2013,5.2.2.-robos con fuerza en viviendas,extranjeros,4973
+2013,5.2.2.-robos con fuerza en viviendas,total,16437
+2013,5.2.3.-robos con fuerza en establecimientos,espanoles,7275
+2013,5.2.3.-robos con fuerza en establecimientos,extranjeros,2326
+2013,5.2.3.-robos con fuerza en establecimientos,total,9601
+2013,5.3.-robos con violencia o intimidacion,espanoles,15759
+2013,5.3.-robos con violencia o intimidacion,extranjeros,6393
+2013,5.3.-robos con violencia o intimidacion,total,22152
+2013,5.3.1.-robos con violencia en via publica,espanoles,6102
+2013,5.3.1.-robos con violencia en via publica,extranjeros,4073
+2013,5.3.1.-robos con violencia en via publica,total,10175
+2013,5.3.2.-robos con violencia en viviendas,espanoles,1174
+2013,5.3.2.-robos con violencia en viviendas,extranjeros,595
+2013,5.3.2.-robos con violencia en viviendas,total,1769
+2013,5.3.3.-robos con violencia en establecimientos,espanoles,2594
+2013,5.3.3.-robos con violencia en establecimientos,extranjeros,970
+2013,5.3.3.-robos con violencia en establecimientos,total,3564
+2013,5.4.-sustraccion de vehiculos,espanoles,4759
+2013,5.4.-sustraccion de vehiculos,extranjeros,1444
+2013,5.4.-sustraccion de vehiculos,total,6203
+2013,5.5.-estafas,espanoles,9298
+2013,5.5.-estafas,extranjeros,3269
+2013,5.5.-estafas,total,12567
+2013,5.5.1.-estafas informaticas,espanoles,1353
+2013,5.5.1.-estafas informaticas,extranjeros,587
+2013,5.5.1.-estafas informaticas,total,1940
+2013,5.6.-danos,espanoles,6976
+2013,5.6.-danos,extranjeros,1836
+2013,5.6.-danos,total,8812
+2013,5.7.-contra la propiedad intelectual/industrial,espanoles,713
+2013,5.7.-contra la propiedad intelectual/industrial,extranjeros,1882
+2013,5.7.-contra la propiedad intelectual/industrial,total,2595
+2013,5.8.-blanqueo de capitales,espanoles,420
+2013,5.8.-blanqueo de capitales,extranjeros,177
+2013,5.8.-blanqueo de capitales,total,597
+2013,5.9.-otros contra el patrimonio,espanoles,10153
+2013,5.9.-otros contra el patrimonio,extranjeros,3393
+2013,5.9.-otros contra el patrimonio,total,13546
+2013,6. seguridad colectiva,espanoles,51197
+2013,6. seguridad colectiva,extranjeros,17574
+2013,6. seguridad colectiva,total,68771
+2013,6.1.-trafico de drogas,espanoles,14953
+2013,6.1.-trafico de drogas,extranjeros,7359
+2013,6.1.-trafico de drogas,total,22312
+2013,6.2.-contra la seguridad vial,espanoles,34790
+2013,6.2.-contra la seguridad vial,extranjeros,9835
+2013,6.2.-contra la seguridad vial,total,44625
+2013,6.3.-otros contra la seguridad colectiva,espanoles,1454
+2013,6.3.-otros contra la seguridad colectiva,extranjeros,380
+2013,6.3.-otros contra la seguridad colectiva,total,1834
+2013,7. falsedades,espanoles,7691
+2013,7. falsedades,extranjeros,6364
+2013,7. falsedades,total,14055
+2013,8. admon. publica,espanoles,352
+2013,8. admon. publica,extranjeros,46
+2013,8. admon. publica,total,398
+2013,9. admon. justicia,espanoles,16411
+2013,9. admon. justicia,extranjeros,4296
+2013,9. admon. justicia,total,20707
+2013,total infracciones penales,espanoles,333693
+2013,total infracciones penales,extranjeros,124394
+2013,total infracciones penales,total,458087
+2014,1. contra las personas,espanoles,75548
+2014,1. contra las personas,extranjeros,21611
+2014,1. contra las personas,total,97159
+2014,1.1.-homicidios dolosos/asesinatos,espanoles,908
+2014,1.1.-homicidios dolosos/asesinatos,extranjeros,198
+2014,1.1.-homicidios dolosos/asesinatos,total,1106
+2014,1.1.1.-homicidios dolosos/asesinatos consumados,espanoles,231
+2014,1.1.1.-homicidios dolosos/asesinatos consumados,extranjeros,74
+2014,1.1.1.-homicidios dolosos/asesinatos consumados,total,305
+2014,1.2.-lesiones,espanoles,22504
+2014,1.2.-lesiones,extranjeros,6363
+2014,1.2.-lesiones,total,28867
+2014,1.3.-malos tratos ambito familiar,espanoles,37843
+2014,1.3.-malos tratos ambito familiar,extranjeros,12801
+2014,1.3.-malos tratos ambito familiar,total,50644
+2014,1.4.-otros contra las personas,espanoles,14293
+2014,1.4.-otros contra las personas,extranjeros,2249
+2014,1.4.-otros contra las personas,total,16542
+2014,10. orden publico,espanoles,15549
+2014,10. orden publico,extranjeros,6808
+2014,10. orden publico,total,22357
+2014,11. legislacion especial,espanoles,200
+2014,11. legislacion especial,extranjeros,55
+2014,11. legislacion especial,total,255
+2014,12. otras infracciones penales,espanoles,3342
+2014,12. otras infracciones penales,extranjeros,1566
+2014,12. otras infracciones penales,total,4908
+2014,2. contra la libertad,espanoles,20715
+2014,2. contra la libertad,extranjeros,5119
+2014,2. contra la libertad,total,25834
+2014,2.1.-malos tratos habituales en el ambito familiar,espanoles,8222
+2014,2.1.-malos tratos habituales en el ambito familiar,extranjeros,2232
+2014,2.1.-malos tratos habituales en el ambito familiar,total,10454
+2014,2.2.-otros contra la libertad,espanoles,12493
+2014,2.2.-otros contra la libertad,extranjeros,2887
+2014,2.2.-otros contra la libertad,total,15380
+2014,3. libertad sexual,espanoles,4502
+2014,3. libertad sexual,extranjeros,1684
+2014,3. libertad sexual,total,6186
+2014,3.1.-agresion sexual,espanoles,2242
+2014,3.1.-agresion sexual,extranjeros,818
+2014,3.1.-agresion sexual,total,3060
+2014,3.2.-agresion sexual con penetracion,espanoles,822
+2014,3.2.-agresion sexual con penetracion,extranjeros,369
+2014,3.2.-agresion sexual con penetracion,total,1191
+2014,3.3.-corrupcion de menores o incapacitados,espanoles,222
+2014,3.3.-corrupcion de menores o incapacitados,extranjeros,42
+2014,3.3.-corrupcion de menores o incapacitados,total,264
+2014,3.4.-pornografia de menores,espanoles,407
+2014,3.4.-pornografia de menores,extranjeros,49
+2014,3.4.-pornografia de menores,total,456
+2014,3.5.-otros contra la libertad sexual,espanoles,809
+2014,3.5.-otros contra la libertad sexual,extranjeros,406
+2014,3.5.-otros contra la libertad sexual,total,1215
+2014,4. relaciones familiares,espanoles,2374
+2014,4. relaciones familiares,extranjeros,546
+2014,4. relaciones familiares,total,2920
+2014,5. patrimonio,espanoles,130813
+2014,5. patrimonio,extranjeros,45583
+2014,5. patrimonio,total,176396
+2014,5.1.-hurtos,espanoles,48292
+2014,5.1.-hurtos,extranjeros,20217
+2014,5.1.-hurtos,total,68509
+2014,5.2.-robos con fuerza en las cosas,espanoles,35123
+2014,5.2.-robos con fuerza en las cosas,extranjeros,10126
+2014,5.2.-robos con fuerza en las cosas,total,45249
+2014,5.2.1.-robos con fuerza en las cosas en el interior de vehiculos,espanoles,5605
+2014,5.2.1.-robos con fuerza en las cosas en el interior de vehiculos,extranjeros,1279
+2014,5.2.1.-robos con fuerza en las cosas en el interior de vehiculos,total,6884
+2014,5.2.2.-robos con fuerza en viviendas,espanoles,9278
+2014,5.2.2.-robos con fuerza en viviendas,extranjeros,4235
+2014,5.2.2.-robos con fuerza en viviendas,total,13513
+2014,5.2.3.-robos con fuerza en establecimientos,espanoles,6147
+2014,5.2.3.-robos con fuerza en establecimientos,extranjeros,1869
+2014,5.2.3.-robos con fuerza en establecimientos,total,8016
+2014,5.3.-robos con violencia o intimidacion,espanoles,13615
+2014,5.3.-robos con violencia o intimidacion,extranjeros,4643
+2014,5.3.-robos con violencia o intimidacion,total,18258
+2014,5.3.1.-robos con violencia en via publica,espanoles,5651
+2014,5.3.1.-robos con violencia en via publica,extranjeros,2887
+2014,5.3.1.-robos con violencia en via publica,total,8538
+2014,5.3.2.-robos con violencia en viviendas,espanoles,1007
+2014,5.3.2.-robos con violencia en viviendas,extranjeros,483
+2014,5.3.2.-robos con violencia en viviendas,total,1490
+2014,5.3.3.-robos con violencia en establecimientos,espanoles,2256
+2014,5.3.3.-robos con violencia en establecimientos,extranjeros,764
+2014,5.3.3.-robos con violencia en establecimientos,total,3020
+2014,5.4.-sustraccion de vehiculos,espanoles,4183
+2014,5.4.-sustraccion de vehiculos,extranjeros,1209
+2014,5.4.-sustraccion de vehiculos,total,5392
+2014,5.5.-estafas,espanoles,10305
+2014,5.5.-estafas,extranjeros,2780
+2014,5.5.-estafas,total,13085
+2014,5.5.1.-estafas informaticas,espanoles,1727
+2014,5.5.1.-estafas informaticas,extranjeros,473
+2014,5.5.1.-estafas informaticas,total,2200
+2014,5.6.-danos,espanoles,6441
+2014,5.6.-danos,extranjeros,1659
+2014,5.6.-danos,total,8100
+2014,5.7.-contra la propiedad intelectual/industrial,espanoles,779
+2014,5.7.-contra la propiedad intelectual/industrial,extranjeros,1484
+2014,5.7.-contra la propiedad intelectual/industrial,total,2263
+2014,5.8.-blanqueo de capitales,espanoles,632
+2014,5.8.-blanqueo de capitales,extranjeros,171
+2014,5.8.-blanqueo de capitales,total,803
+2014,5.9.-otros contra el patrimonio,espanoles,11443
+2014,5.9.-otros contra el patrimonio,extranjeros,3294
+2014,5.9.-otros contra el patrimonio,total,14737
+2014,6. seguridad colectiva,espanoles,48690
+2014,6. seguridad colectiva,extranjeros,14949
+2014,6. seguridad colectiva,total,63639
+2014,6.1.-trafico de drogas,espanoles,14505
+2014,6.1.-trafico de drogas,extranjeros,6196
+2014,6.1.-trafico de drogas,total,20701
+2014,6.2.-contra la seguridad vial,espanoles,32789
+2014,6.2.-contra la seguridad vial,extranjeros,8364
+2014,6.2.-contra la seguridad vial,total,41153
+2014,6.3.-otros contra la seguridad colectiva,espanoles,1396
+2014,6.3.-otros contra la seguridad colectiva,extranjeros,389
+2014,6.3.-otros contra la seguridad colectiva,total,1785
+2014,7. falsedades,espanoles,5316
+2014,7. falsedades,extranjeros,6335
+2014,7. falsedades,total,11651
+2014,8. admon. publica,espanoles,456
+2014,8. admon. publica,extranjeros,53
+2014,8. admon. publica,total,509
+2014,9. admon. justicia,espanoles,16851
+2014,9. admon. justicia,extranjeros,3690
+2014,9. admon. justicia,total,20541
+2014,total infracciones penales,espanoles,324356
+2014,total infracciones penales,extranjeros,107999
+2014,total infracciones penales,total,432355
+2015,1. contra las personas,espanoles,67010
+2015,1. contra las personas,extranjeros,19923
+2015,1. contra las personas,total,86933
+2015,1.1.-homicidios dolosos/asesinatos,espanoles,846
+2015,1.1.-homicidios dolosos/asesinatos,extranjeros,230
+2015,1.1.-homicidios dolosos/asesinatos,total,1076
+2015,1.1.1.-homicidios dolosos/asesinatos consumados,espanoles,260
+2015,1.1.1.-homicidios dolosos/asesinatos consumados,extranjeros,91
+2015,1.1.1.-homicidios dolosos/asesinatos consumados,total,351
+2015,1.2.-lesiones,espanoles,21252
+2015,1.2.-lesiones,extranjeros,5951
+2015,1.2.-lesiones,total,27203
+2015,1.3.-malos tratos ambito familiar,espanoles,37468
+2015,1.3.-malos tratos ambito familiar,extranjeros,12430
+2015,1.3.-malos tratos ambito familiar,total,49898
+2015,1.4.-otros contra las personas,espanoles,7444
+2015,1.4.-otros contra las personas,extranjeros,1312
+2015,1.4.-otros contra las personas,total,8756
+2015,10. orden publico,espanoles,13055
+2015,10. orden publico,extranjeros,5573
+2015,10. orden publico,total,18628
+2015,11. legislacion especial,espanoles,202
+2015,11. legislacion especial,extranjeros,68
+2015,11. legislacion especial,total,270
+2015,12. otras infracciones penales,espanoles,3047
+2015,12. otras infracciones penales,extranjeros,1404
+2015,12. otras infracciones penales,total,4451
+2015,2. contra la libertad,espanoles,23851
+2015,2. contra la libertad,extranjeros,5332
+2015,2. contra la libertad,total,29183
+2015,2.1.-malos tratos habituales en el ambito familiar,espanoles,7768
+2015,2.1.-malos tratos habituales en el ambito familiar,extranjeros,2036
+2015,2.1.-malos tratos habituales en el ambito familiar,total,9804
+2015,2.2.-otros contra la libertad,espanoles,16083
+2015,2.2.-otros contra la libertad,extranjeros,3296
+2015,2.2.-otros contra la libertad,total,19379
+2015,3. libertad sexual,espanoles,4548
+2015,3. libertad sexual,extranjeros,1496
+2015,3. libertad sexual,total,6044
+2015,3.1.-agresion sexual,espanoles,2271
+2015,3.1.-agresion sexual,extranjeros,755
+2015,3.1.-agresion sexual,total,3026
+2015,3.2.-agresion sexual con penetracion,espanoles,818
+2015,3.2.-agresion sexual con penetracion,extranjeros,341
+2015,3.2.-agresion sexual con penetracion,total,1159
+2015,3.3.-corrupcion de menores o incapacitados,espanoles,258
+2015,3.3.-corrupcion de menores o incapacitados,extranjeros,36
+2015,3.3.-corrupcion de menores o incapacitados,total,294
+2015,3.4.-pornografia de menores,espanoles,428
+2015,3.4.-pornografia de menores,extranjeros,45
+2015,3.4.-pornografia de menores,total,473
+2015,3.5.-otros contra la libertad sexual,espanoles,773
+2015,3.5.-otros contra la libertad sexual,extranjeros,319
+2015,3.5.-otros contra la libertad sexual,total,1092
+2015,4. relaciones familiares,espanoles,1750
+2015,4. relaciones familiares,extranjeros,420
+2015,4. relaciones familiares,total,2170
+2015,5. patrimonio,espanoles,110417
+2015,5. patrimonio,extranjeros,35459
+2015,5. patrimonio,total,145876
+2015,5.1.-hurtos,espanoles,41013
+2015,5.1.-hurtos,extranjeros,16434
+2015,5.1.-hurtos,total,57447
+2015,5.2.-robos con fuerza en las cosas,espanoles,29424
+2015,5.2.-robos con fuerza en las cosas,extranjeros,6996
+2015,5.2.-robos con fuerza en las cosas,total,36420
+2015,5.2.1.-robos con fuerza en las cosas en el interior de vehiculos,espanoles,4953
+2015,5.2.1.-robos con fuerza en las cosas en el interior de vehiculos,extranjeros,988
+2015,5.2.1.-robos con fuerza en las cosas en el interior de vehiculos,total,5941
+2015,5.2.2.-robos con fuerza en viviendas,espanoles,7951
+2015,5.2.2.-robos con fuerza en viviendas,extranjeros,2813
+2015,5.2.2.-robos con fuerza en viviendas,total,10764
+2015,5.2.3.-robos con fuerza en establecimientos,espanoles,5625
+2015,5.2.3.-robos con fuerza en establecimientos,extranjeros,1377
+2015,5.2.3.-robos con fuerza en establecimientos,total,7002
+2015,5.3.-robos con violencia o intimidacion,espanoles,11842
+2015,5.3.-robos con violencia o intimidacion,extranjeros,3602
+2015,5.3.-robos con violencia o intimidacion,total,15444
+2015,5.3.1.-robos con violencia en via publica,espanoles,4675
+2015,5.3.1.-robos con violencia en via publica,extranjeros,2269
+2015,5.3.1.-robos con violencia en via publica,total,6944
+2015,5.3.2.-robos con violencia en viviendas,espanoles,863
+2015,5.3.2.-robos con violencia en viviendas,extranjeros,340
+2015,5.3.2.-robos con violencia en viviendas,total,1203
+2015,5.3.3.-robos con violencia en establecimientos,espanoles,1957
+2015,5.3.3.-robos con violencia en establecimientos,extranjeros,565
+2015,5.3.3.-robos con violencia en establecimientos,total,2522
+2015,5.4.-sustraccion de vehiculos,espanoles,3781
+2015,5.4.-sustraccion de vehiculos,extranjeros,1139
+2015,5.4.-sustraccion de vehiculos,total,4920
+2015,5.5.-estafas,espanoles,8794
+2015,5.5.-estafas,extranjeros,2241
+2015,5.5.-estafas,total,11035
+2015,5.5.1.-estafas informaticas,espanoles,1799
+2015,5.5.1.-estafas informaticas,extranjeros,427
+2015,5.5.1.-estafas informaticas,total,2226
+2015,5.6.-danos,espanoles,5763
+2015,5.6.-danos,extranjeros,1251
+2015,5.6.-danos,total,7014
+2015,5.7.-contra la propiedad intelectual/industrial,espanoles,580
+2015,5.7.-contra la propiedad intelectual/industrial,extranjeros,1130
+2015,5.7.-contra la propiedad intelectual/industrial,total,1710
+2015,5.8.-blanqueo de capitales,espanoles,448
+2015,5.8.-blanqueo de capitales,extranjeros,188
+2015,5.8.-blanqueo de capitales,total,636
+2015,5.9.-otros contra el patrimonio,espanoles,8772
+2015,5.9.-otros contra el patrimonio,extranjeros,2478
+2015,5.9.-otros contra el patrimonio,total,11250
+2015,6. seguridad colectiva,espanoles,42825
+2015,6. seguridad colectiva,extranjeros,12429
+2015,6. seguridad colectiva,total,55254
+2015,6.1.-trafico de drogas,espanoles,13252
+2015,6.1.-trafico de drogas,extranjeros,4988
+2015,6.1.-trafico de drogas,total,18240
+2015,6.2.-contra la seguridad vial,espanoles,28219
+2015,6.2.-contra la seguridad vial,extranjeros,7135
+2015,6.2.-contra la seguridad vial,total,35354
+2015,6.3.-otros contra la seguridad colectiva,espanoles,1354
+2015,6.3.-otros contra la seguridad colectiva,extranjeros,306
+2015,6.3.-otros contra la seguridad colectiva,total,1660
+2015,7. falsedades,espanoles,5211
+2015,7. falsedades,extranjeros,6258
+2015,7. falsedades,total,11469
+2015,8. admon. publica,espanoles,723
+2015,8. admon. publica,extranjeros,57
+2015,8. admon. publica,total,780
+2015,9. admon. justicia,espanoles,15797
+2015,9. admon. justicia,extranjeros,3389
+2015,9. admon. justicia,total,19186
+2015,total infracciones penales,espanoles,288436
+2015,total infracciones penales,extranjeros,91808
+2015,total infracciones penales,total,380244
+2016,1. contra las personas,espanoles,61893
+2016,1. contra las personas,extranjeros,19467
+2016,1. contra las personas,total,81360
+2016,1.1.-homicidios dolosos/asesinatos,espanoles,943
+2016,1.1.-homicidios dolosos/asesinatos,extranjeros,290
+2016,1.1.-homicidios dolosos/asesinatos,total,1233
+2016,1.1.1.-homicidios dolosos/asesinatos consumados,espanoles,226
+2016,1.1.1.-homicidios dolosos/asesinatos consumados,extranjeros,107
+2016,1.1.1.-homicidios dolosos/asesinatos consumados,total,333
+2016,1.2.-lesiones,espanoles,22157
+2016,1.2.-lesiones,extranjeros,6027
+2016,1.2.-lesiones,total,28184
+2016,1.3.-malos tratos ambito familiar,espanoles,37957
+2016,1.3.-malos tratos ambito familiar,extranjeros,12786
+2016,1.3.-malos tratos ambito familiar,total,50743
+2016,1.4.-otros contra las personas,espanoles,836
+2016,1.4.-otros contra las personas,extranjeros,364
+2016,1.4.-otros contra las personas,total,1200
+2016,10. orden publico,espanoles,12202
+2016,10. orden publico,extranjeros,5156
+2016,10. orden publico,total,17358
+2016,11. legislacion especial,espanoles,225
+2016,11. legislacion especial,extranjeros,94
+2016,11. legislacion especial,total,319
+2016,12. otras infracciones penales,espanoles,3591
+2016,12. otras infracciones penales,extranjeros,1343
+2016,12. otras infracciones penales,total,4934
+2016,2. contra la libertad,espanoles,28085
+2016,2. contra la libertad,extranjeros,6137
+2016,2. contra la libertad,total,34222
+2016,2.1.-malos tratos habituales en el ambito familiar,espanoles,7153
+2016,2.1.-malos tratos habituales en el ambito familiar,extranjeros,1930
+2016,2.1.-malos tratos habituales en el ambito familiar,total,9083
+2016,2.2.-otros contra la libertad,espanoles,20932
+2016,2.2.-otros contra la libertad,extranjeros,4207
+2016,2.2.-otros contra la libertad,total,25139
+2016,3. libertad sexual,espanoles,4740
+2016,3. libertad sexual,extranjeros,1623
+2016,3. libertad sexual,total,6363
+2016,3.1.-agresion sexual,espanoles,2595
+2016,3.1.-agresion sexual,extranjeros,877
+2016,3.1.-agresion sexual,total,3472
+2016,3.2.-agresion sexual con penetracion,espanoles,862
+2016,3.2.-agresion sexual con penetracion,extranjeros,376
+2016,3.2.-agresion sexual con penetracion,total,1238
+2016,3.3.-corrupcion de menores o incapacitados,espanoles,205
+2016,3.3.-corrupcion de menores o incapacitados,extranjeros,43
+2016,3.3.-corrupcion de menores o incapacitados,total,248
+2016,3.4.-pornografia de menores,espanoles,401
+2016,3.4.-pornografia de menores,extranjeros,40
+2016,3.4.-pornografia de menores,total,441
+2016,3.5.-otros contra la libertad sexual,espanoles,677
+2016,3.5.-otros contra la libertad sexual,extranjeros,287
+2016,3.5.-otros contra la libertad sexual,total,964
+2016,4. relaciones familiares,espanoles,1252
+2016,4. relaciones familiares,extranjeros,334
+2016,4. relaciones familiares,total,1586
+2016,5. patrimonio,espanoles,104470
+2016,5. patrimonio,extranjeros,35199
+2016,5. patrimonio,total,139669
+2016,5.1.-hurtos,espanoles,39952
+2016,5.1.-hurtos,extranjeros,16744
+2016,5.1.-hurtos,total,56696
+2016,5.2.-robos con fuerza en las cosas,espanoles,26312
+2016,5.2.-robos con fuerza en las cosas,extranjeros,6765
+2016,5.2.-robos con fuerza en las cosas,total,33077
+2016,5.2.1.-robos con fuerza en las cosas en el interior de vehiculos,espanoles,4820
+2016,5.2.1.-robos con fuerza en las cosas en el interior de vehiculos,extranjeros,1031
+2016,5.2.1.-robos con fuerza en las cosas en el interior de vehiculos,total,5851
+2016,5.2.2.-robos con fuerza en viviendas,espanoles,7182
+2016,5.2.2.-robos con fuerza en viviendas,extranjeros,3077
+2016,5.2.2.-robos con fuerza en viviendas,total,10259
+2016,5.2.3.-robos con fuerza en establecimientos,espanoles,5376
+2016,5.2.3.-robos con fuerza en establecimientos,extranjeros,1326
+2016,5.2.3.-robos con fuerza en establecimientos,total,6702
+2016,5.3.-robos con violencia o intimidacion,espanoles,11488
+2016,5.3.-robos con violencia o intimidacion,extranjeros,3929
+2016,5.3.-robos con violencia o intimidacion,total,15417
+2016,5.3.1.-robos con violencia en via publica,espanoles,4333
+2016,5.3.1.-robos con violencia en via publica,extranjeros,2568
+2016,5.3.1.-robos con violencia en via publica,total,6901
+2016,5.3.2.-robos con violencia en viviendas,espanoles,850
+2016,5.3.2.-robos con violencia en viviendas,extranjeros,357
+2016,5.3.2.-robos con violencia en viviendas,total,1207
+2016,5.3.3.-robos con violencia en establecimientos,espanoles,2021
+2016,5.3.3.-robos con violencia en establecimientos,extranjeros,598
+2016,5.3.3.-robos con violencia en establecimientos,total,2619
+2016,5.4.-sustraccion de vehiculos,espanoles,3776
+2016,5.4.-sustraccion de vehiculos,extranjeros,1049
+2016,5.4.-sustraccion de vehiculos,total,4825
+2016,5.5.-estafas,espanoles,9103
+2016,5.5.-estafas,extranjeros,2173
+2016,5.5.-estafas,total,11276
+2016,5.5.1.-estafas informaticas,espanoles,1657
+2016,5.5.1.-estafas informaticas,extranjeros,446
+2016,5.5.1.-estafas informaticas,total,2103
+2016,5.6.-danos,espanoles,5871
+2016,5.6.-danos,extranjeros,1433
+2016,5.6.-danos,total,7304
+2016,5.7.-contra la propiedad intelectual/industrial,espanoles,608
+2016,5.7.-contra la propiedad intelectual/industrial,extranjeros,1092
+2016,5.7.-contra la propiedad intelectual/industrial,total,1700
+2016,5.8.-blanqueo de capitales,espanoles,330
+2016,5.8.-blanqueo de capitales,extranjeros,201
+2016,5.8.-blanqueo de capitales,total,531
+2016,5.9.-otros contra el patrimonio,espanoles,7030
+2016,5.9.-otros contra el patrimonio,extranjeros,1813
+2016,5.9.-otros contra el patrimonio,total,8843
+2016,6. seguridad colectiva,espanoles,41050
+2016,6. seguridad colectiva,extranjeros,11637
+2016,6. seguridad colectiva,total,52687
+2016,6.1.-trafico de drogas,espanoles,13806
+2016,6.1.-trafico de drogas,extranjeros,4758
+2016,6.1.-trafico de drogas,total,18564
+2016,6.2.-contra la seguridad vial,espanoles,25839
+2016,6.2.-contra la seguridad vial,extranjeros,6580
+2016,6.2.-contra la seguridad vial,total,32419
+2016,6.3.-otros contra la seguridad colectiva,espanoles,1405
+2016,6.3.-otros contra la seguridad colectiva,extranjeros,299
+2016,6.3.-otros contra la seguridad colectiva,total,1704
+2016,7. falsedades,espanoles,4461
+2016,7. falsedades,extranjeros,5780
+2016,7. falsedades,total,10241
+2016,8. admon. publica,espanoles,774
+2016,8. admon. publica,extranjeros,36
+2016,8. admon. publica,total,810
+2016,9. admon. justicia,espanoles,14992
+2016,9. admon. justicia,extranjeros,3395
+2016,9. admon. justicia,total,18387
+2016,total infracciones penales,espanoles,277735
+2016,total infracciones penales,extranjeros,90201
+2016,total infracciones penales,total,367936
+2017,1. contra las personas,espanoles,65177
+2017,1. contra las personas,extranjeros,21304
+2017,1. contra las personas,total,86481
+2017,1.1.-homicidios dolosos/asesinatos,espanoles,938
+2017,1.1.-homicidios dolosos/asesinatos,extranjeros,270
+2017,1.1.-homicidios dolosos/asesinatos,total,1208
+2017,1.1.1.-homicidios dolosos/asesinatos consumados,espanoles,246
+2017,1.1.1.-homicidios dolosos/asesinatos consumados,extranjeros,86
+2017,1.1.1.-homicidios dolosos/asesinatos consumados,total,332
+2017,1.2.-lesiones,espanoles,23888
+2017,1.2.-lesiones,extranjeros,6802
+2017,1.2.-lesiones,total,30690
+2017,1.3.-malos tratos ambito familiar,espanoles,39424
+2017,1.3.-malos tratos ambito familiar,extranjeros,13814
+2017,1.3.-malos tratos ambito familiar,total,53238
+2017,1.4.-otros contra las personas,espanoles,927
+2017,1.4.-otros contra las personas,extranjeros,418
+2017,1.4.-otros contra las personas,total,1345
+2017,10. orden publico,espanoles,12595
+2017,10. orden publico,extranjeros,5428
+2017,10. orden publico,total,18023
+2017,11. legislacion especial,espanoles,263
+2017,11. legislacion especial,extranjeros,76
+2017,11. legislacion especial,total,339
+2017,12. otras infracciones penales,espanoles,3627
+2017,12. otras infracciones penales,extranjeros,1343
+2017,12. otras infracciones penales,total,4970
+2017,2. contra la libertad,espanoles,30561
+2017,2. contra la libertad,extranjeros,6676
+2017,2. contra la libertad,total,37237
+2017,2.1.-malos tratos habituales en el ambito familiar,espanoles,7152
+2017,2.1.-malos tratos habituales en el ambito familiar,extranjeros,1989
+2017,2.1.-malos tratos habituales en el ambito familiar,total,9141
+2017,2.2.-otros contra la libertad,espanoles,23409
+2017,2.2.-otros contra la libertad,extranjeros,4687
+2017,2.2.-otros contra la libertad,total,28096
+2017,3. libertad sexual,espanoles,5021
+2017,3. libertad sexual,extranjeros,1775
+2017,3. libertad sexual,total,6796
+2017,3.1.-agresion sexual,espanoles,2738
+2017,3.1.-agresion sexual,extranjeros,970
+2017,3.1.-agresion sexual,total,3708
+2017,3.2.-agresion sexual con penetracion,espanoles,976
+2017,3.2.-agresion sexual con penetracion,extranjeros,393
+2017,3.2.-agresion sexual con penetracion,total,1369
+2017,3.3.-corrupcion de menores o incapacitados,espanoles,222
+2017,3.3.-corrupcion de menores o incapacitados,extranjeros,53
+2017,3.3.-corrupcion de menores o incapacitados,total,275
+2017,3.4.-pornografia de menores,espanoles,411
+2017,3.4.-pornografia de menores,extranjeros,52
+2017,3.4.-pornografia de menores,total,463
+2017,3.5.-otros contra la libertad sexual,espanoles,674
+2017,3.5.-otros contra la libertad sexual,extranjeros,307
+2017,3.5.-otros contra la libertad sexual,total,981
+2017,4. relaciones familiares,espanoles,1420
+2017,4. relaciones familiares,extranjeros,367
+2017,4. relaciones familiares,total,1787
+2017,5. patrimonio,espanoles,103687
+2017,5. patrimonio,extranjeros,34077
+2017,5. patrimonio,total,137764
+2017,5.1.-hurtos,espanoles,39941
+2017,5.1.-hurtos,extranjeros,16905
+2017,5.1.-hurtos,total,56846
+2017,5.2.-robos con fuerza en las cosas,espanoles,25618
+2017,5.2.-robos con fuerza en las cosas,extranjeros,5836
+2017,5.2.-robos con fuerza en las cosas,total,31454
+2017,5.2.1.-robos con fuerza en las cosas en el interior de vehiculos,espanoles,4572
+2017,5.2.1.-robos con fuerza en las cosas en el interior de vehiculos,extranjeros,977
+2017,5.2.1.-robos con fuerza en las cosas en el interior de vehiculos,total,5549
+2017,5.2.2.-robos con fuerza en viviendas,espanoles,7118
+2017,5.2.2.-robos con fuerza en viviendas,extranjeros,2466
+2017,5.2.2.-robos con fuerza en viviendas,total,9584
+2017,5.2.3.-robos con fuerza en establecimientos,espanoles,5352
+2017,5.2.3.-robos con fuerza en establecimientos,extranjeros,1093
+2017,5.2.3.-robos con fuerza en establecimientos,total,6445
+2017,5.3.-robos con violencia o intimidacion,espanoles,11442
+2017,5.3.-robos con violencia o intimidacion,extranjeros,3701
+2017,5.3.-robos con violencia o intimidacion,total,15143
+2017,5.3.1.-robos con violencia en via publica,espanoles,4265
+2017,5.3.1.-robos con violencia en via publica,extranjeros,2298
+2017,5.3.1.-robos con violencia en via publica,total,6563
+2017,5.3.2.-robos con violencia en viviendas,espanoles,849
+2017,5.3.2.-robos con violencia en viviendas,extranjeros,312
+2017,5.3.2.-robos con violencia en viviendas,total,1161
+2017,5.3.3.-robos con violencia en establecimientos,espanoles,2135
+2017,5.3.3.-robos con violencia en establecimientos,extranjeros,622
+2017,5.3.3.-robos con violencia en establecimientos,total,2757
+2017,5.4.-sustraccion de vehiculos,espanoles,3515
+2017,5.4.-sustraccion de vehiculos,extranjeros,895
+2017,5.4.-sustraccion de vehiculos,total,4410
+2017,5.5.-estafas,espanoles,9069
+2017,5.5.-estafas,extranjeros,2179
+2017,5.5.-estafas,total,11248
+2017,5.5.1.-estafas informaticas,espanoles,1604
+2017,5.5.1.-estafas informaticas,extranjeros,393
+2017,5.5.1.-estafas informaticas,total,1997
+2017,5.6.-danos,espanoles,6157
+2017,5.6.-danos,extranjeros,1483
+2017,5.6.-danos,total,7640
+2017,5.7.-contra la propiedad intelectual/industrial,espanoles,490
+2017,5.7.-contra la propiedad intelectual/industrial,extranjeros,890
+2017,5.7.-contra la propiedad intelectual/industrial,total,1380
+2017,5.8.-blanqueo de capitales,espanoles,417
+2017,5.8.-blanqueo de capitales,extranjeros,191
+2017,5.8.-blanqueo de capitales,total,608
+2017,5.9.-otros contra el patrimonio,espanoles,7038
+2017,5.9.-otros contra el patrimonio,extranjeros,1997
+2017,5.9.-otros contra el patrimonio,total,9035
+2017,6. seguridad colectiva,espanoles,40968
+2017,6. seguridad colectiva,extranjeros,11914
+2017,6. seguridad colectiva,total,52882
+2017,6.1.-trafico de drogas,espanoles,13959
+2017,6.1.-trafico de drogas,extranjeros,4906
+2017,6.1.-trafico de drogas,total,18865
+2017,6.2.-contra la seguridad vial,espanoles,25499
+2017,6.2.-contra la seguridad vial,extranjeros,6653
+2017,6.2.-contra la seguridad vial,total,32152
+2017,6.3.-otros contra la seguridad colectiva,espanoles,1510
+2017,6.3.-otros contra la seguridad colectiva,extranjeros,355
+2017,6.3.-otros contra la seguridad colectiva,total,1865
+2017,7. falsedades,espanoles,4320
+2017,7. falsedades,extranjeros,5235
+2017,7. falsedades,total,9555
+2017,8. admon. publica,espanoles,606
+2017,8. admon. publica,extranjeros,88
+2017,8. admon. publica,total,694
+2017,9. admon. justicia,espanoles,15609
+2017,9. admon. justicia,extranjeros,3728
+2017,9. admon. justicia,total,19337
+2017,total infracciones penales,espanoles,283854
+2017,total infracciones penales,extranjeros,92011
+2017,total infracciones penales,total,375865
+2018,1. contra las personas,espanoles,67319
+2018,1. contra las personas,extranjeros,22512
+2018,1. contra las personas,total,89831
+2018,1.1.-homicidios dolosos/asesinatos,espanoles,927
+2018,1.1.-homicidios dolosos/asesinatos,extranjeros,277
+2018,1.1.-homicidios dolosos/asesinatos,total,1204
+2018,1.1.1.-homicidios dolosos/asesinatos consumados,espanoles,247
+2018,1.1.1.-homicidios dolosos/asesinatos consumados,extranjeros,93
+2018,1.1.1.-homicidios dolosos/asesinatos consumados,total,340
+2018,1.2.-lesiones,espanoles,24640
+2018,1.2.-lesiones,extranjeros,7172
+2018,1.2.-lesiones,total,31812
+2018,1.3.-malos tratos ambito familiar,espanoles,40539
+2018,1.3.-malos tratos ambito familiar,extranjeros,14614
+2018,1.3.-malos tratos ambito familiar,total,55153
+2018,1.4.-otros contra las personas,espanoles,1213
+2018,1.4.-otros contra las personas,extranjeros,449
+2018,1.4.-otros contra las personas,total,1662
+2018,10. orden publico,espanoles,12714
+2018,10. orden publico,extranjeros,5521
+2018,10. orden publico,total,18235
+2018,11. legislacion especial,espanoles,424
+2018,11. legislacion especial,extranjeros,83
+2018,11. legislacion especial,total,507
+2018,12. otras infracciones penales,espanoles,3812
+2018,12. otras infracciones penales,extranjeros,1266
+2018,12. otras infracciones penales,total,5078
+2018,2. contra la libertad,espanoles,31766
+2018,2. contra la libertad,extranjeros,7161
+2018,2. contra la libertad,total,38927
+2018,2.1.-malos tratos habituales en el ambito familiar,espanoles,6984
+2018,2.1.-malos tratos habituales en el ambito familiar,extranjeros,2094
+2018,2.1.-malos tratos habituales en el ambito familiar,total,9078
+2018,2.2.-otros contra la libertad,espanoles,24782
+2018,2.2.-otros contra la libertad,extranjeros,5067
+2018,2.2.-otros contra la libertad,total,29849
+2018,3. libertad sexual,espanoles,6058
+2018,3. libertad sexual,extranjeros,2230
+2018,3. libertad sexual,total,8288
+2018,3.1.-agresion sexual,espanoles,3322
+2018,3.1.-agresion sexual,extranjeros,1320
+2018,3.1.-agresion sexual,total,4642
+2018,3.2.-agresion sexual con penetracion,espanoles,1313
+2018,3.2.-agresion sexual con penetracion,extranjeros,516
+2018,3.2.-agresion sexual con penetracion,total,1829
+2018,3.3.-corrupcion de menores o incapacitados,espanoles,159
+2018,3.3.-corrupcion de menores o incapacitados,extranjeros,26
+2018,3.3.-corrupcion de menores o incapacitados,total,185
+2018,3.4.-pornografia de menores,espanoles,598
+2018,3.4.-pornografia de menores,extranjeros,79
+2018,3.4.-pornografia de menores,total,677
+2018,3.5.-otros contra la libertad sexual,espanoles,666
+2018,3.5.-otros contra la libertad sexual,extranjeros,289
+2018,3.5.-otros contra la libertad sexual,total,955
+2018,4. relaciones familiares,espanoles,1292
+2018,4. relaciones familiares,extranjeros,395
+2018,4. relaciones familiares,total,1687
+2018,5. patrimonio,espanoles,106843
+2018,5. patrimonio,extranjeros,36349
+2018,5. patrimonio,total,143192
+2018,5.1.-hurtos,espanoles,41689
+2018,5.1.-hurtos,extranjeros,17963
+2018,5.1.-hurtos,total,59652
+2018,5.2.-robos con fuerza en las cosas,espanoles,24587
+2018,5.2.-robos con fuerza en las cosas,extranjeros,5727
+2018,5.2.-robos con fuerza en las cosas,total,30314
+2018,5.2.1.-robos con fuerza en las cosas en el interior de vehiculos,espanoles,4497
+2018,5.2.1.-robos con fuerza en las cosas en el interior de vehiculos,extranjeros,1037
+2018,5.2.1.-robos con fuerza en las cosas en el interior de vehiculos,total,5534
+2018,5.2.2.-robos con fuerza en viviendas,espanoles,6126
+2018,5.2.2.-robos con fuerza en viviendas,extranjeros,2536
+2018,5.2.2.-robos con fuerza en viviendas,total,8662
+2018,5.2.3.-robos con fuerza en establecimientos,espanoles,4757
+2018,5.2.3.-robos con fuerza en establecimientos,extranjeros,1041
+2018,5.2.3.-robos con fuerza en establecimientos,total,5798
+2018,5.3.-robos con violencia o intimidacion,espanoles,11472
+2018,5.3.-robos con violencia o intimidacion,extranjeros,4019
+2018,5.3.-robos con violencia o intimidacion,total,15491
+2018,5.3.1.-robos con violencia en via publica,espanoles,3913
+2018,5.3.1.-robos con violencia en via publica,extranjeros,2482
+2018,5.3.1.-robos con violencia en via publica,total,6395
+2018,5.3.2.-robos con violencia en viviendas,espanoles,857
+2018,5.3.2.-robos con violencia en viviendas,extranjeros,321
+2018,5.3.2.-robos con violencia en viviendas,total,1178
+2018,5.3.3.-robos con violencia en establecimientos,espanoles,2162
+2018,5.3.3.-robos con violencia en establecimientos,extranjeros,728
+2018,5.3.3.-robos con violencia en establecimientos,total,2890
+2018,5.4.-sustraccion de vehiculos,espanoles,2727
+2018,5.4.-sustraccion de vehiculos,extranjeros,697
+2018,5.4.-sustraccion de vehiculos,total,3424
+2018,5.5.-estafas,espanoles,9947
+2018,5.5.-estafas,extranjeros,2574
+2018,5.5.-estafas,total,12521
+2018,5.5.1.-estafas informaticas,espanoles,1969
+2018,5.5.1.-estafas informaticas,extranjeros,559
+2018,5.5.1.-estafas informaticas,total,2528
+2018,5.6.-danos,espanoles,6541
+2018,5.6.-danos,extranjeros,1472
+2018,5.6.-danos,total,8013
+2018,5.7.-contra la propiedad intelectual/industrial,espanoles,946
+2018,5.7.-contra la propiedad intelectual/industrial,extranjeros,1327
+2018,5.7.-contra la propiedad intelectual/industrial,total,2273
+2018,5.8.-blanqueo de capitales,espanoles,578
+2018,5.8.-blanqueo de capitales,extranjeros,123
+2018,5.8.-blanqueo de capitales,total,701
+2018,5.9.-otros contra el patrimonio,espanoles,8356
+2018,5.9.-otros contra el patrimonio,extranjeros,2447
+2018,5.9.-otros contra el patrimonio,total,10803
+2018,6. seguridad colectiva,espanoles,43908
+2018,6. seguridad colectiva,extranjeros,13419
+2018,6. seguridad colectiva,total,57327
+2018,6.1.-trafico de drogas,espanoles,14919
+2018,6.1.-trafico de drogas,extranjeros,5431
+2018,6.1.-trafico de drogas,total,20350
+2018,6.2.-contra la seguridad vial,espanoles,27398
+2018,6.2.-contra la seguridad vial,extranjeros,7496
+2018,6.2.-contra la seguridad vial,total,34894
+2018,6.3.-otros contra la seguridad colectiva,espanoles,1591
+2018,6.3.-otros contra la seguridad colectiva,extranjeros,492
+2018,6.3.-otros contra la seguridad colectiva,total,2083
+2018,7. falsedades,espanoles,4437
+2018,7. falsedades,extranjeros,6577
+2018,7. falsedades,total,11014
+2018,8. admon. publica,espanoles,616
+2018,8. admon. publica,extranjeros,77
+2018,8. admon. publica,total,693
+2018,9. admon. justicia,espanoles,16136
+2018,9. admon. justicia,extranjeros,3909
+2018,9. admon. justicia,total,20045
+2018,total infracciones penales,espanoles,295325
+2018,total infracciones penales,extranjeros,99499
+2018,total infracciones penales,total,394824
+2019,1. contra las personas,espanoles,70011
+2019,1. contra las personas,extranjeros,25183
+2019,1. contra las personas,total,95194
+2019,1.1.-homicidios dolosos/asesinatos,espanoles,969
+2019,1.1.-homicidios dolosos/asesinatos,extranjeros,287
+2019,1.1.-homicidios dolosos/asesinatos,total,1256
+2019,1.1.1.-homicidios dolosos/asesinatos consumados,espanoles,264
+2019,1.1.1.-homicidios dolosos/asesinatos consumados,extranjeros,99
+2019,1.1.1.-homicidios dolosos/asesinatos consumados,total,363
+2019,1.2.-lesiones,espanoles,25579
+2019,1.2.-lesiones,extranjeros,7991
+2019,1.2.-lesiones,total,33570
+2019,1.3.-malos tratos ambito familiar,espanoles,42184
+2019,1.3.-malos tratos ambito familiar,extranjeros,16416
+2019,1.3.-malos tratos ambito familiar,total,58600
+2019,1.4.-otros contra las personas,espanoles,1279
+2019,1.4.-otros contra las personas,extranjeros,489
+2019,1.4.-otros contra las personas,total,1768
+2019,10. orden publico,espanoles,13862
+2019,10. orden publico,extranjeros,5850
+2019,10. orden publico,total,19712
+2019,11. legislacion especial,espanoles,441
+2019,11. legislacion especial,extranjeros,118
+2019,11. legislacion especial,total,559
+2019,12. otras infracciones penales,espanoles,4701
+2019,12. otras infracciones penales,extranjeros,1475
+2019,12. otras infracciones penales,total,6176
+2019,2. contra la libertad,espanoles,32364
+2019,2. contra la libertad,extranjeros,8019
+2019,2. contra la libertad,total,40383
+2019,2.1.-malos tratos habituales en el ambito familiar,espanoles,7092
+2019,2.1.-malos tratos habituales en el ambito familiar,extranjeros,2396
+2019,2.1.-malos tratos habituales en el ambito familiar,total,9488
+2019,2.2.-otros contra la libertad,espanoles,25272
+2019,2.2.-otros contra la libertad,extranjeros,5623
+2019,2.2.-otros contra la libertad,total,30895
+2019,3. libertad sexual,espanoles,6506
+2019,3. libertad sexual,extranjeros,2477
+2019,3. libertad sexual,total,8983
+2019,3.1.-agresion sexual,espanoles,3642
+2019,3.1.-agresion sexual,extranjeros,1509
+2019,3.1.-agresion sexual,total,5151
+2019,3.2.-agresion sexual con penetracion,espanoles,1401
+2019,3.2.-agresion sexual con penetracion,extranjeros,557
+2019,3.2.-agresion sexual con penetracion,total,1958
+2019,3.3.-corrupcion de menores o incapacitados,espanoles,170
+2019,3.3.-corrupcion de menores o incapacitados,extranjeros,21
+2019,3.3.-corrupcion de menores o incapacitados,total,191
+2019,3.4.-pornografia de menores,espanoles,537
+2019,3.4.-pornografia de menores,extranjeros,78
+2019,3.4.-pornografia de menores,total,615
+2019,3.5.-otros contra la libertad sexual,espanoles,756
+2019,3.5.-otros contra la libertad sexual,extranjeros,312
+2019,3.5.-otros contra la libertad sexual,total,1068
+2019,4. relaciones familiares,espanoles,1213
+2019,4. relaciones familiares,extranjeros,336
+2019,4. relaciones familiares,total,1549
+2019,5. patrimonio,espanoles,106674
+2019,5. patrimonio,extranjeros,38284
+2019,5. patrimonio,total,144958
+2019,5.1.-hurtos,espanoles,40875
+2019,5.1.-hurtos,extranjeros,18080
+2019,5.1.-hurtos,total,58955
+2019,5.2.-robos con fuerza en las cosas,espanoles,23423
+2019,5.2.-robos con fuerza en las cosas,extranjeros,5978
+2019,5.2.-robos con fuerza en las cosas,total,29401
+2019,5.2.1.-robos con fuerza en las cosas en el interior de vehiculos,espanoles,4328
+2019,5.2.1.-robos con fuerza en las cosas en el interior de vehiculos,extranjeros,1074
+2019,5.2.1.-robos con fuerza en las cosas en el interior de vehiculos,total,5402
+2019,5.2.2.-robos con fuerza en viviendas,espanoles,5574
+2019,5.2.2.-robos con fuerza en viviendas,extranjeros,2475
+2019,5.2.2.-robos con fuerza en viviendas,total,8049
+2019,5.2.3.-robos con fuerza en establecimientos,espanoles,4761
+2019,5.2.3.-robos con fuerza en establecimientos,extranjeros,1309
+2019,5.2.3.-robos con fuerza en establecimientos,total,6070
+2019,5.3.-robos con violencia o intimidacion,espanoles,13206
+2019,5.3.-robos con violencia o intimidacion,extranjeros,5047
+2019,5.3.-robos con violencia o intimidacion,total,18253
+2019,5.3.1.-robos con violencia en via publica,espanoles,4461
+2019,5.3.1.-robos con violencia en via publica,extranjeros,3264
+2019,5.3.1.-robos con violencia en via publica,total,7725
+2019,5.3.2.-robos con violencia en viviendas,espanoles,832
+2019,5.3.2.-robos con violencia en viviendas,extranjeros,321
+2019,5.3.2.-robos con violencia en viviendas,total,1153
+2019,5.3.3.-robos con violencia en establecimientos,espanoles,2277
+2019,5.3.3.-robos con violencia en establecimientos,extranjeros,760
+2019,5.3.3.-robos con violencia en establecimientos,total,3037
+2019,5.4.-sustraccion de vehiculos,espanoles,2641
+2019,5.4.-sustraccion de vehiculos,extranjeros,758
+2019,5.4.-sustraccion de vehiculos,total,3399
+2019,5.5.-estafas,espanoles,10505
+2019,5.5.-estafas,extranjeros,2973
+2019,5.5.-estafas,total,13478
+2019,5.5.1.-estafas informaticas,espanoles,2878
+2019,5.5.1.-estafas informaticas,extranjeros,914
+2019,5.5.1.-estafas informaticas,total,3792
+2019,5.6.-danos,espanoles,6655
+2019,5.6.-danos,extranjeros,1643
+2019,5.6.-danos,total,8298
+2019,5.7.-contra la propiedad intelectual/industrial,espanoles,699
+2019,5.7.-contra la propiedad intelectual/industrial,extranjeros,1096
+2019,5.7.-contra la propiedad intelectual/industrial,total,1795
+2019,5.8.-blanqueo de capitales,espanoles,472
+2019,5.8.-blanqueo de capitales,extranjeros,130
+2019,5.8.-blanqueo de capitales,total,602
+2019,5.9.-otros contra el patrimonio,espanoles,8198
+2019,5.9.-otros contra el patrimonio,extranjeros,2579
+2019,5.9.-otros contra el patrimonio,total,10777
+2019,6. seguridad colectiva,espanoles,46812
+2019,6. seguridad colectiva,extranjeros,14427
+2019,6. seguridad colectiva,total,61239
+2019,6.1.-trafico de drogas,espanoles,16857
+2019,6.1.-trafico de drogas,extranjeros,6031
+2019,6.1.-trafico de drogas,total,22888
+2019,6.2.-contra la seguridad vial,espanoles,28756
+2019,6.2.-contra la seguridad vial,extranjeros,8105
+2019,6.2.-contra la seguridad vial,total,36861
+2019,6.3.-otros contra la seguridad colectiva,espanoles,1199
+2019,6.3.-otros contra la seguridad colectiva,extranjeros,291
+2019,6.3.-otros contra la seguridad colectiva,total,1490
+2019,7. falsedades,espanoles,4228
+2019,7. falsedades,extranjeros,7060
+2019,7. falsedades,total,11288
+2019,8. admon. publica,espanoles,400
+2019,8. admon. publica,extranjeros,46
+2019,8. admon. publica,total,446
+2019,9. admon. justicia,espanoles,17015
+2019,9. admon. justicia,extranjeros,4401
+2019,9. admon. justicia,total,21416
+2019,total infracciones penales,espanoles,304227
+2019,total infracciones penales,extranjeros,107676
+2019,total infracciones penales,total,411903
+2020,1. contra las personas,espanoles,67294
+2020,1. contra las personas,extranjeros,28944
+2020,1. contra las personas,total,96238
+2020,1.1.-homicidios dolosos/asesinatos,espanoles,844
+2020,1.1.-homicidios dolosos/asesinatos,extranjeros,381
+2020,1.1.-homicidios dolosos/asesinatos,total,1225
+2020,1.1.1.-homicidios dolosos/asesinatos consumados,espanoles,276
+2020,1.1.1.-homicidios dolosos/asesinatos consumados,extranjeros,101
+2020,1.1.1.-homicidios dolosos/asesinatos consumados,total,377
+2020,1.2.-lesiones,espanoles,23034
+2020,1.2.-lesiones,extranjeros,9300
+2020,1.2.-lesiones,total,32334
+2020,1.3.-malos tratos ambito familiar,espanoles,41952
+2020,1.3.-malos tratos ambito familiar,extranjeros,18595
+2020,1.3.-malos tratos ambito familiar,total,60547
+2020,1.4.-otros contra las personas,espanoles,1464
+2020,1.4.-otros contra las personas,extranjeros,668
+2020,1.4.-otros contra las personas,total,2132
+2020,10. orden publico,espanoles,18143
+2020,10. orden publico,extranjeros,9525
+2020,10. orden publico,total,27668
+2020,11. legislacion especial,espanoles,462
+2020,11. legislacion especial,extranjeros,123
+2020,11. legislacion especial,total,585
+2020,12. otras infracciones penales,espanoles,3946
+2020,12. otras infracciones penales,extranjeros,1115
+2020,12. otras infracciones penales,total,5061
+2020,2. contra la libertad,espanoles,34929
+2020,2. contra la libertad,extranjeros,10743
+2020,2. contra la libertad,total,45672
+2020,2.1.-malos tratos habituales en el ambito familiar,espanoles,6916
+2020,2.1.-malos tratos habituales en el ambito familiar,extranjeros,2598
+2020,2.1.-malos tratos habituales en el ambito familiar,total,9514
+2020,2.2.-otros contra la libertad,espanoles,28013
+2020,2.2.-otros contra la libertad,extranjeros,8145
+2020,2.2.-otros contra la libertad,total,36158
+2020,3. libertad sexual,espanoles,5369
+2020,3. libertad sexual,extranjeros,2622
+2020,3. libertad sexual,total,7991
+2020,3.1.-agresion sexual,espanoles,3033
+2020,3.1.-agresion sexual,extranjeros,1520
+2020,3.1.-agresion sexual,total,4553
+2020,3.2.-agresion sexual con penetracion,espanoles,1157
+2020,3.2.-agresion sexual con penetracion,extranjeros,703
+2020,3.2.-agresion sexual con penetracion,total,1860
+2020,3.3.-corrupcion de menores o incapacitados,espanoles,140
+2020,3.3.-corrupcion de menores o incapacitados,extranjeros,23
+2020,3.3.-corrupcion de menores o incapacitados,total,163
+2020,3.4.-pornografia de menores,espanoles,382
+2020,3.4.-pornografia de menores,extranjeros,71
+2020,3.4.-pornografia de menores,total,453
+2020,3.5.-otros contra la libertad sexual,espanoles,657
+2020,3.5.-otros contra la libertad sexual,extranjeros,305
+2020,3.5.-otros contra la libertad sexual,total,962
+2020,4. relaciones familiares,espanoles,1756
+2020,4. relaciones familiares,extranjeros,583
+2020,4. relaciones familiares,total,2339
+2020,5. patrimonio,espanoles,87828
+2020,5. patrimonio,extranjeros,51452
+2020,5. patrimonio,total,139280
+2020,5.1.-hurtos,espanoles,28734
+2020,5.1.-hurtos,extranjeros,20369
+2020,5.1.-hurtos,total,49103
+2020,5.2.-robos con fuerza en las cosas,espanoles,17251
+2020,5.2.-robos con fuerza en las cosas,extranjeros,8497
+2020,5.2.-robos con fuerza en las cosas,total,25748
+2020,5.2.1.-robos con fuerza en las cosas en el interior de vehiculos,espanoles,2885
+2020,5.2.1.-robos con fuerza en las cosas en el interior de vehiculos,extranjeros,1086
+2020,5.2.1.-robos con fuerza en las cosas en el interior de vehiculos,total,3971
+2020,5.2.2.-robos con fuerza en viviendas,espanoles,5449
+2020,5.2.2.-robos con fuerza en viviendas,extranjeros,3114
+2020,5.2.2.-robos con fuerza en viviendas,total,8563
+2020,5.2.3.-robos con fuerza en establecimientos,espanoles,4457
+2020,5.2.3.-robos con fuerza en establecimientos,extranjeros,2058
+2020,5.2.3.-robos con fuerza en establecimientos,total,6515
+2020,5.3.-robos con violencia o intimidacion,espanoles,8219
+2020,5.3.-robos con violencia o intimidacion,extranjeros,5941
+2020,5.3.-robos con violencia o intimidacion,total,14160
+2020,5.3.1.-robos con violencia en via publica,espanoles,4219
+2020,5.3.1.-robos con violencia en via publica,extranjeros,3810
+2020,5.3.1.-robos con violencia en via publica,total,8029
+2020,5.3.2.-robos con violencia en viviendas,espanoles,896
+2020,5.3.2.-robos con violencia en viviendas,extranjeros,399
+2020,5.3.2.-robos con violencia en viviendas,total,1295
+2020,5.3.3.-robos con violencia en establecimientos,espanoles,2152
+2020,5.3.3.-robos con violencia en establecimientos,extranjeros,1008
+2020,5.3.3.-robos con violencia en establecimientos,total,3160
+2020,5.4.-sustraccion de vehiculos,espanoles,2451
+2020,5.4.-sustraccion de vehiculos,extranjeros,858
+2020,5.4.-sustraccion de vehiculos,total,3309
+2020,5.5.-estafas,espanoles,11125
+2020,5.5.-estafas,extranjeros,3447
+2020,5.5.-estafas,total,14572
+2020,5.5.1.-estafas informaticas,espanoles,4099
+2020,5.5.1.-estafas informaticas,extranjeros,1244
+2020,5.5.1.-estafas informaticas,total,5343
+2020,5.6.-danos,espanoles,7875
+2020,5.6.-danos,extranjeros,2679
+2020,5.6.-danos,total,10554
+2020,5.7.-contra la propiedad intelectual/industrial,espanoles,358
+2020,5.7.-contra la propiedad intelectual/industrial,extranjeros,485
+2020,5.7.-contra la propiedad intelectual/industrial,total,843
+2020,5.8.-blanqueo de capitales,espanoles,415
+2020,5.8.-blanqueo de capitales,extranjeros,87
+2020,5.8.-blanqueo de capitales,total,502
+2020,5.9.-otros contra el patrimonio,espanoles,11400
+2020,5.9.-otros contra el patrimonio,extranjeros,9089
+2020,5.9.-otros contra el patrimonio,total,20489
+2020,6. seguridad colectiva,espanoles,42968
+2020,6. seguridad colectiva,extranjeros,14657
+2020,6. seguridad colectiva,total,57625
+2020,6.1.-trafico de drogas,espanoles,16383
+2020,6.1.-trafico de drogas,extranjeros,6388
+2020,6.1.-trafico de drogas,total,22771
+2020,6.2.-contra la seguridad vial,espanoles,25534
+2020,6.2.-contra la seguridad vial,extranjeros,7992
+2020,6.2.-contra la seguridad vial,total,33526
+2020,6.3.-otros contra la seguridad colectiva,espanoles,1051
+2020,6.3.-otros contra la seguridad colectiva,extranjeros,277
+2020,6.3.-otros contra la seguridad colectiva,total,1328
+2020,7. falsedades,espanoles,4137
+2020,7. falsedades,extranjeros,5382
+2020,7. falsedades,total,9519
+2020,8. admon. publica,espanoles,339
+2020,8. admon. publica,extranjeros,21
+2020,8. admon. publica,total,360
+2020,9. admon. justicia,espanoles,16781
+2020,9. admon. justicia,extranjeros,5941
+2020,9. admon. justicia,total,22722
+2020,total infracciones penales,espanoles,283952
+2020,total infracciones penales,extranjeros,131108
+2020,total infracciones penales,total,415060
+2021,1. contra las personas,espanoles,75319
+2021,1. contra las personas,extranjeros,32835
+2021,1. contra las personas,total,108154
+2021,1.1.-homicidios dolosos/asesinatos,espanoles,873
+2021,1.1.-homicidios dolosos/asesinatos,extranjeros,439
+2021,1.1.-homicidios dolosos/asesinatos,total,1312
+2021,1.1.1.-homicidios dolosos/asesinatos consumados,espanoles,248
+2021,1.1.1.-homicidios dolosos/asesinatos consumados,extranjeros,112
+2021,1.1.1.-homicidios dolosos/asesinatos consumados,total,360
+2021,1.2.-lesiones,espanoles,27612
+2021,1.2.-lesiones,extranjeros,10961
+2021,1.2.-lesiones,total,38573
+2021,1.3.-malos tratos ambito familiar,espanoles,45055
+2021,1.3.-malos tratos ambito familiar,extranjeros,20563
+2021,1.3.-malos tratos ambito familiar,total,65618
+2021,1.4.-otros contra las personas,espanoles,1779
+2021,1.4.-otros contra las personas,extranjeros,872
+2021,1.4.-otros contra las personas,total,2651
+2021,10. orden publico,espanoles,15553
+2021,10. orden publico,extranjeros,8409
+2021,10. orden publico,total,23962
+2021,11. legislacion especial,espanoles,443
+2021,11. legislacion especial,extranjeros,131
+2021,11. legislacion especial,total,574
+2021,12. otras infracciones penales,espanoles,4334
+2021,12. otras infracciones penales,extranjeros,1615
+2021,12. otras infracciones penales,total,5949
+2021,2. contra la libertad,espanoles,37653
+2021,2. contra la libertad,extranjeros,12203
+2021,2. contra la libertad,total,49856
+2021,2.1.-malos tratos habituales en el ambito familiar,espanoles,7438
+2021,2.1.-malos tratos habituales en el ambito familiar,extranjeros,2784
+2021,2.1.-malos tratos habituales en el ambito familiar,total,10222
+2021,2.2.-otros contra la libertad,espanoles,30215
+2021,2.2.-otros contra la libertad,extranjeros,9419
+2021,2.2.-otros contra la libertad,total,39634
+2021,3. libertad sexual,espanoles,6872
+2021,3. libertad sexual,extranjeros,3605
+2021,3. libertad sexual,total,10477
+2021,3.1.-agresion sexual,espanoles,4064
+2021,3.1.-agresion sexual,extranjeros,2188
+2021,3.1.-agresion sexual,total,6252
+2021,3.2.-agresion sexual con penetracion,espanoles,1480
+2021,3.2.-agresion sexual con penetracion,extranjeros,939
+2021,3.2.-agresion sexual con penetracion,total,2419
+2021,3.3.-corrupcion de menores o incapacitados,espanoles,158
+2021,3.3.-corrupcion de menores o incapacitados,extranjeros,53
+2021,3.3.-corrupcion de menores o incapacitados,total,211
+2021,3.4.-pornografia de menores,espanoles,389
+2021,3.4.-pornografia de menores,extranjeros,78
+2021,3.4.-pornografia de menores,total,467
+2021,3.5.-otros contra la libertad sexual,espanoles,781
+2021,3.5.-otros contra la libertad sexual,extranjeros,347
+2021,3.5.-otros contra la libertad sexual,total,1128
+2021,4. relaciones familiares,espanoles,1745
+2021,4. relaciones familiares,extranjeros,727
+2021,4. relaciones familiares,total,2472
+2021,5. patrimonio,espanoles,95575
+2021,5. patrimonio,extranjeros,55861
+2021,5. patrimonio,total,151436
+2021,5.1.-hurtos,espanoles,34167
+2021,5.1.-hurtos,extranjeros,23089
+2021,5.1.-hurtos,total,57256
+2021,5.2.-robos con fuerza en las cosas,espanoles,16648
+2021,5.2.-robos con fuerza en las cosas,extranjeros,8615
+2021,5.2.-robos con fuerza en las cosas,total,25263
+2021,5.2.1.-robos con fuerza en las cosas en el interior de vehiculos,espanoles,3038
+2021,5.2.1.-robos con fuerza en las cosas en el interior de vehiculos,extranjeros,1890
+2021,5.2.1.-robos con fuerza en las cosas en el interior de vehiculos,total,4928
+2021,5.2.2.-robos con fuerza en viviendas,espanoles,4913
+2021,5.2.2.-robos con fuerza en viviendas,extranjeros,3099
+2021,5.2.2.-robos con fuerza en viviendas,total,8012
+2021,5.2.3.-robos con fuerza en establecimientos,espanoles,4238
+2021,5.2.3.-robos con fuerza en establecimientos,extranjeros,1878
+2021,5.2.3.-robos con fuerza en establecimientos,total,6116
+2021,5.3.-robos con violencia o intimidacion,espanoles,8702
+2021,5.3.-robos con violencia o intimidacion,extranjeros,6865
+2021,5.3.-robos con violencia o intimidacion,total,15567
+2021,5.3.1.-robos con violencia en via publica,espanoles,4661
+2021,5.3.1.-robos con violencia en via publica,extranjeros,4434
+2021,5.3.1.-robos con violencia en via publica,total,9095
+2021,5.3.2.-robos con violencia en viviendas,espanoles,894
+2021,5.3.2.-robos con violencia en viviendas,extranjeros,438
+2021,5.3.2.-robos con violencia en viviendas,total,1332
+2021,5.3.3.-robos con violencia en establecimientos,espanoles,2195
+2021,5.3.3.-robos con violencia en establecimientos,extranjeros,1097
+2021,5.3.3.-robos con violencia en establecimientos,total,3292
+2021,5.4.-sustraccion de vehiculos,espanoles,2354
+2021,5.4.-sustraccion de vehiculos,extranjeros,805
+2021,5.4.-sustraccion de vehiculos,total,3159
+2021,5.5.-estafas,espanoles,12460
+2021,5.5.-estafas,extranjeros,3841
+2021,5.5.-estafas,total,16301
+2021,5.5.1.-estafas informaticas,espanoles,5092
+2021,5.5.1.-estafas informaticas,extranjeros,1429
+2021,5.5.1.-estafas informaticas,total,6521
+2021,5.6.-danos,espanoles,8972
+2021,5.6.-danos,extranjeros,3105
+2021,5.6.-danos,total,12077
+2021,5.7.-contra la propiedad intelectual/industrial,espanoles,422
+2021,5.7.-contra la propiedad intelectual/industrial,extranjeros,634
+2021,5.7.-contra la propiedad intelectual/industrial,total,1056
+2021,5.8.-blanqueo de capitales,espanoles,498
+2021,5.8.-blanqueo de capitales,extranjeros,153
+2021,5.8.-blanqueo de capitales,total,651
+2021,5.9.-otros contra el patrimonio,espanoles,11352
+2021,5.9.-otros contra el patrimonio,extranjeros,8754
+2021,5.9.-otros contra el patrimonio,total,20106
+2021,6. seguridad colectiva,espanoles,47255
+2021,6. seguridad colectiva,extranjeros,17086
+2021,6. seguridad colectiva,total,64341
+2021,6.1.-trafico de drogas,espanoles,16606
+2021,6.1.-trafico de drogas,extranjeros,7314
+2021,6.1.-trafico de drogas,total,23920
+2021,6.2.-contra la seguridad vial,espanoles,29506
+2021,6.2.-contra la seguridad vial,extranjeros,9490
+2021,6.2.-contra la seguridad vial,total,38996
+2021,6.3.-otros contra la seguridad colectiva,espanoles,1143
+2021,6.3.-otros contra la seguridad colectiva,extranjeros,282
+2021,6.3.-otros contra la seguridad colectiva,total,1425
+2021,7. falsedades,espanoles,4887
+2021,7. falsedades,extranjeros,6852
+2021,7. falsedades,total,11739
+2021,8. admon. publica,espanoles,316
+2021,8. admon. publica,extranjeros,54
+2021,8. admon. publica,total,370
+2021,9. admon. justicia,espanoles,17973
+2021,9. admon. justicia,extranjeros,5919
+2021,9. admon. justicia,total,23892
+2021,total infracciones penales,espanoles,307925
+2021,total infracciones penales,extranjeros,145297
+2021,total infracciones penales,total,453222
+2022,1. contra las personas,espanoles,83609
+2022,1. contra las personas,extranjeros,39276
+2022,1. contra las personas,total,122885
+2022,1.1.-homicidios dolosos/asesinatos,espanoles,1018
+2022,1.1.-homicidios dolosos/asesinatos,extranjeros,482
+2022,1.1.-homicidios dolosos/asesinatos,total,1500
+2022,1.1.1.-homicidios dolosos/asesinatos consumados,espanoles,270
+2022,1.1.1.-homicidios dolosos/asesinatos consumados,extranjeros,105
+2022,1.1.1.-homicidios dolosos/asesinatos consumados,total,375
+2022,1.2.-lesiones,espanoles,31298
+2022,1.2.-lesiones,extranjeros,13133
+2022,1.2.-lesiones,total,44431
+2022,1.3.-malos tratos ambito familiar,espanoles,49189
+2022,1.3.-malos tratos ambito familiar,extranjeros,24687
+2022,1.3.-malos tratos ambito familiar,total,73876
+2022,1.4.-otros contra las personas,espanoles,2104
+2022,1.4.-otros contra las personas,extranjeros,974
+2022,1.4.-otros contra las personas,total,3078
+2022,10. orden publico,espanoles,14728
+2022,10. orden publico,extranjeros,8716
+2022,10. orden publico,total,23444
+2022,11. legislacion especial,espanoles,426
+2022,11. legislacion especial,extranjeros,98
+2022,11. legislacion especial,total,524
+2022,12. otras infracciones penales,espanoles,4164
+2022,12. otras infracciones penales,extranjeros,1711
+2022,12. otras infracciones penales,total,5875
+2022,2. contra la libertad,espanoles,39249
+2022,2. contra la libertad,extranjeros,13428
+2022,2. contra la libertad,total,52677
+2022,2.1.-malos tratos habituales en el ambito familiar,espanoles,7902
+2022,2.1.-malos tratos habituales en el ambito familiar,extranjeros,3062
+2022,2.1.-malos tratos habituales en el ambito familiar,total,10964
+2022,2.2.-otros contra la libertad,espanoles,31347
+2022,2.2.-otros contra la libertad,extranjeros,10366
+2022,2.2.-otros contra la libertad,total,41713
+2022,3. libertad sexual,espanoles,7516
+2022,3. libertad sexual,extranjeros,4183
+2022,3. libertad sexual,total,11699
+2022,3.1.-agresion sexual,espanoles,4515
+2022,3.1.-agresion sexual,extranjeros,2618
+2022,3.1.-agresion sexual,total,7133
+2022,3.2.-agresion sexual con penetracion,espanoles,1693
+2022,3.2.-agresion sexual con penetracion,extranjeros,1062
+2022,3.2.-agresion sexual con penetracion,total,2755
+2022,3.3.-corrupcion de menores o incapacitados,espanoles,169
+2022,3.3.-corrupcion de menores o incapacitados,extranjeros,52
+2022,3.3.-corrupcion de menores o incapacitados,total,221
+2022,3.4.-pornografia de menores,espanoles,405
+2022,3.4.-pornografia de menores,extranjeros,62
+2022,3.4.-pornografia de menores,total,467
+2022,3.5.-otros contra la libertad sexual,espanoles,734
+2022,3.5.-otros contra la libertad sexual,extranjeros,389
+2022,3.5.-otros contra la libertad sexual,total,1123
+2022,4. relaciones familiares,espanoles,1761
+2022,4. relaciones familiares,extranjeros,748
+2022,4. relaciones familiares,total,2509
+2022,5. patrimonio,espanoles,109742
+2022,5. patrimonio,extranjeros,70205
+2022,5. patrimonio,total,179947
+2022,5.1.-hurtos,espanoles,42000
+2022,5.1.-hurtos,extranjeros,32111
+2022,5.1.-hurtos,total,74111
+2022,5.2.-robos con fuerza en las cosas,espanoles,18539
+2022,5.2.-robos con fuerza en las cosas,extranjeros,9735
+2022,5.2.-robos con fuerza en las cosas,total,28274
+2022,5.2.1.-robos con fuerza en las cosas en el interior de vehiculos,espanoles,3589
+2022,5.2.1.-robos con fuerza en las cosas en el interior de vehiculos,extranjeros,2359
+2022,5.2.1.-robos con fuerza en las cosas en el interior de vehiculos,total,5948
+2022,5.2.2.-robos con fuerza en viviendas,espanoles,4919
+2022,5.2.2.-robos con fuerza en viviendas,extranjeros,3330
+2022,5.2.2.-robos con fuerza en viviendas,total,8249
+2022,5.2.3.-robos con fuerza en establecimientos,espanoles,4794
+2022,5.2.3.-robos con fuerza en establecimientos,extranjeros,2034
+2022,5.2.3.-robos con fuerza en establecimientos,total,6828
+2022,5.3.-robos con violencia o intimidacion,espanoles,9734
+2022,5.3.-robos con violencia o intimidacion,extranjeros,8744
+2022,5.3.-robos con violencia o intimidacion,total,18478
+2022,5.3.1.-robos con violencia en via publica,espanoles,5108
+2022,5.3.1.-robos con violencia en via publica,extranjeros,5996
+2022,5.3.1.-robos con violencia en via publica,total,11104
+2022,5.3.2.-robos con violencia en viviendas,espanoles,821
+2022,5.3.2.-robos con violencia en viviendas,extranjeros,383
+2022,5.3.2.-robos con violencia en viviendas,total,1204
+2022,5.3.3.-robos con violencia en establecimientos,espanoles,2752
+2022,5.3.3.-robos con violencia en establecimientos,extranjeros,1321
+2022,5.3.3.-robos con violencia en establecimientos,total,4073
+2022,5.4.-sustraccion de vehiculos,espanoles,2596
+2022,5.4.-sustraccion de vehiculos,extranjeros,1016
+2022,5.4.-sustraccion de vehiculos,total,3612
+2022,5.5.-estafas,espanoles,14457
+2022,5.5.-estafas,extranjeros,4775
+2022,5.5.-estafas,total,19232
+2022,5.5.1.-estafas informaticas,espanoles,6224
+2022,5.5.1.-estafas informaticas,extranjeros,1895
+2022,5.5.1.-estafas informaticas,total,8119
+2022,5.6.-danos,espanoles,9287
+2022,5.6.-danos,extranjeros,3384
+2022,5.6.-danos,total,12671
+2022,5.7.-contra la propiedad intelectual/industrial,espanoles,499
+2022,5.7.-contra la propiedad intelectual/industrial,extranjeros,746
+2022,5.7.-contra la propiedad intelectual/industrial,total,1245
+2022,5.8.-blanqueo de capitales,espanoles,491
+2022,5.8.-blanqueo de capitales,extranjeros,199
+2022,5.8.-blanqueo de capitales,total,690
+2022,5.9.-otros contra el patrimonio,espanoles,12139
+2022,5.9.-otros contra el patrimonio,extranjeros,9495
+2022,5.9.-otros contra el patrimonio,total,21634
+2022,6. seguridad colectiva,espanoles,50469
+2022,6. seguridad colectiva,extranjeros,19854
+2022,6. seguridad colectiva,total,70323
+2022,6.1.-trafico de drogas,espanoles,15701
+2022,6.1.-trafico de drogas,extranjeros,8328
+2022,6.1.-trafico de drogas,total,24029
+2022,6.2.-contra la seguridad vial,espanoles,33437
+2022,6.2.-contra la seguridad vial,extranjeros,11111
+2022,6.2.-contra la seguridad vial,total,44548
+2022,6.3.-otros contra la seguridad colectiva,espanoles,1331
+2022,6.3.-otros contra la seguridad colectiva,extranjeros,415
+2022,6.3.-otros contra la seguridad colectiva,total,1746
+2022,7. falsedades,espanoles,4209
+2022,7. falsedades,extranjeros,6923
+2022,7. falsedades,total,11132
+2022,8. admon. publica,espanoles,250
+2022,8. admon. publica,extranjeros,55
+2022,8. admon. publica,total,305
+2022,9. admon. justicia,espanoles,19982
+2022,9. admon. justicia,extranjeros,7117
+2022,9. admon. justicia,total,27099
+2022,total infracciones penales,espanoles,336105
+2022,total infracciones penales,extranjeros,172314
+2022,total infracciones penales,total,508419
+2023,1. contra las personas,espanoles,89116
+2023,1. contra las personas,extranjeros,43216
+2023,1. contra las personas,total,132332
+2023,1.1.-homicidios dolosos/asesinatos,espanoles,1063
+2023,1.1.-homicidios dolosos/asesinatos,extranjeros,568
+2023,1.1.-homicidios dolosos/asesinatos,total,1631
+2023,1.1.1.-homicidios dolosos/asesinatos consumados,espanoles,262
+2023,1.1.1.-homicidios dolosos/asesinatos consumados,extranjeros,137
+2023,1.1.1.-homicidios dolosos/asesinatos consumados,total,399
+2023,1.2.-lesiones,espanoles,32060
+2023,1.2.-lesiones,extranjeros,13538
+2023,1.2.-lesiones,total,45598
+2023,1.3.-malos tratos ambito familiar,espanoles,53655
+2023,1.3.-malos tratos ambito familiar,extranjeros,27806
+2023,1.3.-malos tratos ambito familiar,total,81461
+2023,1.4.-otros contra las personas,espanoles,2338
+2023,1.4.-otros contra las personas,extranjeros,1304
+2023,1.4.-otros contra las personas,total,3642
+2023,10. orden publico,espanoles,14649
+2023,10. orden publico,extranjeros,9804
+2023,10. orden publico,total,24453
+2023,11. legislacion especial,espanoles,340
+2023,11. legislacion especial,extranjeros,93
+2023,11. legislacion especial,total,433
+2023,12. otras infracciones penales,espanoles,4803
+2023,12. otras infracciones penales,extranjeros,1771
+2023,12. otras infracciones penales,total,6574
+2023,2. contra la libertad,espanoles,42837
+2023,2. contra la libertad,extranjeros,15586
+2023,2. contra la libertad,total,58423
+2023,2.1.-malos tratos habituales en el ambito familiar,espanoles,8520
+2023,2.1.-malos tratos habituales en el ambito familiar,extranjeros,3565
+2023,2.1.-malos tratos habituales en el ambito familiar,total,12085
+2023,2.2.-otros contra la libertad,espanoles,34317
+2023,2.2.-otros contra la libertad,extranjeros,12021
+2023,2.2.-otros contra la libertad,total,46338
+2023,3. libertad sexual,espanoles,8631
+2023,3. libertad sexual,extranjeros,5136
+2023,3. libertad sexual,total,13767
+2023,3.1.-agresion sexual,espanoles,5107
+2023,3.1.-agresion sexual,extranjeros,3125
+2023,3.1.-agresion sexual,total,8232
+2023,3.2.-agresion sexual con penetracion,espanoles,1834
+2023,3.2.-agresion sexual con penetracion,extranjeros,1326
+2023,3.2.-agresion sexual con penetracion,total,3160
+2023,3.3.-corrupcion de menores o incapacitados,espanoles,155
+2023,3.3.-corrupcion de menores o incapacitados,extranjeros,36
+2023,3.3.-corrupcion de menores o incapacitados,total,191
+2023,3.4.-pornografia de menores,espanoles,566
+2023,3.4.-pornografia de menores,extranjeros,83
+2023,3.4.-pornografia de menores,total,649
+2023,3.5.-otros contra la libertad sexual,espanoles,969
+2023,3.5.-otros contra la libertad sexual,extranjeros,566
+2023,3.5.-otros contra la libertad sexual,total,1535
+2023,4. relaciones familiares,espanoles,1825
+2023,4. relaciones familiares,extranjeros,830
+2023,4. relaciones familiares,total,2655
+2023,5. patrimonio,espanoles,120405
+2023,5. patrimonio,extranjeros,83969
+2023,5. patrimonio,total,204374
+2023,5.1.-hurtos,espanoles,48841
+2023,5.1.-hurtos,extranjeros,40651
+2023,5.1.-hurtos,total,89492
+2023,5.2.-robos con fuerza en las cosas,espanoles,20198
+2023,5.2.-robos con fuerza en las cosas,extranjeros,10668
+2023,5.2.-robos con fuerza en las cosas,total,30866
+2023,5.2.1.-robos con fuerza en las cosas en el interior de vehiculos,espanoles,4151
+2023,5.2.1.-robos con fuerza en las cosas en el interior de vehiculos,extranjeros,2823
+2023,5.2.1.-robos con fuerza en las cosas en el interior de vehiculos,total,6974
+2023,5.2.2.-robos con fuerza en viviendas,espanoles,5233
+2023,5.2.2.-robos con fuerza en viviendas,extranjeros,3489
+2023,5.2.2.-robos con fuerza en viviendas,total,8722
+2023,5.2.3.-robos con fuerza en establecimientos,espanoles,5450
+2023,5.2.3.-robos con fuerza en establecimientos,extranjeros,2247
+2023,5.2.3.-robos con fuerza en establecimientos,total,7697
+2023,5.3.-robos con violencia o intimidacion,espanoles,10237
+2023,5.3.-robos con violencia o intimidacion,extranjeros,10553
+2023,5.3.-robos con violencia o intimidacion,total,20790
+2023,5.3.1.-robos con violencia en via publica,espanoles,5202
+2023,5.3.1.-robos con violencia en via publica,extranjeros,7044
+2023,5.3.1.-robos con violencia en via publica,total,12246
+2023,5.3.2.-robos con violencia en viviendas,espanoles,889
+2023,5.3.2.-robos con violencia en viviendas,extranjeros,524
+2023,5.3.2.-robos con violencia en viviendas,total,1413
+2023,5.3.3.-robos con violencia en establecimientos,espanoles,3074
+2023,5.3.3.-robos con violencia en establecimientos,extranjeros,1810
+2023,5.3.3.-robos con violencia en establecimientos,total,4884
+2023,5.4.-sustraccion de vehiculos,espanoles,2844
+2023,5.4.-sustraccion de vehiculos,extranjeros,1104
+2023,5.4.-sustraccion de vehiculos,total,3948
+2023,5.5.-estafas,espanoles,16134
+2023,5.5.-estafas,extranjeros,6001
+2023,5.5.-estafas,total,22135
+2023,5.5.1.-estafas informaticas,espanoles,7996
+2023,5.5.1.-estafas informaticas,extranjeros,2466
+2023,5.5.1.-estafas informaticas,total,10462
+2023,5.6.-danos,espanoles,9077
+2023,5.6.-danos,extranjeros,3529
+2023,5.6.-danos,total,12606
+2023,5.7.-contra la propiedad intelectual/industrial,espanoles,501
+2023,5.7.-contra la propiedad intelectual/industrial,extranjeros,826
+2023,5.7.-contra la propiedad intelectual/industrial,total,1327
+2023,5.8.-blanqueo de capitales,espanoles,496
+2023,5.8.-blanqueo de capitales,extranjeros,146
+2023,5.8.-blanqueo de capitales,total,642
+2023,5.9.-otros contra el patrimonio,espanoles,12077
+2023,5.9.-otros contra el patrimonio,extranjeros,10491
+2023,5.9.-otros contra el patrimonio,total,22568
+2023,6. seguridad colectiva,espanoles,50360
+2023,6. seguridad colectiva,extranjeros,21353
+2023,6. seguridad colectiva,total,71713
+2023,6.1.-trafico de drogas,espanoles,16653
+2023,6.1.-trafico de drogas,extranjeros,9552
+2023,6.1.-trafico de drogas,total,26205
+2023,6.2.-contra la seguridad vial,espanoles,32292
+2023,6.2.-contra la seguridad vial,extranjeros,11322
+2023,6.2.-contra la seguridad vial,total,43614
+2023,6.3.-otros contra la seguridad colectiva,espanoles,1415
+2023,6.3.-otros contra la seguridad colectiva,extranjeros,479
+2023,6.3.-otros contra la seguridad colectiva,total,1894
+2023,7. falsedades,espanoles,4248
+2023,7. falsedades,extranjeros,6876
+2023,7. falsedades,total,11124
+2023,8. admon. publica,espanoles,260
+2023,8. admon. publica,extranjeros,37
+2023,8. admon. publica,total,297
+2023,9. admon. justicia,espanoles,22223
+2023,9. admon. justicia,extranjeros,8425
+2023,9. admon. justicia,total,30648
+2023,total infracciones penales,espanoles,359697
+2023,total infracciones penales,extranjeros,197096
+2023,total infracciones penales,total,556793

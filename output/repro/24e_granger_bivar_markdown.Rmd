@@ -1,0 +1,186 @@
+#!/usr/bin/env Rscript
+# -*- coding: UTF-8 -*-
+# -----------------------------------------------------------------------------
+# 24e_granger_bivar_markdown.R
+# Genera informe Markdown con lectura ejecutiva, tabla con estrellitas, Bonferroni
+# y diagnósticos para los Granger bivariados (24d).
+#
+# IN:
+#   output/tables/granger_bivar_summary.csv
+#   output/tables/granger_bivar_diagnostics.csv
+#   data/processed/tasas/var_ready.csv (para rango de años)
+# OUT:
+#   output/reports/granger_bivar_summary.md
+# -----------------------------------------------------------------------------
+
+suppressPackageStartupMessages({
+  library(here); library(readr); library(dplyr); library(janitor)
+  library(tibble); library(stringr); library(purrr)
+})
+
+msg <- function(...) message("[24e] ", paste0(...))
+stars_p <- function(p){
+  if (is.na(p)) return("")
+  if (p <= 0.001) return("***")
+  if (p <= 0.010) return("**")
+  if (p <= 0.050) return("*")
+  if (p <= 0.100) return("†")
+  ""
+}
+
+# Rutas
+p_sum  <- here::here("output","tables","granger_bivar_summary.csv")
+p_diag <- here::here("output","tables","granger_bivar_diagnostics.csv")
+p_var  <- here::here("data","processed","tasas","var_ready.csv")
+p_md   <- here::here("output","reports","granger_bivar_summary.md")
+
+stopifnot(file.exists(p_sum), file.exists(p_diag), file.exists(p_var))
+
+# Lecturas
+sumdf  <- suppressMessages(read_csv(p_sum, show_col_types = FALSE)) |> clean_names()
+diagdf <- suppressMessages(read_csv(p_diag, show_col_types = FALSE)) |> clean_names()
+vr     <- suppressMessages(read_csv(p_var, show_col_types = FALSE))  |> clean_names()
+
+# Rango de años
+rng <- if ("ano" %in% names(vr)) {
+  paste0(min(vr$ano, na.rm = TRUE), "–", max(vr$ano, na.rm = TRUE))
+} else "Años: N/D"
+
+# Control Bonferroni (solo X→Y)
+sum_xy <- sumdf |> filter(dir == "X→Y")
+m_tests <- nrow(sum_xy)
+alpha   <- 0.05
+alpha_bonf <- alpha / max(1, m_tests)
+
+# Elegimos especificación principal p=1 (si existe); si no, la de menor p_value
+pick_main <- function(df){
+  if (any(df$lags == 1)) {
+    df |> filter(lags == 1)
+  } else {
+    df |> arrange(p_value) |> slice(1)
+  }
+}
+main_rows <- sum_xy |> group_by(y) |> group_modify(~ pick_main(.x)) |> ungroup()
+
+# Pequeña traducción legible
+name_map <- c(
+  d_l_hc_rate      = "Δlog tasa HC",
+  d_l_he_rate      = "Δlog tasa HE",
+  d_l_det_tot_rate = "Δlog tasa Det Tot",
+  d_l_det_ext_rate = "Δlog tasa Det Ext"
+)
+main_rows <- main_rows |>
+  mutate(y_read = ifelse(y %in% names(name_map), name_map[y], y))
+
+# Construir narrativa por Y
+fmt_pct <- function(x) ifelse(is.na(x), "NA", sprintf("%.2f", 100*x))
+fmt_num <- function(x, d=3) ifelse(is.na(x), "NA", formatC(x, format="f", digits=d, big.mark=","))
+
+mk_line <- function(r){
+  ylab <- r$y_read
+  p    <- r$p_value
+  star <- stars_p(p)
+  lag1 <- r$coef_x_l1 %||% NA_real_
+  p1   <- r$p_x_l1 %||% NA_real_
+  lag2 <- r$coef_x_l2 %||% NA_real_
+  p2   <- r$p_x_l2 %||% NA_real_
+  sigb <- if (!is.na(p) && p <= alpha_bonf) " (Bonferroni ✓)" else ""
+  eff  <- if (!is.na(lag1)) paste0("coef(lag1)≈", fmt_num(lag1, 3), if (!is.na(p1)) paste0(" (p=", fmt_num(p1,3), ")") else "") else "coef(lag1)=NA"
+  eff2 <- if (!is.na(lag2)) paste0(", coef(lag2)≈", fmt_num(lag2, 3), if (!is.na(p2)) paste0(" (p=", fmt_num(p2,3), ")") else "") else ""
+  paste0("- **", ylab, "**: F=", fmt_num(r$f,3), ", p=", fmt_num(p,3), " ", star, sigb, " → ",
+         if (!is.na(p) && p < 0.05) "**Evidencia de Granger**." else "no evidencia.",
+         " Magnitud: ", eff, eff2, ".")
+}
+
+`%||%` <- function(a,b) if (!is.null(a)) a else b
+
+# Prepara líneas
+lines_exec <- apply(main_rows, 1, function(row) {
+  r <- as.list(row)
+  mk_line(r)
+})
+
+# Tabla Markdown compacta
+mk_md_table <- function(df, cols){
+  x <- df |> select(all_of(cols))
+  # encabezados
+  hdr <- paste0("| ", paste(names(x), collapse = " | "), " |")
+  sep <- paste0("|", paste(rep("---", ncol(x)), collapse = "|"), "|")
+  body <- apply(x, 1, function(r) paste0("| ", paste(r, collapse = " | "), " |"))
+  c(hdr, sep, body)
+}
+
+# Ensambla tabla “X→Y” (todas las especificaciones)
+tab_cols <- c("y_readable","lags","n_obs","f","p_value","star","f_rev","p_rev","coef_x_l1","p_x_l1","coef_x_l2","p_x_l2")
+sumdf <- sumdf %>%
+  mutate(y_readable = ifelse(y %in% names(name_map), name_map[y], y)) %>%
+  # Orden estético por variable y lag
+  arrange(match(y, names(name_map)), lags) %>%
+  # Redondeos friendly
+  mutate(
+    f          = ifelse(is.na(F), NA, round(F, 6)),
+    p_value    = round(p_value, 6),
+    f_rev      = round(F_rev, 6),
+    p_rev      = round(p_rev, 6),
+    coef_x_l1  = round(coef_x_l1, 6),
+    p_x_l1     = round(p_x_l1, 6),
+    coef_x_l2  = round(coef_x_l2, 6),
+    p_x_l2     = round(p_x_l2, 6)
+  )
+
+tab_md <- mk_md_table(sumdf, tab_cols)
+
+# Diagnósticos resumen por especificación
+diag_lines <- diagdf %>%
+  mutate(
+    y_read = ifelse(y %in% names(name_map), name_map[y], y),
+    ok_serial = ifelse(is.na(p_serial), "NA", ifelse(p_serial > 0.10, "OK", "WARN")),
+    ok_stab   = ifelse(is.na(stable), "NA", ifelse(stable, "OK", "FAIL")),
+    root_txt  = ifelse(is.na(max_root), "NA", sprintf("%.3f", max_root))
+  ) %>%
+  transmute(
+    line = paste0("- ", y_read, " (p=", lags, "): residuos=", ok_serial,
+                  ", estabilidad=", ok_stab, " (max_root=", root_txt, ").")
+  ) %>% pull(line)
+
+# IRFs existentes
+p_fig1 <- here::here("output","figures","irf_det_tot_irf_p1.png")
+p_fig2 <- here::here("output","figures","irf_det_ext_irf_p1.png")
+have_irf1 <- file.exists(p_fig1)
+have_irf2 <- file.exists(p_fig2)
+
+# Construir el Markdown
+dir.create(dirname(p_md), recursive = TRUE, showWarnings = FALSE)
+con <- file(p_md, open = "wt", encoding = "UTF-8")
+
+writeLines(c(
+  "# Informe Granger bivariado (anual)",
+  "",
+  paste0("_Generado: ", Sys.Date(), " · Cobertura: ", rng, "_"),
+  "",
+  "## Resumen ejecutivo",
+  paste0("- Corrección por múltiples comparaciones: Bonferroni α/m = ",
+         sprintf("%.4f", alpha_bonf), " (m=", m_tests, ")."),
+  lines_exec,
+  "",
+  "## Tabla de resultados (X = Δlog % extranjeros → Y = Δlog tasa)",
+  "",
+  tab_md,
+  "",
+  "## Diagnósticos",
+  diag_lines,
+  "",
+  "## Notas metodológicas",
+  "- Granger indica capacidad **predictiva temporal**, no causalidad estructural.",
+  "- Especificación principal: VAR bivariado con p=1 (T≈14 tras Δlog). p=2 se reporta como sensibilidad.",
+  "- Δlog: diferencia del logaritmo natural; los coeficientes pueden leerse como **elasticidades** aproximadas.",
+  "",
+  if (have_irf1 || have_irf2) "## Impulse Response Functions (IRF)" else NULL,
+  if (have_irf1) paste0("![](", normalizePath(p_fig1, winslash = "/"), ")") else NULL,
+  if (have_irf2) paste0("![](", normalizePath(p_fig2, winslash = "/"), ")") else NULL,
+  ""
+), con = con)
+close(con)
+
+msg("Reporte → ", p_md)
+

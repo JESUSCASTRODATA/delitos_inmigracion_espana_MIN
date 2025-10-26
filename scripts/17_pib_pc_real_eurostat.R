@@ -1,195 +1,254 @@
 #!/usr/bin/env Rscript
 # -*- coding: UTF-8 -*-
 ###############################################################################
-# 17_pib_pc_real_eurostat.R — PIB per cápita real (ES) 2010–2023
+# 17_pib_pc_real_eurostat.R — PIB per cápita real (España) 2010–2023
 # Proyecto: Delitos e Inmigración en España (2010–2023)
 # Autor: Jesús Castro (Analista de Datos)
-# Fecha: 2025-08-23 | Versión: 1.0 (alineado con 00_utils_limpieza.R del 2025-08-22)
 #
-# Entradas (data/raw/):
-#   - Preferente: pib.csv (SDMX-CSV de Eurostat con columnas unit, na_item, geo, time, value)
-#   - Alternativa: estat_nama_10_pc_filtered_en.csv (o similar, ya descargado de Eurostat)
+# IN (data/raw/):
+#   - Preferente: pib.csv  (SDMX-CSV: unit, na_item, geo, time|TIME_PERIOD, value|OBS_VALUE)
+#   - Alternativa: estat_nama_10_pc_filtered_en.csv o cualquier nama_10_pc*.csv
 #
-# Salidas (data/processed/):
-#   - pib_pc_real_es.csv  (ano, pib_pc_real)  — CLV*_EUR_HAB (encadenado, € por habitante)
+# OUT (data/processed/):
+#   - pib_pc_real_es.csv  (ano, pib_pc_real) — unidad CLV*_EUR_HAB (volumen encadenado, €/hab)
 #
 # QA (output/tables/):
-#   - qa_pib_filtros.csv (conteo por unit/na_item/geo)
-#   - qa_pib_anios_fuera_rango.csv (si aplica)
-#   - qa_pib_cobertura.csv
-#   - qa_pib_duplicados.csv (si aplica)
+#   - 17_pib_qa_filtros.csv         (conteo por unit/na_item/geo)
+#   - 17_pib_qa_unidades_dispon.csv (todas las units detectadas)
+#   - 17_pib_qa_anios_fuera.csv     (si aplica)
+#   - 17_pib_qa_cobertura.csv
+#   - 17_pib_qa_duplicados.csv      (si aplica)
+#
+# Flags (ENV):
+#   YEAR_MIN=2010  YEAR_MAX=2023
+#   ALLOW_PPS_FALLBACK=false  # si no hay CLV*_EUR_HAB, permite PPS_HAB (lo deja anotado en QA)
 ###############################################################################
 
 suppressPackageStartupMessages({
-  library(here)
-  library(readr)
-  library(dplyr)
-  library(tidyr)
-  library(janitor)
-  library(stringr)
-  library(purrr)
+  library(dplyr); library(readr); library(tidyr); library(janitor)
+  library(stringr); library(here); library(tibble); library(fs)
 })
 
-# ————————————————————————————————————————————————————————————————
-# 0) Cargar utilidades comunes
-# ————————————————————————————————————————————————————————————————
-source_if <- function(path) { if (file.exists(path)) source(path, local = TRUE) }
-source_if(here::here("R", "00_utils_limpieza.R"))
-source_if(here::here("scripts", "00_utils_limpieza.R"))
+# Utils del proyecto (lectura/normalización/trazas homogéneas)
+source(here::here("scripts","00_utils_limpieza.R"))
+root_init("scripts/17_pib_pc_real_eurostat.R")
 
-# Fallbacks mínimos
-if (!exists("abort")) abort <- function(...) stop(paste0(...), call. = FALSE)
-if (!exists("root_init")) root_init <- function(caller = NULL, project_root_hint = NULL){
-  msg <- if (!is.null(caller)) paste0("ROOT:", caller) else "ROOT:17_pib_pc_real_eurostat"
-  message(msg, " -> ", getwd()); invisible(getwd())
-}
-if (!exists("assert_infile")) assert_infile <- function(path){ if (!file.exists(path)) abort("No existe: ", path) }
-if (!exists("write_clean")) write_clean <- function(df, path, na = ""){ dir.create(dirname(path), TRUE, TRUE); readr::write_csv(df, path, na = na); message("Escrito: ", normalizePath(path, winslash = "/")); invisible(path) }
-if (!exists("read_raw")) read_raw <- function(path){ readr::read_delim(path, delim = ",", col_types = readr::cols(.default = readr::col_character()), show_col_types = FALSE) |> janitor::clean_names() }
-if (!exists("safe_parse_number")) safe_parse_number <- function(x){ readr::parse_number(as.character(x)) }
-if (!exists("detect_year_col")) detect_year_col <- function(nms){
-  cand <- c("periodo", "período", "ano", "año", "year", "time", "time_period", "TIME_PERIOD")
-  ix <- which(tolower(nms) %in% tolower(cand))
-  if (length(ix)) nms[ix[1]] else NA_character_
-}
-if (!exists("extract_year")) extract_year <- function(x){ y <- stringr::str_extract(as.character(x), "[0-9]{4}"); suppressWarnings(as.integer(y)) }
+msg  <- function(...) message("[17PIB] ", paste0(...))
+abort <- function(...) stop(paste0(...), call. = FALSE)
 
-root_init()
-
-YEAR_MIN <- 2010L
-YEAR_MAX <- 2023L
+YEAR_MIN <- as.integer(Sys.getenv("YEAR_MIN","2010"))
+YEAR_MAX <- as.integer(Sys.getenv("YEAR_MAX","2023"))
 YEARS_SEQ <- YEAR_MIN:YEAR_MAX
+ALLOW_PPS_FALLBACK <- tolower(Sys.getenv("ALLOW_PPS_FALLBACK","false")) %in% c("1","true","yes","y")
 
-# ————————————————————————————————————————————————————————————————
-# Rutas (entrada flexible)
-# ————————————————————————————————————————————————————————————————
-if (requireNamespace("here", quietly = TRUE)) {
-  here_path <- function(...) here::here(...)
-} else {
-  base_root <- getwd()
-  message("Paquete 'here' no disponible; usando getwd(): ", base_root)
-  here_path <- function(...) file.path(base_root, ...)
+# -------------------- Local helpers --------------------
+detect_delim <- function(path, n = 2000){
+  enc <- "UTF-8"
+  lines <- tryCatch(readr::read_lines(path, n_max = n, locale = locale(encoding = enc)),
+                    error = function(e) readr::read_lines(path, n_max = n, locale = locale(encoding = "Latin1")))
+  if (!length(lines)) return(",")
+  counts <- c(`;`=sum(str_count(lines,";")), `,`=sum(str_count(lines,",")), `\t`=sum(str_count(lines,"\t")))
+  names(counts)[which.max(counts)]
 }
+detect_encoding <- function(path){
+  ge <- tryCatch(readr::guess_encoding(path, n_max = 50000), error = function(e) NULL)
+  if (is.null(ge) || nrow(ge)==0) "UTF-8" else ge$encoding[1]
+}
+read_raw_any <- function(path){
+  delim <- detect_delim(path); enc <- detect_encoding(path)
+  msg(sprintf("Leyendo '%s' (sep='%s', enc='%s') …", fs::path_file(path), delim, enc))
+  readr::read_delim(path, delim = delim, locale = locale(encoding = enc),
+                    show_col_types = FALSE, trim_ws = TRUE, guess_max = 200000) |>
+    janitor::clean_names()
+}
+extract_year2 <- function(x){ suppressWarnings(as.integer(stringr::str_extract(as.character(x), "(19|20)[0-9]{2}"))) }
 
+# -------------------- Rutas --------------------
 in_candidates <- c(
-  here_path("data","raw","pib.csv"),
-  here_path("data","raw","estat_nama_10_pc_filtered_en.csv")
+  here::here("data","raw","pib.csv"),
+  here::here("data","raw","estat_nama_10_pc_filtered_en.csv")
 )
-# Busca también cualquier nama_10_pc*.csv si existen
-more <- list.files(here_path("data","raw"), pattern = "nama_10_pc.*\\.csv$", full.names = TRUE)
-if (length(more)) in_candidates <- c(in_candidates, more)
+alt <- list.files(here::here("data","raw"), pattern = "nama_10_pc.*\\.csv$", full.names = TRUE)
+if (length(alt)) in_candidates <- c(in_candidates, alt)
 
 fp_in  <- in_candidates[file.exists(in_candidates)][1]
-if (is.na(fp_in) || is.null(fp_in)) abort("No se encontró un fichero de PIB válido en data/raw/ (pib.csv / nama_10_pc*.csv)")
+if (is.na(fp_in)) abort("No se encontró un fichero de PIB válido en data/raw/ (pib.csv / nama_10_pc*.csv).")
 
-fp_out <- here_path("data","processed","pib_pc_real_es.csv")
-qa_dir <- here_path("output","tables")
-dir.create(qa_dir, recursive = TRUE, showWarnings = FALSE)
+fp_out <- here::here("data","processed","pib_pc_real_es.csv")
+qa_dir <- here::here("output","tables"); dir_create(qa_dir, recurse = TRUE)
 
-# ————————————————————————————————————————————————————————————————
-# 1) Lectura y normalización básica
-# ————————————————————————————————————————————————————————————————
-raw <- read_raw(fp_in)  # 00_utils::read_raw suele detectar sep/enc; este fallback asume ","
-cn <- names(raw)
+# -------------------- Lectura & shape --------------------
+raw0 <- read_raw_any(fp_in)
+nms  <- names(raw0)
 
-# Detecta columnas clave
-col_unit   <- cn[grepl("^unit$", cn, ignore.case = TRUE)][1]
-col_naitem <- cn[grepl("^na_item$", cn, ignore.case = TRUE)][1]
-col_geo    <- cn[grepl("^geo$", cn, ignore.case = TRUE)][1]
-col_time   <- detect_year_col(cn); if (is.na(col_time)) col_time <- cn[grepl("time", cn, ignore.case = TRUE)][1]
-
-# Columna de valor (Eurostat suele usar value/values/obs_value)
-val_candidates <- c("value","values","obs_value","obsvalue","v")
-col_value <- intersect(val_candidates, cn)[1]
-if (is.na(col_value) || !nzchar(col_value)) {
-  # como último recurso, intenta la última columna
-  col_value <- tail(cn, 1)
+# Detecta formato “wide” (años como columnas) y pivota
+year_cols <- nms[grepl("^(19|20)[0-9]{2}$", nms)]
+has_value_col <- any(tolower(nms) %in% c("value","values","obs_value","obsvalue","v"))
+if (length(year_cols) >= 5 && !has_value_col) {
+  raw <- raw0 |>
+    pivot_longer(cols = all_of(year_cols), names_to = "time", values_to = "value") |>
+    clean_names()
+} else {
+  raw <- raw0
 }
+nms <- names(raw)  # ← recalcular tras pivot
 
-if (any(is.na(c(col_unit, col_naitem, col_geo, col_time, col_value)))) {
-  abort(paste0(
-    "❌ Columnas requeridas no detectadas. Encontradas→ ",
-    "unit:",   ifelse(is.na(col_unit),   "<NA>", col_unit),
-    " | na_item:", ifelse(is.na(col_naitem), "<NA>", col_naitem),
-    " | geo:",    ifelse(is.na(col_geo),    "<NA>", col_geo),
-    " | time:",   ifelse(is.na(col_time),   "<NA>", col_time),
-    " | value:",  ifelse(is.na(col_value),  "<NA>", col_value)
-  ))
-}
+# Columnas clave (tolerante a variantes SDMX)
+col_unit   <- nms[grepl("^unit$", nms, ignore.case = TRUE)][1]         %||% "unit"
+col_naitem <- nms[grepl("^na_?item$", nms, ignore.case = TRUE)][1]     %||% "na_item"
+col_geo    <- nms[grepl("^geo$", nms, ignore.case = TRUE)][1]          %||% "geo"
+col_time   <- nms[grepl("^time(_period)?$", nms, ignore.case = TRUE)][1] %||%
+  nms[grepl("time", nms, ignore.case = TRUE)][1]
+col_value_l <- intersect(tolower(c("value","values","obs_value","obsvalue","v")), tolower(nms))[1]
+col_value   <- if (!is.na(col_value_l)) nms[tolower(nms)==col_value_l] else NA_character_
 
-x <- raw |>
+if (any(is.na(c(col_unit,col_naitem,col_geo,col_time,col_value))))
+  abort(sprintf("❌ Columnas no detectadas (unit=%s, na_item=%s, geo=%s, time=%s, value=%s)",
+                col_unit,col_naitem,col_geo,col_time,col_value))
+
+df <- raw |>
   transmute(
-    unit   = .data[[col_unit]],
-    na_item= .data[[col_naitem]],
-    geo    = .data[[col_geo]],
-    periodo= .data[[col_time]],
-    valor  = safe_parse_number(.data[[col_value]])
+    unit    = .data[[col_unit]],
+    na_item = .data[[col_naitem]],
+    geo     = .data[[col_geo]],
+    time    = .data[[col_time]],
+    value   = .data[[col_value]]
   ) |>
   mutate(
-    unit_norm = tolower(as.character(unit)),
-    ano = extract_year(periodo)
+    unit  = as.character(unit),
+    na_item = as.character(na_item),
+    geo   = as.character(geo),
+    ano   = extract_year2(time),
+    valor = safe_parse_number(value)
   )
 
-# ————————————————————————————————————————————————————————————————
-# 2) Filtros: geo ES, na_item B1GQ, unit CLV* + HAB
-# ————————————————————————————————————————————————————————————————
-# QA de combos disponibles
-qa_filtros <- x |>
+# -------------------- QA exploratorio --------------------
+df |>
   count(unit, na_item, geo, name = "n") |>
-  arrange(desc(n))
-write_clean(qa_filtros, file.path(qa_dir, "qa_pib_filtros.csv"))
+  arrange(desc(n)) |>
+  write_clean(file.path(qa_dir, "17_pib_qa_filtros.csv"))
 
-x <- x |>
-  filter(geo %in% c("ES","Spain","ES_TOT","ES00")) |>
-  filter(toupper(na_item) == "B1GQ")
+tibble(units_disponibles = sort(unique(df$unit))) |>
+  write_clean(file.path(qa_dir, "17_pib_qa_unidades_dispon.csv"))
 
-units_clv_hab <- unique(x$unit[grepl("CLV", x$unit, ignore.case = TRUE) & grepl("HAB", x$unit, ignore.case = TRUE)])
-if (length(units_clv_hab) == 0) abort("No se encontró unidad CLV* con HAB (real per cápita). Revisa el fichero de entrada.")
-# Si hay varias, prioriza *_EUR_HAB
-pref_ix <- grep("EUR", units_clv_hab)
-unit_sel <- if (length(pref_ix)) units_clv_hab[pref_ix[1]] else units_clv_hab[1]
-message("Unidad seleccionada: ", unit_sel)
+# -------------------- Filtro objetivo --------------------
+df_es <- df |> filter(geo %in% c("ES","Spain","ES_TOT","ES00"))
+if (!nrow(df_es)) abort("No hay filas para España (geo ES/Spain/ES_TOT/ES00).")
 
-x <- x |>
+# Valor añadido bruto/PIB encadenado equivalente a “B1GQ”
+df_es <- df_es |> filter(toupper(na_item) == "B1GQ")
+
+# Preferencia: CLV*_EUR_HAB (volumen encadenado, euros por habitante)
+units_clv_hab <- unique(df_es$unit[grepl("CLV", df_es$unit, ignore.case = TRUE) &
+                                     grepl("EUR", df_es$unit, ignore.case = TRUE) &
+                                     grepl("HAB", df_es$unit, ignore.case = TRUE)])
+
+# Fallback opcional: PPS_HAB (paridad de poder de compra por habitante)
+units_pps_hab <- unique(df_es$unit[grepl("^PPS", df_es$unit, ignore.case = TRUE) &
+                                     grepl("HAB", df_es$unit, ignore.case = TRUE)])
+
+if (length(units_clv_hab) == 0) {
+  if (!ALLOW_PPS_FALLBACK || length(units_pps_hab) == 0) {
+    abort("No se encontró unidad CLV*EUR*HAB (y PPS_HAB no permitido o inexistente).")
+  } else {
+    msg("⚠ No hay CLV*_EUR_HAB. Usaré PPS_HAB como fallback (ver QA).")
+  }
+}
+
+# Selección de versión CLV más reciente (CLV2015, CLV2010, …)
+extract_clv_year <- function(u){
+  y <- suppressWarnings(as.integer(stringr::str_extract(u, "CLV\\s*([0-9]{2,4})")))
+  if (!is.na(y) && y < 100) 2000 + y else y
+}
+
+unit_sel <- NA_character_
+if (length(units_clv_hab)) {
+  years <- vapply(units_clv_hab, extract_clv_year, integer(1))
+  years[is.na(years)] <- -Inf
+  unit_sel <- units_clv_hab[which.max(years)]
+} else {
+  unit_sel <- units_pps_hab[1]
+}
+msg("Unidad seleccionada: ", unit_sel)
+
+x <- df_es |>
   filter(unit == unit_sel) |>
-  select(ano, valor)
+  transmute(ano, valor)
 
-# ————————————————————————————————————————————————————————————————
-# 3) QA: años y duplicados
-# ————————————————————————————————————————————————————————————————
-qa_anios <- x |>
-  mutate(flag_fuera = is.na(ano) | ano < YEAR_MIN | ano > YEAR_MAX) |>
-  filter(flag_fuera) |>
-  arrange(ano)
-if (nrow(qa_anios) > 0) write_clean(qa_anios, file.path(qa_dir, "qa_pib_anios_fuera_rango.csv"))
+# -------------------- QA de rango/duplicados/cobertura --------------------
+x_fuera <- x |> mutate(flag_fuera = is.na(ano) | ano < YEAR_MIN | ano > YEAR_MAX) |> filter(flag_fuera)
+if (nrow(x_fuera)) write_clean(x_fuera, file.path(qa_dir, "17_pib_qa_anios_fuera.csv"))
 
 x <- x |> filter(!is.na(ano), dplyr::between(ano, YEAR_MIN, YEAR_MAX))
 
-# Duplicados por año
-qa_dup <- x |> count(ano, name = "n") |> filter(n > 1)
-if (nrow(qa_dup) > 0) write_clean(qa_dup, file.path(qa_dir, "qa_pib_duplicados.csv"))
+dup <- x |> count(ano, name = "n") |> filter(n > 1)
+if (nrow(dup)) write_clean(dup, file.path(qa_dir, "17_pib_qa_duplicados.csv"))
 
-# Agrega si quedaran duplicados
 x <- x |> group_by(ano) |> summarise(valor = sum(valor, na.rm = TRUE), .groups = "drop")
 
-# Cobertura
 present <- sort(unique(x$ano)); missing <- setdiff(YEARS_SEQ, present)
-qa_cov <- tibble::tibble(
-  variable = "pib_pc_real_es",
-  years_min = ifelse(length(present) > 0, min(present), NA_integer_),
-  years_max = ifelse(length(present) > 0, max(present), NA_integer_),
-  n_years = length(present),
-  n_missing = length(missing),
-  missing_list = paste(missing, collapse = ", ")
-)
-write_clean(qa_cov, file.path(qa_dir, "qa_pib_cobertura.csv"))
+tibble(variable="pib_pc_real_es",
+       years_min=ifelse(length(present)>0,min(present),NA_integer_),
+       years_max=ifelse(length(present)>0,max(present),NA_integer_),
+       n_years=length(present), n_missing=length(missing),
+       missing_list=paste(missing, collapse=", ")) |>
+  write_clean(file.path(qa_dir, "17_pib_qa_cobertura.csv"))
 
-# ————————————————————————————————————————————————————————————————
-# 4) Salida final
-# ————————————————————————————————————————————————————————————————
-if (nrow(x) == 0) abort("❌ No hay filas tras filtrar PIB per cápita real.")
-if (any(is.na(x$valor))) abort("❌ Existen valores NA en 'valor' tras el filtrado.")
+if (!nrow(x)) abort("❌ No hay filas tras filtrar PIB per cápita.")
+if (any(is.na(x$valor))) abort("❌ Existen NA en 'valor' tras el filtrado.")
 
+# -------------------- Salida --------------------
 out <- x |> arrange(ano) |> transmute(ano, pib_pc_real = valor)
 write_clean(out, fp_out)
-message("✔ PIB per cápita real (ES) generado: ", fp_out)
+
+if (nrow(out) != length(YEARS_SEQ)) {
+  msg(sprintf("⚠ Cobertura incompleta: %d años; esperado %d (%d–%d).",
+              nrow(out), length(YEARS_SEQ), YEAR_MIN, YEAR_MAX))
+} else {
+  msg("✓ Cobertura ", YEAR_MIN, "–", YEAR_MAX, " completa.")
+}
+qc17_pib_console <- function() {
+  suppressPackageStartupMessages({library(readr); library(dplyr); library(here); library(janitor)})
+  fp <- here::here("data","processed","pib_pc_real_es.csv")
+  if (!file.exists(fp)) { cat("❌ No existe:", fp, "\n"); return(invisible(FALSE)) }
+  x <- read_csv(fp, show_col_types = FALSE) |> clean_names() |> arrange(ano)
+  miss <- setdiff(2010:2023, x$ano)
+  rng  <- range(x$pib_pc_real, na.rm = TRUE)
+  yoy  <- x |> arrange(ano) |> mutate(yoy = pib_pc_real/lag(pib_pc_real) - 1)
+  
+  cat("\n🔎 QC17-PIB — PIB pc real (Eurostat)\n")
+  cat(sprintf("• Años: %d/14 (2010–2023)  faltan: %s\n",
+              nrow(x), ifelse(length(miss)==0,"ninguno",paste(miss,collapse=", "))))
+  cat(sprintf("• Rango pib_pc_real: [%.0f, %.0f]\n", rng[1], rng[2]))
+  cat(sprintf("• YoY |máx|: %.1f%% (ignora 1er año)\n", 100*max(abs(yoy$yoy[-1]), na.rm = TRUE)))
+  cat("\n• Preview (últimos 5):\n"); print(tail(x,5), n=5)
+  ok <- nrow(x)==14 && all(is.finite(x$pib_pc_real))
+  cat(if (ok) "\n✅ PASS — PIB pc real OK\n\n" else "\n❌ OJO — Cobertura/NA\n\n")
+  invisible(ok)
+}
+# Uso:
+# source("scripts/17_pib_pc_real_eurostat.R")
+# qc17_pib_console()
+# ───────────────── Mini-check consola automático ─────────────────
+qc17_pib_console <- function() {
+  suppressPackageStartupMessages({library(readr); library(dplyr); library(here); library(janitor)})
+  fp <- here::here("data","processed","pib_pc_real_es.csv")
+  if (!file.exists(fp)) { cat("❌ No existe:", fp, "\n"); return(invisible(FALSE)) }
+  x <- readr::read_csv(fp, show_col_types = FALSE) |> janitor::clean_names() |> dplyr::arrange(ano)
+  miss <- setdiff(2010:2023, x$ano)
+  rng  <- range(x$pib_pc_real, na.rm = TRUE)
+  yoy  <- x |> dplyr::mutate(yoy = pib_pc_real / dplyr::lag(pib_pc_real) - 1)
+  
+  cat("\n🔎 QC17-PIB — PIB pc real (Eurostat)\n")
+  cat(sprintf("• Años: %d/14 (2010–2023)  faltan: %s\n",
+              nrow(x), ifelse(length(miss)==0, "ninguno", paste(miss, collapse=", "))))
+  cat(sprintf("• Rango pib_pc_real: [%.0f, %.0f]\n", rng[1], rng[2]))
+  cat(sprintf("• YoY |máx|: %.1f%% (ignora 1er año)\n", 100*max(abs(yoy$yoy[-1]), na.rm = TRUE)))
+  cat("\n• Preview (últimos 5):\n"); print(utils::tail(x, 5), n = 5)
+  ok <- nrow(x) == 14 && all(is.finite(x$pib_pc_real))
+  cat(if (ok) "\n✅ PASS — PIB pc real OK\n\n" else "\n❌ OJO — Cobertura/NA\n\n")
+  invisible(ok)
+}
+
+# Ejecutar automáticamente (seguro en Rscript y en RStudio)
+try(qc17_pib_console(), silent = FALSE)

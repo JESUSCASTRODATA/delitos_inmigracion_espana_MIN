@@ -1,0 +1,14 @@
+col,type,n_na
+ano,double,0
+poblacion_total,double,0
+pct_extranjeros,double,0
+hc_total,double,0
+he_total,double,0
+det_tot,double,0
+det_ext,double,0
+share_extranjeros,double,0
+pib_pc_real,double,0
+arope,double,0
+paro_joven,double,0
+tasa_hc_100k,double,0
+tasa_he_100k,double,0

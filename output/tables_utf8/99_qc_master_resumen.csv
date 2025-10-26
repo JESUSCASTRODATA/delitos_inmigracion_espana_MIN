@@ -1,0 +1,19 @@
+check,status
+Schema CORE,OK
+Schema HC,OK
+Schema HE,OK
+Schema Det Tot,OK
+Schema Det Ext,OK
+Schema PIB,OK
+CORE 2010–2023 y sin duplicados de año,OK
+"HC sin duplicados (ano,tipo)",OK
+"HE sin duplicados (ano,tipo)",OK
+Det Tot sin duplicados (ano),OK
+Det Ext sin duplicados (ano),OK
+Sin negativos en conteos clave,OK
+"Shares y % en [0,100]",OK
+"HE ≤ HC por (año,tipo)",OK
+Det_ext ≤ Det_tot por año,OK
+YoY detenciones razonables (20% total/española; 40% extranjera),OK
+PIB 2010–2023 cubierto,OK
+PIB YoY razonable (|Δ| ≤ 15%),OK

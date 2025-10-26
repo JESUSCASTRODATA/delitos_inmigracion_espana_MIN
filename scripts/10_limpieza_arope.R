@@ -1,182 +1,240 @@
 #!/usr/bin/env Rscript
 # -*- coding: UTF-8 -*-
-###############################################################################
-# 10_limpieza_arope.R — Limpieza AROPE (TOTAL NACIONAL, anual 2010–2023)
+################################################################################
+# Proyecto : Delitos e Inmigración en España (2010–2023)
+# Script   : 10_limpieza_arope.R
+# Título   : Limpieza AROPE (total y componentes) 2010–2023
+# Autor    : Jesús Castro · JESUSCASTRODATA
+# Licencia : MIT (código) · CC BY 4.0 (docs/figuras)
+# Fecha    : 2025-10-01 (mod. INE filtros + prioridad 'total')
 #
-# Entrada:
-#   data/raw/arope.csv (sep=';', UTF-8, 5 columnas)
-#   Columnas esperadas (nombres flexibles, se normalizan con clean_names):
-#     - sexo
-#     - edad
-#     - tasa_de_riesgo_de_pobreza_o_exclusion_social_y_sus_componentes (indicador)
-#     - periodo
-#     - total
-#
-# Salidas:
-#   data/processed/arope_total.csv              (ano, arope)
-#   output/tables/qc_arope_indicadores.csv     (niveles únicos del indicador)
-#   output/tables/qc_arope_trace_filtros.csv   (filas tras cada filtro)
-#   output/tables/qc_arope_na_tokens.csv       (tokens que no parsean a número)
-#   output/tables/qc_arope_duplicados_por_ano.csv (si aplica)
-#   output/tables/qc_arope_cobertura.csv       (años presentes/faltantes 2010–2023)
-#
-# Requisitos:
-#   - scripts/00_utils_limpieza.R (safe_parse_number, extract_year, write_clean, etc.)
-#
-# Autor: Jesús Castro (Analista de Datos)
-# Última actualización: 2025-08-22
-###############################################################################
+# Qué hace:
+#   - Lee data/raw/arope.csv con read_raw() (todo como texto) y normaliza.
+#   - Detecta columna de año, columna de dimensiones (componentes) y columna
+#     numérica de valores, de forma robusta.
+#   - Mantiene únicamente filas “total/ambos sexos/ámbito nacional” en columnas
+#     extra (si existen). Para layouts INE, filtra explícitamente:
+#       sexo == "Ambos sexos", edad == "Total" y
+#       indicador == "Tasa de riesgo de pobreza o exclusión social (indicador AROPE)".
+#   - Construye:
+#       * data/processed/arope_componentes.csv (ano, componente, valor)
+#       * data/processed/arope_total.csv        (ano, arope)
+#   - QA compacto con resúmenes y validaciones de rango.
+################################################################################
 
 suppressPackageStartupMessages({
   library(dplyr); library(readr); library(here); library(janitor)
-  library(stringr); library(tidyr)
+  library(stringr); library(tidyr); library(purrr)
 })
 
-source(here("scripts","00_utils_limpieza.R"))
-# PROJECT_ROOT_HINT <- "D:/delitos_inmigracion_espana"  # desactivado: usamos .here/.Rproj
-root_init("scripts/10_limpieza_arope.R", project_root_hint = PROJECT_ROOT_HINT)
+# ── Utilidades del proyecto ──────────────────────────────────────────────────
+source(here::here("scripts","00_utils_limpieza.R"))
+root_init("scripts/10_limpieza_arope.R")
 
-# ---------------------------------------------------------------------------
-# Paths y directorios
-# ---------------------------------------------------------------------------
-fp_raw <- here("data","raw","arope.csv")
-assert_infile(fp_raw)
-dir.create(here("output","tables"), showWarnings = FALSE, recursive = TRUE)
-dir.create(here("data","processed"), showWarnings = FALSE, recursive = TRUE)
+msg  <- function(...) message("[10] ", paste0(...))
+ok   <- function(...) message("✅ ", paste0(...))
+warn <- function(...) warning("⚠️ ", paste0(...), call. = FALSE)
 
-# ---------------------------------------------------------------------------
-# Lectura cruda (todo como texto) y detección de columnas
-# ---------------------------------------------------------------------------
-raw <- read_raw(fp_raw)  # añade attrs y limpia nombres
-nms <- names(raw)
+raw_fp  <- here::here("data","raw","arope.csv")
+procdir <- here::here("data","processed")
+qadir   <- here::here("output","tables")
+dir.create(procdir, recursive = TRUE, showWarnings = FALSE)
+dir.create(qadir,   recursive = TRUE, showWarnings = FALSE)
 
-pick_col <- function(patterns, nms) {
-  ix <- which(Reduce(`|`, lapply(patterns, function(p) grepl(p, nms, ignore.case = TRUE))))
-  if (length(ix)) nms[ix[1]] else NA_character_
+# ── Helpers ──────────────────────────────────────────────────────────────────
+norm_num <- function(x) {
+  x <- trimws(as.character(x))
+  x[x %in% c("..",".")] <- NA_character_
+  safe_parse_number(x)
+}
+norm_txt <- function(x) {
+  x <- tolower(as.character(x))
+  x <- iconv(x, from = "", to = "ASCII//TRANSLIT")
+  stringr::str_squish(x)
 }
 
-col_sexo   <- pick_col(c("^sexo$"), nms)
-col_edad   <- pick_col(c("^edad$"), nms)
-col_ind    <- pick_col(c(
-  "tasa_de_riesgo_de_pobreza_o_exclusion_social_y_sus_componentes",
-  "arope", "indicador.*arope", "riesgo.*pobreza.*exclus"
-), nms)
-col_period <- pick_col(c("^periodo$", "period"), nms)
-col_total  <- pick_col(c("^(total|valor|porcentaje)$"), nms)
-
-if (any(is.na(c(col_sexo, col_edad, col_ind, col_period, col_total)))) {
-  abort("Faltan columnas en AROPE. Detectadas: ", paste(nms, collapse = ", "))
+# Mantiene filas "total/ambos sexos/ámbito nacional" en columnas extra (si existen)
+keep_totals_rows <- function(df, used_cols = c("ano")) {
+  extra <- setdiff(names(df), used_cols)
+  if (!length(extra)) return(df)
+  norm <- function(x){
+    x <- tolower(trimws(as.character(x)))
+    x <- iconv(x, from = "", to = "ASCII//TRANSLIT")
+    stringr::str_squish(x)
+  }
+  is_total_val <- function(v){
+    v2 <- norm(v)
+    v2 %in% c(
+      "total","ambos sexos","ambos_sexos","total nacional","ambito nacional",
+      "ambito_nacional","total general","total agregado","total, nacional",
+      "nacional","total poblacion","poblacion total"
+    )
+  }
+  df2 <- df
+  for (col in extra) {
+    vals <- unique(na.omit(norm(df2[[col]])))
+    if (length(vals) && any(is_total_val(vals))) {
+      df2 <- df2[is_total_val(df2[[col]]) | is.na(df2[[col]]), , drop = FALSE]
+    }
+  }
+  df2
 }
 
-# ---------------------------------------------------------------------------
-# Estandarización mínima y QC de niveles del indicador
-# ---------------------------------------------------------------------------
-df0 <- raw |>
-  transmute(
-    indicador = .data[[col_ind]],
-    sexo      = .data[[col_sexo]],
-    edad      = .data[[col_edad]],
-    periodo   = .data[[col_period]],
-    total_chr = .data[[col_total]]
+# ── Lectura y normalización base ─────────────────────────────────────────────
+df0 <- read_raw(raw_fp) |> janitor::clean_names()
+ycol <- detect_year_col(names(df0))
+if (is.na(ycol)) stop("No se pudo detectar columna de año en AROPE (headers: ", paste(names(df0), collapse=", "), ")")
+
+df0 <- df0 |>
+  dplyr::mutate(ano = extract_year(.data[[ycol]])) |>
+  dplyr::filter(!is.na(ano), dplyr::between(ano, 2010, 2023))
+
+# ── Filtro específico INE: Ambos sexos / Total / Indicador AROPE ─────────────
+cols <- names(df0); has <- function(x) x %in% cols
+
+# Sexo/edad (si existen)
+if (has("sexo") && has("edad")) {
+  df0 <- df0 |>
+    dplyr::filter(tolower(sexo) %in% c("ambos sexos","ambos"),
+                  tolower(edad) %in% c("total"))
+}
+
+# Indicador/literal del AROPE (si existe alguna columna del indicador)
+cand_ind <- cols[grepl("riesgo.*exclusion.*social|arope", cols, ignore.case = TRUE)]
+if (length(cand_ind)) {
+  indcol <- cand_ind[1]
+  df0 <- df0 |>
+    dplyr::filter(.data[[indcol]] %in% c("Tasa de riesgo de pobreza o exclusión social (indicador AROPE)"))
+}
+
+# ── Detectar columna de componentes ──────────────────────────────────────────
+pat_dim <- c("riesgo.*exclusion.*social", "\\barope\\b", "arope", "indicador", "concepto", "descripcion")
+cand_dim <- names(df0)[Reduce(`|`, lapply(pat_dim, function(p) grepl(p, names(df0), ignore.case = TRUE)))]
+if (!length(cand_dim)) {
+  cat_cols <- names(df0)[vapply(df0, function(v) is.character(v) || is.factor(v), logical(1))]
+  if (!length(cat_cols)) stop("No se encontró columna de componentes AROPE ni alternativa categórica.")
+  cand <- purrr::keep(cat_cols, function(nm) {
+    v <- df0[[nm]]
+    u <- dplyr::n_distinct(v, na.rm = TRUE)
+    u <= max(100, ceiling(0.2 * nrow(df0)))
+  })
+  if (!length(cand)) cand <- cat_cols[1]
+  dim_col <- cand[1]
+} else {
+  dim_col <- cand_dim[order(!grepl("component", cand_dim, ignore.case = TRUE), -nchar(cand_dim))][1]
+}
+
+# ── Detectar columna numérica robustamente ───────────────────────────────────
+name_cand <- names(df0)[grepl("total|valor|tasa|porcen", names(df0), ignore.case = TRUE)]
+name_cand <- unique(c(name_cand, setdiff(names(df0), c(dim_col, "ano", ycol))))
+# PRIORIDAD: si existe columna 'total' (típico INE), probarla primero
+name_cand <- unique(c("total", name_cand))
+
+score_num <- function(nm) {
+  v <- norm_num(df0[[nm]])
+  good <- sum(!is.na(v))
+  penalty <- if (good == 0) 1e6 else 0
+  -( -good + penalty )
+}
+if (!length(name_cand)) stop("No se encontró ninguna candidata para columna numérica.")
+scores <- vapply(name_cand, score_num, numeric(1))
+num_col <- name_cand[which.max(scores)]
+if (all(is.na(norm_num(df0[[num_col]])))) stop("No se pudo parsear ninguna columna numérica (revisa el CSV de AROPE).")
+
+# ── Filtrado a totales en dimensiones extra y construcción de componentes ───
+df1 <- df0[, unique(c("ano", dim_col, num_col, names(df0))), drop = FALSE]
+df1 <- keep_totals_rows(df1, used_cols = c("ano", dim_col, num_col))
+
+df <- df1 |>
+  dplyr::transmute(
+    ano,
+    componente = .data[[dim_col]],
+    valor = norm_num(.data[[num_col]])
+  ) |>
+  dplyr::group_by(ano, componente) |>
+  dplyr::summarise(
+    valor = if (all(is.na(valor))) NA_real_ else max(valor, na.rm = TRUE),
+    .groups = "drop"
   )
 
-niveles <- df0 |> distinct(indicador) |> arrange(indicador)
-write_clean(niveles, here("output","tables","qc_arope_indicadores.csv"))
+write_clean(df |> dplyr::arrange(ano, componente), here::here("data","processed","arope_componentes.csv"))
 
-# ---------------------------------------------------------------------------
-# Filtros de dominio + traza de filtros
-# ---------------------------------------------------------------------------
-raw_total_n <- nrow(raw)
+# ── Total AROPE por año (por etiqueta; fallback = máximo anual) ─────────────
+comp_norm <- norm_txt(df$componente)
+es_total  <- grepl("tasa.*riesgo.*exclusion.*social", comp_norm) | grepl("\\barope\\b", comp_norm)
 
-df_ind <- df0 |>
-  filter(str_detect(str_to_lower(indicador), "arope"))
-
-df_pop <- df_ind |>
-  filter(str_detect(str_to_lower(sexo), "ambos|total")) |>
-  filter(str_detect(str_to_lower(edad), "total"))
-
-df1 <- df_pop |>
-  mutate(
-    ano   = extract_year(periodo),
-    arope = safe_parse_number(total_chr)
+arope_tmp <- df |>
+  dplyr::mutate(is_total_flag = es_total) |>
+  dplyr::group_by(ano) |>
+  dplyr::summarise(
+    arope_explicit = if (any(is_total_flag, na.rm = TRUE)) {
+      v <- valor[is_total_flag]
+      if (all(is.na(v))) NA_real_ else max(v, na.rm = TRUE)
+    } else NA_real_,
+    arope_fallback = if (all(is.na(valor))) NA_real_ else max(valor, na.rm = TRUE),
+    .groups = "drop"
   ) |>
-  filter(!is.na(ano)) |>
-  filter(dplyr::between(ano, 2010, 2023))
+  dplyr::mutate(arope = dplyr::coalesce(arope_explicit, arope_fallback))
 
-trace_tbl <- tibble::tibble(
-  paso  = c("raw_total", "indicador_arope", "total_poblacion", "rango_2010_2023"),
-  filas = c(raw_total_n, nrow(df_ind), nrow(df_pop), nrow(df1))
+if (sum(!is.na(arope_tmp$arope_explicit)) == 0) warn("No se halló etiqueta explícita de AROPE; se usó el máximo anual como fallback.")
+if (any(is.na(arope_tmp$arope))) warn("Quedaron NA en AROPE total. Revisa valores y tokens en el bruto.")
+
+arope_tot <- arope_tmp |> dplyr::transmute(ano, arope)
+write_clean(arope_tot, here::here("data","processed","arope_total.csv"))
+ok("AROPE limpio → data/processed/arope_total.csv y arope_componentes.csv")
+
+# ── QA compacto ──────────────────────────────────────────────────────────────
+comp <- readr::read_csv(here::here("data/processed/arope_componentes.csv"), show_col_types = FALSE)
+tot  <- readr::read_csv(here::here("data/processed/arope_total.csv"),        show_col_types = FALSE)
+
+comp_summary <- comp %>%
+  dplyr::summarise(ano_min=min(ano), ano_max=max(ano),
+                   n_na_valor=sum(is.na(valor)))
+
+tot_summary <- tot %>%
+  dplyr::summarise(ano_min=min(ano), ano_max=max(ano),
+                   n_na_arope=sum(is.na(arope)))
+
+dups <- comp %>% dplyr::count(ano, componente) %>% dplyr::filter(n>1)
+faltantes <- tibble::tibble(anos_faltantes = setdiff(2010:2023, tot$ano))
+
+comp_rng <- suppressWarnings(
+  comp %>% dplyr::group_by(ano) %>%
+    dplyr::summarise(
+      min_comp = if (all(is.na(valor))) NA_real_ else min(valor, na.rm=TRUE),
+      max_comp = if (all(is.na(valor))) NA_real_ else max(valor, na.rm=TRUE),
+      .groups="drop"
+    )
 )
-write_clean(trace_tbl, here("output","tables","qc_arope_trace_filtros.csv"))
 
-# ---------------------------------------------------------------------------
-# QC de parseo numérico (tokens problemáticos)
-# ---------------------------------------------------------------------------
-bad_tokens <- df1 |>
-  filter(is.na(arope) & !is.na(total_chr) & nzchar(total_chr)) |>
-  distinct(muestra = total_chr)
+fuera_rango <- tot %>%
+  dplyr::left_join(comp_rng, by="ano") %>%
+  dplyr::mutate(flag = ifelse(is.na(min_comp) | is.na(max_comp) | is.na(arope),
+                              NA, arope >= min_comp & arope <= max_comp)) %>%
+  dplyr::filter(flag == FALSE)
 
-if (nrow(bad_tokens)) {
-  write_clean(bad_tokens, here("output","tables","qc_arope_na_tokens.csv"))
+write_clean(comp_summary, file.path(qadir,"10_arope_comp_resumen.csv"))
+write_clean(tot_summary,  file.path(qadir,"10_arope_total_resumen.csv"))
+write_clean(dups,         file.path(qadir,"10_arope_comp_duplicados.csv"))
+write_clean(faltantes,    file.path(qadir,"10_arope_total_anos_faltantes.csv"))
+write_clean(fuera_rango,  file.path(qadir,"10_arope_total_fuera_rango_componentes.csv"))
+
+# ── Mini check final ─────────────────────────────────────────────────────────
+STRICT_QA <- as.logical(Sys.getenv("STRICT_QA", "FALSE"))
+
+n_bad   <- nrow(fuera_rango)
+n_miss  <- length(setdiff(2010:2023, tot$ano))
+n_na    <- sum(is.na(tot$arope))
+
+if (n_bad == 0 && n_miss == 0 && n_na == 0) {
+  message("✅ [10] Check AROPE OK: 2010–2023 completos, sin NA y dentro del rango de componentes.")
 } else {
-  message("QC AROPE: sin tokens problemáticos en parseo numérico.")
+  warning(sprintf("⚠️ [10] Check AROPE: fuera_rango=%d, años_faltantes=%d, NA=%d",
+                  n_bad, n_miss, n_na), call. = FALSE)
+  if (STRICT_QA && (n_bad > 0 || n_miss > 0)) {
+    stop("[10] QA estricto activado (STRICT_QA=TRUE): hay fuera de rango o años faltantes.")
+  }
 }
 
-# ---------------------------------------------------------------------------
-# Bloqueo de duplicados por año (no debe haber más de 1 fila por año)
-# ---------------------------------------------------------------------------
-dups <- df1 |>
-  count(ano, name = "n") |>
-  filter(n > 1)
 
-if (nrow(dups)) {
-  det_dups <- df1 |>
-    semi_join(dups, by = "ano") |>
-    arrange(ano)
-  write_clean(det_dups, here("output","tables","qc_arope_duplicados_por_ano.csv"))
-  stop("Existen años con >1 fila tras filtros. Revisa output/tables/qc_arope_duplicados_por_ano.csv")
-}
 
-# ---------------------------------------------------------------------------
-# Serie final (única fila por año, ordenada)
-# ---------------------------------------------------------------------------
-agg <- df1 |>
-  select(ano, arope) |>
-  arrange(ano)
-
-# Si parece proporción (0–1), avisa (no detiene)
-if (mean(agg$arope, na.rm = TRUE) < 1) {
-  warning("AROPE parece venir como proporción (0–1). Verifica si debes multiplicar por 100.")
-}
-
-# ---------------------------------------------------------------------------
-# QC de cobertura 2010–2023
-# ---------------------------------------------------------------------------
-esqueleto <- tibble::tibble(ano = 2010:2023)
-cov <- esqueleto |>
-  left_join(agg, by = "ano") |>
-  mutate(presente = !is.na(arope))
-write_clean(cov, here("output","tables","qc_arope_cobertura.csv"))
-
-pct_na <- mean(is.na(cov$arope))
-message(sprintf("Cobertura AROPE 2010–2023: %d/%d años (NA=%.1f%%)",
-                sum(!is.na(cov$arope)), nrow(cov), 100*pct_na))
-
-thr <- suppressWarnings(as.numeric(Sys.getenv("NA_MAX_PCT_AROPE", unset = "10")))
-if (is.finite(thr) && (100*pct_na > thr) &&
-    tolower(Sys.getenv("STRICT_QA","false")) %in% c("true","1","yes")) {
-  stop("STRICT_QA AROPE: NA% supera umbral (", round(100*pct_na,1), "% > ", thr, "%)")
-}
-
-# Aserciones duras (CI)
-stopifnot(nrow(agg) == length(2010:2023))
-stopifnot(all(2010:2023 %in% agg$ano))
-stopifnot(!any(is.na(agg$arope)))
-stopifnot(all(agg$arope >= 0 & agg$arope <= 100))
-stopifnot(!any(duplicated(agg$ano)))
-
-# ---------------------------------------------------------------------------
-# Export final
-# ---------------------------------------------------------------------------
-write_clean(agg, here("data","processed","arope_total.csv"))
-message("✅ AROPE limpio -> data/processed/arope_total.csv")

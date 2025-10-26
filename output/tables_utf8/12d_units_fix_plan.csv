@@ -1,0 +1,2 @@
+file,value_col,median_before,action,factor,reason
+hc_total_nacional.csv,hc_total,2151625.5,none,1,already_in_units

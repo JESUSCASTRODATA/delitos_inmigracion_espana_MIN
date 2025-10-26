@@ -1,26 +1,16 @@
-# Licencia para documentos y figuras del proyecto
+# Licencia para documentos y figuras — CC BY 4.0
+<!-- SPDX-License-Identifier: CC-BY-4.0 -->
 
-Proyecto: **Delitos e Inmigración en España (2010–2023)**  
-Autor: **Jesús Castro · JESUSCASTRODATA**
+**Atribución 4.0 Internacional (CC BY 4.0)**
 
-Este repositorio contiene código, documentos (RMarkdown/Quarto), tablas y figuras generadas por el autor.
+Salvo que se indique lo contrario, los **documentos y figuras** de este repositorio son obra propia y se publican bajo la licencia **Creative Commons Atribución 4.0 Internacional (CC BY 4.0)**.
 
-- **Código**: bajo **MIT** (ver `LICENSE`).  
-- **Documentos y figuras originales (propias)**: bajo **Creative Commons Attribution 4.0 International (CC BY 4.0)**.  
-- **Datos originales de terceros** (INE, Ministerio del Interior, Eurostat, etc.): **no** se re-licencian aquí (ver `DATA_LICENSE.md`).
+Esto te permite **compartir** y **adaptar** el material para cualquier fin, incluso comercial, siempre que otorgues **atribución adecuada**, proporciones un **enlace a la licencia** e indiques si se han realizado cambios.
 
-## Alcance CC BY 4.0 (para docs/figuras propias)
-Puedes **compartir** y **adaptar** el material, incluso con fines comerciales, **siempre** que atribuyas adecuadamente:
-- Autor: Jesús Castro · JESUSCASTRODATA
-- Título: “Delitos e Inmigración en España (2010–2023)”
-- Enlace al repositorio (si procede) y a esta licencia
-- Indiques los cambios realizados
+- **Resumen legible por humanos:** https://creativecommons.org/licenses/by/4.0/
+- **Texto legal (legalcode):** https://creativecommons.org/licenses/by/4.0/legalcode
 
-Enlace legalcode: https://creativecommons.org/licenses/by/4.0/legalcode
+**Atribución sugerida:**  
+*Castro, J. (2025). Delitos e Inmigración en España (2010–2023). Documentos y figuras bajo CC BY 4.0.*
 
-## Atribución sugerida
-> Jesús Castro · JESUSCASTRODATA (2025). “Delitos e Inmigración en España (2010–2023)”. Licencia de documentos y figuras: CC BY 4.0.
-
-**Nota**: Esta licencia **no** cubre logotipos de terceros, capturas de pantallas de sitios externos, ni **datos originales** importados de fuentes oficiales; dichos materiales conservan sus términos propios.
-
-SPDX-License-Identifier: CC-BY-4.0
+> Nota: los **datos originales de terceros** no quedan cubiertos por esta licencia y conservan las condiciones de sus titulares. Consulta `docs/DATOS_Y_LICENCIAS.md`.

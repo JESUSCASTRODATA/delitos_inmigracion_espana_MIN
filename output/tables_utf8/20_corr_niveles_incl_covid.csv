@@ -1,0 +1,7 @@
+var_x,var_y,method,n,r,p
+pct_extranjeros,share_extranjeros,pearson,0,NA,NA
+pct_extranjeros,tasa_hc_100k,pearson,0,NA,NA
+pct_extranjeros,tasa_he_100k,pearson,0,NA,NA
+pct_extranjeros,share_extranjeros,spearman,0,NA,NA
+pct_extranjeros,tasa_hc_100k,spearman,0,NA,NA
+pct_extranjeros,tasa_he_100k,spearman,0,NA,NA

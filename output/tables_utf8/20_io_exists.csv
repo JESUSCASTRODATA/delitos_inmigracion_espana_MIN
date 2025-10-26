@@ -1,0 +1,6 @@
+path,role,exists
+D:/delitos_inmigracion_espana_MIN/data/processed/core_indicadores.csv,REQUIRED,TRUE
+D:/delitos_inmigracion_espana_MIN/data/processed/core_indicadores_derivadas.csv,OPTIONAL,TRUE
+D:/delitos_inmigracion_espana_MIN/data/processed/pct_extranjeros_poblacion.csv,OPTIONAL,TRUE
+D:/delitos_inmigracion_espana_MIN/data/processed/poblacion_extranjera_total.csv,OPTIONAL,TRUE
+D:/delitos_inmigracion_espana_MIN/data/processed/poblacion_total_nacional.csv,OPTIONAL,TRUE

@@ -1,0 +1,603 @@
+ano,tipo,total
+2010,1. contra las personas,297488
+2010,1.1.-homicidios dolosos/asesinatos,1177
+2010,1.1.1.-homicidios dolosos/asesinatos consumados,401
+2010,1.2.-lesiones,113067
+2010,1.3.-malos tratos ambito familiar,60307
+2010,1.4.-otros contra las personas,122937
+2010,10. orden publico,33767
+2010,11. legislacion especial,234
+2010,12. otras infracciones penales,6785
+2010,2. contra la libertad,42376
+2010,2.1.-malos tratos habituales en el ambito familiar,17270
+2010,2.2.-otros contra la libertad,25106
+2010,3. libertad sexual,9957
+2010,3.1.-agresion sexual,5068
+2010,3.2.-agresion sexual con penetracion,1991
+2010,3.3.-corrupcion de menores o incapacitados,345
+2010,3.4.-pornografia de menores,953
+2010,3.5.-otros contra la libertad sexual,1600
+2010,4. relaciones familiares,7877
+2010,5. patrimonio,1757934
+2010,5.1.-hurtos,785635
+2010,5.2.-robos con fuerza en las cosas,443772
+2010,5.2.1.-robos con fuerza en las cosas en el interior de vehiculos,141674
+2010,5.2.2.-robos con fuerza en viviendas,111656
+2010,5.2.3.-robos con fuerza en establecimientos,48958
+2010,5.3.-robos con violencia o intimidacion,84411
+2010,5.3.1.-robos con violencia en via publica,42238
+2010,5.3.2.-robos con violencia en viviendas,4950
+2010,5.3.3.-robos con violencia en establecimientos,7772
+2010,5.4.-sustraccion de vehiculos,65948
+2010,5.5.-estafas,85433
+2010,5.5.1.-estafas informaticas,15748
+2010,5.6.-danos,266291
+2010,5.7.-contra la propiedad intelectual/industrial,3619
+2010,5.8.-blanqueo de capitales,182
+2010,5.9.-otros contra el patrimonio,26594
+2010,6. seguridad colectiva,74158
+2010,6.1.-trafico de drogas,14391
+2010,6.2.-contra la seguridad vial,57088
+2010,6.3.-otros contra la seguridad colectiva,2679
+2010,7. falsedades,17270
+2010,8. admon. publica,416
+2010,9. admon. justicia,27905
+2011,1. contra las personas,300654
+2011,1.1.-homicidios dolosos/asesinatos,1210
+2011,1.1.1.-homicidios dolosos/asesinatos consumados,385
+2011,1.2.-lesiones,112824
+2011,1.3.-malos tratos ambito familiar,62260
+2011,1.4.-otros contra las personas,124360
+2011,10. orden publico,36317
+2011,11. legislacion especial,285
+2011,12. otras infracciones penales,6592
+2011,2. contra la libertad,45131
+2011,2.1.-malos tratos habituales en el ambito familiar,17694
+2011,2.2.-otros contra la libertad,27437
+2011,3. libertad sexual,9892
+2011,3.1.-agresion sexual,5479
+2011,3.2.-agresion sexual con penetracion,1887
+2011,3.3.-corrupcion de menores o incapacitados,253
+2011,3.4.-pornografia de menores,715
+2011,3.5.-otros contra la libertad sexual,1558
+2011,4. relaciones familiares,9087
+2011,5. patrimonio,1727478
+2011,5.1.-hurtos,786704
+2011,5.2.-robos con fuerza en las cosas,414961
+2011,5.2.1.-robos con fuerza en las cosas en el interior de vehiculos,153259
+2011,5.2.2.-robos con fuerza en viviendas,100780
+2011,5.2.3.-robos con fuerza en establecimientos,41250
+2011,5.3.-robos con violencia o intimidacion,87718
+2011,5.3.1.-robos con violencia en via publica,38831
+2011,5.3.2.-robos con violencia en viviendas,5450
+2011,5.3.3.-robos con violencia en establecimientos,6458
+2011,5.4.-sustraccion de vehiculos,60061
+2011,5.5.-estafas,95013
+2011,5.5.1.-estafas informaticas,17560
+2011,5.6.-danos,254361
+2011,5.7.-contra la propiedad intelectual/industrial,2643
+2011,5.8.-blanqueo de capitales,171
+2011,5.9.-otros contra el patrimonio,29708
+2011,6. seguridad colectiva,85010
+2011,6.1.-trafico de drogas,15220
+2011,6.2.-contra la seguridad vial,67374
+2011,6.3.-otros contra la seguridad colectiva,2416
+2011,7. falsedades,19979
+2011,8. admon. publica,341
+2011,9. admon. justicia,29410
+2012,1. contra las personas,286446
+2012,1.1.-homicidios dolosos/asesinatos,1125
+2012,1.1.1.-homicidios dolosos/asesinatos consumados,364
+2012,1.2.-lesiones,105913
+2012,1.3.-malos tratos ambito familiar,59703
+2012,1.4.-otros contra las personas,119705
+2012,10. orden publico,33582
+2012,11. legislacion especial,237
+2012,12. otras infracciones penales,6655
+2012,2. contra la libertad,44476
+2012,2.1.-malos tratos habituales en el ambito familiar,17523
+2012,2.2.-otros contra la libertad,26953
+2012,3. libertad sexual,9008
+2012,3.1.-agresion sexual,5101
+2012,3.2.-agresion sexual con penetracion,1631
+2012,3.3.-corrupcion de menores o incapacitados,278
+2012,3.4.-pornografia de menores,569
+2012,3.5.-otros contra la libertad sexual,1429
+2012,4. relaciones familiares,10424
+2012,5. patrimonio,1738733
+2012,5.1.-hurtos,790281
+2012,5.2.-robos con fuerza en las cosas,405939
+2012,5.2.1.-robos con fuerza en las cosas en el interior de vehiculos,139483
+2012,5.2.2.-robos con fuerza en viviendas,126425
+2012,5.2.3.-robos con fuerza en establecimientos,41559
+2012,5.3.-robos con violencia o intimidacion,96607
+2012,5.3.1.-robos con violencia en via publica,45144
+2012,5.3.2.-robos con violencia en viviendas,6912
+2012,5.3.3.-robos con violencia en establecimientos,6822
+2012,5.4.-sustraccion de vehiculos,55197
+2012,5.5.-estafas,112134
+2012,5.5.1.-estafas informaticas,23268
+2012,5.6.-danos,246355
+2012,5.7.-contra la propiedad intelectual/industrial,2884
+2012,5.8.-blanqueo de capitales,199
+2012,5.9.-otros contra el patrimonio,32495
+2012,6. seguridad colectiva,76654
+2012,6.1.-trafico de drogas,14509
+2012,6.2.-contra la seguridad vial,59634
+2012,6.3.-otros contra la seguridad colectiva,2511
+2012,7. falsedades,17937
+2012,8. admon. publica,325
+2012,9. admon. justicia,28205
+2013,1. contra las personas,274655
+2013,1.1.-homicidios dolosos/asesinatos,964
+2013,1.1.1.-homicidios dolosos/asesinatos consumados,302
+2013,1.2.-lesiones,100193
+2013,1.3.-malos tratos ambito familiar,59819
+2013,1.4.-otros contra las personas,113679
+2013,10. orden publico,31489
+2013,11. legislacion especial,205
+2013,12. otras infracciones penales,7129
+2013,2. contra la libertad,43322
+2013,2.1.-malos tratos habituales en el ambito familiar,16676
+2013,2.2.-otros contra la libertad,26646
+2013,3. libertad sexual,8923
+2013,3.1.-agresion sexual,4859
+2013,3.2.-agresion sexual con penetracion,1684
+2013,3.3.-corrupcion de menores o incapacitados,320
+2013,3.4.-pornografia de menores,508
+2013,3.5.-otros contra la libertad sexual,1552
+2013,4. relaciones familiares,10331
+2013,5. patrimonio,1663888
+2013,5.1.-hurtos,770296
+2013,5.2.-robos con fuerza en las cosas,381777
+2013,5.2.1.-robos con fuerza en las cosas en el interior de vehiculos,123355
+2013,5.2.2.-robos con fuerza en viviendas,127444
+2013,5.2.3.-robos con fuerza en establecimientos,39940
+2013,5.3.-robos con violencia o intimidacion,86034
+2013,5.3.1.-robos con violencia en via publica,38975
+2013,5.3.2.-robos con violencia en viviendas,6306
+2013,5.3.3.-robos con violencia en establecimientos,6747
+2013,5.4.-sustraccion de vehiculos,48855
+2013,5.5.-estafas,109856
+2013,5.5.1.-estafas informaticas,22742
+2013,5.6.-danos,226619
+2013,5.7.-contra la propiedad intelectual/industrial,3260
+2013,5.8.-blanqueo de capitales,243
+2013,5.9.-otros contra el patrimonio,40018
+2013,6. seguridad colectiva,71596
+2013,6.1.-trafico de drogas,14296
+2013,6.2.-contra la seguridad vial,55226
+2013,6.3.-otros contra la seguridad colectiva,2074
+2013,7. falsedades,16859
+2013,8. admon. publica,391
+2013,9. admon. justicia,27245
+2014,1. contra las personas,281713
+2014,1.1.-homicidios dolosos/asesinatos,1048
+2014,1.1.1.-homicidios dolosos/asesinatos consumados,323
+2014,1.2.-lesiones,98821
+2014,1.3.-malos tratos ambito familiar,62392
+2014,1.4.-otros contra las personas,119452
+2014,10. orden publico,29466
+2014,11. legislacion especial,185
+2014,12. otras infracciones penales,7864
+2014,2. contra la libertad,42953
+2014,2.1.-malos tratos habituales en el ambito familiar,15958
+2014,2.2.-otros contra la libertad,26833
+2014,3. libertad sexual,9468
+2014,3.1.-agresion sexual,5150
+2014,3.2.-agresion sexual con penetracion,1622
+2014,3.3.-corrupcion de menores o incapacitados,386
+2014,3.4.-pornografia de menores,625
+2014,3.5.-otros contra la libertad sexual,1685
+2014,4. relaciones familiares,10506
+2014,5. patrimonio,1578057
+2014,5.1.-hurtos,727800
+2014,5.2.-robos con fuerza en las cosas,344875
+2014,5.2.1.-robos con fuerza en las cosas en el interior de vehiculos,106174
+2014,5.2.2.-robos con fuerza en viviendas,120783
+2014,5.2.3.-robos con fuerza en establecimientos,37962
+2014,5.3.-robos con violencia o intimidacion,70855
+2014,5.3.1.-robos con violencia en via publica,31830
+2014,5.3.2.-robos con violencia en viviendas,4697
+2014,5.3.3.-robos con violencia en establecimientos,5489
+2014,5.4.-sustraccion de vehiculos,43206
+2014,5.5.-estafas,125743
+2014,5.5.1.-estafas informaticas,28217
+2014,5.6.-danos,218166
+2014,5.7.-contra la propiedad intelectual/industrial,2608
+2014,5.8.-blanqueo de capitales,230
+2014,5.9.-otros contra el patrimonio,47804
+2014,6. seguridad colectiva,66938
+2014,6.1.-trafico de drogas,13411
+2014,6.2.-contra la seguridad vial,51419
+2014,6.3.-otros contra la seguridad colectiva,2108
+2014,7. falsedades,17921
+2014,8. admon. publica,521
+2014,9. admon. justicia,28034
+2015,1. contra las personas,223893
+2015,1.1.-homicidios dolosos/asesinatos,964
+2015,1.1.1.-homicidios dolosos/asesinatos consumados,302
+2015,1.2.-lesiones,97012
+2015,1.3.-malos tratos ambito familiar,64118
+2015,1.4.-otros contra las personas,61799
+2015,10. orden publico,23160
+2015,11. legislacion especial,192
+2015,12. otras infracciones penales,9702
+2015,2. contra la libertad,78815
+2015,2.1.-malos tratos habituales en el ambito familiar,15676
+2015,2.2.-otros contra la libertad,63139
+2015,3. libertad sexual,9869
+2015,3.1.-agresion sexual,5338
+2015,3.2.-agresion sexual con penetracion,1668
+2015,3.3.-corrupcion de menores o incapacitados,432
+2015,3.4.-pornografia de menores,748
+2015,3.5.-otros contra la libertad sexual,1683
+2015,4. relaciones familiares,9711
+2015,5. patrimonio,1555536
+2015,5.1.-hurtos,715469
+2015,5.2.-robos con fuerza en las cosas,322705
+2015,5.2.1.-robos con fuerza en las cosas en el interior de vehiculos,100021
+2015,5.2.2.-robos con fuerza en viviendas,115302
+2015,5.2.3.-robos con fuerza en establecimientos,35959
+2015,5.3.-robos con violencia o intimidacion,64581
+2015,5.3.1.-robos con violencia en via publica,28798
+2015,5.3.2.-robos con violencia en viviendas,3929
+2015,5.3.3.-robos con violencia en establecimientos,5168
+2015,5.4.-sustraccion de vehiculos,43170
+2015,5.5.-estafas,150327
+2015,5.5.1.-estafas informaticas,57722
+2015,5.6.-danos,215519
+2015,5.7.-contra la propiedad intelectual/industrial,2047
+2015,5.8.-blanqueo de capitales,290
+2015,5.9.-otros contra el patrimonio,44902
+2015,6. seguridad colectiva,60090
+2015,6.1.-trafico de drogas,12069
+2015,6.2.-contra la seguridad vial,45991
+2015,6.3.-otros contra la seguridad colectiva,2030
+2015,7. falsedades,18749
+2015,8. admon. publica,535
+2015,9. admon. justicia,27538
+2016,1. contra las personas,166431
+2016,1.1.-homicidios dolosos/asesinatos,1107
+2016,1.1.1.-homicidios dolosos/asesinatos consumados,294
+2016,1.2.-lesiones,97108
+2016,1.3.-malos tratos ambito familiar,66102
+2016,1.4.-otros contra las personas,2114
+2016,10. orden publico,18867
+2016,11. legislacion especial,143
+2016,12. otras infracciones penales,10394
+2016,2. contra la libertad,115493
+2016,2.1.-malos tratos habituales en el ambito familiar,14554
+2016,2.2.-otros contra la libertad,100939
+2016,3. libertad sexual,10844
+2016,3.1.-agresion sexual,6233
+2016,3.2.-agresion sexual con penetracion,1793
+2016,3.3.-corrupcion de menores o incapacitados,368
+2016,3.4.-pornografia de menores,621
+2016,3.5.-otros contra la libertad sexual,1829
+2016,4. relaciones familiares,8043
+2016,5. patrimonio,1555626
+2016,5.1.-hurtos,711507
+2016,5.2.-robos con fuerza en las cosas,318164
+2016,5.2.1.-robos con fuerza en las cosas en el interior de vehiculos,104274
+2016,5.2.2.-robos con fuerza en viviendas,113299
+2016,5.2.3.-robos con fuerza en establecimientos,37619
+2016,5.3.-robos con violencia o intimidacion,62952
+2016,5.3.1.-robos con violencia en via publica,28741
+2016,5.3.2.-robos con violencia en viviendas,3521
+2016,5.3.3.-robos con violencia en establecimientos,5174
+2016,5.4.-sustraccion de vehiculos,43335
+2016,5.5.-estafas,166221
+2016,5.5.1.-estafas informaticas,66114
+2016,5.6.-danos,214709
+2016,5.7.-contra la propiedad intelectual/industrial,1889
+2016,5.8.-blanqueo de capitales,262
+2016,5.9.-otros contra el patrimonio,40123
+2016,6. seguridad colectiva,58350
+2016,6.1.-trafico de drogas,12448
+2016,6.2.-contra la seguridad vial,43913
+2016,6.3.-otros contra la seguridad colectiva,1989
+2016,7. falsedades,19480
+2016,8. admon. publica,553
+2016,9. admon. justicia,27647
+2017,1. contra las personas,174217
+2017,1.1.-homicidios dolosos/asesinatos,1106
+2017,1.1.1.-homicidios dolosos/asesinatos consumados,307
+2017,1.2.-lesiones,100354
+2017,1.3.-malos tratos ambito familiar,69812
+2017,1.4.-otros contra las personas,2945
+2017,10. orden publico,19591
+2017,11. legislacion especial,165
+2017,12. otras infracciones penales,9772
+2017,2. contra la libertad,119031
+2017,2.1.-malos tratos habituales en el ambito familiar,14238
+2017,2.2.-otros contra la libertad,104793
+2017,3. libertad sexual,11692
+2017,3.1.-agresion sexual,6580
+2017,3.2.-agresion sexual con penetracion,2136
+2017,3.3.-corrupcion de menores o incapacitados,400
+2017,3.4.-pornografia de menores,767
+2017,3.5.-otros contra la libertad sexual,1809
+2017,4. relaciones familiares,7915
+2017,5. patrimonio,1573632
+2017,5.1.-hurtos,712398
+2017,5.2.-robos con fuerza en las cosas,301734
+2017,5.2.1.-robos con fuerza en las cosas en el interior de vehiculos,102988
+2017,5.2.2.-robos con fuerza en viviendas,105095
+2017,5.2.3.-robos con fuerza en establecimientos,35059
+2017,5.3.-robos con violencia o intimidacion,61763
+2017,5.3.1.-robos con violencia en via publica,27379
+2017,5.3.2.-robos con violencia en viviendas,3389
+2017,5.3.3.-robos con violencia en establecimientos,5383
+2017,5.4.-sustraccion de vehiculos,42519
+2017,5.5.-estafas,198281
+2017,5.5.1.-estafas informaticas,88690
+2017,5.6.-danos,214246
+2017,5.7.-contra la propiedad intelectual/industrial,1622
+2017,5.8.-blanqueo de capitales,260
+2017,5.9.-otros contra el patrimonio,44763
+2017,6. seguridad colectiva,59162
+2017,6.1.-trafico de drogas,12958
+2017,6.2.-contra la seguridad vial,43942
+2017,6.3.-otros contra la seguridad colectiva,2262
+2017,7. falsedades,20009
+2017,8. admon. publica,668
+2017,9. admon. justicia,29001
+2018,1. contra las personas,177165
+2018,1.1.-homicidios dolosos/asesinatos,1088
+2018,1.1.1.-homicidios dolosos/asesinatos consumados,289
+2018,1.2.-lesiones,99928
+2018,1.3.-malos tratos ambito familiar,72309
+2018,1.4.-otros contra las personas,3840
+2018,10. orden publico,20121
+2018,11. legislacion especial,209
+2018,12. otras infracciones penales,9725
+2018,2. contra la libertad,120919
+2018,2.1.-malos tratos habituales en el ambito familiar,14196
+2018,2.2.-otros contra la libertad,106723
+2018,3. libertad sexual,13782
+2018,3.1.-agresion sexual,7983
+2018,3.2.-agresion sexual con penetracion,2744
+2018,3.3.-corrupcion de menores o incapacitados,268
+2018,3.4.-pornografia de menores,892
+2018,3.5.-otros contra la libertad sexual,1895
+2018,4. relaciones familiares,7630
+2018,5. patrimonio,1650764
+2018,5.1.-hurtos,706072
+2018,5.2.-robos con fuerza en las cosas,302043
+2018,5.2.1.-robos con fuerza en las cosas en el interior de vehiculos,102474
+2018,5.2.2.-robos con fuerza en viviendas,107166
+2018,5.2.3.-robos con fuerza en establecimientos,33129
+2018,5.3.-robos con violencia o intimidacion,60295
+2018,5.3.1.-robos con violencia en via publica,24490
+2018,5.3.2.-robos con violencia en viviendas,3233
+2018,5.3.3.-robos con violencia en establecimientos,5355
+2018,5.4.-sustraccion de vehiculos,35897
+2018,5.5.-estafas,279723
+2018,5.5.1.-estafas informaticas,132834
+2018,5.6.-danos,213815
+2018,5.7.-contra la propiedad intelectual/industrial,2205
+2018,5.8.-blanqueo de capitales,272
+2018,5.9.-otros contra el patrimonio,54384
+2018,6. seguridad colectiva,64126
+2018,6.1.-trafico de drogas,14133
+2018,6.2.-contra la seguridad vial,47648
+2018,6.3.-otros contra la seguridad colectiva,2345
+2018,7. falsedades,22008
+2018,8. admon. publica,510
+2018,9. admon. justicia,30290
+2019,1. contra las personas,186110
+2019,1.1.-homicidios dolosos/asesinatos,1167
+2019,1.1.1.-homicidios dolosos/asesinatos consumados,331
+2019,1.2.-lesiones,103341
+2019,1.3.-malos tratos ambito familiar,77424
+2019,1.4.-otros contra las personas,4178
+2019,10. orden publico,21877
+2019,11. legislacion especial,306
+2019,12. otras infracciones penales,9970
+2019,2. contra la libertad,125685
+2019,2.1.-malos tratos habituales en el ambito familiar,14575
+2019,2.2.-otros contra la libertad,111110
+2019,3. libertad sexual,15319
+2019,3.1.-agresion sexual,8885
+2019,3.2.-agresion sexual con penetracion,3079
+2019,3.3.-corrupcion de menores o incapacitados,369
+2019,3.4.-pornografia de menores,866
+2019,3.5.-otros contra la libertad sexual,2120
+2019,4. relaciones familiares,7288
+2019,5. patrimonio,1692813
+2019,5.1.-hurtos,700453
+2019,5.2.-robos con fuerza en las cosas,298098
+2019,5.2.1.-robos con fuerza en las cosas en el interior de vehiculos,108637
+2019,5.2.2.-robos con fuerza en viviendas,98326
+2019,5.2.3.-robos con fuerza en establecimientos,32363
+2019,5.3.-robos con violencia o intimidacion,65874
+2019,5.3.1.-robos con violencia en via publica,25721
+2019,5.3.2.-robos con violencia en viviendas,3223
+2019,5.3.3.-robos con violencia en establecimientos,5609
+2019,5.4.-sustraccion de vehiculos,35105
+2019,5.5.-estafas,317394
+2019,5.5.1.-estafas informaticas,186563
+2019,5.6.-danos,219424
+2019,5.7.-contra la propiedad intelectual/industrial,1807
+2019,5.8.-blanqueo de capitales,295
+2019,5.9.-otros contra el patrimonio,58365
+2019,6. seguridad colectiva,68749
+2019,6.1.-trafico de drogas,16624
+2019,6.2.-contra la seguridad vial,49869
+2019,6.3.-otros contra la seguridad colectiva,2256
+2019,7. falsedades,24259
+2019,8. admon. publica,416
+2019,9. admon. justicia,32082
+2020,1. contra las personas,161406
+2020,1.1.-homicidios dolosos/asesinatos,1201
+2020,1.1.1.-homicidios dolosos/asesinatos consumados,298
+2020,1.2.-lesiones,81449
+2020,1.3.-malos tratos ambito familiar,75203
+2020,1.4.-otros contra las personas,3553
+2020,10. orden publico,30272
+2020,11. legislacion especial,325
+2020,12. otras infracciones penales,9665
+2020,2. contra la libertad,125010
+2020,2.1.-malos tratos habituales en el ambito familiar,13993
+2020,2.2.-otros contra la libertad,111017
+2020,3. libertad sexual,13174
+2020,3.1.-agresion sexual,7276
+2020,3.2.-agresion sexual con penetracion,2785
+2020,3.3.-corrupcion de menores o incapacitados,350
+2020,3.4.-pornografia de menores,762
+2020,3.5.-otros contra la libertad sexual,2001
+2020,4. relaciones familiares,6831
+2020,5. patrimonio,1295699
+2020,5.1.-hurtos,420950
+2020,5.2.-robos con fuerza en las cosas,219091
+2020,5.2.1.-robos con fuerza en las cosas en el interior de vehiculos,54633
+2020,5.2.2.-robos con fuerza en viviendas,72380
+2020,5.2.3.-robos con fuerza en establecimientos,31237
+2020,5.3.-robos con violencia o intimidacion,45263
+2020,5.3.1.-robos con violencia en via publica,30162
+2020,5.3.2.-robos con violencia en viviendas,3208
+2020,5.3.3.-robos con violencia en establecimientos,6138
+2020,5.4.-sustraccion de vehiculos,25387
+2020,5.5.-estafas,353563
+2020,5.5.1.-estafas informaticas,252438
+2020,5.6.-danos,180429
+2020,5.7.-contra la propiedad intelectual/industrial,930
+2020,5.8.-blanqueo de capitales,310
+2020,5.9.-otros contra el patrimonio,51220
+2020,6. seguridad colectiva,60162
+2020,6.1.-trafico de drogas,17112
+2020,6.2.-contra la seguridad vial,41120
+2020,6.3.-otros contra la seguridad colectiva,1930
+2020,7. falsedades,23872
+2020,8. admon. publica,350
+2020,9. admon. justicia,31140
+2021,1. contra las personas,183590
+2021,1.1.-homicidios dolosos/asesinatos,1322
+2021,1.1.1.-homicidios dolosos/asesinatos consumados,293
+2021,1.2.-lesiones,96159
+2021,1.3.-malos tratos ambito familiar,82003
+2021,1.4.-otros contra las personas,4106
+2021,10. orden publico,27594
+2021,11. legislacion especial,343
+2021,12. otras infracciones penales,10341
+2021,2. contra la libertad,139867
+2021,2.1.-malos tratos habituales en el ambito familiar,15008
+2021,2.2.-otros contra la libertad,124859
+2021,3. libertad sexual,17016
+2021,3.1.-agresion sexual,10061
+2021,3.2.-agresion sexual con penetracion,3795
+2021,3.3.-corrupcion de menores o incapacitados,347
+2021,3.4.-pornografia de menores,739
+2021,3.5.-otros contra la libertad sexual,2074
+2021,4. relaciones familiares,7410
+2021,5. patrimonio,1434698
+2021,5.1.-hurtos,493479
+2021,5.2.-robos con fuerza en las cosas,229137
+2021,5.2.1.-robos con fuerza en las cosas en el interior de vehiculos,87774
+2021,5.2.2.-robos con fuerza en viviendas,75501
+2021,5.2.3.-robos con fuerza en establecimientos,27198
+2021,5.3.-robos con violencia o intimidacion,53073
+2021,5.3.1.-robos con violencia en via publica,35726
+2021,5.3.2.-robos con violencia en viviendas,3477
+2021,5.3.3.-robos con violencia en establecimientos,6663
+2021,5.4.-sustraccion de vehiculos,26417
+2021,5.5.-estafas,367764
+2021,5.5.1.-estafas informaticas,263000
+2021,5.6.-danos,201828
+2021,5.7.-contra la propiedad intelectual/industrial,1176
+2021,5.8.-blanqueo de capitales,343
+2021,5.9.-otros contra el patrimonio,56132
+2021,6. seguridad colectiva,68891
+2021,6.1.-trafico de drogas,18313
+2021,6.2.-contra la seguridad vial,48394
+2021,6.3.-otros contra la seguridad colectiva,2184
+2021,7. falsedades,34058
+2021,8. admon. publica,541
+2021,9. admon. justicia,33370
+2022,1. contra las personas,212804
+2022,1.1.-homicidios dolosos/asesinatos,1539
+2022,1.1.1.-homicidios dolosos/asesinatos consumados,326
+2022,1.2.-lesiones,113704
+2022,1.3.-malos tratos ambito familiar,92695
+2022,1.4.-otros contra las personas,4866
+2022,10. orden publico,28562
+2022,11. legislacion especial,330
+2022,12. otras infracciones penales,10646
+2022,2. contra la libertad,143861
+2022,2.1.-malos tratos habituales en el ambito familiar,15647
+2022,2.2.-otros contra la libertad,128214
+2022,3. libertad sexual,19013
+2022,3.1.-agresion sexual,11426
+2022,3.2.-agresion sexual con penetracion,4270
+2022,3.3.-corrupcion de menores o incapacitados,384
+2022,3.4.-pornografia de menores,707
+2022,3.5.-otros contra la libertad sexual,2226
+2022,4. relaciones familiares,7567
+2022,5. patrimonio,1737547
+2022,5.1.-hurtos,642276
+2022,5.2.-robos con fuerza en las cosas,265901
+2022,5.2.1.-robos con fuerza en las cosas en el interior de vehiculos,101084
+2022,5.2.2.-robos con fuerza en viviendas,86515
+2022,5.2.3.-robos con fuerza en establecimientos,31552
+2022,5.3.-robos con violencia o intimidacion,63392
+2022,5.3.1.-robos con violencia en via publica,43100
+2022,5.3.2.-robos con violencia en viviendas,3669
+2022,5.3.3.-robos con violencia en establecimientos,8210
+2022,5.4.-sustraccion de vehiculos,30767
+2022,5.5.-estafas,459537
+2022,5.5.1.-estafas informaticas,330544
+2022,5.6.-danos,213694
+2022,5.7.-contra la propiedad intelectual/industrial,1217
+2022,5.8.-blanqueo de capitales,411
+2022,5.9.-otros contra el patrimonio,63240
+2022,6. seguridad colectiva,76692
+2022,6.1.-trafico de drogas,19057
+2022,6.2.-contra la seguridad vial,54976
+2022,6.3.-otros contra la seguridad colectiva,2659
+2022,7. falsedades,37717
+2022,8. admon. publica,509
+2022,9. admon. justicia,37910
+2023,1. contra las personas,226761
+2023,1.1.-homicidios dolosos/asesinatos,1692
+2023,1.1.1.-homicidios dolosos/asesinatos consumados,333
+2023,1.2.-lesiones,118125
+2023,1.3.-malos tratos ambito familiar,101179
+2023,1.4.-otros contra las personas,5765
+2023,10. orden publico,30011
+2023,11. legislacion especial,464
+2023,12. otras infracciones penales,11718
+2023,2. contra la libertad,159113
+2023,2.1.-malos tratos habituales en el ambito familiar,17120
+2023,2.2.-otros contra la libertad,141993
+2023,3. libertad sexual,21825
+2023,3.1.-agresion sexual,12727
+2023,3.2.-agresion sexual con penetracion,4890
+2023,3.3.-corrupcion de menores o incapacitados,389
+2023,3.4.-pornografia de menores,909
+2023,3.5.-otros contra la libertad sexual,2910
+2023,4. relaciones familiares,7611
+2023,5. patrimonio,1846821
+2023,5.1.-hurtos,665622
+2023,5.2.-robos con fuerza en las cosas,272638
+2023,5.2.1.-robos con fuerza en las cosas en el interior de vehiculos,104988
+2023,5.2.2.-robos con fuerza en viviendas,84721
+2023,5.2.3.-robos con fuerza en establecimientos,35072
+2023,5.3.-robos con violencia o intimidacion,64711
+2023,5.3.1.-robos con violencia en via publica,44406
+2023,5.3.2.-robos con violencia en viviendas,3844
+2023,5.3.3.-robos con violencia en establecimientos,8238
+2023,5.4.-sustraccion de vehiculos,32839
+2023,5.5.-estafas,527836
+2023,5.5.1.-estafas informaticas,423055
+2023,5.6.-danos,209299
+2023,5.7.-contra la propiedad intelectual/industrial,1451
+2023,5.8.-blanqueo de capitales,516
+2023,5.9.-otros contra el patrimonio,66366
+2023,6. seguridad colectiva,77130
+2023,6.1.-trafico de drogas,21033
+2023,6.2.-contra la seguridad vial,53517
+2023,6.3.-otros contra la seguridad colectiva,2580
+2023,7. falsedades,40889
+2023,8. admon. publica,506
+2023,9. admon. justicia,41910

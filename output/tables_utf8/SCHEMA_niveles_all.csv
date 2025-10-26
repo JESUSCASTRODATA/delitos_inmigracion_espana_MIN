@@ -1,0 +1,10 @@
+col,n_na,class
+x,0,character
+y,0,character
+pearson_r,0,numeric
+pearson_p,0,numeric
+n,0,numeric
+spearman_r,0,numeric
+spearman_p,0,numeric
+kendall_r,0,numeric
+kendall_p,0,numeric

@@ -1,244 +1,323 @@
 #!/usr/bin/env Rscript
 # -*- coding: UTF-8 -*-
-###############################################################################
+################################################################################
 # 02_config_diccionarios_y_excepciones.R
-# Objetivo: crear/actualizar configuraciones a partir de diagnostics/uniques_*
 #
-# Salidas requeridas:
-#   - config/map_tipologias.csv     (raw_tipo, propuesta_tipo)
-#   - config/map_regiones.csv       (raw_region, propuesta_region)
-#   - config/qa_excepciones_he_vs_hc.csv  (ano, tipo) ← desde qa_sugerencia_whitelist.csv si existe
+# Objetivo:
+#   - Detectar y proponer mapeos canónicos para REGIONES y TIPOLOGÍAS a partir
+#     de los RAW (HE y HC), preservando mapeos existentes en config/.
+#   - Generar/actualizar whitelist de excepciones HE > HC (por tipología/año)
+#     cuando el exceso es pequeño (tolerancia), o si el usuario ya las definió.
 #
-# QA: formato, duplicados, minúsculas/ASCII en propuestas.
+# Entradas (opcionales pero recomendadas):
+#   data/raw/hechos_esclarecidos.csv
+#   data/raw/hechos_conocidos.csv
+#   data/processed/hechos_conocidos_total_nacional.csv
 #
-# Notas:
-#   - Lee diagnostics/uniques_*.csv para identificar columnas candidatas.
-#   - Para obtener el universo completo de valores, re-lee el RAW asociado
-#     (data/raw/<dataset>.csv) y extrae valores únicos de columnas de región y tipología.
-#   - Si ya existen config/*.csv, hace merge incremental y de-duplica.
-###############################################################################
+# Config leída/escrita:
+#   config/map_regiones.csv                  (raw_region, propuesta_region)
+#   config/map_tipologias.csv                (raw_tipo,   propuesta_tipo)
+#   config/qa_excepciones_he_vs_hc.csv       (ano, tipo, motivo)
+#
+# Salidas de QC:
+#   output/tables/02_dicc_resumen.csv
+#   output/tables/02_dicc_conflictos.csv
+#   output/tables/02_dicc_nuevos_pendientes.csv
+#   output/tables/02_whitelist_sugerencias.csv
+#
+# Proyecto : Delitos e Inmigración en España (2010–2023)
+# Autor    : Jesús Castro · JESUSCASTRODATA
+# Licencia : MIT (código) · CC BY 4.0 (docs/figuras)
+# Fecha    : 2025-10-01
+################################################################################
 
 suppressPackageStartupMessages({
-  library(dplyr)
-  library(readr)
-  library(tidyr)
-  library(stringr)
-  library(janitor)
-  library(purrr)
-  library(here)
+  library(dplyr); library(readr); library(stringr); library(tidyr)
+  library(janitor); library(here); library(purrr); library(tibble); library(fs)
 })
 
-# ————————————————————————————————————————————————————————————————
-# Utilidades del proyecto
-# ————————————————————————————————————————————————————————————————
-source_if <- function(path) { if (file.exists(path)) source(path, local = TRUE) }
-source_if(here::here("R", "00_utils_limpieza.R"))
-source_if(here::here("scripts", "00_utils_limpieza.R"))
+# ───────── Parámetros ─────────
+YEAR_MIN <- 2010L; YEAR_MAX <- 2023L
+TOLERANCIA_REL  <- as.numeric(Sys.getenv("HE_HC_TOL_REL", "0.02"))  # 2%
+TOLERANCIA_ABS  <- as.numeric(Sys.getenv("HE_HC_TOL_ABS", "25"))    # 25 casos
+QUIET <- as.logical(Sys.getenv("QUIET", "FALSE"))
+msg <- function(...) if (!QUIET) message("[02] ", paste0(...))
 
-# Fallback mínimos si 00_utils no se cargó
-if (!exists("abort")) abort <- function(...) stop(paste0(...), call. = FALSE)
-if (!exists("write_clean")) write_clean <- function(df, path, na = ""){ dir.create(dirname(path), TRUE, TRUE); readr::write_csv(df, path, na = na); message("Escrito: ", normalizePath(path, winslash = "/")); invisible(path) }
-if (!exists("read_raw")) read_raw <- function(path){ readr::read_delim(path, delim = ";", col_types = readr::cols(.default = readr::col_character()), show_col_types = FALSE) |> janitor::clean_names() }
-
-normalize_text <- function(x) {
-  x <- stringr::str_trim(tolower(as.character(x)))
-  x <- iconv(x, from = "UTF-8", to = "ASCII//TRANSLIT")
-  x <- stringr::str_squish(x)
-  x
-}
-
-# ————————————————————————————————————————————————————————————————
-# Rutas
-# ————————————————————————————————————————————————————————————————
-if (requireNamespace("here", quietly = TRUE)) {
-  here_path <- function(...) here::here(...)
-} else {
-  base_root <- getwd()
-  message("Paquete 'here' no disponible; usando getwd(): ", base_root)
-  here_path <- function(...) file.path(base_root, ...)
-}
-
-in_diag   <- here_path("diagnostics")
-raw_dir   <- here_path("data", "raw")
-config_dir<- here_path("config")
-qa_dir    <- here_path("output", "tables")
-
-if (!dir.exists(in_diag)) abort("No existe carpeta diagnostics/: ", in_diag)
-if (!dir.exists(raw_dir)) abort("No existe carpeta data/raw/: ", raw_dir)
-
-dir.create(config_dir, recursive = TRUE, showWarnings = FALSE)
-
-glob_uniques <- list.files(in_diag, pattern = "^uniques_.*\\.csv$", full.names = TRUE)
-if (!length(glob_uniques)) abort("No hay diagnostics/uniques_*.csv. Ejecuta 01_validacion_raw.R primero.")
-
-# ————————————————————————————————————————————————————————————————
-# 1) Identificar columnas de región y tipología por dataset
-# ————————————————————————————————————————————————————————————————
-pattern_region <- "comun|ccaa|autono|territ|ambito|ámbito|region|prov|municip"
-pattern_tipo   <- "tipolog|delit|infracc|\\btipo\\b"
-
-# Dado el archivo uniques_X.csv, intentamos leer data/raw/X.csv
-raw_fp_from_uniques <- function(uni_path) {
-  base <- gsub("^uniques_", "", basename(uni_path))
-  base <- gsub("\\.csv$", "", base)
-  file.path(raw_dir, paste0(base, ".csv"))
-}
-
-collect_uniques <- function(fp_raw) {
-  if (!file.exists(fp_raw)) return(list(regiones = character(), tipos = character()))
-  df <- read_raw(fp_raw)
-  nms <- names(df)
-  cols_region <- nms[grepl(pattern_region, nms, ignore.case = TRUE)]
-  cols_tipo   <- nms[grepl(pattern_tipo,   nms, ignore.case = TRUE)]
-  
-  vals_region <- c()
-  vals_tipo   <- c()
-  if (length(cols_region)) {
-    vals_region <- df[, cols_region, drop = FALSE] |>
-      tidyr::pivot_longer(everything(), names_to = "col", values_to = "val") |>
-      dplyr::pull(val) |> unique() |> na.omit() |> as.character()
-  }
-  if (length(cols_tipo)) {
-    vals_tipo <- df[, cols_tipo, drop = FALSE] |>
-      tidyr::pivot_longer(everything(), names_to = "col", values_to = "val") |>
-      dplyr::pull(val) |> unique() |> na.omit() |> as.character()
-  }
-  list(regiones = vals_region, tipos = vals_tipo)
-}
-
-all_regions <- character()
-all_tipos   <- character()
-
-for (u in glob_uniques) {
-  fp_raw <- raw_fp_from_uniques(u)
-  out <- try(collect_uniques(fp_raw), silent = TRUE)
-  if (inherits(out, "try-error")) next
-  all_regions <- c(all_regions, out$regiones)
-  all_tipos   <- c(all_tipos,   out$tipos)
-}
-
-all_regions <- unique(na.omit(all_regions))
-all_tipos   <- unique(na.omit(all_tipos))
-
-# Filtrar ruidos típicos
-is_noise <- function(x) {
+# ───────── Helpers ─────────
+lower_noacc <- function(x){
   x0 <- tolower(trimws(as.character(x)))
-  x0 == "" | x0 %in% c("na","n/a","-","—","sd","s/d","desconocido","desconocida")
+  y  <- suppressWarnings(iconv(x0, to = "ASCII//TRANSLIT"))
+  y[is.na(y)] <- x0[is.na(y)]
+  stringr::str_squish(y)
 }
-all_regions <- all_regions[!is_noise(all_regions)]
-all_tipos   <- all_tipos[!is_noise(all_tipos)]
+extract_year <- function(x) suppressWarnings(as.integer(stringr::str_extract(as.character(x), "[12][0-9]{3}")))
+parse_num_es <- function(x){
+  if (is.numeric(x)) return(as.numeric(x))
+  x0 <- trimws(gsub("[\u00A0\r\n\t]+"," ", as.character(x)))
+  x0 <- ifelse(x0 %in% c("..",".",":","-",""), NA_character_, x0)
+  x0 <- gsub("\\.", "", x0); x0 <- gsub(",", ".", x0)
+  suppressWarnings(as.numeric(x0))
+}
+pick_col <- function(nms, patterns){
+  ix <- unique(unlist(lapply(patterns, function(p) stringr::str_which(nms, stringr::regex(p, ignore_case = TRUE)))))
+  if (length(ix)) nms[ix[1]] else NA_character_
+}
 
-# ————————————————————————————————————————————————————————————————
-# 2) Propuestas de normalización (ASCII/minúsculas)
-# ————————————————————————————————————————————————————————————————
-map_regiones <- tibble::tibble(
-  raw_region = sort(unique(all_regions)),
-  propuesta_region = normalize_text(raw_region)
-) |>
+# ───────── Rutas ─────────
+fs::dir_create(here::here("config"))
+fs::dir_create(here::here("output","tables"))
+
+fp_he_raw  <- here::here("data","raw","hechos_esclarecidos.csv")
+fp_hc_raw  <- here::here("data","raw","hechos_conocidos.csv")
+fp_hc_tot  <- here::here("data","processed","hechos_conocidos_total_nacional.csv")
+
+fp_map_reg <- here::here("config","map_regiones.csv")
+fp_map_tip <- here::here("config","map_tipologias.csv")
+fp_wl      <- here::here("config","qa_excepciones_he_vs_hc.csv")
+
+# ───────── Canon región (sugerencias) ─────────
+REG_CANON <- c(
+  "ANDALUCÍA","ARAGÓN","ASTURIAS","BALEARES","CANARIAS","CANTABRIA","CASTILLA Y LEÓN",
+  "CASTILLA-LA MANCHA","CATALUÑA","COMUNITAT VALENCIANA","EXTREMADURA","GALICIA",
+  "LA RIOJA","COMUNIDAD DE MADRID","REGIÓN DE MURCIA","NAVARRA","PAÍS VASCO",
+  "CEUTA","MELILLA","TOTAL NACIONAL","ESPAÑA","ESPANA","TOTAL"
+)
+canon_region <- function(x){
+  k <- lower_noacc(x)
+  k <- gsub("\\s+", " ", k); k <- gsub("-", " ", k)
+  k <- gsub("castilla y leon", "CASTILLA Y LEÓN", k, fixed = TRUE)
+  k <- gsub("castilla la mancha", "CASTILLA-LA MANCHA", k, fixed = TRUE)
+  k <- gsub("comunidad de madrid", "COMUNIDAD DE MADRID", k, fixed = TRUE)
+  k <- gsub("comunitat valenciana|valenciana", "COMUNITAT VALENCIANA", k)
+  k <- gsub("pais vasco|país vasco", "PAÍS VASCO", k)
+  k <- gsub("illes balears|islas baleares|baleares", "BALEARES", k)
+  k <- gsub("cataluna|cataluña", "CATALUÑA", k)
+  k <- gsub("region de murcia|regi[oó]n de murcia", "REGIÓN DE MURCIA", k)
+  k <- gsub("^espana$|^españa$|^total nacional$|^total$", "TOTAL NACIONAL", k)
+  cand <- toupper(k)
+  ifelse(cand %in% REG_CANON, cand, NA_character_)
+}
+sugiere_tipo <- function(x){
+  z <- lower_noacc(x); z <- gsub("\\s{2,}", " ", z); stringr::str_to_title(z)
+}
+
+# ───────── Lecturas RAW (si existen) ─────────
+leer_raw_if <- function(fp){
+  if (!file.exists(fp)) return(NULL)
+  suppressMessages(
+    readr::read_delim(fp, delim = ";", show_col_types = FALSE,
+                      col_types = readr::cols(.default = readr::col_character()),
+                      trim_ws = TRUE) |> janitor::clean_names()
+  )
+}
+he_raw <- leer_raw_if(fp_he_raw)
+hc_raw <- leer_raw_if(fp_hc_raw)
+
+# ───────── Diccionario de REGIONES ─────────
+get_reg_values <- function(df){
+  if (is.null(df)) return(character())
+  nms <- names(df)
+  col_reg <- pick_col(nms, c("comun|ccaa|autono|region|ámbito|ambito|prov|municip"))
+  if (is.na(col_reg)) return(character())
+  sort(unique(na.omit(df[[col_reg]])))
+}
+reg_vals <- unique(c(get_reg_values(he_raw), get_reg_values(hc_raw)))
+reg_df_new <- tibble::tibble(raw_region = reg_vals) |>
+  dplyr::mutate(propuesta_region = canon_region(raw_region))
+
+map_reg_old <- if (file.exists(fp_map_reg)) readr::read_csv(fp_map_reg, show_col_types = FALSE) |> janitor::clean_names() else tibble::tibble(raw_region=character(), propuesta_region=character())
+map_reg <- map_reg_old |>
+  dplyr::bind_rows(dplyr::anti_join(reg_df_new, map_reg_old, by = "raw_region")) |>
   dplyr::arrange(raw_region)
 
-map_tipologias <- tibble::tibble(
-  raw_tipo = sort(unique(all_tipos)),
-  propuesta_tipo = normalize_text(raw_tipo)
-) |>
+# ───────── Diccionario de TIPOLOGÍAS ─────────
+get_tipo_values <- function(df){
+  if (is.null(df)) return(character())
+  nms <- names(df)
+  col_tip <- pick_col(nms, c("tipolog|delit|infracc|\\btipo\\b|categoria"))
+  if (is.na(col_tip)) return(character())
+  sort(unique(na.omit(df[[col_tip]])))
+}
+tipo_vals <- unique(c(get_tipo_values(he_raw), get_tipo_values(hc_raw)))
+tip_df_new <- tibble::tibble(raw_tipo = tipo_vals) |>
+  dplyr::mutate(propuesta_tipo = sugiere_tipo(raw_tipo))
+
+map_tip_old <- if (file.exists(fp_map_tip)) readr::read_csv(fp_map_tip, show_col_types = FALSE) |> janitor::clean_names() else tibble::tibble(raw_tipo=character(), propuesta_tipo=character())
+map_tip <- map_tip_old |>
+  dplyr::bind_rows(dplyr::anti_join(tip_df_new, map_tip_old, by = "raw_tipo")) |>
   dplyr::arrange(raw_tipo)
 
-# ————————————————————————————————————————————————————————————————
-# 3) Merge con configuraciones existentes (si las hay)
-# ————————————————————————————————————————————————————————————————
-fp_map_reg <- here_path("config", "map_regiones.csv")
-fp_map_tip <- here_path("config", "map_tipologias.csv")
+# ───────── Escritura de diccionarios ─────────
+readr::write_csv(map_reg, fp_map_reg, na = "")
+readr::write_csv(map_tip, fp_map_tip, na = "")
+msg("Diccionarios actualizados: config/map_regiones.csv, config/map_tipologias.csv")
 
-if (file.exists(fp_map_reg)) {
-  old_reg <- readr::read_csv(fp_map_reg, show_col_types = FALSE) |> janitor::clean_names()
-  # admitir viejos nombres de columnas
-  colnames(old_reg) <- sub("^region$", "raw_region", colnames(old_reg))
-  colnames(old_reg) <- sub("^propuesta$", "propuesta_region", colnames(old_reg))
-  if (!all(c("raw_region","propuesta_region") %in% names(old_reg))) {
-    warning("map_regiones.csv existente con columnas inesperadas; se conservarán nuevas columnas estandar.")
-  } else {
-    map_regiones <- dplyr::bind_rows(old_reg |> dplyr::select(raw_region, propuesta_region), map_regiones) |>
-      dplyr::distinct(raw_region, .keep_all = TRUE)
-  }
-}
+# ───────── QC diccionarios (conflictos/pendientes) ─────────
+conf_reg <- map_reg %>%
+  dplyr::mutate(rkey = lower_noacc(raw_region)) %>%
+  dplyr::group_by(rkey) %>%
+  dplyr::filter(dplyr::n_distinct(propuesta_region, na.rm = TRUE) > 1) %>%
+  dplyr::arrange(rkey) %>%
+  dplyr::ungroup()
 
-if (file.exists(fp_map_tip)) {
-  old_tip <- readr::read_csv(fp_map_tip, show_col_types = FALSE) |> janitor::clean_names()
-  colnames(old_tip) <- sub("^tipo$", "raw_tipo", colnames(old_tip))
-  colnames(old_tip) <- sub("^propuesta$", "propuesta_tipo", colnames(old_tip))
-  if (!all(c("raw_tipo","propuesta_tipo") %in% names(old_tip))) {
-    warning("map_tipologias.csv existente con columnas inesperadas; se conservarán nuevas columnas estandar.")
-  } else {
-    map_tipologias <- dplyr::bind_rows(old_tip |> dplyr::select(raw_tipo, propuesta_tipo), map_tipologias) |>
-      dplyr::distinct(raw_tipo, .keep_all = TRUE)
-  }
-}
+conf_tip <- map_tip %>%
+  dplyr::mutate(tkey = lower_noacc(raw_tipo)) %>%
+  dplyr::group_by(tkey) %>%
+  dplyr::filter(dplyr::n_distinct(propuesta_tipo,   na.rm = TRUE) > 1) %>%
+  dplyr::arrange(tkey) %>%
+  dplyr::ungroup()
 
-# ————————————————————————————————————————————————————————————————
-# 4) QA de duplicados y normalización
-# ————————————————————————————————————————————————————————————————
-# Duplicados por propuesta (varios raw → misma propuesta)
-qa_dup_reg <- map_regiones |>
-  dplyr::count(propuesta_region, name = "n") |>
-  dplyr::filter(n > 1)
-qa_dup_tip <- map_tipologias |>
-  dplyr::count(propuesta_tipo, name = "n") |>
-  dplyr::filter(n > 1)
+pend_reg <- map_reg %>% dplyr::filter(is.na(propuesta_region) | propuesta_region == "")
+pend_tip <- map_tip %>% dplyr::filter(is.na(propuesta_tipo)   | propuesta_tipo   == "")
 
-# Guardar QA (informativo)
-qa_out_dir <- here_path("output", "tables")
-dir.create(qa_out_dir, recursive = TRUE, showWarnings = FALSE)
-if (nrow(qa_dup_reg) > 0) write_clean(qa_dup_reg, file.path(qa_out_dir, "qa_map_regiones_duplicados.csv"))
-if (nrow(qa_dup_tip) > 0) write_clean(qa_dup_tip, file.path(qa_out_dir, "qa_map_tipologias_duplicados.csv"))
+write_clean(
+  dplyr::bind_rows(
+    conf_reg %>%
+      dplyr::mutate(diccionario = "regiones") %>%
+      dplyr::select(diccionario, raw = raw_region, propuestas = propuesta_region),
+    conf_tip %>%
+      dplyr::mutate(diccionario = "tipologias") %>%
+      dplyr::select(diccionario, raw = raw_tipo, propuestas = propuesta_tipo)
+  ),
+  here::here("output","tables","02_dicc_conflictos.csv")
+)
 
-# ————————————————————————————————————————————————————————————————
-# 5) Escribir configuraciones
-# ————————————————————————————————————————————————————————————————
-map_regiones |>
-  dplyr::arrange(propuesta_region, raw_region) |>
-  write_clean(fp_map_reg)
+write_clean(
+  dplyr::bind_rows(
+    pend_reg %>%
+      dplyr::mutate(diccionario = "regiones") %>%
+      dplyr::select(diccionario, raw = raw_region),
+    pend_tip %>%
+      dplyr::mutate(diccionario = "tipologias") %>%
+      dplyr::select(diccionario, raw = raw_tipo)
+  ),
+  here::here("output","tables","02_dicc_nuevos_pendientes.csv")
+)
 
-map_tipologias |>
-  dplyr::arrange(propuesta_tipo, raw_tipo) |>
-  write_clean(fp_map_tip)
+# ───────── Whitelist HE vs HC (sugerencias) ─────────
+sugerencias <- tibble::tibble()
 
-message("✔ map_regiones.csv y map_tipologias.csv actualizados en config/.")
-
-# ————————————————————————————————————————————————————————————————
-# 6) Construir qa_excepciones_he_vs_hc.csv a partir de sugerencias
-# ————————————————————————————————————————————————————————————————
-fp_sug <- here_path("output", "tables", "qa_sugerencia_whitelist.csv")
-fp_wl  <- here_path("config", "qa_excepciones_he_vs_hc.csv")
-
-wl_new <- tibble::tibble(ano = integer(), tipo = character())
-if (file.exists(fp_sug)) {
-  sug <- readr::read_csv(fp_sug, show_col_types = FALSE) |> janitor::clean_names()
-  if (all(c("ano","tipo") %in% names(sug))) {
-    wl_new <- sug |> dplyr::select(ano, tipo) |> dplyr::mutate(ano = as.integer(ano), tipo = as.character(tipo)) |> dplyr::distinct()
-  }
-}
-
-if (file.exists(fp_wl)) {
-  wl_old <- readr::read_csv(fp_wl, show_col_types = FALSE) |> janitor::clean_names()
-  if (all(c("ano","tipo") %in% names(wl_old))) {
-    wl_old <- wl_old |>
+if (!is.null(he_raw)) {
+  # HE normalizado
+  col_reg_he <- pick_col(names(he_raw), c("comun|ccaa|autono|region|ámbito|ambito|prov|municip"))
+  col_tip_he <- pick_col(names(he_raw), c("tipolog|delit|infracc|\\btipo\\b|categoria"))
+  col_per_he <- pick_col(names(he_raw), c("period|fecha|ano|año|anio"))
+  col_val_he <- pick_col(names(he_raw), c("^total$|valor|numero|n$"))
+  
+  if (all(!is.na(c(col_reg_he, col_tip_he, col_per_he, col_val_he)))) {
+    he_norm <- he_raw %>%
+      dplyr::transmute(
+        region_raw = .data[[col_reg_he]],
+        tipo_raw   = .data[[col_tip_he]],
+        ano        = extract_year(.data[[col_per_he]]),
+        he         = parse_num_es(.data[[col_val_he]])
+      ) %>%
+      dplyr::left_join(map_reg %>% dplyr::transmute(raw_region, propuesta_region),
+                       by = c("region_raw" = "raw_region")) %>%
+      dplyr::left_join(map_tip %>% dplyr::transmute(raw_tipo,   propuesta_tipo),
+                       by = c("tipo_raw"   = "raw_tipo")) %>%
       dplyr::mutate(
-        ano = suppressWarnings(as.integer(extract_year(ano))),
-        tipo = as.character(tipo)
-      ) |>
-      dplyr::filter(!is.na(ano), nzchar(tipo)) |>
-      dplyr::distinct(ano, tipo)
-    wl_new <- dplyr::bind_rows(wl_old, wl_new) |>
-      dplyr::distinct(ano, tipo)
+        region = dplyr::coalesce(propuesta_region, region_raw),
+        tipo   = dplyr::coalesce(propuesta_tipo,   tipo_raw)
+      ) %>%
+      dplyr::filter(!is.na(ano), dplyr::between(ano, YEAR_MIN, YEAR_MAX), !is.na(he))
+    
+    # Preferir TOTAL del RAW si existe; si no, sumar CCAA
+    agg_nacional_por_tipo <- function(df, val_col) {
+      df %>%
+        dplyr::mutate(region_up = toupper(region),
+                      es_total  = region_up %in% c("TOTAL NACIONAL","TOTAL","ESPAÑA","ESPANA")) %>%
+        dplyr::group_by(ano, tipo) %>%
+        dplyr::summarise(
+          valor = if (any(es_total, na.rm = TRUE)) {
+            sum(.data[[val_col]][es_total], na.rm = TRUE)
+          } else {
+            sum(.data[[val_col]][!es_total], na.rm = TRUE)
+          },
+          .groups = "drop"
+        )
+    }
+    he_nac_tipo <- agg_nacional_por_tipo(he_norm, "he") %>% dplyr::rename(he = valor)
+    
+    # HC por tipo (ideal desde RAW)
+    hc_nac_tipo <- tibble::tibble()
+    if (!is.null(hc_raw)) {
+      col_reg_hc <- pick_col(names(hc_raw), c("comun|ccaa|autono|region|ámbito|ambito|prov|municip"))
+      col_tip_hc <- pick_col(names(hc_raw), c("tipolog|delit|infracc|\\btipo\\b|categoria"))
+      col_per_hc <- pick_col(names(hc_raw), c("period|fecha|ano|año|anio"))
+      col_val_hc <- pick_col(names(hc_raw), c("^total$|valor|numero|n$"))
+      
+      if (all(!is.na(c(col_reg_hc, col_tip_hc, col_per_hc, col_val_hc)))) {
+        hc_norm <- hc_raw %>%
+          dplyr::transmute(
+            region_raw = .data[[col_reg_hc]],
+            tipo_raw   = .data[[col_tip_hc]],
+            ano        = extract_year(.data[[col_per_hc]]),
+            hc         = parse_num_es(.data[[col_val_hc]])
+          ) %>%
+          dplyr::left_join(map_reg %>% dplyr::transmute(raw_region, propuesta_region),
+                           by = c("region_raw" = "raw_region")) %>%
+          dplyr::left_join(map_tip %>% dplyr::transmute(raw_tipo,   propuesta_tipo),
+                           by = c("tipo_raw"   = "raw_tipo")) %>%
+          dplyr::mutate(
+            region = dplyr::coalesce(propuesta_region, region_raw),
+            tipo   = dplyr::coalesce(propuesta_tipo,   tipo_raw)
+          ) %>%
+          dplyr::filter(!is.na(ano), dplyr::between(ano, YEAR_MIN, YEAR_MAX), !is.na(hc))
+        
+        hc_nac_tipo <- agg_nacional_por_tipo(hc_norm, "hc") %>% dplyr::rename(hc = valor)
+      }
+    }
+    
+    if (nrow(hc_nac_tipo)) {
+      comp <- he_nac_tipo %>%
+        dplyr::full_join(hc_nac_tipo, by = c("ano","tipo")) %>%
+        dplyr::filter(!is.na(he) & !is.na(hc)) %>%
+        dplyr::mutate(
+          delta = he - hc,
+          rel   = dplyr::if_else(hc > 0, delta / hc, NA_real_),
+          supera = delta > 0
+        )
+      
+      sugerencias <- comp %>%
+        dplyr::filter(supera, (rel <= TOLERANCIA_REL | delta <= TOLERANCIA_ABS)) %>%
+        dplyr::transmute(
+          ano,
+          tipo,
+          motivo = paste0("supera_por_poco (Δ=", delta, ", rel=", round(rel*100,2), "%)")
+        )
+    } else if (file.exists(fp_hc_tot)) {
+      hc_tot <- readr::read_csv(fp_hc_tot, show_col_types = FALSE) %>%
+        janitor::clean_names() %>%
+        dplyr::transmute(ano = as.integer(ano), hc_total = parse_num_es(total)) %>%
+        dplyr::filter(!is.na(ano), dplyr::between(ano, YEAR_MIN, YEAR_MAX))
+      he_tot <- he_nac_tipo %>% dplyr::group_by(ano) %>% dplyr::summarise(he_total = sum(he, na.rm = TRUE), .groups = "drop")
+      comp2 <- he_tot %>% dplyr::inner_join(hc_tot, by = "ano") %>%
+        dplyr::mutate(delta = he_total - hc_total, rel = dplyr::if_else(hc_total > 0, delta/hc_total, NA_real_))
+      sugerencias <- comp2 %>%
+        dplyr::filter(delta > 0, (rel <= TOLERANCIA_REL | delta <= TOLERANCIA_ABS)) %>%
+        dplyr::transmute(ano, tipo = "(TOTAL)", motivo = paste0("supera_por_poco (Δ=", delta, ", rel=", round(rel*100,2), "%)"))
+    }
   }
 }
 
+# ───────── Fusionar whitelist ─────────
+wl_old <- if (file.exists(fp_wl)) readr::read_csv(fp_wl, show_col_types = FALSE) %>% janitor::clean_names() else tibble::tibble(ano=integer(), tipo=character(), motivo=character())
+wl_new <- dplyr::bind_rows(wl_old, dplyr::anti_join(sugerencias, wl_old, by = c("ano","tipo"))) %>% dplyr::arrange(ano, tipo)
 
-# Escribe aunque esté vacío (mantener cabeceras)
-wl_new |>
-  dplyr::arrange(ano, tipo) |>
-  write_clean(fp_wl)
+readr::write_csv(wl_new, fp_wl, na = "")
+write_clean(sugerencias, here::here("output","tables","02_whitelist_sugerencias.csv"))
 
-message("✔ qa_excepciones_he_vs_hc.csv actualizado en config/.")
+# ───────── Resumen final ─────────
+qc_resumen <- tibble::tibble(
+  diccionario = c("regiones","tipologias"),
+  filas_total = c(nrow(map_reg), nrow(map_tip)),
+  pendientes  = c(nrow(pend_reg), nrow(pend_tip)),
+  conflictos  = c(nrow(conf_reg), nrow(conf_tip))
+)
+write_clean(qc_resumen, here::here("output","tables","02_dicc_resumen.csv"))
 
-# Fin
+msg("Diccionarios -> 02_dicc_resumen.csv; pendientes -> 02_dicc_nuevos_pendientes.csv; conflictos -> 02_dicc_conflictos.csv")
+msg("Whitelist actualizada -> config/qa_excepciones_he_vs_hc.csv (sugerencias en 02_whitelist_sugerencias.csv)")
+msg("✅ 02_config_diccionarios_y_excepciones completado.")
+
