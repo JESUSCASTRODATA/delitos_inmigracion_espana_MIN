@@ -16,21 +16,37 @@ output:
 
 <p align="center">
 
-[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.17465216.svg)](https://doi.org/10.5281/zenodo.17465216)
-[![Code: MIT](https://img.shields.io/badge/Code-MIT-blue.svg)](../LICENSE)
-[![Docs: CC BY 4.0](https://img.shields.io/badge/Docs-CC%20BY%204.0-brightgreen.svg)](../LICENSE-DOCS-CC-BY-4.0.md)
-[![Data: Public Sources](https://img.shields.io/badge/Data-Official%20Sources-lightblue.svg)](../docs/DATOS_Y_LICENCIAS.md)
-![Reproducibility: renv](https://img.shields.io/badge/Reproducibility-renv-success.svg)
-![R >= 4.3](https://img.shields.io/badge/R-%3E%3D%204.3-276DC3.svg)
-![Quarto/RMarkdown](https://img.shields.io/badge/Quarto%2FRMarkdown-supported-lightgrey.svg)
-![ggplot2](https://img.shields.io/badge/Visualization-ggplot2-orange.svg)
-![Open Science](https://img.shields.io/badge/Open%20Science-transparent-green.svg)
-![Status: Active](https://img.shields.io/badge/Status-active-brightgreen.svg)
-![Version: dev](https://img.shields.io/badge/Version-dev-yellow.svg)
+  <!-- DOI -->
+  <a href="https://doi.org/10.5281/zenodo.17465216">
+    <img src="https://zenodo.org/badge/DOI/10.5281/zenodo.17465216.svg" alt="DOI">
+  </a>
+  
+  <!-- Licencias -->
+  <a href="../LICENSE">
+    <img src="https://img.shields.io/badge/Code-MIT-blue.svg" alt="License: MIT">
+  </a>
+  <a href="../LICENSE-DOCS-CC-BY-4.0.md">
+    <img src="https://img.shields.io/badge/Docs-CC%20BY%204.0-brightgreen.svg" alt="Docs License: CC BY 4.0">
+  </a>
+  <a href="../docs/DATOS_Y_LICENCIAS.md">
+    <img src="https://img.shields.io/badge/Data-Official%20Sources-lightblue.svg" alt="Data: Official Sources">
+  </a>
 
-![Data: original sources](https://img.shields.io/badge/Data-original%20sources-blue.svg)
+  <!-- Reproducibilidad y entorno -->
+  <img src="https://img.shields.io/badge/Reproducibility-renv-success.svg" alt="Reproducibility: renv">
+  <img src="https://img.shields.io/badge/R-%3E%3D%204.3-276DC3.svg" alt="R >= 4.3">
+  <img src="https://img.shields.io/badge/Quarto%2FRMarkdown-supported-lightgrey.svg" alt="Quarto/RMarkdown Supported">
+
+  <!-- Visualización -->
+  <img src="https://img.shields.io/badge/Visualization-ggplot2-orange.svg" alt="Visualization: ggplot2">
+
+  <!-- Ciencia abierta y estado -->
+  <img src="https://img.shields.io/badge/Open%20Science-transparent-green.svg" alt="Open Science">
+  <img src="https://img.shields.io/badge/Status-active-brightgreen.svg" alt="Status: Active">
+  <img src="https://img.shields.io/badge/Version-dev-yellow.svg" alt="Version: dev">
 
 </p>
+
 
 ---
 ---
@@ -198,69 +214,127 @@ Muestra anual corta (14 obs.); agregación nacional; posibles variables omitidas
 
 #  Resultados descriptivos — Niveles y variaciones
 
-##  Tendencias base‑100: HC, HE y % extranjeros (sombreado COVID)
+## Tendencias base-100: Hechos conocidos, esclarecidos y % extranjeros
 
-```{r fig-tendencias, fig.cap='Tendencias base-100: HC, HE y % extranjeros (sombreado COVID)'}
+```{r fig-tendencias-base100, fig.cap='Tendencias base-100: Hechos conocidos, esclarecidos y % extranjeros (base = primer año disponible)'}
 inc_fig("../output/figures/01_tendencias_base100.png")
 ```
 
+> Muestra la evolución relativa (índice base = 100) de tres series nacionales:
+> **hechos conocidos**, **hechos esclarecidos** y **porcentaje de población extranjera**.
+> Permite observar cómo, pese a la caída general entre 2010-2016, las tres variables repuntan desde 2017 y sufren una interrupción durante el periodo **COVID-19 (2020-2021)**, antes de recuperarse con fuerza.
+
+
+
 ##  Correlaciones en variaciones — sin COVID (2010–2019 & 2022–2023)
+
 
 ```{r fig-corr-deltas-sin-covid, fig.cap='Correlaciones en variaciones (Δ) — ventana sin COVID'}
 inc_fig("../output/figures/03_corr_deltas_sin_covid.png")
 ```
 
-##  Correlaciones en variaciones — ventana total (2010–2023)
+> Representa la matriz de correlaciones entre las variaciones anuales (Δ) de las principales variables: tasas de **hechos conocidos**, **hechos esclarecidos** y **porcentaje de población extranjera**.
+> Se observa una asociación elevada (r≈0.8–0.9) entre los cambios en la proporción de extranjeros y las variaciones en las tasas de criminalidad, lo que sugiere una co-movilidad significativa en la ventana sin COVID (2010–2019 & 2022–2023).
+
+
+## Correlaciones en variaciones — ventana total (2010–2023)
 
 ```{r fig-corr-deltas-total, fig.cap='Correlaciones en variaciones (Δ) — ventana total (2010–2023)'}
 inc_fig("../output/figures/03_corr_deltas_total.png")
 ```
 
-##  Δ HC por 100k vs Δ % extranjeros — todo el periodo
+> Refleja las correlaciones entre las variaciones anuales (Δ) de las principales variables a lo largo de todo el periodo 2010–2023, incluyendo los años COVID.
+> La fuerza de las asociaciones se debilita respecto a la ventana sin COVID, debido a la disrupción excepcional de 2020–2021, que alteró simultáneamente tanto la movilidad como la actividad delictiva registrada.
+> Aun así, las correlaciones positivas entre los cambios en % de extranjeros y las tasas de criminalidad se mantienen, aunque con menor intensidad.
+
+
+## Δ HC por 100k vs Δ % extranjeros — todo el periodo
 
 ```{r fig-delta-hc-vs-delta-pct, fig.cap='Δ HC por 100k vs Δ % extranjeros — todo el periodo'}
 inc_fig("../output/figures/20_del_d_tasa_hc_100k_vs_d_pct_extranjeros_all.png")
 ```
 
-##  Δ (5 delitos) vs Δ % extranjeros — excluye 2020–2021
+>Esta figura representa la relación entre los cambios anuales (Δ) en la tasa de *hechos conocidos* por 100.000 habitantes y la variación anual en el porcentaje de población extranjera, para todo el periodo 2010–2023.
+
+>Al incluir los años 2020–2021 (marcados por el impacto del COVID-19), la asociación lineal se debilita (*r* ≈ 0.27, *p* ≈ 0.38), reflejando un aumento de la volatilidad y una pérdida de co-movilidad respecto a la ventana sin COVID.
+
+> En términos descriptivos, el comportamiento atípico de 2020 y 2021 reduce la fuerza de la relación observada entre ambas variables.
+
+## Δ (5 delitos) vs Δ % extranjeros — excluye 2020–2021
 
 ```{r fig-5delitos-sin-covid, fig.cap='Δ (5 delitos) vs Δ % extranjeros — excluye 2020–2021'}
 inc_fig("../output/figures/32_dispersion_delta_nocovid.png")
 ```
 
-##  Δ (5 delitos) vs Δ % extranjeros — con 2020–2021
+
+>Cada panel representa la variación interanual de la tasa (por 100.000 habitantes) frente al cambio en el porcentaje de población extranjera para una tipología concreta de delito violento.
+
+>En la ventana sin COVID (2010–2019 y 2022–2023), las cinco tipologías muestran pendientes positivas: a medida que aumenta la proporción de extranjeros, también lo hace la tasa de estos delitos.
+
+>No obstante, las relaciones son descriptivas y deben interpretarse como **coevolución temporal**, no causalidad. Las tendencias podrían reflejar factores estructurales comunes, como cambios en la denuncia, la actividad económica o el control policial.
+
+
+## Δ (5 delitos) vs Δ % extranjeros — con 2020–2021
 
 ```{r fig-5delitos-con-covid, fig.cap='Δ (5 delitos) vs Δ % extranjeros — con 2020–2021'}
 inc_fig("../output/figures/32_dispersion_delta.png")
 ```
 
-##  Niveles: tasa HC (100k) vs % extranjeros — sin COVID
+
+>Al incluir los años **2020–2021**, el patrón de relación entre las variaciones en el porcentaje de población extranjera y las tasas de los cinco delitos seleccionados se vuelve **más irregular y disperso**. La pendiente positiva se atenúa, lo que indica que durante la pandemia —un periodo excepcional en movilidad, denuncias y operatividad policial— las series **perdieron sincronía temporal**, reduciendo la fuerza de la coevolución observada en periodos previos y posteriores.
+
+
+
+## Niveles: tasa HC (100k) vs % extranjeros — sin COVID
 
 ```{r fig-niv-hc-sin-covid, fig.cap='Niveles: tasa HC (100k) vs % extranjeros — sin COVID'}
 inc_fig("../output/figures/20_niv_tasa_hc_100k_vs_pct_extranjeros_sin_covid.png")
 ```
 
-##  Niveles: tasa HC (100k) vs % extranjeros — todo el periodo
+>Al excluir los años 2020–2021, la relación entre la tasa de *Hechos Conocidos* y el porcentaje de población extranjera es muy alta (*r* ≈ 0.96). Este resultado refleja una coevolución casi lineal en niveles, aunque no necesariamente causal, probablemente explicada por factores estructurales comunes como el crecimiento demográfico y la recuperación económica tras la crisis de 2008.
+
+
+## Niveles: tasa HC (100k) vs % extranjeros — todo el periodo
 
 ```{r fig-niv-hc-total, fig.cap='Niveles: tasa HC (100k) vs % extranjeros — todo el periodo'}
 inc_fig("../output/figures/20_niv_tasa_hc_100k_vs_pct_extranjeros_all.png")
 ```
 
-##  Estacionariedad por ventana y transformación (α = 5%)
+
+> En el periodo completo **2010–2023**, la relación entre la tasa de *hechos conocidos* (HC) y el porcentaje de población extranjera mantiene **una pendiente positiva moderada (r≈0.43)**.
+> Sin embargo, los años **2020–2021** destacan como **outliers negativos**, reflejando la distorsión estadística causada por la pandemia (menor movilidad y variación en registros).
+> Al excluirlos (véase la figura anterior *“sin COVID”*), la asociación se refuerza notablemente, mostrando un patrón de coevolución más claro entre ambas series.
+
+
+## Estacionariedad por ventana y transformación (α = 5%)
 
 ```{r fig-est-a5, fig.cap='Estacionariedad por ventana y transformación (α = 5%)'}
 inc_fig("../output/figures/18_stationarity_heatmap.png")
 ```
 
-##  Precedencia temporal en niveles (Toda–Yamamoto), FDR ≤ 10%
+
+>La figura muestra la clasificación de estacionariedad de las series principales (tasas de criminalidad, PIB, proporción de extranjeros) bajo diferentes ventanas temporales y transformaciones.
+A nivel de **diferencias (Δ)**, todas las series se vuelven estacionarias, lo que confirma la necesidad de trabajar con variaciones interanuales para evitar correlaciones espurias.
+En **niveles**, la mayoría de las series presentan estacionariedad de tipo *tendencial* (T) o *de nivel* (L), mientras que el PIB real y el porcentaje de extranjeros muestran cambios estructurales moderados.
+Esto valida el enfoque metodológico del estudio, que prioriza las diferencias anuales (Δ) como base para el análisis correlacional y los tests de causalidad.
+
+
+## Precedencia temporal en niveles (Toda–Yamamoto), FDR ≤ 10%
 
 ```{r fig-ty, fig.cap='Precedencia temporal en niveles (Toda–Yamamoto), FDR ≤ 10%'}
 inc_fig("../output/figures/granger_toda.png")
 ```
 
+
+>El gráfico representa los resultados del procedimiento **Toda–Yamamoto (1995)** aplicado a las series en niveles para el periodo 2010–2023. Las flechas muestran las direcciones donde se detecta precedencia temporal con **FDR (False Discovery Rate) ≤ 10%**.
+
+>En este caso, no se observan relaciones causales unidireccionales estables: las conexiones entre el **% de extranjeros** y las tasas de **Hechos Conocidos (HC)** o **Hechos Esclarecidos (HE)** son **bidireccionales o débiles**, lo que sugiere **posible endogeneidad** o influencia de factores comunes. Esto refuerza la interpretación **no causal** del estudio: las co-variaciones detectadas describen patrones estadísticos, no mecanismos de causa-efecto comprobados.
+
+
+
 ---
 
-#  Correlaciones y controles
+# Correlaciones y controles
 
 **Convención:** Δx ≡ `d_x` en tablas (p. ej., Δ% extranjeros = `d_pct_extranjeros`).
 
@@ -274,6 +348,19 @@ mostrar_tabla("../output/tables/20_corr_deltas_sin_covid.csv",
 
 **Nota:** En Δ, la asociación entre Δ% extranjeros y ΔHC es fuerte al excluir 2020–2021 (p. ej., r≈0.81; ρ≈0.89).
 
+Las **correlaciones parciales** permiten aislar la relación neta entre inmigración y criminalidad,
+descontando el efecto de variables económicas y demográficas (AROPE, PIB real y paro juvenil).
+En la siguiente figura se observa cómo, una vez controladas estas variables, la pendiente entre
+Δ% de extranjeros (en puntos porcentuales) y ΔHC por 100.000 habitantes **se reduce pero mantiene signo positivo**.
+
+## Visualización parcial: Δ% extranjeros (p.p.) vs ΔHC (100k) — sin COVID
+
+```{r fig-partial-deltas-sin-covid, fig.cap='Relación parcial: Δ% extranjeros (p.p.) vs ΔHC (100k) — sin COVID (controlando ΔAROPE, ΔPIB pc real y ΔParo 15–29)'}
+inc_fig("../output/figures/24_partial_scatter_deltas_sin_covid.png")
+```
+
+> La pendiente parcial ilustra cómo la asociación se **atenúa** tras controlar por AROPE, PIB pc real y paro juvenil.
+
 ```{r tablas-correlaciones-2, results='asis'}
 mostrar_tabla("../output/tables/20_pcor_niveles_sin_covid.csv",
               "Correlaciones parciales en niveles — controlando composición (sin COVID)")
@@ -282,7 +369,6 @@ mostrar_tabla("../output/tables/20_pcor_deltas_sin_covid.csv",
               "Correlaciones parciales en variaciones (Δ) — controlando composición (sin COVID)")
 ```
 
----
 
 #  Discusión e interpretación (no causal)
 
@@ -298,19 +384,21 @@ En una frase. Entre 2010 y 2023, cuando cambia la proporción de población extr
 
 ---
 
-# Conclusiones finales
+## Conclusiones finales
 
 El análisis de los datos disponibles para el periodo **2010–2023** muestra una **asociación estadística positiva y consistente** entre la proporción de población extranjera y las tasas agregadas de criminalidad registradas en España (*Hechos Conocidos* y *Hechos Esclarecidos*).
 
-Esta asociación es **más intensa en las variaciones anuales (Δ)** cuando se excluyen los años **2020–2021**, marcados por los efectos excepcionales de la pandemia de COVID-19. En esa ventana sin COVID, los coeficientes de correlación alcanzan valores elevados (*r*≈0.8, *ρ*≈0.9), lo que evidencia una **co-movilidad significativa** entre los cambios relativos de ambas series. Al incorporar el periodo COVID-19, la relación se atenúa, reflejando una **alteración coyuntural de la dinámica estadística** derivada de un contexto social y operativo extraordinario.
+Esta asociación es **más intensa en las variaciones anuales (Δ)** cuando se excluyen los años **2020–2021**, marcados por los efectos excepcionales de la pandemia de COVID-19. En esa ventana sin COVID, los coeficientes de correlación alcanzan valores elevados (*r* ≈ 0.8, *ρ* ≈ 0.9), lo que evidencia una **co-movilidad significativa** entre los cambios relativos de ambas series. Al incorporar el periodo COVID-19, la relación se atenúa, reflejando una **alteración coyuntural** derivada de un contexto social y operativo extraordinario.
 
-Al introducir **controles socioeconómicos** —PIB real, paro juvenil y AROPE— las correlaciones en niveles se **reducen en magnitud**, aunque mantienen su signo positivo. Esto indica que parte de la asociación observada podría estar vinculada a **factores macroeconómicos o demográficos compartidos**, como el ciclo económico o la estructura poblacional, más que a un vínculo directo entre inmigración y criminalidad.
+Al introducir **controles socioeconómicos** —PIB real, paro juvenil y AROPE— las correlaciones en niveles se **reducen en magnitud**, aunque mantienen su signo positivo. Esto sugiere que parte de la asociación observada podría deberse a **factores macroeconómicos o demográficos compartidos**, como el ciclo económico o la estructura poblacional, más que a un vínculo directo entre inmigración y criminalidad.
 
-Las pruebas de **estacionariedad (ADF, PP, KPSS)** confirman que la mayoría de las series presentan **no-estacionariedad en niveles**, por lo que las correlaciones deben interpretarse en términos de **variaciones** y no de valores brutos. Del mismo modo, los contrastes **Toda–Yamamoto** y **Granger** no muestran una dirección de precedencia temporal estable entre las variables, lo que **impide sostener una relación causal verificable** en ningún sentido.
+Las **pruebas de estacionariedad (ADF, PP, KPSS)** confirman que la mayoría de las series presentan **no-estacionariedad en niveles**, por lo que las correlaciones deben interpretarse en términos de **variaciones** y no de valores brutos.
 
-En consecuencia, los resultados deben entenderse como **evidencia descriptiva de coevolución**, no como prueba de causalidad. Esto **no implica ausencia de causas reales**, sino que las mismas **no pueden identificarse estadísticamente con los datos y la resolución temporal disponibles**. El estudio aporta, por tanto, una **base empírica reproducible y neutral**, que documenta cómo ambas series evolucionaron conjuntamente en el tiempo, sin establecer inferencias causales que excedan su alcance.
+La **figura de precedencia temporal (Toda–Yamamoto)** refuerza este diagnóstico: las direcciones detectadas son **bidireccionales y de baja significación (FDR ≤ 10 %)**, lo que indica que **no existe evidencia robusta de causalidad unidireccional** entre el porcentaje de población extranjera y las tasas de criminalidad, sino posibles interdependencias dinámicas de corto plazo.
 
-> **Síntesis:** entre 2010 y 2023, inmigración y criminalidad agregada muestran una correlación positiva en variaciones anuales —especialmente fuera del periodo COVID-19—, pero la evidencia disponible **no permite afirmar que una determine a la otra**. Las tendencias observadas describen una co-evolución estadística influida, probablemente, por factores económicos, sociales y demográficos comunes.
+En consecuencia, los resultados deben entenderse como **evidencia descriptiva de coevolución**, no como prueba de causalidad. Esto **no implica ausencia de causas reales**, sino que las mismas **no pueden identificarse estadísticamente** con los datos y la resolución temporal disponibles. El estudio aporta, por tanto, una **base empírica reproducible y neutral**, que documenta cómo ambas series evolucionaron conjuntamente en el tiempo, sin extender inferencias causales más allá de los datos.
+
+> **Síntesis:** entre 2010 y 2023, inmigración y criminalidad agregada muestran una correlación positiva en variaciones anuales —especialmente fuera del periodo COVID-19—, pero la evidencia disponible **no permite afirmar que una determine a la otra**. Las tendencias observadas describen una **co-evolución estadística influida por factores económicos, sociales y demográficos comunes**.
 
 
 #  Robustez y validación

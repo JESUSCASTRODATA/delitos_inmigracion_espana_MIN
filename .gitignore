@@ -104,9 +104,10 @@ output/reports/
 # ─────────────────────────────────────────────────────────────────────────────
 # DOCUMENTOS COMPILADOS
 # ─────────────────────────────────────────────────────────────────────────────
-docs/*.html
+# Ignorar por defecto, excepto el informe final
 docs/*.pdf
 docs/*.docx
+!docs/informe_final.html
 
 # ─────────────────────────────────────────────────────────────────────────────
 # PROYECTO ESPECÍFICO 
@@ -154,7 +155,7 @@ data/processed/*bak_*
 !output/figures/18_stationarity_heatmap.png
 !output/figures/granger_toda.png
 !output/figures/18_stationarity_heatmap_a10.png
-
+!output/figures/24_partial_scatter_deltas_sin_covid.png
 # ─────────────────────────────────────────────────────────────────────────────
 # ALLOWLIST de TABLAS citadas en el informe
 # ─────────────────────────────────────────────────────────────────────────────

@@ -1,3 +1,5 @@
+# README.md (listo para GitHub)
+
 # Delitos e Inmigración en España (2010–2023)
 
 [![DOI](https://zenodo.org/badge/1083640610.svg)](https://doi.org/10.5281/zenodo.17465215)
@@ -161,14 +163,20 @@ rmarkdown::render("docs/informe_final.Rmd")
 
 ## Licencia y citación
 
+### Licencias
+
 * **Código:** [MIT](LICENSE) © 2025 Jesús Castro · JESUSCASTRODATA
 * **Documentos y figuras:** [CC BY 4.0](LICENSE-DOCS-CC-BY-4.0.md)
-* **Datos originales:** según fuente (`docs/DATOS_Y_LICENCIAS.md`)
+* **Datos originales:** según condiciones de cada fuente oficial ([`docs/DATOS_Y_LICENCIAS.md`](docs/DATOS_Y_LICENCIAS.md))
+
+---
 
 ### Citación (APA)
 
-> Castro, J. (2025). *Delitos e Inmigración en España (2010–2023).*
-> GitHub: JESUSCASTRODATA. [https://doi.org/10.5281/zenodo.17465215](https://doi.org/10.5281/zenodo.17465215)
+> Castro, J. (2025). *Delitos e Inmigración en España (2010–2023).* JESUSCASTRODATA (GitHub).
+> [https://doi.org/10.5281/zenodo.17465216](https://doi.org/10.5281/zenodo.17465216)
+
+---
 
 ### BibTeX
 
@@ -179,27 +187,32 @@ rmarkdown::render("docs/informe_final.Rmd")
   year         = {2025},
   publisher    = {Zenodo},
   version      = {v1.0-public-clean},
-  doi          = {10.5281/zenodo.17465215},
-  url          = {https://doi.org/10.5281/zenodo.17465215},
+  doi          = {10.5281/zenodo.17465216},
+  url          = {https://doi.org/10.5281/zenodo.17465216},
   license      = {MIT},
-  note         = {Documentos y figuras CC BY 4.0}
+  note         = {Documentos y figuras bajo CC BY 4.0}
 }
 ```
 
 ---
 
-## Bitácora
+### Bitácora del proyecto
 
-* **2025‐10‑28:** Publicación v1.0-public-clean con DOI Zenodo.
-* **2025‐10‑27:** Pipeline completo (80_run_all.R) → 0 errores, estable.
-* **2025‐10‑06:** Implementación de tests Toda–Yamamoto (55‑57).
-* **2025‐09‑28:** Limpieza final del core y QA.
-* **2025‐09‑18:** Consolidación scripts 10–20 y control de esquema.
-* **2025‐06‑03:** Inicio del proyecto.
+* **2025-10-28:** Publicación **v1.0-public-clean** con DOI Zenodo.
+* **2025-10-27:** Pipeline completo (`80_run_all.R`) — 0 errores, estable.
+* **2025-10-06:** Implementación de tests **Toda–Yamamoto** (`55-57`).
+* **2025-09-28:** Limpieza final del *core* y QA.
+* **2025-09-18:** Consolidación de scripts 10–20 y control de esquema.
+* **2025-06-03:** Inicio del proyecto.
+
+<p align="center">
+  <sub>Desarrollado por <b>Jesús Castro · JESUSCASTRODATA</b> — R, ggplot2 y Quarto<br>
+  <i>Open Science · Reproducibility · Neutrality</i></sub>
+</p>
+
+**Versión:** [v1.0-public-clean](https://github.com/JESUSCASTRODATA/delitos_inmigracion_espana_MIN/releases/tag/v1.0-public-clean)
+**DOI:** [10.5281/zenodo.17465216](https://doi.org/10.5281/zenodo.17465216)
 
 ---
 
-<p align="center">
-  <sub>Desarrollado por <b>Jesús Castro · JESUSCASTRODATA</b> — R, ggplot2 y Quarto  
-  <br><i>Open Science · Reproducibility · Neutrality</i></sub>
-</p>
+
