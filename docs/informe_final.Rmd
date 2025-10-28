@@ -26,8 +26,9 @@ output:
 ![Open Science](https://img.shields.io/badge/Open%20Science-transparent-green.svg)
 ![Status: Active](https://img.shields.io/badge/Status-active-brightgreen.svg)
 ![Version: dev](https://img.shields.io/badge/Version-dev-yellow.svg)
-![DOI pending](https://img.shields.io/badge/DOI-pending-lightgrey.svg)
+
 ![Data: original sources](https://img.shields.io/badge/Data-original%20sources-blue.svg)
+[![DOI](https://zenodo.org/badge/1083640610.svg)](https://doi.org/10.5281/zenodo.17465215)
 
 </p>
 
