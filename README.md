@@ -1,5 +1,6 @@
 # Delitos e Inmigración en España (2010–2023)
 
+[![DOI](https://zenodo.org/badge/1083640610.svg)](https://doi.org/10.5281/zenodo.17465215)
 [![Code: MIT](https://img.shields.io/badge/Code-MIT-blue.svg)](LICENSE)
 [![Docs: CC BY 4.0](https://img.shields.io/badge/Docs-CC%20BY%204.0-brightgreen.svg)](LICENSE-DOCS-CC-BY-4.0.md)
 ![Reproducibility: renv](https://img.shields.io/badge/reproducibility-renv-success.svg)
@@ -14,7 +15,7 @@
 </p>
 
 **Autor:** Jesús Castro · [JESUSCASTRODATA](https://github.com/JESUSCASTRODATA)
-**Periodo:** 2010–2023 · **Versión:** dev · **Estado:** Activo · **Últ. actualización:** 2025-09-28
+**Periodo:** 2010–2023 · **Versión:** v1.0-public-clean · **Estado:** Estable · **Últ. actualización:** 2025-10-28
 **Contacto:** [LinkedIn](https://www.linkedin.com/in/jesuscastrodata/) · [GitHub](https://github.com/JESUSCASTRODATA)
 
 ---
@@ -81,8 +82,8 @@ Se reportan correlaciones simples (Pearson, Spearman, Kendall) y parciales (cont
 **Clonar e instalar entorno reproducible:**
 
 ```bash
-git clone https://github.com/JESUSCASTRODATA/crime-migration-spain.git
-cd crime-migration-spain
+git clone https://github.com/JESUSCASTRODATA/delitos_inmigracion_espana_MIN.git
+cd delitos_inmigracion_espana_MIN
 Rscript -e "install.packages('renv'); renv::restore()"
 ```
 
@@ -166,18 +167,20 @@ rmarkdown::render("docs/informe_final.Rmd")
 
 ### Citación (APA)
 
-> Castro, J. (2025). *Delitos e Inmigración en España (2010–2023).* Código MIT. Documentos y figuras CC BY 4.0.
-> [https://github.com/JESUSCASTRODATA/crime-migration-spain](https://github.com/JESUSCASTRODATA/crime-migration-spain)
+> Castro, J. (2025). *Delitos e Inmigración en España (2010–2023).*
+> GitHub: JESUSCASTRODATA. [https://doi.org/10.5281/zenodo.17465215](https://doi.org/10.5281/zenodo.17465215)
 
 ### BibTeX
 
 ```bibtex
-@software{castro2025-delitos-inmigracion-espana,
+@software{castro2025_delitos_inmigracion_espana,
   author       = {Jesús Castro},
   title        = {Delitos e Inmigración en España (2010--2023)},
   year         = {2025},
-  url          = {https://github.com/JESUSCASTRODATA/crime-migration-spain},
-  version      = {dev},
+  publisher    = {Zenodo},
+  version      = {v1.0-public-clean},
+  doi          = {10.5281/zenodo.17465215},
+  url          = {https://doi.org/10.5281/zenodo.17465215},
   license      = {MIT},
   note         = {Documentos y figuras CC BY 4.0}
 }
@@ -187,11 +190,12 @@ rmarkdown::render("docs/informe_final.Rmd")
 
 ## Bitácora
 
-* **2025‑10‑27:** Pipeline completo (80_run_all.R) → 0 errores, estable.
-* **2025‑10‑06:** Implementación de tests Toda–Yamamoto (55–57).
-* **2025‑09‑28:** Limpieza final del core y QA.
-* **2025‑09‑18:** Consolidación scripts 10–20 y control de esquema.
-* **2025‑06‑03:** Inicio del proyecto.
+* **2025‐10‑28:** Publicación v1.0-public-clean con DOI Zenodo.
+* **2025‐10‑27:** Pipeline completo (80_run_all.R) → 0 errores, estable.
+* **2025‐10‑06:** Implementación de tests Toda–Yamamoto (55‑57).
+* **2025‐09‑28:** Limpieza final del core y QA.
+* **2025‐09‑18:** Consolidación scripts 10–20 y control de esquema.
+* **2025‐06‑03:** Inicio del proyecto.
 
 ---
 
