@@ -19,7 +19,6 @@ suppressPackageStartupMessages({
 
 # --- Detecta el número del script desde el nombre de archivo ------------------
 .script_tag <- (function(){
-  # intenta: basename del fichero que ejecuta Rscript / source
   candidates <- c(commandArgs(trailingOnly = FALSE), sys.frames()[[1]]$ofile, sys.calls())
   candidates <- unlist(lapply(candidates, as.character), use.names = FALSE)
   nm <- NA_character_
@@ -27,22 +26,18 @@ suppressPackageStartupMessages({
     m <- regmatches(c, regexpr("([0-9]{2,})_qc_core_indicadores\\.R$", c))
     if (length(m) && !is.na(m)) { nm <- m; break }
   }
-  # fallback: busca en here("scripts")
   if (is.na(nm)) {
     files <- list.files(here::here("scripts"), pattern = "^[0-9]{2,}_qc_core_indicadores\\.R$", full.names = TRUE)
     if (length(files)) nm <- basename(files[1])
   }
-  # extrae número
   num <- NA_character_
-  if (!is.na(nm)) {
-    num <- sub("_qc_core_indicadores\\.R$", "", basename(nm))
-  }
-  if (is.na(num) || !grepl("^[0-9]{2,}$", num)) num <- "13"  # default
+  if (!is.na(nm)) num <- sub("_qc_core_indicadores\\.R$", "", basename(nm))
+  if (is.na(num) || !grepl("^[0-9]{2,}$", num)) num <- "19"
   num
 })()
 
-TAG <- .script_tag              # p.ej. "13" o "21"
-PREFIX <- paste0("[", TAG, "] ")# para mensajes
+TAG <- .script_tag
+PREFIX <- paste0("[", TAG, "] ")
 OUTBASE <- paste0(TAG, "_qc_core_indicadores")
 
 msg <- function(...) message(PREFIX, paste0(...))
@@ -56,7 +51,47 @@ msg("Archivo: ", normalizePath(infile, winslash = "/"))
 
 df <- readr::read_csv(infile, show_col_types = FALSE)
 
-# Columnas esperadas
+# === Normalización de nombres / escalas ======================================
+# Renombrar a convención interna esperada por el QC
+df <- df %>%
+  rename(
+    tasa_hc_por_100k            = any_of("tasa_hc_100k"),
+    tasa_he_por_100k            = any_of("tasa_he_100k"),
+    share_ext                   = any_of("share_extranjeros"),
+    pct_extranjeros_poblacion   = any_of("pct_extranjeros")
+  )
+
+# Derivar tasa_det_por_100k si falta
+if (!"tasa_det_por_100k" %in% names(df)) {
+  if (all(c("det_tot","poblacion_total") %in% names(df))) {
+    df <- df %>% mutate(tasa_det_por_100k = 1e5 * det_tot / pmax(1e-9, poblacion_total))
+    msg("Derivada: tasa_det_por_100k creada desde det_tot y poblacion_total.")
+  } else {
+    stop(PREFIX, "Falta tasa_det_por_100k y no puedo derivarla (requiere det_tot y poblacion_total).", call. = FALSE)
+  }
+}
+
+# Derivar share_ext si sigue faltando (de det_ext/det_tot)
+if (!"share_ext" %in% names(df)) {
+  if (all(c("det_ext","det_tot") %in% names(df))) {
+    df <- df %>% mutate(share_ext = ifelse(det_tot > 0, det_ext / det_tot, NA_real_))
+    msg("Derivada: share_ext creada como det_ext/det_tot.")
+  } else {
+    stop(PREFIX, "No existe share_ext ni (det_ext, det_tot) para derivarlo.", call. = FALSE)
+  }
+}
+
+# Normalizar escalas a [0,1] si vienen en %
+if (max(df$share_ext, na.rm = TRUE) > 1.0001) {
+  df <- df %>% mutate(share_ext_pct = share_ext, share_ext = share_ext / 100)
+  msg("Normalizado: share_ext parecía %; reescalado a [0,1] (share_ext_pct conserva el % original).")
+}
+if ("pct_extranjeros_poblacion" %in% names(df) && max(df$pct_extranjeros_poblacion, na.rm = TRUE) > 1.0001) {
+  df <- df %>% mutate(pct_extranjeros_poblacion = pct_extranjeros_poblacion / 100)
+  msg("Normalizado: pct_extranjeros_poblacion parecía 0–100; reescalado a 0–1.")
+}
+
+# Columnas esperadas (tras normalización)
 expected_cols <- c(
   "ano","hc_total","he_total","det_tot","det_ext","poblacion_total",
   "pct_extranjeros_poblacion",
@@ -81,27 +116,6 @@ add_check <- function(check, status, detalle = ""){
 }
 
 fail_critico <- FALSE
-
-# --- Asegurar/normalizar share_ext -------------------------------------------
-if (!"share_ext" %in% names(df)) {
-  if (all(c("det_ext","det_tot") %in% names(df))) {
-    df <- df %>% mutate(share_ext = ifelse(det_tot > 0, det_ext / det_tot, NA_real_))
-    add_check("share_ext derivado", "INFO", "Calculado como det_ext/det_tot (no venía en el CSV)")
-  } else {
-    add_check("share_ext derivado", "FAIL", "No existe share_ext ni (det_ext, det_tot) para derivarlo")
-    fail_critico <- TRUE
-  }
-}
-if ("share_ext" %in% names(df)) {
-  mean_share <- suppressWarnings(mean(df$share_ext, na.rm = TRUE))
-  if (is.finite(mean_share) && mean_share > 1) {
-    bak <- paste0(infile, ".bak")
-    file.copy(infile, bak, overwrite = TRUE)
-    df <- df %>% mutate(share_ext_pct = share_ext, share_ext = share_ext / 100)
-    readr::write_csv(df, infile)
-    msg("Normalizado: share_ext ahora en [0,1]. Backup en: ", bak, " · Columna nueva: share_ext_pct (%)")
-  }
-}
 
 # 1) Esquema y cobertura ------------------------------------------------------
 if (setequal(names(df), expected_cols) || setequal(names(df), c(expected_cols, "share_ext_pct"))) {
@@ -169,9 +183,12 @@ viol_share <- cmp_share %>% filter(!is.finite(ratio) | diff > tol_abs)
 if (nrow(viol_share)) { add_check("share_ext = det_ext/det_tot", "FAIL", glue("{nrow(viol_share)} fuera de tolerancia")); fail_critico <- TRUE } else add_check("share_ext = det_ext/det_tot", "OK")
 
 rng <- range(df$pct_extranjeros_poblacion, na.rm=TRUE)
-in_0_1   <- rng[1] >= 0 && rng[2] <= 1
-in_0_100 <- rng[1] >= 0 && rng[2] <= 100
-if (!(in_0_1 || in_0_100)) { add_check("% extranjeros: rango", "FAIL", glue("Rango {round(rng[1],3)}–{round(rng[2],3)} inválido")); fail_critico <- TRUE } else add_check("% extranjeros: rango", "OK", if (in_0_1) "escala [0,1]" else "escala [0,100]")
+in_0_1   <- is.finite(rng[1]) && is.finite(rng[2]) && rng[1] >= 0 && rng[2] <= 1
+in_0_100 <- is.finite(rng[1]) && is.finite(rng[2]) && rng[1] >= 0 && rng[2] <= 100
+if (!(in_0_1 || in_0_100)) {
+  add_check("% extranjeros: rango", "FAIL", glue("Rango {round(rng[1],3)}–{round(rng[2],3)} inválido"))
+  fail_critico <- TRUE
+} else add_check("% extranjeros: rango", "OK", if (in_0_1) "escala [0,1]" else "escala [0,100]")
 
 den_safe <- function(x) pmax(1e-9, x)
 rates <- df %>%
@@ -222,7 +239,7 @@ if (stab(df$share_ext)) {
   j <- c(NA_real_, diff(df$share_ext))
   purrr::walk(which(abs(j) > 0.10), ~ add_flag(df$ano[.x], "share_ext_jump", j[.x], "WARN", "|Δ|>10 p.p.", "Saltos share_ext"))
 }
-if (stab(df$pct_extranjeros_poblacion)) {
+if ("pct_extranjeros_poblacion" %in% names(df)) {
   pe <- df$pct_extranjeros_poblacion
   if (max(pe, na.rm=TRUE) > 1) pe <- pe / 100
   j <- c(NA_real_, diff(pe))
@@ -233,9 +250,8 @@ ratio <- df$he_total / df$hc_total
 bad_ratio <- which(!is.finite(ratio) | ratio <= 0 | ratio > 1)
 if (length(bad_ratio)) { add_check("he_total/hc_total in (0,1]", "FAIL", glue("{length(bad_ratio)} fuera de rango")); fail_critico <- TRUE } else add_check("he_total/hc_total in (0,1]", "OK")
 
-pe_norm <- if (max(df$pct_extranjeros_poblacion, na.rm=TRUE) > 1) df$pct_extranjeros_poblacion/100 else df$pct_extranjeros_poblacion
-if (all(is.finite(pe_norm)) && all(is.finite(df$share_ext))) {
-  rho <- suppressWarnings(cor(pe_norm, df$share_ext, method = "spearman"))
+if (all(is.finite(df$pct_extranjeros_poblacion)) && all(is.finite(df$share_ext))) {
+  rho <- suppressWarnings(cor(df$pct_extranjeros_poblacion, df$share_ext, method = "spearman"))
   if (is.finite(rho) && rho < 0) add_check("Cor(share_ext, %extranjeros)", "WARN", glue("rho(Spearman)={round(rho,3)} < 0"))
   else add_check("Cor(share_ext, %extranjeros)", "OK", glue("rho={round(rho,3)}"))
 } else add_check("Cor(share_ext, %extranjeros)", "WARN", "Valores no finitos")
@@ -287,3 +303,6 @@ if (fail_critico) {
 } else {
   msg("QC OK: sin FAIL críticos. Puedes continuar con scripts/18_stationarity_checks.R")
 }
+
+
+

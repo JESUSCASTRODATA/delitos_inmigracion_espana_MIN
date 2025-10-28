@@ -82,21 +82,23 @@ data/processed/*
 # ─────────────────────────────────────────────────────────────────────────────
 # OUTPUTS (artefactos generados)
 # ─────────────────────────────────────────────────────────────────────────────
-output/figures/*
-output/tables/*
-output/models/*
-output/logs/*
-output/debug/*
-# Conserva informes y resúmenes de auditoría
-!output/reports/
-!output/reports/**
-# Mantén documentación mínima dentro de output
-!output/figures/.gitkeep
-!output/tables/.gitkeep
-!output/models/.gitkeep
-!output/logs/.gitkeep
-!output/debug/.gitkeep
-!output/README.md
+# Ignora TODO lo generado por defecto…
+output/**
+# …excepto una allowlist mínima para el informe (ver más abajo).
+# Archivos agregados a mano (zips, paquetes, etc.)
+output/*.zip
+
+# Carpeta de derivados (no publicar)
+output/release/
+output/manifests/
+output/repro/
+output/debug/
+output/logs/
+output/models/
+output/reports/
+# Si quieres mantener reports, descomenta:
+# !output/reports/
+# !output/reports/**
 
 # ─────────────────────────────────────────────────────────────────────────────
 # DOCUMENTOS COMPILADOS
@@ -108,9 +110,60 @@ docs/*.docx
 # ─────────────────────────────────────────────────────────────────────────────
 # PROYECTO ESPECÍFICO 
 # ─────────────────────────────────────────────────────────────────────────────
-output/figures/33_*
-output/tables/33_*
 data/processed/*.bak*
 data/processed/*bak_*
+
+# ─────────────────────────────────────────────────────────────────────────────
+# PERMITIDOS EXPLÍCITAMENTE (NEGACIONES) — PUBLICAR SOLO LO ESENCIAL
+# ─────────────────────────────────────────────────────────────────────────────
+!.gitattributes
+!.gitignore
+!LICENSE
+!LICENSE-DOCS-CC-BY-4.0.md
+!CITATION.cff
+!README.md
+!.github/
+!.github/workflows/repro-run.yml
+
+# Docs fuente + metadatos bibliográficos
+!docs/
+!docs/informe_final.Rmd
+!docs/DATOS_Y_LICENCIAS.md
+!docs/apa.csl
+!docs/apa_fallback.csl
+!docs/refs-*.bib
+
+# Scripts (pipeline)
+!scripts/
+!scripts/**
+
+# ─────────────────────────────────────────────────────────────────────────────
+# ALLOWLIST de FIGURAS citadas en el informe
+# (Añade o quita según lo que realmente incluyas con knitr::include_graphics)
+# ─────────────────────────────────────────────────────────────────────────────
+!output/figures/
+!output/figures/01_tendencias_base100.png
+!output/figures/03_corr_deltas_sin_covid.png
+!output/figures/03_corr_deltas_total.png
+!output/figures/20_del_d_tasa_hc_100k_vs_d_pct_extranjeros_all.png
+!output/figures/20_del_d_tasa_hc_100k_vs_d_pct_extranjeros_sin_covid.png
+!output/figures/20_niv_tasa_hc_100k_vs_pct_extranjeros_all.png
+!output/figures/20_niv_tasa_hc_100k_vs_pct_extranjeros_sin_covid.png
+!output/figures/32_dispersion_delta.png
+!output/figures/32_dispersion_delta_nocovid.png
+!output/figures/18_stationarity_heatmap.png
+!output/figures/granger_toda.png
+
+# ─────────────────────────────────────────────────────────────────────────────
+# ALLOWLIST de TABLAS citadas en el informe
+# ─────────────────────────────────────────────────────────────────────────────
+!output/tables/
+!output/tables/20_corr_niveles_sin_covid.csv
+!output/tables/20_corr_deltas_sin_covid.csv
+!output/tables/20_pcor_niveles_sin_covid.csv
+!output/tables/20_pcor_deltas_sin_covid.csv
+!output/tables/18_stationarity_summary.csv
+# (Si usas la versión α=10% en el apéndice)
+!output/tables/18_stationarity_summary_table_a10.csv
 
 

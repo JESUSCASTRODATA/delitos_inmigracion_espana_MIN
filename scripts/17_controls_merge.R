@@ -170,5 +170,4 @@ if (need_rebuild) {
   message("El archivo ya tiene las columnas correctas; no se reconstruye.")
 }
 
-# ---- Vuelve a lanzar el merge de controles ----
-source(here("scripts","17_controls_merge.R"))
+

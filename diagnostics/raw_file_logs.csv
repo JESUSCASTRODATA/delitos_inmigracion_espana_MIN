@@ -1,4 +1,4 @@
 archivo,segundos,n_warnings,warnings
-umbral_pobreza.csv,0.39,2,"[38;5;232mOne or more parsing issues, call `problems()` on your data frame for details, e.g.:
+umbral_pobreza.csv,0.29,2,"One or more parsing issues, call `problems()` on your data frame for details, e.g.:
   dat <- vroom(...)
-  problems(dat)[39m"
+  problems(dat)"

@@ -1,0 +1,463 @@
+---
+title: "Inmigración y Delitos en España (2010–2023) — Informe Final"
+author: "Jesús Castro"
+date: "2025-10-27"
+lang: es
+output:
+  html_document:
+    toc: true
+    toc_depth: 3
+    toc_float: true
+    number_sections: true
+    theme: readable
+    df_print: paged
+    self_contained: true
+---
+
+<p align="center">
+
+[![Code: MIT](https://img.shields.io/badge/Code-MIT-blue.svg)](../LICENSE)
+[![Docs: CC BY 4.0](https://img.shields.io/badge/Docs-CC%20BY%204.0-brightgreen.svg)](../LICENSE-DOCS-CC-BY-4.0.md)
+[![Data: Public Sources](https://img.shields.io/badge/Data-Official%20Sources-lightblue.svg)](../docs/DATOS_Y_LICENCIAS.md)
+![Reproducibility: renv](https://img.shields.io/badge/Reproducibility-renv-success.svg)
+![R >= 4.3](https://img.shields.io/badge/R-%3E%3D%204.3-276DC3.svg)
+![Quarto/RMarkdown](https://img.shields.io/badge/Quarto%2FRMarkdown-supported-lightgrey.svg)
+![ggplot2](https://img.shields.io/badge/Visualization-ggplot2-orange.svg)
+![Open Science](https://img.shields.io/badge/Open%20Science-transparent-green.svg)
+![Status: Active](https://img.shields.io/badge/Status-active-brightgreen.svg)
+![Version: dev](https://img.shields.io/badge/Version-dev-yellow.svg)
+![DOI pending](https://img.shields.io/badge/DOI-pending-lightgrey.svg)
+![Data: original sources](https://img.shields.io/badge/Data-original%20sources-blue.svg)
+
+</p>
+
+---
+---
+
+## Contexto y alcance del estudio
+
+El proyecto **“Delitos e Inmigración en España (2010–2023)”** nació con la intención original de analizar la evolución conjunta de la **criminalidad y la inmigración en España desde 1998** hasta la actualidad.  
+
+Sin embargo, la **falta de desagregación por nacionalidad antes de 2010** en los registros del *Ministerio del Interior* y la discontinuidad en las series de población extranjera del *INE* hicieron **imposible construir un panel homogéneo anterior a 2010**.  
+
+Por esta razón, el periodo final del estudio se **delimitó a 2010–2023**, garantizando **consistencia anual**, **coherencia estadística** y **comparabilidad entre fuentes oficiales (INE, Interior y Eurostat)**.  
+
+> Este marco temporal permite capturar la consolidación de la inmigración en España, la recuperación post-crisis de 2008 y el impacto de los años de COVID-19 (2020–2021), ofreciendo una visión equilibrada entre estabilidad estructural y eventos extraordinarios.
+
+---
+
+## Pregunta de investigación
+
+> **¿Existe una relación descriptiva significativa entre la variación en la población extranjera y la variación en la tasa de delitos en España entre 2010 y 2023?**
+
+Esta pregunta guía el análisis empírico del proyecto y enmarca todos los resultados dentro de un enfoque **descriptivo y no causal**, centrado en observar co-movimientos estadísticos y patrones de correlación en el tiempo.
+
+
+##  Ficha técnica del estudio
+
+Estudio reproducible desarrollado íntegramente en **R y RStudio** (versión ≥ 4.3), siguiendo un flujo completo de análisis de datos: limpieza, validación, generación de métricas, visualización y reporte automatizado en **RMarkdown/Quarto**.  
+El entorno fue gestionado con **renv** para asegurar la **reproducibilidad exacta** del entorno de ejecución y las dependencias de los paquetes.
+
+El proyecto analiza el periodo **2010–2023**, evaluando la relación entre **población extranjera** y **criminalidad agregada en España**.  
+Incluye **controles socioeconómicos** (PIB real, AROPE, paro juvenil) y **ventanas de análisis con y sin COVID-19**.  
+Los resultados son **descriptivos y no causales**, basados exclusivamente en **fuentes oficiales** (INE, Ministerio del Interior y Eurostat).
+
+Todas las figuras y tablas fueron generadas con **ggplot2** y **paquetes del ecosistema tidyverse**, bajo un diseño visual coherente (tema “pearl” y paleta Okabe–Ito).  
+El informe se produce automáticamente a partir de los datos procesados mediante scripts versionados y trazables dentro del repositorio.
+
+**Autor:** Jesús Castro · JESUSCASTRODATA  
+**Entorno:** R + RStudio · renv reproducible · ggplot2 + tidyverse  
+**Periodo:** 2010–2023 · **Versión:** dev · **Últ. actualización:** 2025-10-27  
+**Licencias:** MIT (código) · CC BY 4.0 (documentos y figuras)  
+**Repositorio:** [github.com/JESUSCASTRODATA/crime-migration-spain](https://github.com/JESUSCASTRODATA/crime-migration-spain)
+
+
+---
+
+
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(
+  echo = FALSE,
+  message = FALSE,
+  warning = FALSE,
+  fig.align = "center",
+  out.width = "95%"
+)
+
+suppressPackageStartupMessages({
+  library(readr)
+  library(dplyr)
+  library(knitr)
+  library(kableExtra)
+})
+
+options(knitr.kable.NA = "")
+
+# Helpers
+inc_fig <- function(path, alt = NULL){
+  if (!file.exists(path)) {
+    knitr::asis_output(paste0("> **Aviso:** no se encontró la figura `", path, "`\n\n"))
+    return(invisible(NULL))
+  }
+  knitr::include_graphics(path)
+}
+
+mostrar_tabla <- function(csv_path, caption = NULL){
+  if (!file.exists(csv_path)) {
+    knitr::asis_output(paste0("> **Aviso:** no se encontró la tabla `", csv_path, "`\n\n"))
+    return(invisible(NULL))
+  }
+  df <- readr::read_csv(csv_path, show_col_types = FALSE)
+  kable(df, format = "html", caption = caption, align = "l", digits = 4) |>
+    kable_styling(full_width = FALSE,
+                  bootstrap_options = c("striped","hover","condensed"))
+}
+```
+
+#  Resumen ejecutivo
+
+Cobertura. 2010–2023 (análisis principal con y sin 2020–2021).
+Fuentes. INE (población), Ministerio del Interior (criminalidad), Eurostat (Gini y AROPE; serie armonizada UE).
+Métricas. Tasas por 100k, % de población extranjera, diferencias interanuales (Δ).
+Aviso. Evidencia descriptiva; no implica causalidad.
+
+**Hallazgos clave.**
+
+* **Δ (sin COVID):** asociación fuerte y significativa. Entre Δ% de extranjeros y ΔHC: **r≈0.81 (Pearson)** y **ρ≈0.89 (Spearman)**; incluyendo COVID la señal se debilita por mayor volatilidad.
+* **Niveles:** coevolución entre tasas HC/HE y % de extranjeros; se mantiene al excluir COVID.
+* **Controles:** las correlaciones parciales (control de composición) refuerzan el patrón.
+
+---
+
+#  Datos y metodología
+
+##  Fuentes y cobertura
+
+* Ámbito temporal: 2010–2023 (Total Nacional, España), frecuencia anual.
+* Fuentes oficiales: INE (población residente), Ministerio del Interior (HC/HE), Eurostat (Gini y AROPE) como contexto/controles.
+* Ventanas analíticas: (i) **Total** 2010–2023 (incluye COVID); (ii) **Sin COVID** 2010–2019 & 2022–2023.
+
+##  Variables principales
+
+* **HC (100k)** y **HE (100k):** tasas por 100.000 habitantes.
+* **pct_extranjeros:** % de población extranjera; **share_extranjeros = pct/100**.
+* **Diferencias anuales (Δ):** Δx = x_t − x_{t−1} (prefijo `d_`).
+
+##  Transformaciones y métricas
+
+* **Tasas por 100k:** `tasa_100k = (conteo_anual / poblacion_anual) × 100.000`.
+* **Porcentajes ↔ proporciones:** `share_extranjeros = pct_extranjeros / 100`.
+* **Diferencias (Δ):** mitigan no‑estacionariedad y riesgo de correlaciones espurias.
+* **Índices base‑100:** co‑evolución comparativa (año base = 100 por ventana).
+
+##  Tratamiento de COVID‑19
+
+* **Motivación:** 2020–2021 introduce un shock exógeno (movilidad, denuncias, operativa policial).
+* **Estrategia:** mostrar resultados **con** y **sin** esos años; la ventana sin COVID es referencia para Δ.
+
+##  Chequeos de calidad (QC)
+
+* Cobertura temporal por variable; no‑negatividad y rangos plausibles.
+* Consistencia contable (Total Nacional vs suma CCAA, cuando aplica).
+* Duplicados y claves únicas (variable, año).
+* Coherencia HC/HE (HE no debe exceder sistemáticamente HC).
+* Evidencia de QA: tablas `*_summary`, `*_qa_*` documentan cada chequeo.
+
+##  Métodos estadísticos
+
+* Correlaciones bivariadas: **Pearson (r)**, **Spearman (ρ)**, **Kendall (τ)** con p‑valores y n.
+* Correlaciones parciales: controlando composición demográfica (p. ej., share_extranjeros, AROPE, paro juvenil) para aislar la relación neta entre inmigración y criminalidad.
+Además de su función técnica de control, se utilizan para evaluar hasta qué punto la asociación entre ambas variables      podría explicarse por factores comunes, reforzando la interpretación no causal del análisis.
+* Estacionariedad: tests **ADF, PP, KPSS** en niveles y en Δ (resúmenes α = 5% y 10%).
+* Precedencia temporal (exploratoria): **Toda–Yamamoto (TY)** y **Granger**; interpretar con cautela por muestra corta y ruptura COVID.
+
+##  Reporte y reproducibilidad
+
+Este documento **no recalcula**: inserta figuras/tablas ya exportadas.
+Rutas relativas desde `docs/` → `../output/figures/` y `../output/tables/`.
+
+**Convenciones**
+
+* Figuras: `01_tendencias_base100.png`, `03_corr_deltas_sin_covid.png`, `18_stationarity_heatmap.png`…
+* Tablas: `20_corr_deltas_sin_covid.csv`, `20_pcor_niveles_sin_covid.csv`, `18_stationarity_summary.csv`…
+
+##  Limitaciones técnicas
+
+Muestra anual corta (14 obs.); agregación nacional; posibles variables omitidas; ruptura COVID. Se prioriza evidencia en Δ y ventana sin COVID.
+
+##  Notación
+
+`d_` = Δ (primera diferencia anual).
+`pct_` = porcentaje (0–100); `share_` = proporción (0–1).
+`*_100k` = tasa por 100.000 hab.
+`r, ρ, τ` = Pearson, Spearman, Kendall.
+
+---
+
+#  Resultados descriptivos — Niveles y variaciones
+
+##  Tendencias base‑100: HC, HE y % extranjeros (sombreado COVID)
+
+```{r fig-tendencias, fig.cap='Tendencias base-100: HC, HE y % extranjeros (sombreado COVID)'}
+inc_fig("../output/figures/01_tendencias_base100.png")
+```
+
+##  Correlaciones en variaciones — sin COVID (2010–2019 & 2022–2023)
+
+```{r fig-corr-deltas-sin-covid, fig.cap='Correlaciones en variaciones (Δ) — ventana sin COVID'}
+inc_fig("../output/figures/03_corr_deltas_sin_covid.png")
+```
+
+##  Correlaciones en variaciones — ventana total (2010–2023)
+
+```{r fig-corr-deltas-total, fig.cap='Correlaciones en variaciones (Δ) — ventana total (2010–2023)'}
+inc_fig("../output/figures/03_corr_deltas_total.png")
+```
+
+##  Δ HC por 100k vs Δ % extranjeros — todo el periodo
+
+```{r fig-delta-hc-vs-delta-pct, fig.cap='Δ HC por 100k vs Δ % extranjeros — todo el periodo'}
+inc_fig("../output/figures/20_del_d_tasa_hc_100k_vs_d_pct_extranjeros_all.png")
+```
+
+##  Δ (5 delitos) vs Δ % extranjeros — excluye 2020–2021
+
+```{r fig-5delitos-sin-covid, fig.cap='Δ (5 delitos) vs Δ % extranjeros — excluye 2020–2021'}
+inc_fig("../output/figures/32_dispersion_delta_nocovid.png")
+```
+
+##  Δ (5 delitos) vs Δ % extranjeros — con 2020–2021
+
+```{r fig-5delitos-con-covid, fig.cap='Δ (5 delitos) vs Δ % extranjeros — con 2020–2021'}
+inc_fig("../output/figures/32_dispersion_delta.png")
+```
+
+##  Niveles: tasa HC (100k) vs % extranjeros — sin COVID
+
+```{r fig-niv-hc-sin-covid, fig.cap='Niveles: tasa HC (100k) vs % extranjeros — sin COVID'}
+inc_fig("../output/figures/20_niv_tasa_hc_100k_vs_pct_extranjeros_sin_covid.png")
+```
+
+##  Niveles: tasa HC (100k) vs % extranjeros — todo el periodo
+
+```{r fig-niv-hc-total, fig.cap='Niveles: tasa HC (100k) vs % extranjeros — todo el periodo'}
+inc_fig("../output/figures/20_niv_tasa_hc_100k_vs_pct_extranjeros_all.png")
+```
+
+##  Estacionariedad por ventana y transformación (α = 5%)
+
+```{r fig-est-a5, fig.cap='Estacionariedad por ventana y transformación (α = 5%)'}
+inc_fig("../output/figures/18_stationarity_heatmap.png")
+```
+
+##  Precedencia temporal en niveles (Toda–Yamamoto), FDR ≤ 10%
+
+```{r fig-ty, fig.cap='Precedencia temporal en niveles (Toda–Yamamoto), FDR ≤ 10%'}
+inc_fig("../output/figures/granger_toda.png")
+```
+
+---
+
+#  Correlaciones y controles
+
+**Convención:** Δx ≡ `d_x` en tablas (p. ej., Δ% extranjeros = `d_pct_extranjeros`).
+
+```{r tablas-correlaciones-1, results='asis'}
+mostrar_tabla("../output/tables/20_corr_niveles_sin_covid.csv",
+              "Correlaciones (Pearson/Spearman/Kendall) en niveles — ventana sin COVID")
+
+mostrar_tabla("../output/tables/20_corr_deltas_sin_covid.csv",
+              "Correlaciones (Pearson/Spearman/Kendall) en variaciones (Δ) — ventana sin COVID")
+```
+
+**Nota:** En Δ, la asociación entre Δ% extranjeros y ΔHC es fuerte al excluir 2020–2021 (p. ej., r≈0.81; ρ≈0.89).
+
+```{r tablas-correlaciones-2, results='asis'}
+mostrar_tabla("../output/tables/20_pcor_niveles_sin_covid.csv",
+              "Correlaciones parciales en niveles — controlando composición (sin COVID)")
+
+mostrar_tabla("../output/tables/20_pcor_deltas_sin_covid.csv",
+              "Correlaciones parciales en variaciones (Δ) — controlando composición (sin COVID)")
+```
+
+---
+
+#  Discusión e interpretación (no causal)
+
+En una frase. Entre 2010 y 2023, cuando cambia la proporción de población extranjera, también cambian —en promedio— las tasas de delitos. Es un patrón **descriptivo**, no una afirmación **causal**.
+
+**Cómo leer estos resultados (para público general).**
+
+* **Relación ≠ causa.** Que dos series se muevan juntas no implica que una provoque la otra.
+* **COVID distorsiona.** 2020–2021 fue una ruptura excepcional; por eso mostramos ventanas con y sin esos años.
+* **Controles demográficos.** Esta evidencia es coherente con el enfoque de correlaciones parciales descrito en la metodología: su propósito no es establecer causalidad, sino comprobar si la asociación observada se mantiene una vez descontados factores estructurales (demografía y contexto económico).
+* **Otras explicaciones posibles.** Economía (empleo/desigualdad), cambios en políticas y prácticas policiales, variaciones en denuncias o en la distribución territorial.
+* **Direccionalidad (TY).** Indicios exploratorios de posibles relaciones bidireccionales o endogeneidad; interpretar con cautela, especialmente con series cortas y la ruptura 2020–2021.
+
+---
+
+# Conclusiones finales
+
+El análisis de los datos disponibles para el periodo **2010–2023** muestra una **asociación estadística positiva y consistente** entre la proporción de población extranjera y las tasas agregadas de criminalidad registradas en España (*Hechos Conocidos* y *Hechos Esclarecidos*).
+
+Esta asociación es **más intensa en las variaciones anuales (Δ)** cuando se excluyen los años **2020–2021**, marcados por los efectos excepcionales de la pandemia de COVID-19. En esa ventana sin COVID, los coeficientes de correlación alcanzan valores elevados (*r*≈0.8, *ρ*≈0.9), lo que evidencia una **co-movilidad significativa** entre los cambios relativos de ambas series. Al incorporar el periodo COVID-19, la relación se atenúa, reflejando una **alteración coyuntural de la dinámica estadística** derivada de un contexto social y operativo extraordinario.
+
+Al introducir **controles socioeconómicos** —PIB real, paro juvenil y AROPE— las correlaciones en niveles se **reducen en magnitud**, aunque mantienen su signo positivo. Esto indica que parte de la asociación observada podría estar vinculada a **factores macroeconómicos o demográficos compartidos**, como el ciclo económico o la estructura poblacional, más que a un vínculo directo entre inmigración y criminalidad.
+
+Las pruebas de **estacionariedad (ADF, PP, KPSS)** confirman que la mayoría de las series presentan **no-estacionariedad en niveles**, por lo que las correlaciones deben interpretarse en términos de **variaciones** y no de valores brutos. Del mismo modo, los contrastes **Toda–Yamamoto** y **Granger** no muestran una dirección de precedencia temporal estable entre las variables, lo que **impide sostener una relación causal verificable** en ningún sentido.
+
+En consecuencia, los resultados deben entenderse como **evidencia descriptiva de coevolución**, no como prueba de causalidad. Esto **no implica ausencia de causas reales**, sino que las mismas **no pueden identificarse estadísticamente con los datos y la resolución temporal disponibles**. El estudio aporta, por tanto, una **base empírica reproducible y neutral**, que documenta cómo ambas series evolucionaron conjuntamente en el tiempo, sin establecer inferencias causales que excedan su alcance.
+
+> **Síntesis:** entre 2010 y 2023, inmigración y criminalidad agregada muestran una correlación positiva en variaciones anuales —especialmente fuera del periodo COVID-19—, pero la evidencia disponible **no permite afirmar que una determine a la otra**. Las tendencias observadas describen una co-evolución estadística influida, probablemente, por factores económicos, sociales y demográficos comunes.
+
+
+#  Robustez y validación
+
+* Ventanas total vs sin COVID.
+* Transformaciones: niveles y Δ.
+* Parciales para controlar composición demográfica.
+* Estacionariedad (ADF/PP/KPSS): en Δ la mayoría de series son estacionarias.
+
+---
+
+
+#  Transparencia y reproducibilidad
+
+Estructura sugerida del proyecto:
+
+```
+proyecto/
+├── docs/           # Este documento Rmd
+├── output/
+│   ├── figures/    # Figuras generadas
+│   └── tables/     # Tablas de resultados
+└── scripts/        # Código de análisis
+```
+
+Requisitos. R ≥ 4.3.0 · Paquetes: **tidyverse**, **knitr**, **kableExtra**.
+Datos. INE (población), Ministerio del Interior (criminalidad) y Eurostat (Gini, AROPE).
+
+---
+
+#  Referencias
+
+**Fuentes de datos**
+
+* Instituto Nacional de Estadística (INE). *Cifras de Población*. Metodología y series anuales.
+* Ministerio del Interior (España). *Anuario Estadístico de Criminalidad*. Metodología y series.
+* Eurostat. *Methodology for income distribution indicators (Gini)* y *Social Inclusion (AROPE)*.
+
+## Aplicación de las referencias metodológicas en este estudio
+
+Cada una de las referencias incluidas en la sección anterior se corresponde con un método o contraste estadístico empleado en el proyecto:
+
+**Dickey & Fuller (1979, 1981) — Test ADF (Augmented Dickey–Fuller)**
+Evalúa la presencia de raíz unitaria (no estacionariedad).
+En este estudio se aplicó sobre las principales series (tasa HC, HE, % de extranjeros, PIB real, AROPE, paro juvenil) para determinar si presentaban tendencia estocástica.
+Los resultados justifican el uso de transformaciones en diferencias (Δ).
+
+**Phillips & Perron (1988) — Test PP**
+Alternativa robusta al ADF, corrige autocorrelación y heterocedasticidad de los errores.
+Se utilizó para contrastar los resultados del ADF y comprobar la robustez de la conclusión sobre estacionariedad.
+
+**Kwiatkowski et al. (1992) — Test KPSS**
+Prueba inversa (la hipótesis nula es estacionariedad).
+Complementó los tests ADF y PP: cuando ambos coincidían, se clasificó la serie como estacionaria o no estacionaria.
+Los resultados se resumen en `18_stationarity_summary.csv` y `18_stationarity_heatmap.png`.
+
+**Toda & Yamamoto (1995) — Procedimiento TY–VAR (Causalidad de Toda–Yamamoto)**
+Permite evaluar precedencia temporal entre variables incluso si no son estacionarias.
+Se aplicó para explorar relaciones de precedencia entre los cambios en el % de extranjeros y las tasas de criminalidad, controlando el orden de integración.
+Implementado en `55_toda_yamamoto_tests.R`, con resultados visuales en `output/figures/granger_toda.png`.
+
+**Benjamini & Hochberg (1995) — Corrección FDR (False Discovery Rate)**
+Controla el error tipo I cuando se ejecutan múltiples contrastes (p. ej., distintos pares de variables o delitos).
+Usado sobre los p-valores de los tests de Granger y TY para evitar falsos positivos.
+Aplicado en `24_granger_VAR.R` y `55_toda_yamamoto_tests.R`.
+
+---
+
+**Resumen operativo**
+
+| Método / Test     | Propósito                           | Uso en el proyecto                                   |
+| ----------------- | ----------------------------------- | ---------------------------------------------------- |
+| **ADF / PP**      | Detectar no-estacionariedad         | Validar necesidad de diferencias (Δ)                 |
+| **KPSS**          | Confirmar estacionariedad           | Contrastar ADF y PP                                  |
+| **Toda–Yamamoto** | Precedencia temporal                | Explorar relaciones entre inmigración y criminalidad |
+| **FDR (B–H)**     | Ajustar por comparaciones múltiples | Corrección de p-valores en TY/Granger                |
+
+
+---
+
+#  Diccionario de términos
+
+| Término / Abrev.            | Significado completo                       | Contexto y función en el informe                             |
+| --------------------------- | ------------------------------------------ | ------------------------------------------------------------ |
+| **HC (100k)**               | Hechos Conocidos por cada 100.000 hab.     | Métrica principal de criminalidad (registros policiales).    |
+| **HE (100k)**               | Hechos Esclarecidos por cada 100.000 hab.  | Indicador de eficacia policial (casos resueltos).            |
+| **pct_extranjeros**         | % de población extranjera (0–100%).        | Variable explicativa principal.                              |
+| **share_extranjeros**       | Proporción de extranjeros (0–1).           | Equivale a pct_extranjeros/100; útil en parciales/controles. |
+| **Δ (Delta) / d_**          | Primera diferencia anual                   | Mitiga no‑estacionariedad y regresiones espurias.            |
+| **tasa_hc_100k**            | Tasa de HC por 100.000 hab.                | Normaliza por población para comparabilidad temporal.        |
+| **tasa_he_100k**            | Tasa de HE por 100.000 hab.                | Normaliza la serie de esclarecimientos.                      |
+| **r (Pearson)**             | Correlación lineal (−1 a +1)               | Fuerza/dirección de relación lineal.                         |
+| **ρ (Spearman)**            | Correlación de rangos (monótona)           | Más robusta a no linealidades/outliers.                      |
+| **τ (Kendall)**             | Concordancia de pares                      | Basada en pares concordantes/discordantes.                   |
+| **p‑valor**                 | Valor de probabilidad (significancia)      | Evidencia estadística (p<0.05/0.01).                         |
+| **Correlación parcial**     | Asociación controlando otras variables     | Aísla X–Y descontando composición.                           |
+| **No‑estacionariedad**      | Momentos cambian en el tiempo              | Puede inducir correlaciones espurias en niveles.             |
+| **Estacionariedad**         | Momentos estables en el tiempo             | Suele cumplirse en Δ; deseable para inferencia.              |
+| **ADF / PP / KPSS**         | Tests de raíz unitaria                     | Diagnóstico formal de (no) estacionariedad.                  |
+| **Granger / TY**            | Precedencia temporal (VAR/TY)              | Explora direccionalidad predictiva (no causalidad real).     |
+| **FDR**                     | Tasa de descubrimientos falsos             | Corrección por múltiples contrastes.                         |
+| **INE**                     | Instituto Nacional de Estadística (España) | Fuente de población y demografía.                            |
+| **Ministerio del Interior** | —                                          | Fuente de criminalidad (España).                             |
+| **Eurostat (Gini, AROPE)**  | Oficina Estadística de la UE               | Indicadores armonizados de desigualdad/exclusión.            |
+
+---
+
+#  Apéndice A — Estacionariedad (α = 10%)
+
+```{r fig-est-a10, fig.cap='Estacionariedad — α = 10%'}
+inc_fig("../output/figures/18_stationarity_heatmap_a10.png")
+```
+
+> **Nota.** Criterio menos estricto (α = 10%) muestra patrones similares de estacionariedad.
+
+---
+
+#  Citación y licencias
+
+
+## Cómo citar este proyecto
+
+> **Castro, J. (2025). *Delitos e Inmigración en España (2010–2023).* JESUSCASTRODATA (GitHub).**
+> DOI (pendiente o Zenodo) · Código bajo MIT · Documentación y figuras bajo CC BY 4.0.
+
+---
+
+## Licencias aplicables
+
+**Código fuente**
+MIT License — © 2025 Jesús Castro · JESUSCASTRODATA
+[https://opensource.org/licenses/MIT](https://opensource.org/licenses/MIT)
+
+**Documentos y figuras**
+Creative Commons Atribución 4.0 Internacional (CC BY 4.0)
+[https://creativecommons.org/licenses/by/4.0/](https://creativecommons.org/licenses/by/4.0/)
+
+**Atribución sugerida:**
+*Castro, J. (2025). Delitos e Inmigración en España (2010–2023). Documentos y figuras bajo CC BY 4.0.*
+
+> Los **datos originales** (INE, Ministerio del Interior, Eurostat) conservan sus propias condiciones de reutilización.
+> Ver `docs/DATOS_Y_LICENCIAS.md` para detalles.
+
+---
+
+---
+
+© 2024–2025 Jesús Castro · JESUSCASTRODATA  
+MIT (código) · CC BY 4.0 (documentación/figuras) · Datos: según fuente original.
+
+

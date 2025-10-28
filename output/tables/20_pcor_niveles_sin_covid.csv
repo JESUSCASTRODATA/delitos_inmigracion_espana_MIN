@@ -1,0 +1,7 @@
+x,y,n,method,r,p
+pct_extranjeros,share_extranjeros,12,pearson,0.9473371546534972,2.9192189709143292e-6
+pct_extranjeros,share_extranjeros,12,spearman,0.8811188811188813,1.5267406467669856e-4
+pct_extranjeros,tasa_hc_100k,12,pearson,0.9579230168681591,9.677670165966552e-7
+pct_extranjeros,tasa_hc_100k,12,spearman,0.9020979020979022,5.9978574465377e-5
+pct_extranjeros,tasa_he_100k,12,pearson,0.9196206947043629,2.3061340001697744e-5
+pct_extranjeros,tasa_he_100k,12,spearman,0.8461538461538463,5.211337004810042e-4
