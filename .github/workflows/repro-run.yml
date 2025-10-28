@@ -22,16 +22,22 @@ jobs:
           r-version: '4.3'
           use-public-rspm: true
 
-      # Si usas renv.lock, esto restaura exacto el entorno.
+      # 🔧 Nuevo: instala Pandoc (suficiente para HTML con rmarkdown)
+      - name: Set up Pandoc
+        uses: r-lib/actions/setup-pandoc@v2
+        with:
+          pandoc-version: '3.1'
+
+      # Si usas renv.lock, restaura entorno exacto
       - name: Restore renv (if present)
         if: ${{ hashFiles('renv.lock') != '' }}
         uses: r-lib/actions/setup-renv@v2
 
-      # Si NO hay renv.lock, instala paquetes base necesarios
+      # Fallback si no hay renv.lock (añade aquí cualquier paquete adicional que use tu Rmd)
       - name: Install minimal deps (fallback)
         if: ${{ hashFiles('renv.lock') == '' }}
         run: |
-          Rscript -e "install.packages(c('rmarkdown','knitr','dplyr','readr','kableExtra','ggplot2'), repos='https://cloud.r-project.org')"
+          Rscript -e "install.packages(c('rmarkdown','knitr','dplyr','readr','kableExtra','ggplot2','tidyr','stringr','janitor'), repos='https://cloud.r-project.org')"
 
       - name: Make output folder
         run: mkdir -p output/reports
@@ -47,4 +53,3 @@ jobs:
         with:
           name: informe_final_html
           path: output/reports/informe_final.html
-
