@@ -153,6 +153,8 @@ data/processed/*bak_*
 !output/figures/32_dispersion_delta_nocovid.png
 !output/figures/18_stationarity_heatmap.png
 !output/figures/granger_toda.png
+!output/figures/18_stationarity_heatmap_a10.png
+
 
 # ─────────────────────────────────────────────────────────────────────────────
 # ALLOWLIST de TABLAS citadas en el informe
