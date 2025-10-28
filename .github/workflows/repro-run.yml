@@ -1,0 +1,50 @@
+name: Reproducible render
+
+on:
+  push:
+    branches: [ public ]
+  workflow_dispatch:
+
+jobs:
+  render:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout (with LFS)
+        uses: actions/checkout@v4
+        with:
+          lfs: true
+          fetch-depth: 0
+
+      - name: Set up R 4.3
+        uses: r-lib/actions/setup-r@v2
+        with:
+          r-version: '4.3'
+          use-public-rspm: true
+
+      # Si usas renv.lock, esto restaura exacto el entorno.
+      - name: Restore renv (if present)
+        if: ${{ hashFiles('renv.lock') != '' }}
+        uses: r-lib/actions/setup-renv@v2
+
+      # Si NO hay renv.lock, instala paquetes base necesarios
+      - name: Install minimal deps (fallback)
+        if: ${{ hashFiles('renv.lock') == '' }}
+        run: |
+          Rscript -e "install.packages(c('rmarkdown','knitr','dplyr','readr','kableExtra','ggplot2'), repos='https://cloud.r-project.org')"
+
+      - name: Make output folder
+        run: mkdir -p output/reports
+
+      - name: Render Rmd
+        env:
+          RGL_USE_NULL: true
+        run: |
+          Rscript -e "rmarkdown::render('docs/informe_final.Rmd', output_file='informe_final.html', output_dir='output/reports', quiet=TRUE)"
+
+      - name: Upload report artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: informe_final_html
+          path: output/reports/informe_final.html
+
