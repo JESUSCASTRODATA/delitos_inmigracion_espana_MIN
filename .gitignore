@@ -26,6 +26,8 @@ __pycache__/
 .Ruserdata
 Rplots.pdf
 *.RDataTmp
+*.Rproj          # NEW
+.Rprofile        # NEW
 
 # knitr / Quarto / cache
 cache/
@@ -82,11 +84,10 @@ data/processed/*
 # ─────────────────────────────────────────────────────────────────────────────
 # OUTPUTS (artefactos generados)
 # ─────────────────────────────────────────────────────────────────────────────
-# Ignora TODO lo generado por defecto…
 output/**
-# …excepto una allowlist mínima para el informe (ver más abajo).
+
 # Archivos agregados a mano (zips, paquetes, etc.)
-output/*.zip
+!output/*.zip    # NEW (corrección)
 
 # Carpeta de derivados (no publicar)
 output/release/
@@ -139,7 +140,6 @@ data/processed/*bak_*
 
 # ─────────────────────────────────────────────────────────────────────────────
 # ALLOWLIST de FIGURAS citadas en el informe
-# (Añade o quita según lo que realmente incluyas con knitr::include_graphics)
 # ─────────────────────────────────────────────────────────────────────────────
 !output/figures/
 !output/figures/01_tendencias_base100.png
@@ -155,7 +155,6 @@ data/processed/*bak_*
 !output/figures/granger_toda.png
 !output/figures/18_stationarity_heatmap_a10.png
 
-
 # ─────────────────────────────────────────────────────────────────────────────
 # ALLOWLIST de TABLAS citadas en el informe
 # ─────────────────────────────────────────────────────────────────────────────
@@ -165,7 +164,4 @@ data/processed/*bak_*
 !output/tables/20_pcor_niveles_sin_covid.csv
 !output/tables/20_pcor_deltas_sin_covid.csv
 !output/tables/18_stationarity_summary.csv
-# (Si usas la versión α=10% en el apéndice)
 !output/tables/18_stationarity_summary_table_a10.csv
-
-
