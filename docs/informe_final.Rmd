@@ -16,6 +16,7 @@ output:
 
 <p align="center">
 
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.17465216.svg)](https://doi.org/10.5281/zenodo.17465216)
 [![Code: MIT](https://img.shields.io/badge/Code-MIT-blue.svg)](../LICENSE)
 [![Docs: CC BY 4.0](https://img.shields.io/badge/Docs-CC%20BY%204.0-brightgreen.svg)](../LICENSE-DOCS-CC-BY-4.0.md)
 [![Data: Public Sources](https://img.shields.io/badge/Data-Official%20Sources-lightblue.svg)](../docs/DATOS_Y_LICENCIAS.md)
@@ -28,7 +29,6 @@ output:
 ![Version: dev](https://img.shields.io/badge/Version-dev-yellow.svg)
 
 ![Data: original sources](https://img.shields.io/badge/Data-original%20sources-blue.svg)
-[![DOI](https://zenodo.org/badge/1083640610.svg)](https://doi.org/10.5281/zenodo.17465215)
 
 </p>
 
@@ -433,32 +433,43 @@ inc_fig("../output/figures/18_stationarity_heatmap_a10.png")
 
 ## Cómo citar este proyecto
 
-> **Castro, J. (2025). *Delitos e Inmigración en España (2010–2023).* JESUSCASTRODATA (GitHub).**
-> DOI (pendiente o Zenodo) · Código bajo MIT · Documentación y figuras bajo CC BY 4.0.
+
+ > **Castro, J. (2025). *Delitos e Inmigración en España (2010–2023).* JESUSCASTRODATA (GitHub).**
+> [https://doi.org/10.5281/zenodo.17465216](https://doi.org/10.5281/zenodo.17465216) · Código bajo MIT · Documentación y figuras bajo CC BY 4.0.
+
 
 ---
 
 ## Licencias aplicables
 
-**Código fuente**
-MIT License — © 2025 Jesús Castro · JESUSCASTRODATA
-[https://opensource.org/licenses/MIT](https://opensource.org/licenses/MIT)
+### Código fuente
 
-**Documentos y figuras**
-Creative Commons Atribución 4.0 Internacional (CC BY 4.0)
-[https://creativecommons.org/licenses/by/4.0/](https://creativecommons.org/licenses/by/4.0/)
+El código del proyecto se distribuye bajo la **Licencia MIT**, que permite su uso, copia, modificación y redistribución con atribución al autor original.
 
+**Licencia:** [MIT License](https://opensource.org/licenses/MIT)
+**Autor:** © 2025 Jesús Castro · JESUSCASTRODATA
+
+---
+
+### Documentos, figuras y materiales visuales
+
+Los contenidos textuales, visuales y gráficos del informe están disponibles bajo una **licencia Creative Commons Atribución 4.0 Internacional (CC BY 4.0)**, que permite compartir y adaptar el material siempre que se cite adecuadamente al autor.
+
+**Licencia:** [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/)
 **Atribución sugerida:**
-*Castro, J. (2025). Delitos e Inmigración en España (2010–2023). Documentos y figuras bajo CC BY 4.0.*
-
-> Los **datos originales** (INE, Ministerio del Interior, Eurostat) conservan sus propias condiciones de reutilización.
-> Ver `docs/DATOS_Y_LICENCIAS.md` para detalles.
+*Castro, J. (2025). *Delitos e Inmigración en España (2010–2023).* Documentos y figuras bajo CC BY 4.0.*
 
 ---
 
+### Datos originales
+
+Los **datos fuente** utilizados en este proyecto (INE, Ministerio del Interior, Eurostat) mantienen sus propias condiciones de uso y reutilización según las políticas de cada organismo.
+Para conocer los detalles específicos, consulte el documento: [`docs/DATOS_Y_LICENCIAS.md`](docs/DATOS_Y_LICENCIAS.md).
+
 ---
 
-© 2024–2025 Jesús Castro · JESUSCASTRODATA  
-MIT (código) · CC BY 4.0 (documentación/figuras) · Datos: según fuente original.
+### Créditos y resumen legal
 
-
+© 2024–2025 Jesús Castro · JESUSCASTRODATA
+**Licencias:** MIT (código) · CC BY 4.0 (documentación y figuras) · Datos: según condiciones originales de cada fuente.
+**DOI:** [10.5281/zenodo.17465216](https://doi.org/10.5281/zenodo.17465216)
